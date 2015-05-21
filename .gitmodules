@@ -1,0 +1,3 @@
+[submodule "mediawiki"]
+	path = mediawiki
+	url = git@github.com:mediawiki/mediawiki
