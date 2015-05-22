@@ -53,3 +53,9 @@
 [submodule "extensions/UniversalLanguageSelector"]
 	path = extensions/UniversalLanguageSelector
 	url = git://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector.git
+[submodule "extensions/CategorySuggest"]
+	path = extensions/CategorySuggest
+	url = git://github.com/middlebury/CategorySuggest.git
+[submodule "extensions/EmbedVideo"]
+	path = extensions/EmbedVideo
+	url = git://github.com/Whiteknight/mediawiki-embedvideo.git
