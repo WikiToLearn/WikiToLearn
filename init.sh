@@ -14,3 +14,5 @@ echo "\$wgSitename      = 'WikiFM - Development version';
 mysql --user=$2 --password=$3 --database=$1 < empty-wikifm.sql
 
 ln -s LocalSettings.php mediawiki/LocalSettings.php
+rm -r mediawiki/extensions
+ln -s extensions mediawiki/extensions

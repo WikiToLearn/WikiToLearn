@@ -1,3 +1,55 @@
 [submodule "mediawiki"]
 	path = mediawiki
-	url = git@github.com:mediawiki/mediawiki
+	url = git://github.com/mediawiki/mediawiki
+        ignore = dirty
+[submodule "extensions/Interwiki"]
+	path = extensions/Interwiki
+	url = git://github.com/wikimedia/mediawiki-extensions-Interwiki.git
+[submodule "extensions/googleAnalytics"]
+	path = extensions/googleAnalytics
+	url = git://github.com/wikimedia/mediawiki-extensions-googleAnalytics.git
+[submodule "extensions/SyntaxHighlight_GeSHi"]
+	path = extensions/SyntaxHighlight_GeSHi
+	url = git://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi.git
+[submodule "extensions/ParserFunctions"]
+	path = extensions/ParserFunctions
+	url = git://github.com/wikimedia/mediawiki-extensions-ParserFunctions.git
+[submodule "extensions/Collection"]
+	path = extensions/Collection
+	url = git://github.com/wikimedia/mediawiki-extensions-Collection.git
+[submodule "extensions/Math"]
+	path = extensions/Math
+	url = git://github.com/wikimedia/mediawiki-extensions-Math.git
+[submodule "extensions/WikiEditor"]
+	path = extensions/WikiEditor
+	url = git://github.com/wikimedia/mediawiki-extensions-WikiEditor.git
+[submodule "extensions/ConfirmEdit"]
+	path = extensions/ConfirmEdit
+	url = git://github.com/wikimedia/mediawiki-extensions-ConfirmEdit.git
+[submodule "extensions/ContributionScores"]
+	path = extensions/ContributionScores
+	url = git://github.com/wikimedia/mediawiki-extensions-ContributionScores.git
+[submodule "extensions/Cite"]
+	path = extensions/Cite
+	url = git://github.com/wikimedia/mediawiki-extensions-Cite.git
+[submodule "extensions/LiquidThreads"]
+	path = extensions/LiquidThreads
+	url = git://github.com/wikimedia/mediawiki-extensions-LiquidThreads.git
+[submodule "extensions/Nuke"]
+	path = extensions/Nuke
+	url = git://github.com/wikimedia/mediawiki-extensions-Nuke.git
+[submodule "extensions/Echo"]
+	path = extensions/Echo
+	url = git://github.com/wikimedia/mediawiki-extensions-Echo.git
+[submodule "extensions/FlaggedRevs"]
+	path = extensions/FlaggedRevs
+	url = git://github.com/wikimedia/mediawiki-extensions-FlaggedRevs.git
+[submodule "extensions/SubPageList"]
+	path = extensions/SubPageList
+	url = git://github.com/wikimedia/mediawiki-extensions-SubPageList.git
+[submodule "extensions/UserMerge"]
+	path = extensions/UserMerge
+	url = git://github.com/wikimedia/mediawiki-extensions-UserMerge.git
+[submodule "extensions/UniversalLanguageSelector"]
+	path = extensions/UniversalLanguageSelector
+	url = git://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector.git
