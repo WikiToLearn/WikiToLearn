@@ -5,11 +5,13 @@ if [ "$#" -ne 3 ]; then
   exit 1
 fi
 
-echo "\$wgSitename      = 'WikiFM - Development version';
+echo "<?php
+\$wgSitename      = 'WikiFM - Development version';
 \$wgLanguageCode     = 'en';
 \$wgDBuser           = '$2';
 \$wgDBname           = '$1';
-\$wgDBpassword       = '$3';" > DatabaseSettings.php
+\$wgDBpassword       = '$3';
+?>" > DatabaseSettings.php
 
 mysql --user=$2 --password=$3 --database=$1 < empty-wikifm.sql
 
