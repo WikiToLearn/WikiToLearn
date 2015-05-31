@@ -1,7 +1,6 @@
 [submodule "mediawiki"]
 	path = mediawiki
 	url = git://github.com/wikimedia/mediawiki
-    ignore = dirty
 [submodule "extensions/Interwiki"]
 	path = extensions/Interwiki
 	url = git://github.com/wikimedia/mediawiki-extensions-Interwiki.git
