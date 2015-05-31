@@ -26,6 +26,8 @@ fi
 
 mysql --user=$2 --password=$3 --database=$1 < empty-wikifm.sql
 
+rmdir mediawiki/
+
 git submodule update --init --recursive
 
 ./update.sh
