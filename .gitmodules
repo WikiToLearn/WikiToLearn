@@ -60,7 +60,7 @@
 	url = git://github.com/Whiteknight/mediawiki-embedvideo.git
 [submodule "extensions/SyntaxHighlighter"]
 	path = extensions/SyntaxHighlighter
-	url = git@github.com:wikimedia/mediawiki-extensions-SyntaxHighlighter.git
+	url = git://github.com/wikimedia/mediawiki-extensions-SyntaxHighlighter.git
 [submodule "Neverland"]
 	path = Neverland
 	url = git://github.com/WikiFM/Neverland.git
