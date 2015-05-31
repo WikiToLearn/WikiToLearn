@@ -5,17 +5,19 @@ if [ "$#" -ne 3 ]; then
   exit 1
 fi
 
-echo "<?php
-\$wgSitename      = 'WikiFM - Development version';
-\$wgLanguageCode     = 'en';
-\$wgDBuser           = '$2';
-\$wgDBname           = '$1';
-\$wgDBpassword       = '$3';
-?>" > DatabaseSettings.php
+if [ ! -e DatabaseSettings.php ]; then
+    echo "<?php
+    \$wgSitename      = 'WikiFM - Development version';
+    \$wgLanguageCode     = 'en';
+    \$wgDBuser           = '$2';
+    \$wgDBname           = '$1';
+    \$wgDBpassword       = '$3';
+    ?>" > DatabaseSettings.php
+fi
 
 mysql --user=$2 --password=$3 --database=$1 < empty-wikifm.sql
 
-ln -s LocalSettings.php mediawiki/LocalSettings.php
-rm -r mediawiki/extensions
-ln -s extensions mediawiki/extensions
-ln -s Neverland mediawiki/skins/Neverland
+git submodule update --init --recursive
+
+./update.sh
+
