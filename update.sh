@@ -1,15 +1,5 @@
 #!/bin/bash
 
-rm mediawiki/LocalSettings.php
-ln -s LocalSettings.php mediawiki/LocalSettings.php
-
-rm mediawiki/skins/Neverland
-ln -s Neverland mediawiki/skins/Neverland
-
-rm -r mediawiki/extensions
-ln -s extensions mediawiki/extensions
-
-
 # Update current repository
 git pull
 
@@ -18,9 +8,28 @@ git submodule foreach 'git checkout master; git pull || :'
 
 # Pull in newest content (?) XML
 
+cd mediawiki/
+git checkout 1.24.1
+cd ..
+
+pwd
+
+#rm mediawiki/LocalSettings.php
+sed -i "s/\/srv\/www\/production\/mediawiki-current\//\/var\/www\/WikiFM\/mediawiki\//g" LocalSettings.php
+cat LocalSettings.php > mediawiki/LocalSettings.php
+
+rm mediawiki/skins/Neverland
+cd mediawiki/skins/
+ln -s ../../Neverland Neverland
+cd ../..
+
+rm -r mediawiki/extensions
+cd mediawiki/
+ln -s ../extensions extensions
+cd ..
 
 # run update.php
-php mediawiki/maintainance/update.php
+php mediawiki/maintenance/update.php
 
 #< git submodules update >
 # cp LocalSettings.php mediawiki/
