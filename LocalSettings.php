@@ -289,3 +289,5 @@ $wgGroupPermissions['sysop']['usermerge'] = true;
 
 require_once "$IP/extensions/UniversalLanguageSelector/UniversalLanguageSelector.php";
 
+require_once "$IP/skins/Neverland/Neverland.php";
+
