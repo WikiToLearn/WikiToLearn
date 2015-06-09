@@ -9,7 +9,7 @@ git submodule foreach 'git checkout master; git pull || :'
 # Pull in newest content (?) XML
 
 cd mediawiki/
-git checkout 1.24.1
+git checkout 1.25.1
 cd ..
 
 pwd
@@ -26,6 +26,10 @@ cd ../..
 rm -r mediawiki/extensions
 cd mediawiki/
 ln -s ../extensions extensions
+cd ..
+
+cd mediawiki
+composer install
 cd ..
 
 # run update.php
