@@ -10,7 +10,7 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
-$IP = "/srv/www/production/mediawiki-current/";
+$IP = "/var/www/WikiFM/mediawiki/";
 
 # Protect against web entry
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -278,7 +278,7 @@ require_once("$IP/extensions/CategorySuggest/CategorySuggest.php");
 
 //require_once("$IP/extensions/VisualEditor/VisualEditor.php")
 
-require_once( "$IP/extensions/SubPageList/SubPageList.php" );
+#require_once( "$IP/extensions/SubPageList/SubPageList.php" );
 
 $wgEnableDnsBlacklist = true;
 $wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'dnsbl.tornevall.org' );
