@@ -194,10 +194,10 @@ $wgUseETag = true;
 #$wgSitemapNamespaces = array('0', '2', '3', '4', '6', '8');
 
 
-require_once("extensions/Collection/Collection.php");
-$wgGroupPermissions['user']['collectionsaveasuserpage'] = true;
-$wgGroupPermissions['sysop']['collectionsaveascommunitypage'] = true;
-$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
+#require_once("extensions/Collection/Collection.php");
+#$wgGroupPermissions['user']['collectionsaveasuserpage'] = true;
+#$wgGroupPermissions['sysop']['collectionsaveascommunitypage'] = true;
+#$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
 
 
 # MathJax
@@ -291,3 +291,23 @@ require_once "$IP/extensions/UniversalLanguageSelector/UniversalLanguageSelector
 
 require_once "$IP/skins/Neverland/Neverland.php";
 
+
+ // Collection extension
+require_once("$IP/extensions/Collection/Collection.php");
+// configuration borrowed from wmf-config/CommonSettings.php
+// in operations/mediawiki-config
+$wgCollectionFormatToServeURL['rdf2latex'] = $wgCollectionFormatToServeURL['rdf2text'] = 'http://localhost:17080';
+
+// MediaWiki namespace is not a good default
+$wgCommunityCollectionNamespace = NS_PROJECT;
+
+// Sidebar cache doesn't play nice with this
+$wgEnableSidebarCache = false;
+
+$wgCollectionFormats = array(
+	'rdf2latex' => 'PDF',
+	'rdf2text' => 'Plain text',
+);
+
+$wgLicenseURL = "http://creativecommons.org/licenses/by-sa/3.0/";
+$wgCollectionPortletFormats = array( 'rdf2latex', 'rdf2text' );
