@@ -15,6 +15,7 @@ echo "deb [arch=amd64] http://parsoid.wmflabs.org:8080/deb wmf-production main" 
 curl -sL https://deb.nodesource.com/setup | bash -
 
 for p in \
+ ocaml \
  screen \
  sudo \
  redis-server \
