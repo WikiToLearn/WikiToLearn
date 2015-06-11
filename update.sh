@@ -32,6 +32,10 @@ cd mediawiki
 composer install
 cd ..
 
+cd mediawiki/extensions/Math/texvccheck/
+make
+cd ../../../../
+
 # run update.php
 php mediawiki/maintenance/update.php
 
