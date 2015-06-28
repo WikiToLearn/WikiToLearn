@@ -10,5 +10,5 @@ CWD="$(
 # get rid of all our symlinks
 rm $CWD/mediawiki/LocalSettings.php
 rm $CWD/mediawiki/skins/Neverland
-rm $CWD/mediawiki/extensions
+rm -r $CWD/mediawiki/extensions
 rm $CWD/mediawiki/favicon.ico
