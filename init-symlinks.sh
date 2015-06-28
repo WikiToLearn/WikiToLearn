@@ -11,7 +11,7 @@ CWD="$(
 cd $CWD;
 
 # should be a no-op, but you never know...
-./clean-mediawiki.sh
+$CWD/clean-mediawiki.sh
 
 # do the symlinks dance
 ln -s LocalSettings.php mediawiki/LocalSettings.php

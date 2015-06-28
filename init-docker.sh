@@ -16,22 +16,22 @@ if [[ ! -e secrets/itwikifm.php ]]; then
     exit 1;
 fi;
 
-if [[ -e init.lockfile ]]; then
-    echo "You have already called this script."
-    echo "If you really want to init again, please remove $CWD/init.lockfile"
-    exit 1;
-else
-    touch init.lockfile
-fi;
+# if [[ -e init.lockfile ]]; then
+#     echo "You have already called this script."
+#     echo "If you really want to init again, please remove $CWD/init.lockfile"
+#     exit 1;
+# else
+#     touch $CWD/init.lockfile
+# fi;
 
-./init-symlinks.sh
+$CWD/init-symlinks.sh
 
 cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
 cd $CWD/mediawiki; composer install; cd -;
 
-./lang-foreach.sh sql.php $CWD/mediawiki/maintenance/tables.sql
+$CWD/lang-foreach.sh sql.php --conf $CWD/mediawiki/LocalSettings.php $CWD/mediawiki/maintenance/tables.sql
 
 # For every language, update the database
-./lang-foreach.sh update.php --quick --doShared
+bash -x $CWD/lang-foreach.sh update.php --conf=$CWD/mediawiki/LocalSettings.php --quick --doShared
 
 
