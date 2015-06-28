@@ -54,7 +54,7 @@ $wgLogo             = "$wgStylePath/common/images/wiki.png";
 
 $wgMainCacheType = CACHE_MEMCACHED;
 $wgMemCachedServers = array(
-    "127.0.0.1:11000", # one gig on this box
+    "127.0.0.1:11211", # one gig on this box
 );
 
 $wgCacheDirectory = "$IP/cache/";
@@ -73,7 +73,74 @@ $wgEnotifWatchlist     = false; # UPO
 $wgEmailAuthentication = true;
 
 ## Database settings
-require_once("$IP/../DatabaseSettings.php");
+$wiki = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : getenv( 'WIKI' );
+$wiki = strtolower( $wiki );
+
+require_once("$IP/../secrets/secrets.php");
+// $wgJobRunRate = 0.01;
+
+$wgDBtype           = "mysql";
+$wgDBserver         = "mysql";
+
+$wgSharedDB = 'sharedwikifm'; # The $wgDBname for the wiki database holding the main user table
+$wgSharedTables[] = array( 'user', 'user_properties', 'user_groups', 'interwiki', 'iwlinks');
+
+$arr = array (
+        'Write this code in the following box: 567:' => '567',
+);
+foreach ( $arr as $key => $value ) {
+        $wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
+}
+
+# Site language code, should be one of ./languages/Language(.*).php
+# Make sure you give permission to sharedwikifm database to the user in question.
+
+if ( $wiki === 'it.wikifm.org') {
+    $wgSitename      = "WikiFM - Il sapere si accresce solo se condiviso";
+    $wgLanguageCode     = "it";
+    require_once("$IP/../secrets/itwikifm.php");
+} else if ( $wiki === 'en.wikifm.org') {
+    $wgSitename      = "WikiFM - Knowledge only grows if shared";
+    $wgLanguageCode     = "en";
+    require_once("$IP/../secrets/enwikifm.php");
+} else if ( $wiki === 'pool.wikifm.org') {
+    $wgSitename      = "WikiFM - Common files";
+    $wgLanguageCode     = "en";
+    require_once("$IP/../secrets/poolwikifm.php");
+} else if ( $wiki === 'fr.wikifm.org') {
+    $wgSitename      = "WikiFM - Le savoir grandit seulement s'il est partag&eacute;";
+    $wgLanguageCode     = "fr";
+    require_once("$IP/../secrets/frwikifm.php");
+} else if ( $wiki === 'es.wikifm.org') {
+    $wgSitename      = "WikiFM - El conocimiento solo crece cuando es compartido";
+    $wgLanguageCode     = "es";
+    require_once("$IP/../secrets/eswikifm.php");
+} else if ( $wiki === 'de.wikifm.org') {
+    $wgSitename      = "WikiFM - Nur wenn Wissen geteilt wird kann neues enstehen";
+    $wgLanguageCode     = "de";
+    require_once("$IP/../secrets/dewikifm.php");
+}
+
+$wgForeignFileRepos[] = array(
+    'class' => 'ForeignDBRepo',
+    'name' => 'poolwiki',
+    'url' => "http://pool.wikifm.org/images/uploads",
+    'directory' => '/var/www/WikiFM/mediawiki/images/uploads/',
+    'hashLevels' => 2, // This must be the same for the other family member
+    'dbType' => $wgDBtype,
+    'dbServer' => $wgDBserver,
+    'dbUser' => $wgDBuser,
+    'dbPassword' => $wgDBpassword,
+    'dbFlags' => DBO_DEFAULT,
+    'dbName' => 'poolwikifm',
+    'tablePrefix' => '',
+    'hasSharedCache' => true,
+    'descBaseUrl' => 'http://pool.wikifm.org/Image:',
+    'fetchDescription' => false
+);
+
+
+$wgDBname = $wgDBuser;
 
 ## Shared memory settings
 $wgMainCacheType    = CACHE_NONE;

@@ -1,3 +1,11 @@
+# Hacking Notes
+
+## If you add a new language
+
+* Add your language to lang-foreach.sh
+* Add your language to LocalSettings.php
+* Add the new language to the CREATE DATABASE in run.sh
+
 First time checkout
 ===================
 

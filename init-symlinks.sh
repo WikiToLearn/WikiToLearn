@@ -17,7 +17,6 @@ cd $CWD;
 ln -s LocalSettings.php mediawiki/LocalSettings.php
 ln -s Neverland mediawiki/skins/Neverland
 ln -s extensions mediawiki/extensions
-ln -s dbconfig mediawiki/dbconfig
 ln -s favicon.ico mediawiki/favicon.ico
 
 

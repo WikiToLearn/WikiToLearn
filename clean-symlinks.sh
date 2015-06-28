@@ -7,11 +7,8 @@ CWD="$(
   pwd -P 
 )"
 
-cd $CWD;
-
 # get rid of all our symlinks
-rm mediawiki/LocalSettings.php
-rm mediawiki/skins/Neverland
-rm mediawiki/extensions
-rm mediawiki/dbconfig
-rm mediawiki/favicon.ico
+rm $CWD/mediawiki/LocalSettings.php
+rm $CWD/mediawiki/skins/Neverland
+rm $CWD/mediawiki/extensions
+rm $CWD/mediawiki/favicon.ico

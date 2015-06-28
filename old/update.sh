@@ -34,7 +34,7 @@ cd ..
 
 cd mediawiki/extensions/Math/texvccheck/
 make
-cd ../../../../
+cd -
 
 # run update.php
 php mediawiki/maintenance/update.php
