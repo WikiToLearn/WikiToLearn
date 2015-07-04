@@ -65,3 +65,6 @@
 [submodule "Neverland"]
 	path = Neverland
 	url = git://github.com/WikiFM/Neverland.git
+[submodule "extensions/DockerAccess"]
+	path = extensions/DockerAccess
+	url = https://github.com/WikiFM/DockerAccess.git
