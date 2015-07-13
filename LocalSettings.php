@@ -54,7 +54,7 @@ $wgLogo             = "$wgStylePath/common/images/wiki.png";
 
 $wgMainCacheType = CACHE_MEMCACHED;
 $wgMemCachedServers = array(
-    "127.0.0.1:11211", # one gig on this box
+    "memcached:11211", # one gig on this box
 );
 
 $wgCacheDirectory = "$IP/cache/";
@@ -76,14 +76,13 @@ $wgEmailAuthentication = true;
 $wiki = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : getenv( 'WIKI' );
 $wiki = strtolower( $wiki );
 
-require_once("$IP/../secrets/secrets.php");
 // $wgJobRunRate = 0.01;
 
 $wgDBtype           = "mysql";
 $wgDBserver         = "mysql";
 
-$wgSharedDB = 'sharedwikifm'; # The $wgDBname for the wiki database holding the main user table
-$wgSharedTables[] = array( 'user', 'user_properties', 'user_groups', 'interwiki', 'iwlinks');
+// $wgSharedDB = 'sharedwikifm'; # The $wgDBname for the wiki database holding the main user table
+// $wgSharedTables[] = array( 'user', 'user_properties', 'user_groups', 'interwiki', 'iwlinks');
 
 $arr = array (
         'Write this code in the following box: 567:' => '567',
@@ -190,8 +189,8 @@ $wgHashedSharedUploadDirectory = true;
 $wgUploadNavigationUrl = "http://pool.wikifm.org/index.php/Special:Upload";
 $wgUploadMissingFileUrl= "http://pool.wikifm.org/index.php/Special:Upload";
 
-require_once "$IP/extensions/Interwiki/Interwiki.php";
-$wgGroupPermissions['sysop']['interwiki'] = true;
+// require_once "$IP/extensions/Interwiki/Interwiki.php";
+// $wgGroupPermissions['sysop']['interwiki'] = true;
 
 
 ## Default skin: you can change the default skin. Use the internal symbolic
@@ -247,12 +246,10 @@ require_once( "$IP/extensions/ParserFunctions/ParserFunctions.php" );
 # Bigger uploads
 $wgMaxUploadSize = 2147483648;
 
-# Protect only uploads
+# Protect only uploads // FIXME
 $wgUploadPath = "{$wgScriptPath}/images/uploads";
 $wgUploadDirectory = "images/uploads";
 $wgAllowExternalImagesFrom = array('http://www.wikifm.org/', 'http://www.pledgie.com');
-$wgMathPath = "/images/math";
-$wgMathDirectory = "images/math";
 $wgTmpDirectory  = "images/tmp";
 
 $wgUseETag = true;
@@ -363,7 +360,7 @@ require_once "$IP/skins/Neverland/Neverland.php";
 require_once("$IP/extensions/Collection/Collection.php");
 // configuration borrowed from wmf-config/CommonSettings.php
 // in operations/mediawiki-config
-$wgCollectionFormatToServeURL['rdf2latex'] = $wgCollectionFormatToServeURL['rdf2text'] = 'http://localhost:17080';
+$wgCollectionFormatToServeURL['rdf2latex'] = $wgCollectionFormatToServeURL['rdf2text'] = 'http://ocg:17080';
 
 // MediaWiki namespace is not a good default
 $wgCommunityCollectionNamespace = NS_PROJECT;
@@ -378,3 +375,10 @@ $wgCollectionFormats = array(
 
 $wgLicenseURL = "http://creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array( 'rdf2latex', 'rdf2text' );
+
+
+require_once "$IP/extensions/DockerAccess/DockerAccess.php";
+
+$virtualFactoryURL = "http://mobile.mib.infn.it:8080";
+
+require_once("$IP/../secrets/secrets.php");
