@@ -380,5 +380,6 @@ $wgCollectionPortletFormats = array( 'rdf2latex', 'rdf2text' );
 require_once "$IP/extensions/DockerAccess/DockerAccess.php";
 
 $virtualFactoryURL = "http://mobile.mib.infn.it:8080";
+$virtualFactoryImages = array( 'novnc' => "LXDE basic image" );
 
 require_once("$IP/../secrets/secrets.php");

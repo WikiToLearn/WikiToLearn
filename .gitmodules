@@ -58,7 +58,7 @@
 	url = git://github.com/middlebury/CategorySuggest.git
 [submodule "extensions/EmbedVideo"]
 	path = extensions/EmbedVideo
-	url = git://github.com/Whiteknight/mediawiki-embedvideo.git
+	url = git://github.com/Alexia/mediawiki-embedvideo.git
 [submodule "extensions/SyntaxHighlighter"]
 	path = extensions/SyntaxHighlighter
 	url = git://github.com/wikimedia/mediawiki-extensions-SyntaxHighlighter.git
