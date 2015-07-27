@@ -1,8 +1,13 @@
 #!/bin/bash
-WIKIFM_DIR=".."
+WIKIFM_DIR=""
 if [[ "$1" != "" ]] ; then
  WIKIFM_DIR="$(readlink -f $1)"
+else
+ WIKIFM_DIR=$(readlink -f $(dirname $(readlink -f $0))"/..")
 fi
+
+echo $WIKIFM_DIR
+exit
 
 if [[ ! -d $WIKIFM_DIR ]] || [[ "$WIKIFM_DIR" == "" ]] ; then
  echo "Usage "$0" <wikidir>"
