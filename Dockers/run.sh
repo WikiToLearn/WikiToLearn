@@ -6,9 +6,6 @@ else
  WIKIFM_DIR=$(readlink -f $(dirname $(readlink -f $0))"/..")
 fi
 
-echo $WIKIFM_DIR
-exit
-
 if [[ ! -d $WIKIFM_DIR ]] || [[ "$WIKIFM_DIR" == "" ]] ; then
  echo "Usage "$0" <wikidir>"
  exit 1
