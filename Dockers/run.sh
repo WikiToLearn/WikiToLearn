@@ -1,5 +1,5 @@
 #!/bin/bash
-WIKIFM_DIR=""
+WIKIFM_DIR=".."
 if [[ "$1" != "" ]] ; then
  WIKIFM_DIR="$(readlink -f $1)"
 fi
