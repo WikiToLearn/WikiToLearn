@@ -18,7 +18,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 # Mobile detection
-$_SERVER['HTTP_X_DEVICE'] = $_SERVER['HTTP_USER_AGENT'];
+if(isset($_SERVER['HTTP_USER_AGENT'])) {
+	$_SERVER['HTTP_X_DEVICE'] = $_SERVER['HTTP_USER_AGENT'];
+} else {
+	$_SERVER['HTTP_X_DEVICE'] = "";
+}
 
 ini_set('memory_limit', '64M');
 $wgMaxShellMemory = 524288;
