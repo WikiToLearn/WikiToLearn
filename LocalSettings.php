@@ -66,13 +66,13 @@ $wgEnableSidebarCache = true;
 
 ## UPO means: this is also a user preference option
 
-$wgEnableEmail      = false;
+$wgEnableEmail      = true;
 $wgEnableUserEmail  = true; # UPO
 
 $wgEmergencyContact = "webmaster@kde.org";
 $wgPasswordSender   = "webmaster@kde.org";
 
-$wgEnotifUserTalk      = false; # UPO
+$wgEnotifUserTalk      = true; # UPO
 $wgEnotifWatchlist     = false; # UPO
 $wgEmailAuthentication = true;
 

@@ -112,7 +112,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start wikifm-ocg
  else
-  docker run --hostname ocg.wikifm.org --name wikifm-ocg -d wikifm/ocg
+  docker run --hostname ocg.wikifm.org --name wikifm-ocg -p 8000:8000 -d wikifm/ocg
  fi
 fi
 
