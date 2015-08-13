@@ -68,3 +68,6 @@
 [submodule "extensions/DockerAccess"]
 	path = extensions/DockerAccess
 	url = https://github.com/WikiFM/DockerAccess.git
+[submodule "extensions/Gadgets"]
+	path = extensions/Gadgets
+	url = git@github.com:wikimedia/mediawiki-extensions-Gadgets.git

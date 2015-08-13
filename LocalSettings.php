@@ -380,6 +380,7 @@ $wgCollectionFormats = array(
 $wgLicenseURL = "http://creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array( 'rdf2latex', 'rdf2text' );
 
+require_once "$IP/extensions/Gadgets/Gadgets.php";
 
 require_once "$IP/extensions/DockerAccess/DockerAccess.php";
 

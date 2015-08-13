@@ -36,296 +36,6 @@
     <ns>0</ns>
     <id>1</id>
     <revision>
-      <id>1</id>
-      <timestamp>2015-05-20T22:00:31Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>Created page with &quot;Knowledge only grows if shared.  Page under construction - please see [[it:Pagina principale]]&quot;</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="94">Knowledge only grows if shared.
-
-Page under construction - please see [[it:Pagina principale]]</text>
-      <sha1>hjk5u4otz9hw1uqcs9zpakvdwciw6nb</sha1>
-    </revision>
-    <revision>
-      <id>2</id>
-      <parentid>1</parentid>
-      <timestamp>2015-05-20T22:05:36Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="98">Knowledge only grows if shared.
-
-Page under construction - please see [[itwiki:Pagina principale]]</text>
-      <sha1>7d4lk50m99vabfrqc7j4tmuixa4ad50</sha1>
-    </revision>
-    <revision>
-      <id>3</id>
-      <parentid>2</parentid>
-      <timestamp>2015-06-15T19:54:25Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="125">Knowledge only grows if shared.
-
-Page under construction - please see [//it.wikifm.org the Italian homepage] in the meantime.</text>
-      <sha1>f1pxjof4pepf7nw4rja0k5uxe78fznh</sha1>
-    </revision>
-    <revision>
-      <id>39</id>
-      <parentid>3</parentid>
-      <timestamp>2015-06-15T20:29:39Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="140">Knowledge only grows if shared.
-
-* [[Physics]]
-
-Page under construction - please see [//it.wikifm.org the Italian homepage] in the meantime.</text>
-      <sha1>czgn9yjrzczdkzogu2iflh015fzejlm</sha1>
-    </revision>
-    <revision>
-      <id>110</id>
-      <parentid>39</parentid>
-      <timestamp>2015-06-23T09:30:17Z</timestamp>
-      <contributor>
-        <username>Menasce</username>
-        <id>1817</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="170">Knowledge only grows if shared.
-
-* [[Hep Software Foundation]]
-* [[Physics]]
-
-Page under construction - please see [//it.wikifm.org the Italian homepage] in the meantime.</text>
-      <sha1>lfljc3otspjv3g7cag2fmc5x8a1jbic</sha1>
-    </revision>
-    <revision>
-      <id>112</id>
-      <parentid>110</parentid>
-      <timestamp>2015-06-23T09:31:27Z</timestamp>
-      <contributor>
-        <username>Menasce</username>
-        <id>1817</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="156">Knowledge only grows if shared.
-
-* [[Hep Software Foundation]]
-
-Page under construction - please see [//it.wikifm.org the Italian homepage] in the meantime.</text>
-      <sha1>phjqpgct3fib03w7xklkuqdfwdoq9ui</sha1>
-    </revision>
-    <revision>
-      <id>113</id>
-      <parentid>112</parentid>
-      <timestamp>2015-06-23T09:32:11Z</timestamp>
-      <contributor>
-        <username>Menasce</username>
-        <id>1817</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="229">Knowledge only grows if shared.
-
-* [[Hep Software Foundation]]
-
-
-WARNING: This page is still under construction - please see [//it.wikifm.org the Italian homepage] in the meantime (many novel features work there but not yet here)</text>
-      <sha1>t1hk7efdop9evrar8buk1beht6fmb14</sha1>
-    </revision>
-    <revision>
-      <id>114</id>
-      <parentid>113</parentid>
-      <timestamp>2015-06-23T11:41:58Z</timestamp>
-      <contributor>
-        <username>Menasce</username>
-        <id>1817</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="243">Knowledge grows only if properly if shared...
-
-* [[Hep Software Foundation]]
-
-
-WARNING: This page is still under construction - please see [//it.wikifm.org the Italian homepage] in the meantime (many novel features work there but not yet here)</text>
-      <sha1>eszm1vyk57sxrkjr8hzxiw6ko4qalcj</sha1>
-    </revision>
-    <revision>
-      <id>115</id>
-      <parentid>114</parentid>
-      <timestamp>2015-06-23T11:44:30Z</timestamp>
-      <contributor>
-        <username>Menasce</username>
-        <id>1817</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="240">Knowledge grows only if properly shared...
-
-* [[Hep Software Foundation]]
-
-
-WARNING: This page is still under construction - please see [//it.wikifm.org the Italian homepage] in the meantime (many novel features work there but not yet here)</text>
-      <sha1>gu4gx65g8y68wmzbwtdl5k54rxqle0t</sha1>
-    </revision>
-    <revision>
-      <id>116</id>
-      <parentid>115</parentid>
-      <timestamp>2015-06-23T17:12:21Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="964">&lt;div class=&quot;alert alert-warning&quot;&gt;WARNING: This page, like the english subsite, is very novel and still under heavy construction - please see [//it.wikifm.org the Italian homepage] for a more complete website in the meantime (many novel features work there but not yet here)&lt;/div&gt;
-
-&lt;h2&gt; The Departments &lt;/h2&gt;
-{{:Departments}}
-
-WikiFM's departments are a way to categorize all the training material available on the website. They are meant to loosely resemble the departments of a physical University, in order to allow the student for an easy navigation
-
-* [[Hep Software Foundation]]
-
-&lt;h2&gt; Who writes WikiFM? &lt;/h2&gt;
-WikiFM is written by a [[Project:Community Portal|community of users]] who contribute to the project in many different ways, depending on their level of expertise.
-
-You can join, too!
-
-There are many [[Contributing to WikiFM|contribution possibilities]] available: just register yourself and start working with us!
-
-Knowledge grows only if shared...</text>
-      <sha1>7fiyn58u8txr7j0uimh9ueoe51nirlz</sha1>
-    </revision>
-    <revision>
-      <id>129</id>
-      <parentid>116</parentid>
-      <timestamp>2015-06-23T17:55:13Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="933">&lt;div class=&quot;alert alert-warning&quot;&gt;WARNING: This page, like the english subsite, is very novel and still under heavy construction - please see [//it.wikifm.org the Italian homepage] for a more complete website in the meantime (many novel features work there but not yet here)&lt;/div&gt;
-
-&lt;h2&gt; The Departments &lt;/h2&gt;
-{{:Departments}}
-
-WikiFM's departments are a way to categorize all the training material available on the website. They are meant to loosely resemble the departments of a physical University, in order to allow the student for an easy navigation
-
-&lt;h2&gt; Who writes WikiFM? &lt;/h2&gt;
-WikiFM is written by a [[Project:Community Portal|community of users]] who contribute to the project in many different ways, depending on their level of expertise.
-
-You can join, too!
-
-There are many [[Contributing to WikiFM|contribution possibilities]] available: just register yourself and start working with us!
-
-Knowledge grows only if shared...</text>
-      <sha1>lgvktjvdxk9ttaf3nqhuxuimdm3f4gj</sha1>
-    </revision>
-    <revision>
-      <id>132</id>
-      <parentid>129</parentid>
-      <timestamp>2015-06-23T18:11:06Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="933">&lt;div class=&quot;alert alert-warning&quot;&gt;WARNING: This page, like the english subsite, is very novel and still under heavy construction - please see [//it.wikifm.org the Italian homepage] for a more complete website in the meantime (many novel features work there but not yet here)&lt;/div&gt;
-
-&lt;h2&gt; The Departments &lt;/h2&gt;
-{{:Departments}}
-
-WikiFM's departments are a way to categorize all the training material available on the website. They are meant to loosely resemble the departments of a physical University, in order to allow the student for an easy navigation
-
-&lt;h2&gt; Who writes WikiFM? &lt;/h2&gt;
-WikiFM is written by a [[Project:Community Portal|community of users]] who contribute to the project in many different ways, depending on their level of expertise.
-
-You can join, too!
-
-There are many [[Contributing to WikiFM|contribution possibilities]] available: just register yourself and start working with us!
-
-Knowledge only grows if shared...</text>
-      <sha1>lv2gt56xxm5g18vrch2vp49ktac59gp</sha1>
-    </revision>
-    <revision>
-      <id>200</id>
-      <parentid>132</parentid>
-      <timestamp>2015-07-26T16:55:10Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1028">&lt;div class=&quot;alert alert-info&quot;&gt;You don't know what WikiFM is? [[About WikiFM|Find out!]]&lt;/div&gt;
-
-&lt;div class=&quot;alert alert-warning&quot;&gt;WARNING: This page, like the english subsite, is very novel and still under heavy construction - please see [//it.wikifm.org the Italian homepage] for a more complete website in the meantime (many novel features work there but not yet here)&lt;/div&gt;
-
-&lt;h2&gt; The Departments &lt;/h2&gt;
-{{:Departments}}
-
-WikiFM's departments are a way to categorize all the training material available on the website. They are meant to loosely resemble the departments of a physical University, in order to allow the student for an easy navigation
-
-&lt;h2&gt; Who writes WikiFM? &lt;/h2&gt;
-WikiFM is written by a [[Project:Community Portal|community of users]] who contribute to the project in many different ways, depending on their level of expertise.
-
-You can join, too!
-
-There are many [[Contributing to WikiFM|contribution possibilities]] available: just register yourself and start working with us!
-
-Knowledge only grows if shared...</text>
-      <sha1>qa95pv3zvej6xkrnob8axgdtfsvfk8f</sha1>
-    </revision>
-    <revision>
-      <id>388</id>
-      <parentid>200</parentid>
-      <timestamp>2015-08-12T09:49:34Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1026">&lt;div class=&quot;alert alert-warning&quot;&gt;WARNING: This page, like the english subsite, is very novel and still under heavy construction - please see [//it.wikifm.org the Italian homepage] for a more complete website in the meantime (many novel features work there but not yet here)&lt;/div&gt;
-&lt;div class=&quot;alert alert-info&quot;&gt;You don't know what WikiFM is? [[About WikiFM|Find out!]]&lt;/div&gt;
-&lt;h2&gt; The Departments &lt;/h2&gt;
-{{:Departments}}
-
-WikiFM's departments are a way to categorize all the training material available on the website. They are meant to loosely resemble the departments of a physical University, in order to allow the student for an easy navigation
-
-&lt;h2&gt; Who writes WikiFM? &lt;/h2&gt;
-WikiFM is written by a [[Project:Community Portal|community of users]] who contribute to the project in many different ways, depending on their level of expertise.
-
-You can join, too!
-
-There are many [[Contributing to WikiFM|contribution possibilities]] available: just register yourself and start working with us!
-
-Knowledge only grows if shared...</text>
-      <sha1>hv9ksf9gsmdpfn5snmh0piapmgz8ip0</sha1>
-    </revision>
-    <revision>
       <id>389</id>
       <parentid>388</parentid>
       <timestamp>2015-08-12T12:43:14Z</timestamp>
@@ -357,454 +67,6 @@ Knowledge only grows if shared...</text>
     <title>Contributing to WikiFM/Code</title>
     <ns>0</ns>
     <id>48</id>
-    <revision>
-      <id>192</id>
-      <timestamp>2015-07-19T14:59:17Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>Created page with &quot;This page is still very much a work in progress. If you want to help WikiFM through coding, please refer to the Mailing List for now :-)  ==Junior jobs==&quot;</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="153">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==</text>
-      <sha1>iv8g33n4n0fsfkcww5a6e6lt618x4pz</sha1>
-    </revision>
-    <revision>
-      <id>204</id>
-      <parentid>192</parentid>
-      <timestamp>2015-07-27T16:45:09Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1559">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* edit labels are too big
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing, security...)
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-This works great, but there are still a few kinks to allow Mediawiki to cope with complex mathematics (such as environments, labeled equations, and so on...) or simpler writing style.
-
-One possible solution is given from [http://www.mediawiki.org/wiki/Extension:DollarSign], but a more thorough solution is required.
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.</text>
-      <sha1>b82cazfpv017080vtpbs50l6h2h6zyh</sha1>
-    </revision>
-    <revision>
-      <id>205</id>
-      <parentid>204</parentid>
-      <timestamp>2015-07-27T16:47:03Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>/* Junior jobs */</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1607">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing, security...)
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-This works great, but there are still a few kinks to allow Mediawiki to cope with complex mathematics (such as environments, labeled equations, and so on...) or simpler writing style.
-
-One possible solution is given from [http://www.mediawiki.org/wiki/Extension:DollarSign], but a more thorough solution is required.
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.</text>
-      <sha1>li6xqdcd1mw8brdlgomc2875vxfdlwo</sha1>
-    </revision>
-    <revision>
-      <id>207</id>
-      <parentid>205</parentid>
-      <timestamp>2015-07-27T16:49:47Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>/* Offline Content Generation (OCG) */</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1666">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
-
-We need to de-hack the support for our &lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-This works great, but there are still a few kinks to allow Mediawiki to cope with complex mathematics (such as environments, labeled equations, and so on...) or simpler writing style.
-
-One possible solution is given from [http://www.mediawiki.org/wiki/Extension:DollarSign], but a more thorough solution is required.
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.</text>
-      <sha1>713oojiodzdso0azis5om3udokd7yxi</sha1>
-    </revision>
-    <revision>
-      <id>208</id>
-      <parentid>207</parentid>
-      <timestamp>2015-07-27T16:51:04Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>/* Offline Content Generation (OCG) */</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1866">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
-
-We need to de-hack the support for our&lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag
-
-Relevant links:
-* https://wikitech.wikimedia.org/wiki/OCG
-* https://www.mediawiki.org/wiki/Extension:Collection
-* https://www.npmjs.com/package/mw-ocg-bundler
-* https://www.mediawiki.org/wiki/Parsoid
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-This works great, but there are still a few kinks to allow Mediawiki to cope with complex mathematics (such as environments, labeled equations, and so on...) or simpler writing style.
-
-One possible solution is given from [http://www.mediawiki.org/wiki/Extension:DollarSign], but a more thorough solution is required.
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.</text>
-      <sha1>4337onnuir6i1ld8vmk5alpcpc686fr</sha1>
-    </revision>
-    <revision>
-      <id>209</id>
-      <parentid>208</parentid>
-      <timestamp>2015-07-27T16:54:59Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>/* Math handling (Javascript/CSS) */</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1898">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
-
-We need to de-hack the support for our&lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag
-
-Relevant links:
-* https://wikitech.wikimedia.org/wiki/OCG
-* https://www.mediawiki.org/wiki/Extension:Collection
-* https://www.npmjs.com/package/mw-ocg-bundler
-* https://www.mediawiki.org/wiki/Parsoid
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-We can switch to something better (like MathML) or something that works best with mobile. The only requirement is that inline mathis still beautifully displayed (aka: no PNGs).
-
-We could want to support some custom LaTeX constructs/shortcuts (such as \ket: \renewcommand{\ket}[1]{\mathinner {|\braket@inner@defs{#1}\rangle }} for quantum mechanics)
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.</text>
-      <sha1>02cjz21gv7df2ppw0cl9faosbzi2ap0</sha1>
-    </revision>
-    <revision>
-      <id>210</id>
-      <parentid>209</parentid>
-      <timestamp>2015-07-27T16:55:28Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>/* Peer-reviewing workflow (PHP/Mediawiki) */</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1971">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
-
-We need to de-hack the support for our&lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag
-
-Relevant links:
-* https://wikitech.wikimedia.org/wiki/OCG
-* https://www.mediawiki.org/wiki/Extension:Collection
-* https://www.npmjs.com/package/mw-ocg-bundler
-* https://www.mediawiki.org/wiki/Parsoid
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-We can switch to something better (like MathML) or something that works best with mobile. The only requirement is that inline mathis still beautifully displayed (aka: no PNGs).
-
-We could want to support some custom LaTeX constructs/shortcuts (such as \ket: \renewcommand{\ket}[1]{\mathinner {|\braket@inner@defs{#1}\rangle }} for quantum mechanics)
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.
-
-We have some preliminary studies on that, so it has the lower priority.</text>
-      <sha1>tvktsoo4lf1pxuktbx8gzejtl3v2f9l</sha1>
-    </revision>
-    <revision>
-      <id>211</id>
-      <parentid>210</parentid>
-      <timestamp>2015-07-27T17:11:06Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>/* Offline Content Generation (OCG) */</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="2083">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
-
-We need to de-hack the support for our &lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag and check the display of the code sections.
-
-If you want, we could also make better the document presentation.
-
-Relevant links:
-* https://wikitech.wikimedia.org/wiki/OCG
-* https://www.mediawiki.org/wiki/Extension:Collection
-* https://www.npmjs.com/package/mw-ocg-bundler
-* https://www.mediawiki.org/wiki/Parsoid
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-We can switch to something better (like MathML) or something that works best with mobile. The only requirement is that inline mathis still beautifully displayed (aka: no PNGs).
-
-We could want to support some custom LaTeX constructs/shortcuts (such as \ket: \renewcommand{\ket}[1]{\mathinner {|\braket@inner@defs{#1}\rangle }} for quantum mechanics)
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.
-
-We have some preliminary studies on that, so it has the lower priority.</text>
-      <sha1>gxrdrra47h184kkhewbat7pw1dlmtdq</sha1>
-    </revision>
-    <revision>
-      <id>212</id>
-      <parentid>211</parentid>
-      <timestamp>2015-07-27T17:12:52Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="2081">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
-
-We need to de-hack the support for our&lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag and check the display of the code sections.
-
-If you want, we could also make better the document presentation.
-
-Relevant links:
-* https://wikitech.wikimedia.org/wiki/OCG
-* https://www.mediawiki.org/wiki/Extension:Collection
-* https://www.npmjs.com/package/mw-ocg-bundler
-* https://www.mediawiki.org/wiki/Parsoid
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-We can switch to something better (like MathML) or something that works best with mobile. The only requirement is that inline mathis still beautifully displayed (aka: no PNGs).
-
-We could want to support some custom LaTeX constructs/shortcuts (such as \ket: \renewcommand{\ket}[1]{\mathinner {|\braket@inner@defs{#1}\rangle}} for quantum mechanics)
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.
-
-We have some preliminary studies on that, so it has the lower priority.</text>
-      <sha1>q0dgvuanibcvmg30gmuag03utyk9emb</sha1>
-    </revision>
-    <revision>
-      <id>213</id>
-      <parentid>212</parentid>
-      <timestamp>2015-07-27T17:13:13Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <minor/>
-      <comment>Roopi moved page [[Contributing code]] to [[Contributing to WikiFM/Code]]: It is really a subpage</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="2081">This page is still very much a work in progress.
-If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
-
-==Junior jobs==
-What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
-
-If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
-
-* code editor/areas has weird fonts and interactions [[/Code test page/]]
-* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
-* in the mobile view, the menu doesn't collapse
-
-
-=== Offline Content Generation (OCG) ===
-
-One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
-
-We need to de-hack the support for our&lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag and check the display of the code sections.
-
-If you want, we could also make better the document presentation.
-
-Relevant links:
-* https://wikitech.wikimedia.org/wiki/OCG
-* https://www.mediawiki.org/wiki/Extension:Collection
-* https://www.npmjs.com/package/mw-ocg-bundler
-* https://www.mediawiki.org/wiki/Parsoid
-
-=== Math handling (Javascript/CSS) ===
-
-The engine which we currently use for rendering the math is MathJax.
-
-We can switch to something better (like MathML) or something that works best with mobile. The only requirement is that inline mathis still beautifully displayed (aka: no PNGs).
-
-We could want to support some custom LaTeX constructs/shortcuts (such as \ket: \renewcommand{\ket}[1]{\mathinner {|\braket@inner@defs{#1}\rangle}} for quantum mechanics)
-
-=== Peer-reviewing workflow (PHP/Mediawiki) ===
-
-We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.
-
-We have some preliminary studies on that, so it has the lower priority.</text>
-      <sha1>q0dgvuanibcvmg30gmuag03utyk9emb</sha1>
-    </revision>
     <revision>
       <id>392</id>
       <parentid>213</parentid>
@@ -864,104 +126,6 @@ We have some preliminary studies on that, so it has the lower priority.
     <title>Contributing to WikiFM/Code/Code test page</title>
     <ns>0</ns>
     <id>52</id>
-    <revision>
-      <id>206</id>
-      <timestamp>2015-07-27T16:48:34Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <comment>Created page with &quot;{{example  | The following code removes all consecutive equivalent elements from a vector of integers.  | code= #include &lt;iostream&gt; #include &lt;algorithm&gt; #include &lt;vector&gt;  int...&quot;</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="763">{{example
- | The following code removes all consecutive equivalent elements from a vector of integers.
- | code=
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-
-int main()
-{
-    std::vector&lt;int&gt; v{1, 2, 5, 2, 3, 3, 2, 2, 1};
-    std::vector&lt;int&gt;::iterator last;
-
-    last = std::unique(v.begin(), v.end()); // 1 2 3 2 1 3 2 2 1
-                                            //           ^
-    for (std::vector&lt;int&gt;::iterator it = v.begin(); it != last; ++it) {
-        std::cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
-    }
-    std::cout &lt;&lt; &quot;\n&quot;;
-}
- | output=
-1 2 3 2 1
-}}
-
-
-&lt;source lang=&quot;cpp&quot;&gt;
-/* File: example1.cc
-   Compilation instructions: g++ -o example1 example1.cc */
-
-#include &lt;iostream&gt;
-
-int main()
-{
- std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl ;
- return 0 ;
-}
-&lt;/source&gt;</text>
-      <sha1>9hnsswqg7ji8g2xl7tqnrxxfbg1zyfk</sha1>
-    </revision>
-    <revision>
-      <id>215</id>
-      <parentid>206</parentid>
-      <timestamp>2015-07-27T17:13:45Z</timestamp>
-      <contributor>
-        <username>Roopi</username>
-        <id>6</id>
-      </contributor>
-      <minor/>
-      <comment>Roopi moved page [[Contributing code/Code test page]] to [[Contributing to WikiFM/Code/Code test page]] without leaving a redirect</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="763">{{example
- | The following code removes all consecutive equivalent elements from a vector of integers.
- | code=
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-
-int main()
-{
-    std::vector&lt;int&gt; v{1, 2, 5, 2, 3, 3, 2, 2, 1};
-    std::vector&lt;int&gt;::iterator last;
-
-    last = std::unique(v.begin(), v.end()); // 1 2 3 2 1 3 2 2 1
-                                            //           ^
-    for (std::vector&lt;int&gt;::iterator it = v.begin(); it != last; ++it) {
-        std::cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
-    }
-    std::cout &lt;&lt; &quot;\n&quot;;
-}
- | output=
-1 2 3 2 1
-}}
-
-
-&lt;source lang=&quot;cpp&quot;&gt;
-/* File: example1.cc
-   Compilation instructions: g++ -o example1 example1.cc */
-
-#include &lt;iostream&gt;
-
-int main()
-{
- std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl ;
- return 0 ;
-}
-&lt;/source&gt;</text>
-      <sha1>9hnsswqg7ji8g2xl7tqnrxxfbg1zyfk</sha1>
-    </revision>
     <revision>
       <id>393</id>
       <parentid>215</parentid>
@@ -1677,6 +841,234 @@ $.when(
       <format>text/x-wiki</format>
       <text xml:space="preserve" bytes="79">* ColiruCompiler[ResourceLoader|default]|coliru_compiler.js|coliru_compiler.css</text>
       <sha1>6ywax51nc0xncn3vsh5pmph8bvycmhw</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Contributing to WikiFM</title>
+    <ns>0</ns>
+    <id>42</id>
+    <revision>
+      <id>383</id>
+      <parentid>221</parentid>
+      <timestamp>2015-08-10T17:37:25Z</timestamp>
+      <contributor>
+        <username>Menasce</username>
+        <id>1817</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="1216">WikiFM is an on-going effort made by volunteers. There are many on-going efforts. If you want to help, you have come to the right place. There are efforts for every skillset, and for every
+
+General references:
+* [https://mail.kde.org/mailman/listinfo/wikifm Mailing list] - ([http://mail.kde.org/pipermail/wikifm/ Archives])
+* [https://github.com/WikiFM Code repository] (github - will be moved to KDE soon)
+
+=== Code ===
+Contributing to WikiFM's codebase is the main way technical users can contribute to WikiFM.
+To check out the code and have a working installation of WikiFM, simply install docker and run:
+ git clone --recursive git://github.com/WikiFM/WikiFM
+ cd WikiFM/Dockers
+ ./run.sh
+ ./copy-conf-to-websrv.sh
+ ./docker-init.sh
+
+Read more in the [[/Code/]] section.
+
+=== Infrastructure ===
+Small and urgent junior jobs are listed here:
+* [[/Junior Jobs/]]
+Work in progress tasks (one subpage per task):
+* [[/Converter Latex to WikiFM/]]{{stage|0}}
+* [[/VNC access embedded in Mediawiki/]]{{stage|25}}
+* [[/Document and streamline the development procedure/]]
+
+=== Promo ===
+Universities that are currently (in any way) involved/in contact with WikiFM: [[/Uni list/]]
+
+[[/Promo/|Promo Page]]
+
+=== Content ===</text>
+      <sha1>82kh35kx1yeufo4vzcoxg144x51aq6i</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Departments</title>
+    <ns>0</ns>
+    <id>35</id>
+    <revision>
+      <id>122</id>
+      <parentid>121</parentid>
+      <timestamp>2015-06-23T17:20:50Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="941">&lt;div class=&quot;row-fluid&quot;&gt;
+&lt;ul class=&quot;thumbnails&quot;&gt;
+&lt;li class=&quot;span3&quot;&gt;
+{{DepartmentBox
+|Titolo=Bio-Sciences
+|Immagine=//pool.wikifm.org/images/badges/en/gray-biosciences.png}}
+&lt;/li&gt;
+&lt;li class=&quot;span3&quot;&gt;
+{{DepartmentBox
+|Titolo=Chemistry
+|Immagine=//pool.wikifm.org/images/badges/en/gray-chemistry.png}}
+&lt;/li&gt;
+&lt;li class=&quot;span3&quot;&gt;
+{{DepartmentBox
+|Titolo=Computer Science
+|Immagine=//pool.wikifm.org/images/badges/en/gray-computerscience.png}}
+&lt;/li&gt;
+&lt;li class=&quot;span3&quot;&gt;
+{{DepartmentBox
+|Titolo=Engineering
+|Immagine=//pool.wikifm.org/images/badges/en/gray-engineering.png}}
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+
+&lt;div class=&quot;row-fluid&quot;&gt;
+&lt;ul class=&quot;thumbnails&quot;&gt;
+&lt;li class=&quot;span3&quot;&gt;
+
+{{DepartmentBox
+|Titolo=Mathematics
+|Immagine=//pool.wikifm.org/images/badges/en/gray-mathematics.png}}
+&lt;/li&gt;
+&lt;li class=&quot;span3&quot;&gt;
+{{DepartmentBox
+|Titolo=Physics
+|Immagine=//pool.wikifm.org/images/badges/en/physics.png}}
+&lt;/li&gt;
+&lt;li class=&quot;span3&quot;&gt;
+
+&lt;/li&gt;
+&lt;li class=&quot;span3&quot;&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</text>
+      <sha1>8zqh31pee9jnb6x6dz9gpurmim11reg</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:DepartmentBox</title>
+    <ns>10</ns>
+    <id>36</id>
+    <revision>
+      <id>118</id>
+      <timestamp>2015-06-23T17:16:10Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;[[{{{Titolo}}}| &lt;div class=&quot;thumbnail&quot;&gt; &lt;img data-src=&quot;holder.js/50x50&quot; src=&quot;{{{Immagine}}}&quot;&gt; &lt;/div&gt;]]&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="102">[[{{{Titolo}}}|
+&lt;div class=&quot;thumbnail&quot;&gt;
+&lt;img data-src=&quot;holder.js/50x50&quot; src=&quot;{{{Immagine}}}&quot;&gt;
+&lt;/div&gt;]]</text>
+      <sha1>hemxqk4mb0cw1hvxdmofj0wx8ftui4l</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Example</title>
+    <ns>10</ns>
+    <id>19</id>
+    <revision>
+      <id>84</id>
+      <timestamp>2015-06-18T14:27:55Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;{{#if:{{{code|}}} |&lt;div class=&quot;t-example {{#if:{{{std|}}}|t-example-std-{{{std}}}}}&quot;&gt;&lt;!-- --&gt;{{#if:{{{1|}}}| &lt;p&gt;{{{1|}}}&lt;/p&gt;  }}&lt;div class=&quot;t-example-live-link&quot;&gt;&lt;div class=&quot;co...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="512">{{#if:{{{code|}}}
+|&lt;div class=&quot;t-example {{#if:{{{std|}}}|t-example-std-{{{std}}}}}&quot;&gt;&lt;!--
+--&gt;{{#if:{{{1|}}}| &lt;p&gt;{{{1|}}}&lt;/p&gt;
+
+}}&lt;div class=&quot;t-example-live-link&quot;&gt;&lt;div class=&quot;coliru-btn coliru-btn-run-init&quot;&gt;Run this code&lt;/div&gt;&lt;/div&gt;
+{{source | 1={{{code|}}} | lang={{{lang|{{get lang}}}}}}}
+
+{{#if:{{{output|}}} | {{#ifeq: {{{p|}}} | true | Possible output: | Output:}}
+
+{{source | lang=text | 1={{{output}}}}}
+}} 
+&lt;/div&gt; | {{todo|reason=no example}}}}&lt;noinclude&gt;
+{{documentation|Template:source/doc}}
+&lt;/noinclude&gt;</text>
+      <sha1>5giphq5d7pwcxt44nt81szokp8s147f</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Get lang</title>
+    <ns>10</ns>
+    <id>30</id>
+    <revision>
+      <id>106</id>
+      <timestamp>2015-06-22T08:24:02Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;onlyinclude&gt;{{#switch:{{#explode:{{PAGENAME}}|/|0}} |c=c |cpp=cpp |cpp }}&lt;/onlyinclude&gt;&lt;noinclude&gt;{{documentation}}&lt;/noinclude&gt;&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="128">&lt;onlyinclude&gt;{{#switch:{{#explode:{{PAGENAME}}|/|0}}
+|c=c
+|cpp=cpp
+|cpp
+}}&lt;/onlyinclude&gt;&lt;noinclude&gt;{{documentation}}&lt;/noinclude&gt;</text>
+      <sha1>r21o41vmm37r9lndl9j9rwvljlhupi7</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Source</title>
+    <ns>10</ns>
+    <id>29</id>
+    <revision>
+      <id>105</id>
+      <timestamp>2015-06-22T08:20:20Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;onlyinclude&gt;{{#tag:source|{{{code|{{{1}}}}}}|lang={{{lang|{{get lang}}}}}}}&lt;/onlyinclude&gt; {{documentation}}&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="108">&lt;onlyinclude&gt;{{#tag:source|{{{code|{{{1}}}}}}|lang={{{lang|{{get lang}}}}}}}&lt;/onlyinclude&gt;
+{{documentation}}</text>
+      <sha1>iq13xvuad9s6kf9x6obef2nfo2gjego</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Stage</title>
+    <ns>10</ns>
+    <id>11</id>
+    <revision>
+      <id>72</id>
+      <timestamp>2015-06-15T21:35:19Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;includeonly&gt;&lt;span class=&quot;noprint&quot;&gt;&lt;img src=&quot;//pool.wikifm.org/images/theme/9px-{{#switch:{{{1|}}}  |0|00|0%|00%=00  |25|25%=25  |50|50%=50  |75|75%=75  |100|100%=100  |#defau...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="216">&lt;includeonly&gt;&lt;span class=&quot;noprint&quot;&gt;&lt;img src=&quot;//pool.wikifm.org/images/theme/9px-{{#switch:{{{1|}}}
+ |0|00|0%|00%=00
+ |25|25%=25
+ |50|50%=50
+ |75|75%=75
+ |100|100%=100
+ |#default=00
+}}.svg.png&quot; /&gt;&lt;/span&gt;&lt;/includeonly&gt;</text>
+      <sha1>q4y9zs1a1pmic6exlzplg3e1kjiz2wb</sha1>
     </revision>
   </page>
 </mediawiki>
