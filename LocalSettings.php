@@ -35,9 +35,8 @@ require_once( "$IP/extensions/googleAnalytics/googleAnalytics.php" );
 $wgMetaNamespace = "Project";
 
 $wgCookieDomain = '.wikifm.org';
-
 $wgSecureLogin	= true;
-$wgCookieSecure = true;
+// $wgCookieSecure = true;
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -85,8 +84,8 @@ $wiki = strtolower( $wiki );
 $wgDBtype           = "mysql";
 $wgDBserver         = "mysql";
 
-// $wgSharedDB = 'sharedwikifm'; # The $wgDBname for the wiki database holding the main user table
-// $wgSharedTables[] = array( 'user', 'user_properties', 'user_groups', 'interwiki', 'iwlinks');
+$wgSharedDB = 'sharedwikifm'; # The $wgDBname for the wiki database holding the main user table
+$wgSharedTables[] = array( 'user', 'user_properties', 'user_groups', 'interwiki', 'iwlinks');
 
 $arr = array (
         'Write this code in the following box: 567:' => '567',
