@@ -1,0 +1,220 @@
+
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+    <sitename>WikiFM - Knowledge only grows if shared</sitename>
+    <dbname>enwikifm</dbname>
+    <base>https://en.wikifm.org/Main_Page</base>
+    <generator>MediaWiki 1.25.1</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Project</namespace>
+      <namespace key="5" case="first-letter">Project talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="90" case="first-letter">Thread</namespace>
+      <namespace key="91" case="first-letter">Thread talk</namespace>
+      <namespace key="92" case="first-letter">Summary</namespace>
+      <namespace key="93" case="first-letter">Summary talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Contributing to WikiFM/Code</title>
+    <ns>0</ns>
+    <id>48</id>
+    <revision>
+      <id>392</id>
+      <parentid>213</parentid>
+      <timestamp>2015-08-13T17:29:20Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="2110">This page is still very much a work in progress.
+If you want to help WikiFM through coding, please refer to the Mailing List for now :-)
+
+==Junior jobs==
+What you are reading is a very quick introduction in order to get ready and productive with the contribution to WikiFM's codebase and content.
+
+If you know a little bit of CSS, there could be a few minor tweaks we would like on the style!
+
+* code editor/areas has weird fonts and interactions [[/Code test page/]]
+* the notification &quot;button&quot; is in the wrong place. It should be placed next to the search bar.
+* in the mobile view, the menu doesn't collapse
+
+
+=== Offline Content Generation (OCG) ===
+
+One of the core features of WikiFM is the possibility to create a collection of wiki pages and organize them in chapters, section and books, and export the resulting collections as a PDF. There is some preliminary code which performs the following, but needs some love to make sure it's production ready (stability, corner-case testing...)
+
+We need to de-hack the support for our&lt;nowiki&gt;&lt;dmath&gt;&lt;/nowiki&gt; tag and check the display of the code sections.
+
+If you want, we could also make better the document presentation.
+
+Relevant links:
+* https://wikitech.wikimedia.org/wiki/OCG
+* https://www.mediawiki.org/wiki/Extension:Collection
+* https://www.npmjs.com/package/mw-ocg-bundler
+* https://www.mediawiki.org/wiki/Parsoid
+
+=== Math handling (Javascript/CSS) ===
+
+The engine which we currently use for rendering the math is MathJax.
+
+We can switch to something better (like MathML) or something that works best with mobile. The only requirement is that inline mathis still beautifully displayed (aka: no PNGs).
+
+We could want to support some custom LaTeX constructs/shortcuts (such as \ket: \renewcommand{\ket}[1]{\mathinner {|\braket@inner@defs{#1}\rangle}} for quantum mechanics)
+
+=== Peer-reviewing workflow (PHP/Mediawiki) ===
+
+We currently use Mediawiki's FlaggedRevs for enabling some kind of a peer-review workflow. It would be great to extend this.
+
+We have some preliminary studies on that, so it has the lower priority.
+
+[[Category:Developer Dump]]</text>
+      <sha1>nxi8j15vmyun7xq9ee8k0uarmt3uu8a</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Contributing to WikiFM/Code/Code test page</title>
+    <ns>0</ns>
+    <id>52</id>
+    <revision>
+      <id>393</id>
+      <parentid>215</parentid>
+      <timestamp>2015-08-13T17:29:44Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="792">{{example
+ | The following code removes all consecutive equivalent elements from a vector of integers.
+ | code=
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+    std::vector&lt;int&gt; v{1, 2, 5, 2, 3, 3, 2, 2, 1};
+    std::vector&lt;int&gt;::iterator last;
+
+    last = std::unique(v.begin(), v.end()); // 1 2 3 2 1 3 2 2 1
+                                            //           ^
+    for (std::vector&lt;int&gt;::iterator it = v.begin(); it != last; ++it) {
+        std::cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
+    }
+    std::cout &lt;&lt; &quot;\n&quot;;
+}
+ | output=
+1 2 3 2 1
+}}
+
+
+&lt;source lang=&quot;cpp&quot;&gt;
+/* File: example1.cc
+   Compilation instructions: g++ -o example1 example1.cc */
+
+#include &lt;iostream&gt;
+
+int main()
+{
+ std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl ;
+ return 0 ;
+}
+&lt;/source&gt;
+
+[[Category:Developer Dump]]</text>
+      <sha1>oho13d9qy929a2ckhjornt8y2zwnk0l</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Example</title>
+    <ns>10</ns>
+    <id>19</id>
+    <revision>
+      <id>84</id>
+      <timestamp>2015-06-18T14:27:55Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;{{#if:{{{code|}}} |&lt;div class=&quot;t-example {{#if:{{{std|}}}|t-example-std-{{{std}}}}}&quot;&gt;&lt;!-- --&gt;{{#if:{{{1|}}}| &lt;p&gt;{{{1|}}}&lt;/p&gt;  }}&lt;div class=&quot;t-example-live-link&quot;&gt;&lt;div class=&quot;co...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="512">{{#if:{{{code|}}}
+|&lt;div class=&quot;t-example {{#if:{{{std|}}}|t-example-std-{{{std}}}}}&quot;&gt;&lt;!--
+--&gt;{{#if:{{{1|}}}| &lt;p&gt;{{{1|}}}&lt;/p&gt;
+
+}}&lt;div class=&quot;t-example-live-link&quot;&gt;&lt;div class=&quot;coliru-btn coliru-btn-run-init&quot;&gt;Run this code&lt;/div&gt;&lt;/div&gt;
+{{source | 1={{{code|}}} | lang={{{lang|{{get lang}}}}}}}
+
+{{#if:{{{output|}}} | {{#ifeq: {{{p|}}} | true | Possible output: | Output:}}
+
+{{source | lang=text | 1={{{output}}}}}
+}} 
+&lt;/div&gt; | {{todo|reason=no example}}}}&lt;noinclude&gt;
+{{documentation|Template:source/doc}}
+&lt;/noinclude&gt;</text>
+      <sha1>5giphq5d7pwcxt44nt81szokp8s147f</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Get lang</title>
+    <ns>10</ns>
+    <id>30</id>
+    <revision>
+      <id>106</id>
+      <timestamp>2015-06-22T08:24:02Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;onlyinclude&gt;{{#switch:{{#explode:{{PAGENAME}}|/|0}} |c=c |cpp=cpp |cpp }}&lt;/onlyinclude&gt;&lt;noinclude&gt;{{documentation}}&lt;/noinclude&gt;&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="128">&lt;onlyinclude&gt;{{#switch:{{#explode:{{PAGENAME}}|/|0}}
+|c=c
+|cpp=cpp
+|cpp
+}}&lt;/onlyinclude&gt;&lt;noinclude&gt;{{documentation}}&lt;/noinclude&gt;</text>
+      <sha1>r21o41vmm37r9lndl9j9rwvljlhupi7</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Source</title>
+    <ns>10</ns>
+    <id>29</id>
+    <revision>
+      <id>105</id>
+      <timestamp>2015-06-22T08:20:20Z</timestamp>
+      <contributor>
+        <username>Roopi</username>
+        <id>6</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;onlyinclude&gt;{{#tag:source|{{{code|{{{1}}}}}}|lang={{{lang|{{get lang}}}}}}}&lt;/onlyinclude&gt; {{documentation}}&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="108">&lt;onlyinclude&gt;{{#tag:source|{{{code|{{{1}}}}}}|lang={{{lang|{{get lang}}}}}}}&lt;/onlyinclude&gt;
+{{documentation}}</text>
+      <sha1>iq13xvuad9s6kf9x6obef2nfo2gjego</sha1>
+    </revision>
+  </page>
+</mediawiki>
