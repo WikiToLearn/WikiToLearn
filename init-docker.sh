@@ -33,3 +33,6 @@ $CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CW
 # For every language, update the database
 $CWD/lang-foreach.sh update.php --conf=$CWD/mediawiki/LocalSettings.php --quick --doShared
 
+$CWD/lang-foreach.sh importDump.php $CWD/developer-dump.xml 
+
+
