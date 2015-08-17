@@ -1,11 +1,11 @@
 #!/bin/bash
-docker inspect wikifm-websrv &> /dev/null
+docker inspect wikitolearn-websrv &> /dev/null
 
 if [[ $? -eq 0 ]] ; then
- WIKIFM_DIR=$(docker inspect -f "{{ .HostConfig.Binds }}" wikifm-websrv  | awk -F":" '{ print $1 }' | cut -c 2-)
- echo "Copy to "$WIKIFM_DIR
- test -f $WIKIFM_DIR"/secrets/" || mkdir -p $WIKIFM_DIR"/secrets/"
- cp configs/secrets/* $WIKIFM_DIR"/secrets/"
+ WIKITOLEARN_DIR=$(docker inspect -f "{{ .HostConfig.Binds }}" wikitolearn-websrv  | awk -F":" '{ print $1 }' | cut -c 2-)
+ echo "Copy to "$WIKITOLEARN_DIR
+ test -f $WIKITOLEARN_DIR"/secrets/" || mkdir -p $WIKITOLEARN_DIR"/secrets/"
+ cp configs/secrets/* $WIKITOLEARN_DIR"/secrets/"
 else
- echo "Missing wikifm-websrv"
+ echo "Missing wikitolearn-websrv"
 fi
