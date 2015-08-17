@@ -51,10 +51,6 @@ $wgRedirectScript   = "$wgScriptPath/redirect.php";
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
 
-## The relative URL path to the logo.  Make sure you change this from the default,
-## or else you'll overwrite your logo when you upgrade!
-$wgLogo             = "$wgStylePath/common/images/wiki.png";
-
 $wgMainCacheType = CACHE_MEMCACHED;
 $wgMemCachedServers = array(
     "memcached:11211", # one gig on this box
@@ -97,31 +93,34 @@ foreach ( $arr as $key => $value ) {
 # Site language code, should be one of ./languages/Language(.*).php
 # Make sure you give permission to sharedwikifm database to the user in question.
 
+$wgLanguageCode = "en"; // Default
 if ( $wiki === 'it.wikifm.org') {
-    $wgSitename      = "WikiFM - Il sapere si accresce solo se condiviso";
+    $wgSitename      = "WikiToLearn - Il sapere si accresce solo se condiviso";
     $wgLanguageCode     = "it";
     require_once("$IP/../secrets/itwikifm.php");
 } else if ( $wiki === 'en.wikifm.org') {
-    $wgSitename      = "WikiFM - Knowledge only grows if shared";
+    $wgSitename      = "WikiToLearn - Knowledge only grows if shared";
     $wgLanguageCode     = "en";
     require_once("$IP/../secrets/enwikifm.php");
 } else if ( $wiki === 'pool.wikifm.org') {
-    $wgSitename      = "WikiFM - Common files";
+    $wgSitename      = "WikiToLearn - Common files";
     $wgLanguageCode     = "en";
     require_once("$IP/../secrets/poolwikifm.php");
 } else if ( $wiki === 'fr.wikifm.org') {
-    $wgSitename      = "WikiFM - Le savoir grandit seulement s'il est partag&eacute;";
+    $wgSitename      = "WikiToLearn - Le savoir grandit seulement s'il est partag&eacute;";
     $wgLanguageCode     = "fr";
     require_once("$IP/../secrets/frwikifm.php");
 } else if ( $wiki === 'es.wikifm.org') {
-    $wgSitename      = "WikiFM - El conocimiento solo crece cuando es compartido";
+    $wgSitename      = "WikiToLearn - El conocimiento solo crece cuando es compartido";
     $wgLanguageCode     = "es";
     require_once("$IP/../secrets/eswikifm.php");
 } else if ( $wiki === 'de.wikifm.org') {
-    $wgSitename      = "WikiFM - Nur wenn Wissen geteilt wird kann neues enstehen";
+    $wgSitename      = "WikiToLearn - Nur wenn Wissen geteilt wird kann neues enstehen";
     $wgLanguageCode     = "de";
     require_once("$IP/../secrets/dewikifm.php");
 }
+
+$wgLogo             = "$wgStylePath/Neverland/images/logos/$wgLanguageCode.png";
 
 $wgForeignFileRepos[] = array(
     'class' => 'ForeignDBRepo',
