@@ -382,7 +382,13 @@ require_once "$IP/extensions/Gadgets/Gadgets.php";
 
 require_once "$IP/extensions/DockerAccess/DockerAccess.php";
 
-$virtualFactoryURL = "http://mobile.mib.infn.it:8080";
-$virtualFactoryImages = array( 'novnc' => "LXDE basic image" );
+$virtualFactoryURL = "http://dockers.wikifm.org";
+$virtualFactoryImages = array(
+    'novnc' => "Minimal LXDE image",
+    'novnc-kde' => "KDE Development Image",
+    'qt5' => "Qt5 Development Image",
+    'root' => "ROOT Basic Image",
+    'monicelli' => "Test image for Monicelli/QtRoot",
+);
 
 require_once("$IP/../secrets/secrets.php");
