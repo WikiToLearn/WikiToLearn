@@ -1,4 +1,8 @@
 #!/bin/bash
+if [[ "$INSTANCE_NAME" == "" ]] ; then
+ INSTANCE_NAME="wikitolearn"
+fi
+
 WIKITOLEARN_DIR=""
 if [[ "$1" != "" ]] ; then
  WIKITOLEARN_DIR="$(readlink -f $1)"
@@ -13,11 +17,11 @@ else
  echo "Use "$WIKITOLEARN_DIR" as WikiToLearn dir"
 fi
 
-docker inspect wikitolearn-websrv &> /dev/null
+docker inspect ${INSTANCE_NAME}-websrv &> /dev/null
 if [[ $? -eq 0 ]] ; then
- WIKITOLEARN_DIR_OLD=$(docker inspect -f "{{ .HostConfig.Binds }}" wikitolearn-websrv  | awk -F":" '{ print $1 }' | cut -c 2-)
+ WIKITOLEARN_DIR_OLD=$(docker inspect -f "{{ .HostConfig.Binds }}" ${INSTANCE_NAME}-websrv  | awk -F":" '{ print $1 }' | cut -c 2-)
  if [[ $WIKITOLEARN_DIR != $WIKITOLEARN_DIR_OLD ]] ; then
-  echo "You must destroy old wikitolearn-websrv to change working dir"
+  echo "You must destroy old ${INSTANCE_NAME}-websrv to change working dir"
   exit 1
  fi
 fi
@@ -35,39 +39,39 @@ fi
 #docker pull mysql:5.6
 
 # run mamecached
-docker ps | grep wikitolearn-memcached &> /dev/null
+docker ps | grep ${INSTANCE_NAME}-memcached &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep wikitolearn-memcached &> /dev/null
+ docker ps -a | grep ${INSTANCE_NAME}-memcached &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start wikitolearn-memcached
+  docker start ${INSTANCE_NAME}-memcached
  else
-  docker run --hostname memcached.wikitolearn.org --name wikitolearn-memcached -d memcached
+  docker run --hostname memcached.wikitolearn.org --name ${INSTANCE_NAME}-memcached -d memcached
  fi
 fi
 
 
-docker ps | grep wikitolearn-mailsrv &> /dev/null
+docker ps | grep ${INSTANCE_NAME}-mailsrv &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep wikitolearn-mailsrv &> /dev/null
+ docker ps -a | grep ${INSTANCE_NAME}-mailsrv &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start wikitolearn-mailsrv
+  docker start ${INSTANCE_NAME}-mailsrv
  else
-  docker run --hostname mail.wikitolearn.org --name wikitolearn-mailsrv -d wikifm/mailsrv
+  docker run --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv
  fi
 fi
 
 
 # run mysql and init
-docker ps | grep wikitolearn-mysql &> /dev/null
+docker ps | grep ${INSTANCE_NAME}-mysql &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep wikitolearn-mysql &> /dev/null
+ docker ps -a | grep ${INSTANCE_NAME}-mysql &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start wikitolearn-mysql
+  docker start ${INSTANCE_NAME}-mysql
  else
   test -d configs/secrets/ || mkdir -p configs/secrets/
   ROOT_PWD=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32 )
-  docker run --hostname mysql.wikitolearn.org --name wikitolearn-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d mysql:5.6
-  IP=$(docker inspect wikitolearn-mysql  | grep \"IPAddress\" | grep  -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)')
+  docker run --hostname mysql.wikitolearn.org --name ${INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d mysql:5.6
+  IP=$(docker inspect ${INSTANCE_NAME}-mysql  | grep \"IPAddress\" | grep  -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)')
   echo "[client]" > configs/my.cnf
   echo "user=root" >> configs/my.cnf
   echo "password=$ROOT_PWD" >> configs/my.cnf
@@ -99,6 +103,7 @@ if [[ $? -ne 0 ]] ; then
     echo "<?php"
     echo "\$wgDBuser='"$user"';"
     echo "\$wgDBpassword='"$pass"';"
+    echo "\$wgDBname='"$db"';"
     echo "?>"
    } > configs/secrets/$db.php
   done
@@ -106,22 +111,22 @@ if [[ $? -ne 0 ]] ; then
 fi
 
 # run ocg docker
-docker ps | grep wikitolearn-ocg &> /dev/null
+docker ps | grep ${INSTANCE_NAME}-ocg &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep wikitolearn-ocg &> /dev/null
+ docker ps -a | grep ${INSTANCE_NAME}-ocg &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start wikitolearn-ocg
+  docker start ${INSTANCE_NAME}-ocg
  else
-  docker run --hostname ocg.wikitolearn.org --name wikitolearn-ocg -p 8000:8000 -d wikifm/ocg
+  docker run --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -p 8000:8000 -d wikifm/ocg
  fi
 fi
 
 # run websrv docker linked to other
-docker ps | grep wikitolearn-websrv &> /dev/null
+docker ps | grep ${INSTANCE_NAME}-websrv &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep wikitolearn-websrv &> /dev/null
+ docker ps -a | grep ${INSTANCE_NAME}-websrv &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start wikitolearn-websrv
+  docker start ${INSTANCE_NAME}-websrv
  else
 cat > configs/secrets/secrets.php << EOL
 <?php
@@ -134,14 +139,14 @@ cat > configs/secrets/secrets.php << EOL
 ?>
 EOL
 
-  docker run --hostname websrv.wikitolearn.org -v $WIKITOLEARN_DIR:/srv/WikiToLearn --name wikitolearn-websrv \
+  docker run --hostname websrv.wikitolearn.org -v $WIKITOLEARN_DIR:/srv/WikiToLearn --name ${INSTANCE_NAME}-websrv \
    -e UID=$(id -u) \
    -e GID=$(id -g) \
    --privileged=true \
-   --link wikitolearn-mysql:mysql \
-   --link wikitolearn-memcached:memcached \
-   --link wikitolearn-ocg:ocg \
-   --link wikitolearn-mailsrv:mail \
+   --link ${INSTANCE_NAME}-mysql:mysql \
+   --link ${INSTANCE_NAME}-memcached:memcached \
+   --link ${INSTANCE_NAME}-ocg:ocg \
+   --link ${INSTANCE_NAME}-mailsrv:mail \
    -p 80:80 -p 443:443 -d wikifm/websrv
  fi
 fi

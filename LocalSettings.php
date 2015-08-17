@@ -10,7 +10,7 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
-$IP = "/var/www/WikiFM/mediawiki/";
+$IP = "/var/www/WikiToLearn/mediawiki/";
 
 # Protect against web entry
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -34,7 +34,7 @@ require_once( "$IP/extensions/googleAnalytics/googleAnalytics.php" );
 
 $wgMetaNamespace = "Project";
 
-$wgCookieDomain = '.wikifm.org';
+$wgCookieDomain = '.wikitolearn.org';
 $wgSecureLogin	= true;
 // $wgCookieSecure = true;
 
@@ -80,7 +80,7 @@ $wiki = strtolower( $wiki );
 $wgDBtype           = "mysql";
 $wgDBserver         = "mysql";
 
-$wgSharedDB = 'sharedwikifm'; # The $wgDBname for the wiki database holding the main user table
+$wgSharedDB = 'sharedwikitolearn'; # The $wgDBname for the wiki database holding the main user table
 $wgSharedTables[] = array( 'user', 'user_properties', 'user_groups', 'interwiki', 'iwlinks');
 
 $arr = array (
@@ -91,33 +91,33 @@ foreach ( $arr as $key => $value ) {
 }
 
 # Site language code, should be one of ./languages/Language(.*).php
-# Make sure you give permission to sharedwikifm database to the user in question.
+# Make sure you give permission to sharedwikitolearn database to the user in question.
 
 $wgLanguageCode = "en"; // Default
-if ( $wiki === 'it.wikifm.org') {
+if ( $wiki === 'it.wikitolearn.org') {
     $wgSitename      = "WikiToLearn - Il sapere si accresce solo se condiviso";
     $wgLanguageCode     = "it";
-    require_once("$IP/../secrets/itwikifm.php");
-} else if ( $wiki === 'en.wikifm.org') {
+    require_once("$IP/../secrets/itwikitolearn.php");
+} else if ( $wiki === 'en.wikitolearn.org') {
     $wgSitename      = "WikiToLearn - Knowledge only grows if shared";
     $wgLanguageCode     = "en";
-    require_once("$IP/../secrets/enwikifm.php");
-} else if ( $wiki === 'pool.wikifm.org') {
+    require_once("$IP/../secrets/enwikitolearn.php");
+} else if ( $wiki === 'pool.wikitolearn.org') {
     $wgSitename      = "WikiToLearn - Common files";
     $wgLanguageCode     = "en";
-    require_once("$IP/../secrets/poolwikifm.php");
-} else if ( $wiki === 'fr.wikifm.org') {
+    require_once("$IP/../secrets/poolwikitolearn.php");
+} else if ( $wiki === 'fr.wikitolearn.org') {
     $wgSitename      = "WikiToLearn - Le savoir grandit seulement s'il est partag&eacute;";
     $wgLanguageCode     = "fr";
-    require_once("$IP/../secrets/frwikifm.php");
-} else if ( $wiki === 'es.wikifm.org') {
+    require_once("$IP/../secrets/frwikitolearn.php");
+} else if ( $wiki === 'es.wikitolearn.org') {
     $wgSitename      = "WikiToLearn - El conocimiento solo crece cuando es compartido";
     $wgLanguageCode     = "es";
-    require_once("$IP/../secrets/eswikifm.php");
-} else if ( $wiki === 'de.wikifm.org') {
+    require_once("$IP/../secrets/eswikitolearn.php");
+} else if ( $wiki === 'de.wikitolearn.org') {
     $wgSitename      = "WikiToLearn - Nur wenn Wissen geteilt wird kann neues enstehen";
     $wgLanguageCode     = "de";
-    require_once("$IP/../secrets/dewikifm.php");
+    require_once("$IP/../secrets/dewikitolearn.php");
 }
 
 $wgLogo             = "$wgStylePath/Neverland/images/logos/$wgLanguageCode.png";
@@ -125,23 +125,24 @@ $wgLogo             = "$wgStylePath/Neverland/images/logos/$wgLanguageCode.png";
 $wgForeignFileRepos[] = array(
     'class' => 'ForeignDBRepo',
     'name' => 'poolwiki',
-    'url' => "http://pool.wikifm.org/images/uploads",
-    'directory' => '/var/www/WikiFM/mediawiki/images/uploads/',
+    'url' => "http://pool.wikitolearn.org/images/uploads",
+    'directory' => '/var/www/wikitolearn/mediawiki/images/uploads/',
     'hashLevels' => 2, // This must be the same for the other family member
     'dbType' => $wgDBtype,
     'dbServer' => $wgDBserver,
     'dbUser' => $wgDBuser,
     'dbPassword' => $wgDBpassword,
     'dbFlags' => DBO_DEFAULT,
-    'dbName' => 'poolwikifm',
+    'dbName' => 'poolwikitolearn',
     'tablePrefix' => '',
     'hasSharedCache' => true,
-    'descBaseUrl' => 'http://pool.wikifm.org/Image:',
+    'descBaseUrl' => 'http://pool.wikitolearn.org/Image:',
     'fetchDescription' => false
 );
 
-
-$wgDBname = $wgDBuser;
+if(!isset($wgDBname)) {
+ $wgDBname = $wgDBuser;
+}
 
 ## Shared memory settings
 $wgMainCacheType    = CACHE_NONE;
@@ -185,11 +186,11 @@ $wgShellLocale = "en_US.utf8";
 #$wgCacheDirectory = "$IP/cache";
 
 $wgUseSharedUploads = true;
-$wgSharedUploadPath = 'http://pool.wikifm.org/images';
+$wgSharedUploadPath = 'http://pool.wikitolearn.org/images';
 $wgSharedUploadDirectory = '$IP/images/';
 $wgHashedSharedUploadDirectory = true;
-$wgUploadNavigationUrl = "http://pool.wikifm.org/index.php/Special:Upload";
-$wgUploadMissingFileUrl= "http://pool.wikifm.org/index.php/Special:Upload";
+$wgUploadNavigationUrl = "http://pool.wikitolearn.org/index.php/Special:Upload";
+$wgUploadMissingFileUrl= "http://pool.wikitolearn.org/index.php/Special:Upload";
 
 // require_once "$IP/extensions/Interwiki/Interwiki.php";
 // $wgGroupPermissions['sysop']['interwiki'] = true;
@@ -206,7 +207,7 @@ $wgDefaultSkin = "vector";
 $wgEnableCreativeCommonsRdf = true;
 $wgRightsPage = "Project:Copyright"; # Set to the title of a wiki page that describes your license/copyright
 $wgRightsUrl  = "http://creativecommons.org/licenses/by-sa/3.0/";
-// $wgRightsUrl  = "//www.wikifm.org/index.php/Project:Copyright";
+// $wgRightsUrl  = "//www.wikitolearn.org/index.php/Project:Copyright";
 $wgRightsText = "Creative Commons Attribution Share Alike 3.0 &amp; GNU FDL";
 $wgRightsIcon = "{$wgStylePath}/common/images/cc-by-sa.png";
 // $wgRightsIcon = "{$wgStylePath}/common/images/gfdlcc.png";
@@ -252,7 +253,7 @@ $wgMaxUploadSize = 2147483648;
 # Protect only uploads // FIXME
 $wgUploadPath = "{$wgScriptPath}/images/uploads";
 $wgUploadDirectory = "images/uploads";
-$wgAllowExternalImagesFrom = array('http://www.wikifm.org/', 'http://www.pledgie.com');
+$wgAllowExternalImagesFrom = array('http://www.wikitolearn.org/', 'http://www.pledgie.com');
 $wgTmpDirectory  = "images/tmp";
 
 $wgUseETag = true;
@@ -383,7 +384,7 @@ require_once "$IP/extensions/Gadgets/Gadgets.php";
 
 require_once "$IP/extensions/DockerAccess/DockerAccess.php";
 
-$virtualFactoryURL = "http://dockers.wikifm.org";
+$virtualFactoryURL = "http://dockers.wikitolearn.org";
 $virtualFactoryImages = array(
     'novnc' => "Minimal LXDE image",
     'novnc-kde' => "KDE Development Image",

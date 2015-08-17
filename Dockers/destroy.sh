@@ -1,4 +1,8 @@
 #!/bin/bash
+if [[ "$INSTANCE_NAME" == "" ]] ; then
+ INSTANCE_NAME="wikitolearn"
+fi
+
 REPLY=""
 REPLY="y"
 
@@ -21,7 +25,7 @@ then
  if [[ $REPLY =~ ^[Yy]$ ]]
  then
   echo "ok, I'm doing..."
-  for d in  wikitolearn-ocg wikitolearn-mysql wikitolearn-mailsrv wikitolearn-memcached wikitolearn-websrv
+  for d in  ${INSTANCE_NAME}-ocg ${INSTANCE_NAME}-mysql ${INSTANCE_NAME}-mailsrv ${INSTANCE_NAME}-memcached ${INSTANCE_NAME}-websrv
   do
    echo "Deleting "$d
    docker stop $d && docker rm $d

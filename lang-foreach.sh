@@ -9,6 +9,6 @@ langlist="it en pool fr es de"
 
 for lang in $langlist; do
 
-  WIKI="$lang.wikifm.org" php $CWD/mediawiki/maintenance/"$@"
+  WIKI="$lang.wikitolearn.org" php $CWD/mediawiki/maintenance/"$@"
   
 done;
