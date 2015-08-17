@@ -199,16 +199,17 @@ $wgUploadMissingFileUrl= "http://pool.wikifm.org/index.php/Special:Upload";
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
 $wgDefaultSkin = "vector";
 
+
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
 $wgEnableCreativeCommonsRdf = true;
 $wgRightsPage = "Project:Copyright"; # Set to the title of a wiki page that describes your license/copyright
 $wgRightsUrl  = "http://creativecommons.org/licenses/by-sa/3.0/";
-$wgRightsUrl  = "//www.wikifm.org/index.php/Project:Copyright";
+// $wgRightsUrl  = "//www.wikifm.org/index.php/Project:Copyright";
 $wgRightsText = "Creative Commons Attribution Share Alike 3.0 &amp; GNU FDL";
-$wgRightsIcon = "{$wgStylePath}/common/images/cc-by-sa.pn";
-$wgRightsIcon = "{$wgStylePath}/common/images/gfdlcc.png";
+$wgRightsIcon = "{$wgStylePath}/common/images/cc-by-sa.png";
+// $wgRightsIcon = "{$wgStylePath}/common/images/gfdlcc.png";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
@@ -375,7 +376,7 @@ $wgCollectionFormats = array(
 	'rdf2text' => 'Plain text',
 );
 
-$wgLicenseURL = "http://creativecommons.org/licenses/by-sa/3.0/";
+$wgLicenseURL = "//creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array( 'rdf2latex', 'rdf2text' );
 
 require_once "$IP/extensions/Gadgets/Gadgets.php";
