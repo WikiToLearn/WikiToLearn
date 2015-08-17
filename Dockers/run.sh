@@ -91,7 +91,7 @@ if [[ $? -ne 0 ]] ; then
 
   mysql --defaults-file=configs/my.cnf -h $IP -e "show databases like '%wiki%';" | grep wikitolearn | while read db; do
    pass=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32)
-   user=$db
+   user=${db::-11}
    {
     echo "GRANT ALL PRIVILEGES ON * . * TO '"$user"'@'172.17.%' IDENTIFIED BY '"$pass"';"
    } | mysql --defaults-file=configs/my.cnf -h $IP
