@@ -21,7 +21,7 @@ then
  if [[ $REPLY =~ ^[Yy]$ ]]
  then
   echo "ok, I'm doing..."
-  for d in  wikifm-ocg wikifm-mysql wikifm-mailsrv wikifm-memcached wikifm-websrv
+  for d in  wikitolearn-ocg wikitolearn-mysql wikitolearn-mailsrv wikitolearn-memcached wikitolearn-websrv
   do
    echo "Deleting "$d
    docker stop $d && docker rm $d

@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec -ti wikifm-websrv /var/www/WikiFM/init-docker.sh
+docker exec -ti wikitolearn-websrv /var/www/WikiToLearn/init-docker.sh
