@@ -1,4 +1,11 @@
 #!/bin/bash
+
+which mysql &> /dev/null
+if [[ $? -ne 0 ]] ; then
+ echo "'mysql' command not found"
+ exit 1
+fi
+
 if [[ "$INSTANCE_NAME" == "" ]] ; then
  INSTANCE_NAME="wikitolearn"
 fi
@@ -38,6 +45,12 @@ fi
 #docker pull memcached
 #docker pull mysql:5.6
 
+if [[ "$PROD" == "1" ]] ; then
+	export MORE_ARGS=" --restart=always "
+else
+	export MORE_ARGS=""
+fi
+
 # run mamecached
 docker ps | grep ${INSTANCE_NAME}-memcached &> /dev/null
 if [[ $? -ne 0 ]] ; then
@@ -45,7 +58,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-memcached
  else
-  docker run --hostname memcached.wikitolearn.org --name ${INSTANCE_NAME}-memcached -d memcached
+  docker run $MORE_ARGS --hostname memcached.wikitolearn.org --name ${INSTANCE_NAME}-memcached -d memcached
  fi
 fi
 
@@ -56,7 +69,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-mailsrv
  else
-  docker run --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv
+  docker run $MORE_ARGS --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv
  fi
 fi
 
@@ -70,7 +83,7 @@ if [[ $? -ne 0 ]] ; then
  else
   test -d configs/secrets/ || mkdir -p configs/secrets/
   ROOT_PWD=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32 )
-  docker run --hostname mysql.wikitolearn.org --name ${INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d mysql:5.6
+  docker run $MORE_ARGS --hostname mysql.wikitolearn.org --name ${INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d mysql:5.6
   IP=$(docker inspect ${INSTANCE_NAME}-mysql  | grep \"IPAddress\" | grep  -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)')
   echo "[client]" > configs/my.cnf
   echo "user=root" >> configs/my.cnf
@@ -118,7 +131,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-ocg
  else
-  docker run --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -p 8000:8000 -d wikifm/ocg
+  docker run $MORE_ARGS --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -p 8000:8000 -d wikifm/ocg
  fi
 fi
 
@@ -140,7 +153,7 @@ cat > configs/secrets/secrets.php << EOL
 ?>
 EOL
 
-  docker run --hostname websrv.wikitolearn.org -v $WIKITOLEARN_DIR:/srv/WikiToLearn --name ${INSTANCE_NAME}-websrv \
+  docker run $MORE_ARGS --hostname websrv.wikitolearn.org -v $WIKITOLEARN_DIR:/srv/WikiToLearn --name ${INSTANCE_NAME}-websrv \
    -e UID=$(id -u) \
    -e GID=$(id -g) \
    --privileged=true \
