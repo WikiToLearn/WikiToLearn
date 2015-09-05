@@ -19,7 +19,7 @@
 	url = git://github.com/wikimedia/mediawiki-extensions-Collection.git
 [submodule "extensions/Math"]
 	path = extensions/Math
-	url = git://github.com/wikimedia/mediawiki-extensions-Math.git
+	url = git://github.com/WikiFM/Math.git
 [submodule "extensions/WikiEditor"]
 	path = extensions/WikiEditor
 	url = git://github.com/wikimedia/mediawiki-extensions-WikiEditor.git
