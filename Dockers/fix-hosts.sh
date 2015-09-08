@@ -13,7 +13,7 @@ for docker in ${INSTANCE_NAME}-websrv ${INSTANCE_NAME}-ocg ; do
   echo $WEBSRV_IP" "$web_host | docker exec -i $docker tee -a /etc/hosts
  done
 
- for ocg_host in ocg.wikitolearn.org ; do
+ for ocg_host in ocg ocg.wikitolearn.org ; do
   docker exec $docker sed '/'$ocg_host'/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
   docker exec $docker cat /tmp/tmp_hosts | docker exec -i $docker tee /etc/hosts
   echo $OCG_IP" "$ocg_host | docker exec -i $docker tee -a /etc/hosts
