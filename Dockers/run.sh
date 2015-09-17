@@ -1,13 +1,11 @@
 #!/bin/bash
 
+cd "$(dirname "$(readlink "$0" || printf %s "$0")")"
+
 which mysql &> /dev/null
 if [[ $? -ne 0 ]] ; then
  echo "'mysql' command not found"
  exit 1
-fi
-
-if [[ "$INSTANCE_NAME" == "" ]] ; then
- INSTANCE_NAME="wikitolearn"
 fi
 
 WIKITOLEARN_DIR=""
@@ -15,6 +13,14 @@ if [[ "$1" != "" ]] ; then
  WIKITOLEARN_DIR="$(readlink -f $1)"
 else
  WIKITOLEARN_DIR=$(readlink -f $(dirname $(readlink -f $0))"/..")
+fi
+
+if [[ -f instance_name.conf ]] ; then
+ . ./instance_name.conf
+fi
+
+if [[ "$INSTANCE_NAME" == "" ]] ; then
+ INSTANCE_NAME="wikitolearn"
 fi
 
 if [[ ! -d $WIKITOLEARN_DIR ]] || [[ "$WIKITOLEARN_DIR" == "" ]] ; then
@@ -39,16 +45,10 @@ if [[ ! -d $WIKITOLEARN_DIR ]] ; then
  exit
 fi
 
-#docker pull wikifm/ocg
-#docker pull wikifm/mailsrv
-#docker pull wikifm/websrv
-#docker pull memcached
-#docker pull mysql:5.6
-
 if [[ "$PROD" == "1" ]] ; then
-	export MORE_ARGS=" --restart=always "
+	export MORE_ARGS=" --restart=always -e PROD=1 "
 else
-	export MORE_ARGS=""
+	export MORE_ARGS=" -e DEV=1"
 fi
 
 # run mamecached
@@ -58,7 +58,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-memcached
  else
-  docker run $MORE_ARGS --hostname memcached.wikitolearn.org --name ${INSTANCE_NAME}-memcached -d memcached
+  docker run $MORE_ARGS --hostname memcached.wikitolearn.org --name ${INSTANCE_NAME}-memcached -d memcached:1.4.24
  fi
 fi
 
@@ -69,10 +69,14 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-mailsrv
  else
-  docker run $MORE_ARGS --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv
+  docker run $MORE_ARGS --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv:0.1
  fi
 fi
 
+echo sysadmin:$MAIL_PASSWORD | docker exec -ti ${INSTANCE_NAME}-mailsrv chpasswd
+
+echo "Email Username: sysadmin"
+echo "Email Password: "$MAIL_PASSWORD
 
 # run mysql and init
 docker ps | grep ${INSTANCE_NAME}-mysql &> /dev/null
@@ -131,7 +135,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-ocg
  else
-  docker run $MORE_ARGS --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -p 8000:8000 -d wikifm/ocg
+  docker run $MORE_ARGS --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -p 8000:8000 -d wikifm/ocg:0.1
  fi
 fi
 
@@ -161,6 +165,6 @@ EOL
    --link ${INSTANCE_NAME}-memcached:memcached \
    --link ${INSTANCE_NAME}-ocg:ocg \
    --link ${INSTANCE_NAME}-mailsrv:mail \
-   -p 80:80 -p 443:443 -d wikifm/websrv
+   -p 80:80 -p 443:443 -d wikifm/websrv:0.1
  fi
 fi
