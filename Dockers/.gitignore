@@ -1,3 +1,4 @@
 configs/*
 backups/*
+haproxy.cfg
 !.placeholder
