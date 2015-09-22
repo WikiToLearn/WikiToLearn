@@ -69,11 +69,11 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-mailsrv
  else
-  docker run -ti $MORE_ARGS --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv:0.1
+  docker run -ti $MORE_ARGS --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv
  fi
 fi
 MAIL_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
-echo sysadmin:$MAIL_PASSWORD | docker exec -ti ${INSTANCE_NAME}-mailsrv chpasswd
+echo sysadmin:$MAIL_PASSWORD | docker exec -i ${INSTANCE_NAME}-mailsrv chpasswd
 
 echo "Email Username: sysadmin"
 echo "Email Password: "$MAIL_PASSWORD
@@ -107,6 +107,7 @@ if [[ $? -ne 0 ]] ; then
    echo "CREATE DATABASE IF NOT EXISTS frwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS itwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS ptwikitolearn;"
+   echo "CREATE DATABASE IF NOT EXISTS svwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS poolwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS sharedwikitolearn;"
   } | mysql --defaults-file=configs/my.cnf -h $IP
@@ -135,7 +136,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-ocg
  else
-  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -d wikifm/ocg:0.1
+  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -d wikifm/ocg
  fi
 fi
 
@@ -165,6 +166,6 @@ EOL
    --link ${INSTANCE_NAME}-memcached:memcached \
    --link ${INSTANCE_NAME}-ocg:ocg \
    --link ${INSTANCE_NAME}-mailsrv:mail \
-   -d wikifm/websrv:0.1
+   -d wikifm/websrv
  fi
 fi

@@ -394,3 +394,6 @@ $virtualFactoryImages = array(
 );
 
 require_once("$IP/../secrets/secrets.php");
+$wgReadOnly = 'This wiki is currently being restored';
+$wgReadOnly = 'This wiki is currently being restored';
+$wgReadOnly = 'This wiki is currently being restored';
