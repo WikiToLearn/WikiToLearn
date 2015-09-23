@@ -69,7 +69,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-mailsrv
  else
-  docker run -ti $MORE_ARGS --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv
+  docker run -ti $MORE_ARGS --hostname mail.wikitolearn.org --name ${INSTANCE_NAME}-mailsrv -d wikifm/mailsrv:0.3
  fi
 fi
 MAIL_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
@@ -136,7 +136,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${INSTANCE_NAME}-ocg
  else
-  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -d wikifm/ocg
+  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org --name ${INSTANCE_NAME}-ocg -d wikifm/ocg:0.2
  fi
 fi
 
@@ -166,6 +166,6 @@ EOL
    --link ${INSTANCE_NAME}-memcached:memcached \
    --link ${INSTANCE_NAME}-ocg:ocg \
    --link ${INSTANCE_NAME}-mailsrv:mail \
-   -d wikifm/websrv
+   -d wikifm/websrv:0.2
  fi
 fi
