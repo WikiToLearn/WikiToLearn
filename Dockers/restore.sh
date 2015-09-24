@@ -41,10 +41,18 @@ for db in $(docker exec -ti ${INSTANCE_NAME}-mysql mysql -e "SHOW DATABASES" | g
  BACKUP_FILE_STRUCT=$BACKUP_FILE".struct.sql"
  BACKUP_FILE_DATA=$BACKUP_FILE".data.sql"
 
- cat $BACKUP_FILE_STRUCT | docker exec -i ${INSTANCE_NAME}-mysql mysql $db
- cat $BACKUP_FILE_DATA | docker exec -i ${INSTANCE_NAME}-mysql mysql $db
+ if [ -f $BACKUP_FILE_STRUCT ] ; then
+  cat $BACKUP_FILE_STRUCT | docker exec -i ${INSTANCE_NAME}-mysql mysql $db
+ else
+  echo "Missing "$BACKUP_FILE_STRUCT
+ fi
+ if [ -f $BACKUP_FILE_DATA ] ; then
+  cat $BACKUP_FILE_DATA | docker exec -i ${INSTANCE_NAME}-mysql mysql $db
+ else
+  echo "Missing "$BACKUP_FILE_DATA
+ fi
 done
 
-rsync --stats -av ${BACKUP_DIR}"/images" ../mediawiki/images/
+rsync --stats -av ${BACKUP_DIR}"/images/" ../mediawiki/images/
 
 sed -i "/\$wgReadOnly = 'This wiki is currently being backuped';/d" ../LocalSettings.php
