@@ -120,6 +120,7 @@ if ( $wiki === 'it.wikitolearn.org') {
     require_once("$IP/../secrets/dewikitolearn.php");
 }
 
+$wgSitename = "WikiToLearn - collaborative textbooks";
 $wgLogo             = "$wgStylePath/Neverland/images/logos/$wgLanguageCode.png";
 
 $wgForeignFileRepos[] = array(
