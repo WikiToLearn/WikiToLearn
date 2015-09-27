@@ -394,4 +394,7 @@ $virtualFactoryImages = array(
     'monicelli' => "Test image for Monicelli/QtRoot",
 );
 
+require_once "$IP/extensions/Theorems/Theorems.php";
+
 require_once("$IP/../secrets/secrets.php");
+

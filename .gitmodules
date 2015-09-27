@@ -71,3 +71,7 @@
 [submodule "extensions/Gadgets"]
 	path = extensions/Gadgets
 	url = git://github.com/wikimedia/mediawiki-extensions-Gadgets.git
+[submodule "extensions/Theorems"]
+	path = extensions/Theorems
+    pushurl = git@github.com/WikiToLearn/Theorems
+	url = git://github.com/WikiToLearn/Theorems
