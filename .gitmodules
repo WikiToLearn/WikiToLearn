@@ -1,4 +1,5 @@
 [submodule "mediawiki"]
+    depth = 1
 	path = mediawiki
 	url = git://github.com/wikimedia/mediawiki
 	ignore = dirty
