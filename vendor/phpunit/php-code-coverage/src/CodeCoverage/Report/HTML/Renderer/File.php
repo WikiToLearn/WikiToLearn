@@ -38,18 +38,18 @@ if (!defined('T_YIELD')) {
 class PHP_CodeCoverage_Report_HTML_Renderer_File extends PHP_CodeCoverage_Report_HTML_Renderer
 {
     /**
-     * @var integer
+     * @var int
      */
     private $htmlspecialcharsFlags;
 
     /**
      * Constructor.
      *
-     * @param string  $templatePath
-     * @param string  $generator
-     * @param string  $date
-     * @param integer $lowUpperBound
-     * @param integer $highLowerBound
+     * @param string $templatePath
+     * @param string $generator
+     * @param string $date
+     * @param int    $lowUpperBound
+     * @param int    $highLowerBound
      */
     public function __construct($templatePath, $generator, $date, $lowUpperBound, $highLowerBound)
     {
@@ -439,7 +439,7 @@ class PHP_CodeCoverage_Report_HTML_Renderer_File extends PHP_CodeCoverage_Report
                 continue;
             }
 
-            list ($token, $value) = $token;
+            list($token, $value) = $token;
 
             $value = str_replace(
                 array("\t", ' '),

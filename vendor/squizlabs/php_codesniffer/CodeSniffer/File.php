@@ -1511,7 +1511,7 @@ class PHP_CodeSniffer_File
                 // There are no tabs in this content, or we aren't replacing them.
                 if ($checkEncoding === true) {
                     // Not using the default encoding, so take a bit more care.
-                    $length = iconv_strlen($tokens[$i]['content'], $encoding);
+                    $length = @iconv_strlen($tokens[$i]['content'], $encoding);
                     if ($length === false) {
                         // String contained invalid characters, so revert to default.
                         $length = strlen($tokens[$i]['content']);
@@ -2083,6 +2083,17 @@ class PHP_CodeSniffer_File
                             $type = $tokens[$stackPtr]['type'];
                             echo str_repeat("\t", $depth);
                             echo "=> Found function before scope opener for $stackPtr:$type, processing manually".PHP_EOL;
+                        }
+
+                        if (isset($tokens[$i]['scope_closer']) === true) {
+                            // We've already processed this closure.
+                            if (PHP_CODESNIFFER_VERBOSITY > 1) {
+                                echo str_repeat("\t", $depth);
+                                echo '* already processed, skipping *'.PHP_EOL;
+                            }
+
+                            $i = $tokens[$i]['scope_closer'];
+                            continue;
                         }
 
                         $i = self::_recurseScopeMap(
@@ -2717,14 +2728,21 @@ class PHP_CodeSniffer_File
         $typeHint        = '';
 
         for ($i = ($opener + 1); $i <= $closer; $i++) {
-            // Check to see if this token has a parenthesis opener. If it does
-            // its likely to be an array, which might have arguments in it, which
-            // we cause problems in our parsing below, so lets just skip to the
+            // Check to see if this token has a parenthesis or bracket opener. If it does
+            // it's likely to be an array which might have arguments in it. This
+            // could cause problems in our parsing below, so lets just skip to the
             // end of it.
             if (isset($this->_tokens[$i]['parenthesis_opener']) === true) {
                 // Don't do this if it's the close parenthesis for the method.
                 if ($i !== $this->_tokens[$i]['parenthesis_closer']) {
                     $i = ($this->_tokens[$i]['parenthesis_closer'] + 1);
+                }
+            }
+
+            if (isset($this->_tokens[$i]['bracket_opener']) === true) {
+                // Don't do this if it's the close parenthesis for the method.
+                if ($i !== $this->_tokens[$i]['bracket_closer']) {
+                    $i = ($this->_tokens[$i]['bracket_closer'] + 1);
                 }
             }
 
