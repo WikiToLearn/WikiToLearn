@@ -6,6 +6,11 @@ if [[ -f instance_name.conf ]] ; then
  . ./instance_name.conf
 fi
 
+if [[ "$INSTANCE_NAME" == "" ]] ; then
+    INSTANCE_NAME="wikitolearn-dev"
+fi
+
+
 echo "Bringing up "$INSTANCE_NAME"..."
 
 {

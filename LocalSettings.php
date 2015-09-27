@@ -337,15 +337,15 @@ require_once("$IP/extensions/Nuke/Nuke.php");
 
 require_once( "$IP/extensions/Echo/Echo.php" );
 
-require_once("$IP/extensions/FlaggedRevs/FlaggedRevs.php");
-$wgGroupPermissions['sysop']['review'] = true; //allow administrators to review revisions
-$wgFlaggedRevsOverride = false;
+// require_once("$IP/extensions/FlaggedRevs/FlaggedRevs.php");
+// $wgGroupPermissions['sysop']['review'] = true; //allow administrators to review revisions
+// $wgFlaggedRevsOverride = false;
 
 $wgAllowImageTag =true;
 
 require_once("$IP/extensions/CategorySuggest/CategorySuggest.php");
 
-//require_once("$IP/extensions/VisualEditor/VisualEditor.php")
+require_once("$IP/extensions/VisualEditor/VisualEditor.php");
 
 // require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
 // require_once( "$IP/extensions/SubPageList/SubPageList.php" );
