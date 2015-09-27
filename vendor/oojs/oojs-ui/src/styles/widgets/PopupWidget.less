@@ -1,0 +1,49 @@
+@import '../common';
+
+.oo-ui-popupWidget {
+	position: absolute;
+	/* @noflip */
+	left: 0;
+
+	&-popup {
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+	}
+
+	&-anchor {
+		display: none;
+		z-index: 1;
+	}
+
+	&-anchored {
+		.oo-ui-popupWidget-anchor {
+			display: block;
+			position: absolute;
+			top: 0;
+			/* @noflip */
+			left: 0;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&-head {
+		.oo-ui-unselectable();
+
+		.oo-ui-buttonWidget {
+			float: right;
+		}
+
+		.oo-ui-labelElement-label {
+			float: left;
+			cursor: default;
+		}
+	}
+
+	&-body {
+		clear: both;
+		overflow: hidden;
+	}
+
+	.theme-oo-ui-popupWidget();
+}

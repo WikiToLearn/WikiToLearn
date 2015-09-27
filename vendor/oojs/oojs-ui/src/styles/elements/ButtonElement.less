@@ -1,0 +1,62 @@
+@import '../common';
+
+.oo-ui-buttonElement {
+	> .oo-ui-buttonElement-button {
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		font: inherit;
+		white-space: nowrap;
+		.oo-ui-unselectable();
+
+		> .oo-ui-iconElement-icon,
+		> .oo-ui-indicatorElement-indicator {
+			display: none;
+		}
+	}
+
+	&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+		cursor: default;
+	}
+
+	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		display: inline-block;
+		vertical-align: middle;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+	&-frameless {
+		display: inline-block;
+		position: relative;
+
+		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+
+	&-framed {
+		> .oo-ui-buttonElement-button {
+			display: inline-block;
+			vertical-align: top;
+			text-align: center;
+		}
+
+		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		&.oo-ui-widget-disabled {
+			> .oo-ui-buttonElement-button,
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+				cursor: default;
+			}
+		}
+	}
+
+	.theme-oo-ui-buttonElement();
+}

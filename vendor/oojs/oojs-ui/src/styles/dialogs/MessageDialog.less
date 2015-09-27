@@ -1,0 +1,45 @@
+@import '../common';
+
+.oo-ui-messageDialog {
+	&-actions {
+		&-horizontal {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+
+			.oo-ui-actionWidget {
+				display: table-cell;
+				width: 1%;
+			}
+		}
+
+		&-vertical {
+			display: block;
+
+			.oo-ui-actionWidget {
+				display: block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+
+		.oo-ui-actionWidget {
+			position: relative;
+			text-align: center;
+
+			.oo-ui-buttonElement-button {
+				display: block;
+			}
+
+			.oo-ui-labelElement-label {
+				position: relative;
+				top: auto;
+				bottom: auto;
+				display: inline;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.theme-oo-ui-messageDialog();
+}

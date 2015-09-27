@@ -18,7 +18,7 @@ ln -s ../LocalSettings.php mediawiki/LocalSettings.php
 ln -s ../../Neverland mediawiki/skins/Neverland
 ln -s ../extensions mediawiki/extensions
 ln -s ../favicon.ico mediawiki/favicon.ico
-
+ln -s ../vendor mediawiki/vendor
 
 
 

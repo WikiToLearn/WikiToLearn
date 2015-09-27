@@ -1,0 +1,19 @@
+@import '../common';
+
+.oo-ui-menuToolGroup {
+	.oo-ui-tool {
+		display: block;
+
+		&-link {
+			cursor: pointer;
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link {
+				cursor: default;
+			}
+		}
+	}
+
+	.theme-oo-ui-menuToolGroup();
+}

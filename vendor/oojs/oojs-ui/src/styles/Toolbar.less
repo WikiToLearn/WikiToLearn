@@ -1,0 +1,52 @@
+@import 'common';
+
+.oo-ui-toolbar {
+	clear: both;
+
+	&-bar {
+		line-height: 1em;
+		position: relative;
+	}
+
+	&-actions {
+		float: right;
+
+		.oo-ui-toolbar {
+			display: inline-block;
+		}
+	}
+
+	&-tools {
+		display: inline;
+		white-space: nowrap;
+
+		.oo-ui-toolbar-narrow & {
+			white-space: normal;
+		}
+
+		// Tools like PopupToolGroup can have a lot of content, which should be wrapped normally
+		.oo-ui-tool {
+			white-space: normal;
+		}
+	}
+
+	&-tools,
+	&-actions,
+	&-shadow {
+		.oo-ui-unselectable();
+	}
+
+	&-actions .oo-ui-popupWidget {
+		.oo-ui-selectable();
+	}
+
+	&-shadow {
+		background-position: left top;
+		background-repeat: repeat-x;
+		position: absolute;
+		width: 100%;
+		pointer-events: none;
+	}
+
+	.theme-oo-ui-toolbar();
+}

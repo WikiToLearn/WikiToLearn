@@ -1,0 +1,51 @@
+@import '../common';
+
+.oo-ui-barToolGroup {
+	> .oo-ui-iconElement-icon,
+	> .oo-ui-labelElement-label {
+		display: none;
+	}
+
+	&.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> .oo-ui-tool-link {
+			cursor: pointer;
+		}
+	}
+
+	> .oo-ui-toolGroup-tools > .oo-ui-tool {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+
+		> .oo-ui-tool-link {
+			display: block;
+
+			.oo-ui-tool-accel {
+				display: none;
+			}
+		}
+
+		&.oo-ui-iconElement > .oo-ui-tool-link {
+			.oo-ui-iconElement-icon {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.oo-ui-tool-title {
+				display: none;
+			}
+		}
+
+		&.oo-ui-iconElement.oo-ui-tool-with-label > .oo-ui-tool-link {
+			.oo-ui-tool-title {
+				display: inline;
+			}
+		}
+
+		&.oo-ui-widget-disabled > .oo-ui-tool-link {
+			cursor: default;
+		}
+	}
+
+	.theme-oo-ui-barToolGroup();
+}

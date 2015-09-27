@@ -1,0 +1,307 @@
+@import 'common';
+
+.theme-oo-ui-window () {
+	background-color: transparent;
+	background-image: none;
+}
+
+.theme-oo-ui-dialog () {
+	&-content > .oo-ui-window-body {
+		box-shadow: 0 0 0.66em rgba(0,0,0,0.25);
+	}
+}
+
+.theme-oo-ui-messageDialog () {
+	&-content {
+		.oo-ui-window-body {
+			box-shadow: 0 0 0.33em rgba(0,0,0,0.33);
+		}
+	}
+
+	&-title,
+	&-message {
+		display: block;
+		text-align: center;
+		padding-top: 0.5em;
+	}
+
+	&-title {
+		font-size: 1.5em;
+		line-height: 1em;
+		color: #000;
+	}
+
+	&-message {
+		font-size: 0.9em;
+		line-height: 1.25em;
+		color: #666;
+
+		&-verbose {
+			font-size: 1.1em;
+			line-height: 1.5em;
+			text-align: left;
+		}
+	}
+
+	&-actions {
+		&-horizontal {
+			.oo-ui-actionWidget {
+				border-right: 1px solid #e5e5e5;
+
+				&:last-child {
+					border-right-width: 0;
+				}
+			}
+		}
+
+		&-vertical {
+			.oo-ui-actionWidget {
+				border-bottom: 1px solid #e5e5e5;
+
+				&:last-child {
+					border-bottom-width: 0;
+				}
+			}
+		}
+
+		.oo-ui-actionWidget {
+			height: 3.4em;
+
+			&.oo-ui-labelElement .oo-ui-labelElement-label {
+				text-align: center;
+				line-height: 3.4em;
+				padding: 0 2em;
+			}
+
+			&:hover {
+				background-color: rgba(0,0,0,0.05);
+			}
+
+			&:active {
+				background-color: rgba(0,0,0,0.1);
+			}
+
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					&:hover {
+						background-color: rgba(8,126,204,0.05);
+					}
+
+					&:active {
+						background-color: rgba(8,126,204,0.1);
+					}
+
+					.oo-ui-labelElement-label {
+						font-weight: bold;
+					}
+				}
+
+				&-constructive {
+					&:hover {
+						background-color: rgba(118,171,54,0.05);
+					}
+
+					&:active {
+						background-color: rgba(118,171,54,0.1);
+					}
+				}
+
+				&-destructive {
+					&:hover {
+						background-color: rgba(212,83,83,0.05);
+					}
+
+					&:active {
+						background-color: rgba(212,83,83,0.1);
+					}
+				}
+			}
+		}
+	}
+}
+
+.theme-oo-ui-processDialog () {
+	&-content {
+		.oo-ui-window-head {
+			height: 3.4em;
+
+			&.oo-ui-pendingElement-pending {
+				.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
+			}
+		}
+
+		.oo-ui-window-body {
+			top: 3.4em;
+			box-shadow: 0 0 0.33em rgba(0,0,0,0.33);
+		}
+	}
+
+	&-navigation {
+		position: relative;
+		height: 3.4em;
+		padding: 0 1em;
+	}
+
+	&-location {
+		padding: 0.75em 0;
+		height: @icon-size;
+		cursor: default;
+		text-align: center;
+	}
+
+	&-title {
+		font-weight: bold;
+		line-height: @icon-size;
+	}
+
+	&-actions {
+		&-safe,
+		&-primary,
+		&-other {
+			.oo-ui-actionWidget {
+				.oo-ui-buttonElement-button {
+					min-width: @icon-size;
+					min-height: @icon-size;
+				}
+
+				.oo-ui-labelElement-label {
+					line-height: @icon-size;
+				}
+
+				&.oo-ui-iconElement .oo-ui-iconElement-icon {
+					margin-top: -0.125em;
+				}
+
+				&.oo-ui-buttonElement-framed {
+					margin: 0.75em 0 0.75em 0.75em;
+					.oo-ui-buttonElement-button {
+						padding: 0 1em;
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+
+		&-safe,
+		&-primary {
+			.oo-ui-actionWidget {
+				&:hover {
+					background-color: rgba(0,0,0,0.05);
+				}
+
+				&:active {
+					background-color: rgba(0,0,0,0.1);
+				}
+
+				&.oo-ui-buttonElement-framed {
+					margin: 0.75em;
+					.oo-ui-buttonElement-button {
+						/* Adjust for border so text aligns with title */
+						margin: -1px;
+					}
+				}
+
+				&.oo-ui-flaggedElement {
+					&-progressive {
+						&:hover {
+							background-color: rgba(8,126,204,0.05);
+						}
+
+						&:active {
+							background-color: rgba(8,126,204,0.1);
+						}
+
+						.oo-ui-labelElement-label {
+							font-weight: bold;
+						}
+					}
+
+					&-constructive {
+						&:hover {
+							background-color: rgba(118,171,54,0.05);
+						}
+
+						&:active {
+							background-color: rgba(118,171,54,0.1);
+						}
+					}
+
+					&-destructive {
+						&:hover {
+							background-color: rgba(212,83,83,0.05);
+						}
+
+						&:active {
+							background-color: rgba(212,83,83,0.1);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	> .oo-ui-window-frame {
+		min-height: 5em;
+	}
+
+	&-errors {
+		background-color: rgba(255,255,255,0.9);
+		padding: 3em 3em 1.5em 3em;
+		text-align: center;
+
+		.oo-ui-buttonWidget {
+			margin: 2em 1em 2em 1em;
+		}
+
+		&-title {
+			font-size: 1.5em;
+			color: #000;
+			margin-bottom: 2em;
+		}
+	}
+
+	&-error {
+		text-align: left;
+		margin: 1em;
+		padding: 1em;
+		border: 1px solid #ff9e9e;
+		background-color: #fff7f7;
+		border-radius: 0.25em;
+	}
+}
+
+.theme-oo-ui-windowManager () {
+	&-modal > .oo-ui-dialog {
+		background-color: rgba(255,255,255,0.5);
+		opacity: 0;
+
+		.oo-ui-transition(opacity 250ms ease-in-out);
+
+		> .oo-ui-window-frame {
+			top: 1em;
+			bottom: 1em;
+			background-color: #fff;
+
+			opacity: 0;
+			.oo-ui-transform(scale(0.5));
+			.oo-ui-transition(all 250ms ease-in-out);
+		}
+
+		&.oo-ui-window-ready {
+			/* Fade window overlay */
+			opacity: 1;
+
+			> .oo-ui-window-frame  {
+				/* Fade frame */
+				opacity: 1;
+				.oo-ui-transform(scale(1));
+			}
+		}
+	}
+
+	&-modal&-floating > .oo-ui-dialog > .oo-ui-window-frame {
+		border: 1px solid #ccc;
+		border-radius: 0.5em;
+		box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
+	}
+}

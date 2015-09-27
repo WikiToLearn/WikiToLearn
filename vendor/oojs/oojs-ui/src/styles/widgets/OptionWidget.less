@@ -1,0 +1,20 @@
+@import '../common';
+
+.oo-ui-optionWidget {
+	position: relative;
+	display: block;
+	cursor: pointer;
+
+	&.oo-ui-widget-disabled {
+		cursor: default;
+	}
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		display: block;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	.theme-oo-ui-optionWidget();
+}

@@ -1,0 +1,24 @@
+{
+	"name": "oojs/oojs-ui",
+	"description": "Provides library of common widgets, layouts, and windows.",
+	"homepage": "https://www.mediawiki.org/wiki/OOjs_UI",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "0.8.*",
+		"mediawiki/mediawiki-codesniffer": "0.1.0",
+		"squizlabs/php_codesniffer": "2.1.*"
+	},
+	"autoload": {
+		"classmap": ["php/"]
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor",
+			"phpcs $PHPCS_ARGS --standard=vendor/mediawiki/mediawiki-codesniffer/MediaWiki --ignore=vendor --extensions=php,php5,inc -v ."
+		]
+	}
+}
+

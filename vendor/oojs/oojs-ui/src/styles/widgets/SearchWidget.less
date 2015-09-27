@@ -1,0 +1,25 @@
+@import '../common';
+
+.oo-ui-searchWidget {
+	&-query {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+
+		.oo-ui-textInputWidget {
+			width: 100%;
+		}
+	}
+
+	&-results {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	.theme-oo-ui-searchWidget();
+}

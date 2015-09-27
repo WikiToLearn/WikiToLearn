@@ -1,0 +1,26 @@
+@import '../common';
+
+.oo-ui-actionFieldLayout {
+	&-field {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	&-input,
+	&-button {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	&-input {
+		padding-right: 1em;
+	}
+
+	&-button {
+		width: 1%;
+		white-space: nowrap;
+	}
+
+	.theme-oo-ui-actionFieldLayout();
+}

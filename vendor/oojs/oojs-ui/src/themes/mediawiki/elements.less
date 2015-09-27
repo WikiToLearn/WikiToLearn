@@ -1,0 +1,319 @@
+@import 'common';
+
+.theme-oo-ui-element () {}
+
+.theme-oo-ui-buttonElement () {
+	> .oo-ui-buttonElement-button {
+		font-weight: bold;
+	}
+
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button {
+		> .oo-ui-iconElement-icon {
+			margin-left: 0;
+		}
+	}
+
+	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button {
+		> .oo-ui-indicatorElement-indicator {
+			width: @indicator-size;
+			height: @indicator-size;
+			margin: @indicator-size / 2;
+		}
+	}
+
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+		margin-left: @indicator-size / 2;
+	}
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		width: @icon-size;
+		height: @icon-size;
+	}
+
+	&-frameless {
+		> .oo-ui-buttonElement-button {
+			&:focus {
+				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.2);
+				outline: none;
+			}
+
+			.oo-ui-indicatorElement-indicator {
+				margin-right: 0em;
+			}
+		}
+
+		&.oo-ui-labelElement {
+			> .oo-ui-buttonElement-button {
+				> .oo-ui-labelElement-label {
+					margin-left: 0.25em;
+					margin-right: 0.25em;
+				}
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+				color: @text;
+			}
+
+			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+				color: @pressed-text;
+			}
+
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					.mediawiki-frameless-button-colored(@progressive, @progressive-selected);
+				}
+
+				&-constructive {
+					.mediawiki-frameless-button-colored(@constructive, @constructive-selected);
+				}
+
+				&-destructive {
+					.mediawiki-frameless-button-colored(@destructive, @destructive-selected);
+				}
+			}
+		}
+
+		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+			color: @disabled-text;
+
+			> .oo-ui-iconElement-icon,
+			> .oo-ui-indicatorElement-indicator {
+				opacity: 0.2;
+			}
+		}
+	}
+
+	&-framed {
+		> .oo-ui-buttonElement-button {
+			margin: 0.1em 0;
+			padding: 0.2em 0.8em;
+			border-radius: @border-radius;
+
+			&:hover,
+			&:focus {
+				outline: none;
+			}
+
+			.oo-ui-transition(
+				background @quick-ease,
+				color @quick-ease,
+				box-shadow @quick-ease
+			);
+		}
+
+		// Support <input/> from ButtonInputWidget
+		> input.oo-ui-buttonElement-button,
+		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			line-height: @icon-size;
+		}
+
+		&.oo-ui-iconElement {
+			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+				margin-left: -0.5em;
+				margin-right: -0.5em;
+			}
+
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+				margin-right: 0.3em;
+			}
+		}
+
+		&.oo-ui-indicatorElement {
+			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+				/* -0.5 - 0.475 */
+				margin-left: -0.005em;
+				margin-right: -0.005em;
+			}
+
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
+			&.oo-ui-iconElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+				margin-left: @indicator-size / 2;
+				margin-right: -0.275em;
+			}
+		}
+
+		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+			color: @disabled-framed-text;
+			background: @disabled-background;
+			border: 1px solid @disabled-background;
+		}
+
+		&.oo-ui-widget-enabled {
+			> .oo-ui-buttonElement-button {
+				color: @text;
+				background-color: @background;
+				border: @neutral-button-border;
+
+				&:hover {
+					background-color: darken(@background,8%);
+				}
+
+				&:focus {
+					box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+				}
+			}
+
+			& > .oo-ui-buttonElement-button:active,
+			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+				background-color: darken(@background,15%);
+				border-color: darken(@background,15%);
+				box-shadow: none;
+			}
+
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+				background-color: @active;
+				color: #fff;
+			}
+
+			&.oo-ui-flaggedElement {
+				&-progressive {
+					.mediawiki-framed-button-colored(@progressive, @progressive-fade, @progressive-selected);
+				}
+
+				&-constructive {
+					.mediawiki-framed-button-colored(@constructive, @constructive-fade, @constructive-selected);
+				}
+
+				&-destructive {
+					.mediawiki-framed-button-colored(@destructive, @destructive-fade, @destructive-selected);
+				}
+			}
+			&.oo-ui-flaggedElement-primary.oo-ui-flaggedElement {
+				&-progressive {
+					.mediawiki-framed-primary-button-colored(@progressive, @progressive-hover, @progressive-selected);
+				}
+
+				&-constructive {
+					.mediawiki-framed-primary-button-colored(@constructive, @constructive-hover, @constructive-selected);
+				}
+
+				&-destructive {
+					.mediawiki-framed-primary-button-colored(@destructive, @destructive-hover, @destructive-selected);
+				}
+			}
+		}
+	}
+}
+
+.mediawiki-frameless-button-colored( @neutral, @pressed ) {
+	> .oo-ui-buttonElement-button {
+		&:hover,
+		&:focus {
+			> .oo-ui-labelElement-label {
+				color: @neutral;
+			}
+		}
+
+		> .oo-ui-labelElement-label {
+			color: #777777;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		& > .oo-ui-buttonElement-button:active > .oo-ui-labelElement-label,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			color: @pressed;
+			box-shadow: none;
+		}
+	}
+}
+
+.mediawiki-framed-button-colored( @neutral, @hover, @pressed ) {
+	> .oo-ui-buttonElement-button {
+		color: @neutral;
+
+		&:hover {
+			background-color: @hover;
+			border-color: fade(@pressed,50%);
+		}
+
+		&:focus {
+			box-shadow: inset 0 0 0 1px @pressed;
+			border-color: @pressed;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-buttonElement-button:active,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+			color: @pressed;
+			border-color: @pressed;
+			box-shadow: none;
+		}
+
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+			background-color: @active;
+			color: #fff;
+		}
+	}
+}
+
+.mediawiki-framed-primary-button-colored( @neutral, @hover, @pressed ) {
+	> .oo-ui-buttonElement-button {
+		color: @background;
+		background-color: @neutral;
+		border-color: @neutral;
+
+		&:hover {
+			background: @hover;
+			border-color: @hover;
+		}
+
+		&:focus {
+			box-shadow: inset 0 0 0 1px @background;
+			border-color: @neutral;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		.oo-ui-buttonElement-button:active,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+			color: @background;
+			background-color: @pressed;
+			border-color: @pressed;
+			box-shadow: none;
+		}
+
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button {
+			background-color: @active;
+			color: #fff;
+		}
+	}
+}
+
+.theme-oo-ui-clippableElement () {}
+
+.theme-oo-ui-flaggedElement () {}
+
+.theme-oo-ui-draggableElement () {}
+
+.theme-oo-ui-groupElement () {}
+
+.theme-oo-ui-draggableGroupElement () {}
+
+.theme-oo-ui-iconElement () {
+	.oo-ui-iconElement-icon,
+	&.oo-ui-iconElement-icon {
+		background-size: contain;
+		background-position: center center;
+	}
+}
+
+.theme-oo-ui-indicatorElement () {
+	.oo-ui-indicatorElement-indicator,
+	&.oo-ui-indicatorElement-indicator {
+		background-size: contain;
+		background-position: center center;
+	}
+}
+
+.theme-oo-ui-labelElement () {}
+
+.theme-oo-ui-lookupElement () {}
+
+.theme-oo-ui-popupElement () {}
+
+.theme-oo-ui-tabIndexedElement () {}
+
+.theme-oo-ui-titledElement () {}

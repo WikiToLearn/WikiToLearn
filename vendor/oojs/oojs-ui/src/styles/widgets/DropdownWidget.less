@@ -1,0 +1,33 @@
+@import '../common';
+
+.oo-ui-dropdownWidget {
+	display: inline-block;
+	position: relative;
+
+	&-handle {
+		width: 100%;
+		display: inline-block;
+		cursor: pointer;
+
+		.oo-ui-unselectable();
+		.oo-ui-box-sizing(border-box);
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			position: absolute;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+	}
+
+	> .oo-ui-menuSelectWidget {
+		z-index: 1;
+		width: 100%;
+	}
+
+	&.oo-ui-widget-disabled .oo-ui-dropdownWidget-handle {
+		cursor: default;
+	}
+
+	.theme-oo-ui-dropdownWidget();
+}

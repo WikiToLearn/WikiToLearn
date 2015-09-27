@@ -1,0 +1,21 @@
+@import '../common';
+
+.oo-ui-menuOptionWidget {
+	position: relative;
+
+	.oo-ui-iconElement-icon {
+		display: none;
+	}
+
+	&.oo-ui-optionWidget {
+		&-selected {
+			background-color: transparent;
+
+			.oo-ui-iconElement-icon {
+				display: block;
+			}
+		}
+	}
+
+	.theme-oo-ui-menuOptionWidget();
+}

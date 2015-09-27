@@ -1,0 +1,32 @@
+@import '../common';
+
+.oo-ui-outlineControlsWidget {
+	&-items,
+	&-movers {
+		float: left;
+		.oo-ui-box-sizing(border-box);
+	}
+
+	> .oo-ui-iconElement-icon {
+		float: left;
+		background-position: right center;
+		background-repeat: no-repeat;
+	}
+
+	&-items {
+		float: left;
+
+		.oo-ui-buttonWidget {
+			float: left;
+		}
+	}
+	&-movers {
+		float: right;
+
+		.oo-ui-buttonWidget {
+			float: right;
+		}
+	}
+
+	.theme-oo-ui-outlineControlsWidget();
+}

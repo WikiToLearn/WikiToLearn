@@ -1,0 +1,108 @@
+@import '../common';
+
+.oo-ui-menuLayout {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	&-menu,
+	&-content {
+		position: absolute;
+		.oo-ui-transition(all ease-in-out 200ms);
+	}
+
+	// These are overridden with 'auto' or '0' later
+	&-menu {
+		height: 18em;
+		width: 18em;
+	}
+
+	// These are overridden with 'auto' or '0' later
+	&-content {
+		top: 18em;
+		left: 18em;
+		right: 18em;
+		bottom: 18em;
+	}
+
+	&.oo-ui-menuLayout-hideMenu {
+		.oo-ui-menuLayout-menu {
+			width: 0 !important;
+			height: 0 !important;
+			overflow: hidden;
+		}
+
+		.oo-ui-menuLayout-content {
+			top: 0 !important;
+			left: 0 !important;
+			right: 0 !important;
+			bottom: 0 !important;
+		}
+	}
+
+	&.oo-ui-menuLayout-showMenu {
+		&.oo-ui-menuLayout-top {
+			.oo-ui-menuLayout-menu {
+				width: auto !important;
+				left: 0;
+				top: 0;
+				right: 0;
+			}
+
+			.oo-ui-menuLayout-content {
+				right: 0 !important;
+				bottom: 0 !important;
+				left: 0 !important;
+			}
+		}
+
+		&.oo-ui-menuLayout-after {
+			.oo-ui-menuLayout-menu {
+				height: auto !important;
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+
+			.oo-ui-menuLayout-content {
+				bottom: 0 !important;
+				left: 0 !important;
+				top: 0 !important;
+			}
+		}
+
+		&.oo-ui-menuLayout-bottom {
+			.oo-ui-menuLayout-menu {
+				width: auto !important;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+
+			.oo-ui-menuLayout-content {
+				left: 0 !important;
+				top: 0 !important;
+				right: 0 !important;
+			}
+		}
+
+		&.oo-ui-menuLayout-before {
+			.oo-ui-menuLayout-menu {
+				height: auto !important;
+				bottom: 0;
+				left: 0;
+				top: 0;
+			}
+
+			.oo-ui-menuLayout-content {
+				top: 0 !important;
+				right: 0 !important;
+				bottom: 0 !important;
+			}
+		}
+	}
+
+	.theme-oo-ui-menuLayout();
+}

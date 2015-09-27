@@ -1,0 +1,69 @@
+// Base variables and mixins
+@import '../../styles/common';
+
+// Theme variables
+
+@active: #999;
+@background: #ffffff;
+
+@select: #d8e6fe;
+
+@progressive: #347bff;
+@progressive-hover: #2962CC;
+@progressive-selected: #1F4999;
+@progressive-fade: rgba(52,123,255,0.1);
+
+@constructive: #00af89;
+@constructive-hover: #008064;
+@constructive-selected: #005946;
+@constructive-fade: rgba(0,171,137,0.1);
+
+@destructive: #d11d13;
+@destructive-hover: #8C130D;
+@destructive-selected: #73100A;
+@destructive-fade: rgba(209,29,19,0.1);
+
+@text: #555555;
+@pressed-text: #444444;
+@pressed-color: #d0d0d0; // Used for borders and backgrounds
+@disabled-text: #cccccc;
+@disabled-framed-text: #ffffff;
+@disabled-background: #dddddd;
+
+@neutral-button-border: 1px solid #cdcdcd;
+
+@oo-ui-default-image-path: 'themes/mediawiki/images';
+
+@input-border-color: #777;
+@input-active-color: #ddd;
+@input-disabled-color: #eee;
+@input-hover-border-bottom-width: 3px;
+@input-focus-border-width: 2px;
+@input-size: 1.6em;
+@border-radius: 2px;
+
+@icon-size: unit(24 / 16 / 0.8, em);
+@indicator-size: unit(12 / 16 / 0.8, em);
+
+// Theme animation variables
+@quick-ease: 0.1s ease-in-out;
+@medium-ease-out-back: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+@medium-ease-out-sine: 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+// Theme mixins
+
+// Workaround for Safari 8 bug. Combining a selector like `input[type="checkbox"]:checked + span`
+// with transition on background-size, background-color, and a single background-image using SVG
+// causes the selector to sometimes not be applied. (T89309)
+//
+// * Syntax mimics the core mixin .oo-ui-background-image-svg().
+// * No-op in distributions other than 'vector'.
+// * Using -webkit- prefix to limit this stupidity from impacting other browsers. Alas, some
+//   non-Safari ones also parse the -webkit- prefix (Chrome, Opera).
+// * We take the payload size hit of the unnecessary /* @embed */ hint across the board. It should
+//   be mostly mitigated by using gzip compression.
+// * Upstream bug report: https://bugs.webkit.org/show_bug.cgi?id=141789
+.oo-ui-background-image-safari( @url-without-extension ) when ( @oo-ui-distribution = vector ) {
+	@svg: '@{url-without-extension}.svg';
+	background-image: -webkit-linear-gradient(transparent, transparent), e('/* @embed */') url(@svg);
+}
