@@ -126,7 +126,7 @@ $wgLogo             = "$wgStylePath/Neverland/images/logos/$wgLanguageCode.png";
 $wgForeignFileRepos[] = array(
     'class' => 'ForeignDBRepo',
     'name' => 'poolwiki',
-    'url' => "http://pool.wikitolearn.org/images/uploads",
+    'url' => "//pool.wikitolearn.org/images/uploads",
     'directory' => '/var/www/wikitolearn/mediawiki/images/uploads/',
     'hashLevels' => 2, // This must be the same for the other family member
     'dbType' => $wgDBtype,
@@ -137,7 +137,7 @@ $wgForeignFileRepos[] = array(
     'dbName' => 'poolwikitolearn',
     'tablePrefix' => '',
     'hasSharedCache' => true,
-    'descBaseUrl' => 'http://pool.wikitolearn.org/Image:',
+    'descBaseUrl' => '//pool.wikitolearn.org/Image:',
     'fetchDescription' => false
 );
 
@@ -187,11 +187,11 @@ $wgShellLocale = "en_US.utf8";
 #$wgCacheDirectory = "$IP/cache";
 
 $wgUseSharedUploads = true;
-$wgSharedUploadPath = 'http://pool.wikitolearn.org/images';
+$wgSharedUploadPath = '//pool.wikitolearn.org/images';
 $wgSharedUploadDirectory = '$IP/images/';
 $wgHashedSharedUploadDirectory = true;
-$wgUploadNavigationUrl = "http://pool.wikitolearn.org/index.php/Special:Upload";
-$wgUploadMissingFileUrl= "http://pool.wikitolearn.org/index.php/Special:Upload";
+$wgUploadNavigationUrl = "//pool.wikitolearn.org/index.php/Special:Upload";
+$wgUploadMissingFileUrl= "//pool.wikitolearn.org/index.php/Special:Upload";
 
 // require_once "$IP/extensions/Interwiki/Interwiki.php";
 // $wgGroupPermissions['sysop']['interwiki'] = true;
@@ -347,7 +347,8 @@ require_once("$IP/extensions/CategorySuggest/CategorySuggest.php");
 
 //require_once("$IP/extensions/VisualEditor/VisualEditor.php")
 
-#require_once( "$IP/extensions/SubPageList/SubPageList.php" );
+// require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
+// require_once( "$IP/extensions/SubPageList/SubPageList.php" );
 
 $wgEnableDnsBlacklist = true;
 $wgDnsBlacklistUrls = array( 'xbl.spamhaus.org', 'dnsbl.tornevall.org' );

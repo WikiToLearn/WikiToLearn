@@ -76,3 +76,6 @@
 	path = extensions/Theorems
     pushurl = git@github.com/WikiToLearn/Theorems
 	url = git://github.com/WikiToLearn/Theorems
+[submodule "extensions/ParserHooks"]
+	path = extensions/ParserHooks
+	url = git@github.com:wikimedia/mediawiki-extensions-ParserHooks.git
