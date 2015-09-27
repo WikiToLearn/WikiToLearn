@@ -33,12 +33,12 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
     protected $date;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $lowUpperBound;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $highLowerBound;
 
@@ -50,15 +50,15 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
     /**
      * Constructor.
      *
-     * @param string  $templatePath
-     * @param string  $generator
-     * @param string  $date
-     * @param integer $lowUpperBound
-     * @param integer $highLowerBound
+     * @param string $templatePath
+     * @param string $generator
+     * @param string $date
+     * @param int    $lowUpperBound
+     * @param int    $highLowerBound
      */
     public function __construct($templatePath, $generator, $date, $lowUpperBound, $highLowerBound)
     {
-        $version = new SebastianBergmann\Version('2.1.6', dirname(dirname(dirname(dirname(__DIR__)))));
+        $version = new SebastianBergmann\Version('2.2.3', dirname(dirname(dirname(dirname(__DIR__)))));
 
         $this->templatePath   = $templatePath;
         $this->generator      = $generator;
@@ -76,9 +76,6 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
     protected function renderItemTemplate(Text_Template $template, array $data)
     {
         $numSeparator  = '&nbsp;/&nbsp;';
-        $classesBar    = '&nbsp;';
-        $classesLevel  = 'None';
-        $classesNumber = '&nbsp;';
 
         if (isset($data['numClasses']) && $data['numClasses'] > 0) {
             $classesLevel = $this->getColorLevel($data['testedClassesPercent']);
@@ -89,11 +86,11 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
             $classesBar = $this->getCoverageBar(
                 $data['testedClassesPercent']
             );
+        } else {
+            $classesLevel  = 'success';
+            $classesNumber = '0' . $numSeparator . '0';
+            $classesBar    = $this->getCoverageBar(100);
         }
-
-        $methodsBar    = '&nbsp;';
-        $methodsLevel  = 'None';
-        $methodsNumber = '&nbsp;';
 
         if ($data['numMethods'] > 0) {
             $methodsLevel = $this->getColorLevel($data['testedMethodsPercent']);
@@ -104,11 +101,12 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
             $methodsBar = $this->getCoverageBar(
                 $data['testedMethodsPercent']
             );
+        } else {
+            $methodsLevel                         = 'success';
+            $methodsNumber                        = '0' . $numSeparator . '0';
+            $methodsBar                           = $this->getCoverageBar(100);
+            $data['testedMethodsPercentAsString'] = '100.00%';
         }
-
-        $linesBar    = '&nbsp;';
-        $linesLevel  = 'None';
-        $linesNumber = '&nbsp;';
 
         if ($data['numExecutableLines'] > 0) {
             $linesLevel = $this->getColorLevel($data['linesExecutedPercent']);
@@ -119,25 +117,30 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
             $linesBar = $this->getCoverageBar(
                 $data['linesExecutedPercent']
             );
+        } else {
+            $linesLevel                           = 'success';
+            $linesNumber                          = '0' . $numSeparator . '0';
+            $linesBar                             = $this->getCoverageBar(100);
+            $data['linesExecutedPercentAsString'] = '100.00%';
         }
 
         $template->setVar(
             array(
-                'icon' => isset($data['icon']) ? $data['icon'] : '',
-                'crap' => isset($data['crap']) ? $data['crap'] : '',
-                'name' => $data['name'],
-                'lines_bar' => $linesBar,
+                'icon'                   => isset($data['icon']) ? $data['icon'] : '',
+                'crap'                   => isset($data['crap']) ? $data['crap'] : '',
+                'name'                   => $data['name'],
+                'lines_bar'              => $linesBar,
                 'lines_executed_percent' => $data['linesExecutedPercentAsString'],
-                'lines_level' => $linesLevel,
-                'lines_number' => $linesNumber,
-                'methods_bar' => $methodsBar,
+                'lines_level'            => $linesLevel,
+                'lines_number'           => $linesNumber,
+                'methods_bar'            => $methodsBar,
                 'methods_tested_percent' => $data['testedMethodsPercentAsString'],
-                'methods_level' => $methodsLevel,
-                'methods_number' => $methodsNumber,
-                'classes_bar' => $classesBar,
+                'methods_level'          => $methodsLevel,
+                'methods_number'         => $methodsNumber,
+                'classes_bar'            => $classesBar,
                 'classes_tested_percent' => isset($data['testedClassesPercentAsString']) ? $data['testedClassesPercentAsString'] : '',
-                'classes_level' => $classesLevel,
-                'classes_number' => $classesNumber
+                'classes_level'          => $classesLevel,
+                'classes_number'         => $classesNumber
             )
         );
 
@@ -245,13 +248,13 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
             '}}'
         );
 
-        $template->setVar(array('level' => $level, 'percent' => sprintf("%.2F", $percent)));
+        $template->setVar(array('level' => $level, 'percent' => sprintf('%.2F', $percent)));
 
         return $template->render();
     }
 
     /**
-     * @param  integer $percent
+     * @param  int    $percent
      * @return string
      */
     protected function getColorLevel($percent)
