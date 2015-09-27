@@ -7,7 +7,7 @@ if [[ -f instance_name.conf ]] ; then
 fi
 
 if [[ "$INSTANCE_NAME" == "" ]] ; then
- INSTANCE_NAME="wikitolearn"
+ INSTANCE_NAME="wikitolearn-dev"
 fi
 
 WEBSRV_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${INSTANCE_NAME}-websrv)

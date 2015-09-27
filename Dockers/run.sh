@@ -20,7 +20,7 @@ if [[ -f instance_name.conf ]] ; then
 fi
 
 if [[ "$INSTANCE_NAME" == "" ]] ; then
- INSTANCE_NAME="wikitolearn"
+ INSTANCE_NAME="wikitolearn-dev"
 fi
 
 if [[ ! -d $WIKITOLEARN_DIR ]] || [[ "$WIKITOLEARN_DIR" == "" ]] ; then
