@@ -345,7 +345,7 @@ $wgAllowImageTag =true;
 
 require_once("$IP/extensions/CategorySuggest/CategorySuggest.php");
 
-require_once("$IP/extensions/VisualEditor/VisualEditor.php");
+// require_once("$IP/extensions/VisualEditor/VisualEditor.php");
 
 // require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
 // require_once( "$IP/extensions/SubPageList/SubPageList.php" );
