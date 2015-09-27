@@ -11,6 +11,8 @@
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
+putenv("MW_INSTALL_PATH=$IP");
+
 
 # Protect against web entry
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -144,10 +146,6 @@ $wgForeignFileRepos[] = array(
 if(!isset($wgDBname)) {
  $wgDBname = $wgDBuser;
 }
-
-## Shared memory settings
-$wgMainCacheType    = CACHE_NONE;
-$wgMemCachedServers = array();
 
 $wgEnableAPI = true;
 
@@ -396,6 +394,7 @@ $virtualFactoryImages = array(
 );
 
 require_once "$IP/extensions/Theorems/Theorems.php";
+require_once "$IP/extensions/Flow/Flow.php";
 
 require_once("$IP/../secrets/secrets.php");
 

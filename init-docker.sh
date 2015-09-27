@@ -30,12 +30,17 @@ cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
 
 cd $CWD/mediawiki; composer install; cd -;
 
-$CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CWD/empty-wikifm.sql
-WIKI=it.wikitolearn.org php $CWD/mediawiki/maintenance/sql.php --debug --conf SharedLocalSettings.php $CWD/sharedwikifm.sql
+
+if [[ "$W2L_INIT_DB" == "1" ]] ; then
+    $CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CWD/empty-wikifm.sql
+    WIKI=it.wikitolearn.org php $CWD/mediawiki/maintenance/sql.php --debug --conf SharedLocalSettings.php $CWD/sharedwikifm.sql
+fi
 
 # For every language, update the database
 $CWD/lang-foreach.sh update.php --conf=$CWD/mediawiki/LocalSettings.php --quick --doShared
 
-$CWD/lang-foreach.sh importDump.php $CWD/developer-dump.xml 
 
+if [[ "$W2L_INIT_DB" == "1" ]] ; then
+    $CWD/lang-foreach.sh importDump.php $CWD/developer-dump.xml 
+fi
 

@@ -82,3 +82,6 @@
 [submodule "extensions/VisualEditor"]
 	path = extensions/VisualEditor
 	url = git@github.com:wikimedia/mediawiki-extensions-VisualEditor.git
+[submodule "extensions/Flow"]
+	path = extensions/Flow
+	url = git@github.com:wikimedia/mediawiki-extensions-Flow.git
