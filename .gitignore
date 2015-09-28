@@ -1,3 +1,4 @@
+Dockers/haproxy.cfg
 *.kate-swp
 configs/
 secrets/*
