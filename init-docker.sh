@@ -30,6 +30,7 @@ fi;
 # fi;
 
 $CWD/init-symlinks.sh
+test -d $CWD/mediawiki/images/tmp || mkdir -p $CWD/mediawiki/images/tmp
 
 cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
 
