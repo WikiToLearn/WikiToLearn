@@ -2,3 +2,4 @@ secrets/*
 Dockers/ocg-dev/mw-ocg/
 Dockers/config/*
 Dockers/instance_config.conf
+Dockers/haproxy.cfg

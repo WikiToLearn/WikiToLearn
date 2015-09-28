@@ -7,7 +7,7 @@
         "xunit",
         "testing"
     ],
-    "homepage": "https://phpunit.de/",
+    "homepage": "http://www.phpunit.de/",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -22,48 +22,46 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "phpunit/php-file-iterator": "~1.4",
-        "phpunit/php-text-template": "~1.2",
-        "phpunit/php-code-coverage": "~2.1",
-        "phpunit/php-timer": ">=1.0.6",
-        "phpunit/phpunit-mock-objects": "~2.3",
-        "phpspec/prophecy": "~1.3,>=1.3.1",
-        "symfony/yaml": "~2.1|~3.0",
-        "sebastian/comparator": "~1.1",
-        "sebastian/diff": "~1.2",
-        "sebastian/environment": "~1.2",
-        "sebastian/exporter": "~1.2",
-        "sebastian/global-state": "~1.0",
-        "sebastian/version": "~1.0",
+        "phpunit/php-file-iterator": "~1.3",
+        "phpunit/php-text-template": "~1.1",
+        "phpunit/php-code-coverage": "~1.2",
+        "phpunit/php-timer": "~1.0",
+        "phpunit/phpunit-mock-objects": "~1.2",
+        "symfony/yaml": "~2.0",
+        "ext-ctype": "*",
         "ext-dom": "*",
         "ext-json": "*",
         "ext-pcre": "*",
         "ext-reflection": "*",
         "ext-spl": "*"
     },
+    "require-dev": {
+        "pear-pear.php.net/pear": "1.9.4"
+    },
+    "repositories": [
+        {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        }
+    ],
     "suggest": {
         "phpunit/php-invoker": "~1.1"
     },
     "bin": [
-        "phpunit"
+        "composer/bin/phpunit"
     ],
     "autoload": {
         "classmap": [
-            "src/"
-        ]
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ],
-        "files": [
-            "src/Framework/Assert/Functions.php",
-            "tests/_files/CoveredFunction.php"
+            "PHPUnit/"
         ]
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.7.x-dev"
+            "dev-master": "3.7.x-dev"
         }
-    }
+    },
+    "include-path": [
+        "",
+        "../../symfony/yaml/"
+    ]
 }

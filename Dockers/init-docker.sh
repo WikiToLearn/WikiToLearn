@@ -23,5 +23,8 @@ if [[ "$W2L_INIT_DB" == "" ]] ; then
  W2L_INIT_DB=1
 fi
 
-W2L_INIT_DB=$W2L_INIT_DB docker exec -ti ${W2L_INSTANCE_NAME}-websrv /var/www/WikiToLearn/init-docker.sh
-
+if [[ "$W2L_INIT_DB" == "1" ]] ; then
+ docker exec -ti ${W2L_INSTANCE_NAME}-websrv /var/www/WikiToLearn/init-docker.sh --init-db
+else
+ docker exec -ti ${W2L_INSTANCE_NAME}-websrv /var/www/WikiToLearn/init-docker.sh
+fi

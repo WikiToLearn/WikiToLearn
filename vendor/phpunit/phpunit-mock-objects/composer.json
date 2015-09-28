@@ -21,30 +21,17 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "phpunit/php-text-template": "~1.2",
-        "doctrine/instantiator": "^1.0.2",
-        "sebastian/exporter": "~1.2"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.4"
+        "phpunit/php-text-template": ">=1.1.1@stable"
     },
     "suggest": {
         "ext-soap": "*"
     },
     "autoload": {
         "classmap": [
-            "src/"
+            "PHPUnit/"
         ]
     },
-    "autoload-dev": {
-        "classmap": [
-            "tests/_fixture/"
-        ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.3.x-dev"
-        }
-    }
+    "include-path": [
+        ""
+    ]
 }
-

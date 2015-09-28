@@ -1,41 +1,29 @@
-# Contributing to PHPUnit
+Contributing to PHPUnit
+=======================
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
-
-* Fork the project.
-* Make your bug fix or feature addition.
-* Add tests for it. This is important so we don't break it in a future version unintentionally.
-* Send a pull request. Bonus points for topic branches.
+Contributions to PHPUnit, its related modules, and its documentation are always welcome. You make our lives easier by sending us your contributions through GitHub pull requests.
 
 Pull requests for bug fixes must be based on the current stable branch whereas pull requests for new features must be based on `master`.
 
 We are trying to keep backwards compatibility breaks in PHPUnit to an absolute minimum. Please take this into account when proposing changes.
 
-Due to time constraints, we are not always able to respond as quickly as we would like. Please do not take delays personal and feel free to remind us if you feel that we forgot to respond.
+Due to time constraints, we are not always able to respond as quickly as we would like. Please do not take delays personal and feel free to remind us here or on IRC if you feel that we forgot to respond.
 
-## Using PHPUnit from a Git checkout
+Using PHPUnit From a Git Checkout
+---------------------------------
 
 The following commands can be used to perform the initial checkout of PHPUnit:
 
     git clone git://github.com/sebastianbergmann/phpunit.git
     cd phpunit
 
-Retrieve PHPUnit's dependencies using [Composer](http://getcomposer.org/):
+To retrieve PHPUnit's dependencies, you can use [Composer](http://getcomposer.org/download/). If you do not have Composer installed, you can download the latest PHAR with the following command:
 
-    wget http://getcomposer.org/composer.phar
-    php composer.phar install
+    curl -O http://getcomposer.org/composer.phar
 
-The `phpunit` script can be used to invoke the PHPUnit test runner.
+Once Composer is installed, you can fetch PHPUnit's dependencies with the following command:
 
-## Reporting issues
+    php composer.phar install --dev
 
-Please use the most specific issue tracker to search for existing tickets and to open new tickets:
-
-* [General problems](https://github.com/sebastianbergmann/phpunit/issues)
-* [Code Coverage](https://github.com/sebastianbergmann/php-code-coverage/issues)
-* [Stub and Mock Objects](https://github.com/sebastianbergmann/phpunit-mock-objects/issues)
-* [DbUnit](https://github.com/sebastianbergmann/dbunit/issues)
-* [PHPUnit_Selenium](https://github.com/sebastianbergmann/phpunit-selenium/issues)
-* [Documentation](https://github.com/sebastianbergmann/phpunit-documentation/issues)
-* [Website](https://github.com/sebastianbergmann/phpunit-website/issues)
+The `phpunit.php` script can be used to invoke the PHPUnit test runner.
 

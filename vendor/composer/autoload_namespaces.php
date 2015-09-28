@@ -6,9 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir).'/mediawiki';
 
 return array(
-    'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
-    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Liuggio' => array($vendorDir . '/liuggio/statsd-php-client/src'),
     'JsonSchema' => array($vendorDir . '/justinrainbow/json-schema/src'),
     'ComposerHookHandler' => array($baseDir . '/includes/composer'),
