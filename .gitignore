@@ -1,4 +1,6 @@
+*.kate-swp
+configs/
 secrets/*
 Dockers/ocg-dev/mw-ocg/
-Dockers/config/*
+Dockers/configs/
 Dockers/instance_config.conf
