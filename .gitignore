@@ -1,2 +1,4 @@
-configs/
-secrets/
+secrets/*
+Dockers/ocg-dev/mw-ocg/
+Dockers/config/*
+Dockers/instance_config.conf
