@@ -1,1 +1,0 @@
-Remove this file and add indicator images here

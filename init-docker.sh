@@ -8,6 +8,11 @@ CWD="$(
   pwd -P 
 )"
 
+if [[ "$1" == "--init-db" ]] ; then
+    W2L_INIT_DB=1
+fi
+
+
 cd $CWD;
 
 if [[ ! -e secrets/itwikitolearn.php ]]; then
