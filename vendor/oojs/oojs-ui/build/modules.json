@@ -1,0 +1,240 @@
+{
+	"oojs-ui": {
+		"scripts": [
+			"src/intro.js.txt",
+			"src/core.js",
+
+			"src/elements/PendingElement.js",
+
+			"src/ActionSet.js",
+			"src/Element.js",
+				"src/Layout.js",
+				"src/Widget.js",
+				"src/Window.js",
+					"src/Dialog.js",
+				"src/WindowManager.js",
+			"src/Error.js",
+			"src/HtmlSnippet.js",
+			"src/Process.js",
+			"src/ToolFactory.js",
+			"src/ToolGroupFactory.js",
+			"src/Theme.js",
+
+			"src/elements/TabIndexedElement.js",
+			"src/elements/ButtonElement.js",
+			"src/elements/GroupElement.js",
+			"src/elements/DraggableElement.js",
+			"src/elements/DraggableGroupElement.js",
+			"src/elements/IconElement.js",
+			"src/elements/IndicatorElement.js",
+			"src/elements/LabelElement.js",
+			"src/elements/LookupElement.js",
+			"src/elements/PopupElement.js",
+			"src/elements/FlaggedElement.js",
+			"src/elements/TitledElement.js",
+			"src/elements/ClippableElement.js",
+
+			"src/Tool.js",
+			"src/Toolbar.js",
+			"src/ToolGroup.js",
+
+			"src/dialogs/MessageDialog.js",
+			"src/dialogs/ProcessDialog.js",
+
+			"src/layouts/FieldLayout.js",
+			"src/layouts/ActionFieldLayout.js",
+			"src/layouts/FieldsetLayout.js",
+			"src/layouts/FormLayout.js",
+			"src/layouts/MenuLayout.js",
+				"src/layouts/BookletLayout.js",
+				"src/layouts/IndexLayout.js",
+			"src/layouts/PanelLayout.js",
+				"src/layouts/CardLayout.js",
+				"src/layouts/PageLayout.js",
+				"src/layouts/StackLayout.js",
+
+			"src/toolgroups/BarToolGroup.js",
+			"src/toolgroups/PopupToolGroup.js",
+			"src/toolgroups/ListToolGroup.js",
+			"src/toolgroups/MenuToolGroup.js",
+
+			"src/tools/PopupTool.js",
+			"src/tools/ToolGroupTool.js",
+
+			"src/widgets/GroupWidget.js",
+			"src/widgets/ItemWidget.js",
+			"src/widgets/OutlineControlsWidget.js",
+			"src/widgets/ToggleWidget.js",
+
+			"src/widgets/ButtonGroupWidget.js",
+			"src/widgets/ButtonWidget.js",
+				"src/widgets/ActionWidget.js",
+				"src/widgets/PopupButtonWidget.js",
+				"src/widgets/ToggleButtonWidget.js",
+			"src/widgets/DropdownWidget.js",
+			"src/widgets/IconWidget.js",
+			"src/widgets/IndicatorWidget.js",
+			"src/widgets/InputWidget.js",
+				"src/widgets/ButtonInputWidget.js",
+				"src/widgets/CheckboxInputWidget.js",
+				"src/widgets/DropdownInputWidget.js",
+				"src/widgets/RadioInputWidget.js",
+				"src/widgets/TextInputWidget.js",
+			"src/widgets/ComboBoxWidget.js",
+			"src/widgets/LabelWidget.js",
+			"src/widgets/OptionWidget.js",
+				"src/widgets/DecoratedOptionWidget.js",
+					"src/widgets/ButtonOptionWidget.js",
+					"src/widgets/RadioOptionWidget.js",
+					"src/widgets/MenuOptionWidget.js",
+					"src/widgets/MenuSectionOptionWidget.js",
+					"src/widgets/OutlineOptionWidget.js",
+					"src/widgets/TabOptionWidget.js",
+			"src/widgets/PopupWidget.js",
+			"src/widgets/ProgressBarWidget.js",
+			"src/widgets/SearchWidget.js",
+			"src/widgets/SelectWidget.js",
+				"src/widgets/ButtonSelectWidget.js",
+				"src/widgets/RadioSelectWidget.js",
+				"src/widgets/MenuSelectWidget.js",
+					"src/widgets/TextInputMenuSelectWidget.js",
+				"src/widgets/OutlineSelectWidget.js",
+				"src/widgets/TabSelectWidget.js",
+			"src/widgets/ToggleSwitchWidget.js",
+
+			"src/outro.js.txt"
+		]
+	},
+	"oojs-ui-apex": {
+		"scripts": [
+			"src/themes/apex/ApexTheme.js"
+		],
+		"styles": [
+			"src/themes/apex/core.less",
+			"src/themes/apex/icons.json",
+			"src/themes/apex/indicators.json",
+			"src/themes/apex/textures.json"
+		]
+	},
+	"oojs-ui-apex-noimages": {
+		"styles": [
+			"src/themes/apex/core.less"
+		]
+	},
+	"oojs-ui-apex-icons-movement": {
+		"styles": [
+			"src/themes/apex/icons-movement.json"
+		]
+	},
+	"oojs-ui-apex-icons-moderation": {
+		"styles": [
+			"src/themes/apex/icons-moderation.json"
+		]
+	},
+	"oojs-ui-apex-icons-editing-core": {
+		"styles": [
+			"src/themes/apex/icons-editing-core.json"
+		]
+	},
+	"oojs-ui-apex-icons-editing-styling": {
+		"styles": [
+			"src/themes/apex/icons-editing-styling.json"
+		]
+	},
+	"oojs-ui-apex-icons-editing-list": {
+		"styles": [
+			"src/themes/apex/icons-editing-list.json"
+		]
+	},
+	"oojs-ui-apex-icons-editing-advanced": {
+		"styles": [
+			"src/themes/apex/icons-editing-advanced.json"
+		]
+	},
+	"oojs-ui-mediawiki": {
+		"scripts": [
+			"src/themes/mediawiki/MediaWikiTheme.js"
+		],
+		"styles": [
+			"src/themes/mediawiki/core.less",
+			"src/themes/mediawiki/icons.json",
+			"src/themes/mediawiki/indicators.json",
+			"src/themes/mediawiki/textures.json"
+		]
+	},
+	"oojs-ui-mediawiki-noimages": {
+		"styles": [
+			"src/themes/mediawiki/core.less"
+		]
+	},
+	"oojs-ui-mediawiki-icons-movement": {
+		"styles": [
+			"src/themes/mediawiki/icons-movement.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-content": {
+		"styles": [
+			"src/themes/mediawiki/icons-content.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-alerts": {
+		"styles": [
+			"src/themes/mediawiki/icons-alerts.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-interactions": {
+		"styles": [
+			"src/themes/mediawiki/icons-interactions.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-moderation": {
+		"styles": [
+			"src/themes/mediawiki/icons-moderation.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-editing-core": {
+		"styles": [
+			"src/themes/mediawiki/icons-editing-core.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-editing-styling": {
+		"styles": [
+			"src/themes/mediawiki/icons-editing-styling.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-editing-list": {
+		"styles": [
+			"src/themes/mediawiki/icons-editing-list.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-editing-advanced": {
+		"styles": [
+			"src/themes/mediawiki/icons-editing-advanced.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-media": {
+		"styles": [
+			"src/themes/mediawiki/icons-media.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-location": {
+		"styles": [
+			"src/themes/mediawiki/icons-location.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-user": {
+		"styles": [
+			"src/themes/mediawiki/icons-user.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-layout": {
+		"styles": [
+			"src/themes/mediawiki/icons-layout.json"
+		]
+	},
+	"oojs-ui-mediawiki-icons-wikimedia": {
+		"styles": [
+			"src/themes/mediawiki/icons-wikimedia.json"
+		]
+	}
+}

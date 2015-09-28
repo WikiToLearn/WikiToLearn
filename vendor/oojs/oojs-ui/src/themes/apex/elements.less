@@ -1,0 +1,247 @@
+@import 'common';
+
+.theme-oo-ui-element () {}
+
+.theme-oo-ui-buttonElement () {
+	> .oo-ui-buttonElement-button {
+		color: #333;
+	}
+
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button {
+		> .oo-ui-iconElement-icon {
+			margin-left: 0;
+		}
+	}
+
+	&.oo-ui-indicatorElement > .oo-ui-buttonElement-button {
+		> .oo-ui-indicatorElement-indicator {
+			width: @indicator-size;
+			height: @indicator-size;
+			margin: @indicator-size / 2;
+		}
+	}
+
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+		margin-left: @indicator-size / 2;
+	}
+	&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		width: @icon-size;
+		height: @icon-size;
+	}
+
+	&-frameless {
+		> .oo-ui-buttonElement-button {
+			> .oo-ui-iconElement-icon {
+				/* Don't animate opacities for now, causes wiggling in Chrome (bug 63020) */
+				/*.oo-ui-transition(opacity 200ms);*/
+			}
+
+			&:hover,
+			&:focus {
+				outline: none;
+
+				> .oo-ui-iconElement-icon {
+					opacity: 1;
+				}
+				> .oo-ui-labelElement-label {
+					color: #000;
+				}
+			}
+
+			> .oo-ui-labelElement-label {
+				color: #333;
+			}
+		}
+
+		&.oo-ui-labelElement {
+			> .oo-ui-buttonElement-button {
+				> .oo-ui-labelElement-label {
+					margin-left: 0.25em;
+				}
+			}
+		}
+
+		&.oo-ui-flaggedElement {
+			&-progressive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+				color: @progressive;
+			}
+
+			&-constructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+				color: @constructive;
+			}
+
+			&-destructive > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+				color: @destructive;
+			}
+		}
+
+		&.oo-ui-widget-disabled > .oo-ui-buttonElement-button {
+			> .oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+			> .oo-ui-labelElement-label {
+				color: #ccc;
+			}
+		}
+	}
+
+	&-framed {
+		> .oo-ui-buttonElement-button {
+			margin: 0.1em 0;
+			padding: 0.2em 0.8em;
+			border-radius: 0.3em;
+			text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+			border: 1px #c9c9c9 solid;
+			.oo-ui-transition(border-color 100ms ease-in-out);
+			.oo-ui-vertical-gradient(#fff, #ddd);
+
+			&:hover,
+			&:focus {
+				border-color: #aaa;
+				outline: none;
+			}
+		}
+
+		// Support <input/> from ButtonInputWidget
+		> input.oo-ui-buttonElement-button,
+		&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			line-height: @icon-size;
+		}
+
+		&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+		&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+		&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+			box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.07);
+			color: black;
+			border-color: #c9c9c9;
+			.oo-ui-vertical-gradient(#ddd, #fff);
+		}
+
+		&.oo-ui-iconElement {
+			> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+				margin-left: -0.5em;
+				margin-right: -0.5em;
+			}
+
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+				margin-right: 0.3em;
+			}
+		}
+
+		&.oo-ui-indicatorElement {
+			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+				/* -0.5 - 0.475 */
+				margin-left: -0.005em;
+				margin-right: -0.005em;
+			}
+
+			&.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator,
+			&.oo-ui-iconElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
+				margin-left: @indicator-size / 2;
+				margin-right: -0.275em;
+			}
+		}
+
+		&.oo-ui-flaggedElement {
+			&-progressive {
+				> .oo-ui-buttonElement-button {
+					border: 1px solid @progressive-border;
+					.oo-ui-vertical-gradient(@progressive-gradient-start, @progressive-gradient-end);
+
+					&:hover,
+					&:focus {
+						border-color: @progressive-border-selected;
+					}
+				}
+
+				&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+					border: 1px solid @progressive-border;
+					.oo-ui-vertical-gradient(@progressive-gradient-end, @progressive-gradient-start);
+				}
+			}
+
+			&-constructive {
+				> .oo-ui-buttonElement-button {
+					border: 1px solid @constructive-border;
+					.oo-ui-vertical-gradient(@constructive-gradient-start, @constructive-gradient-end);
+
+					&:hover,
+					&:focus {
+						border-color: @constructive-border-selected;
+					}
+				}
+
+				&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active,
+				&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+				&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+					border: 1px solid @constructive-border;
+					.oo-ui-vertical-gradient(@constructive-gradient-end, @constructive-gradient-start);
+				}
+			}
+
+			&-destructive > .oo-ui-buttonElement-button {
+				color: @destructive;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			> .oo-ui-buttonElement-button,
+			&.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+			&.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button {
+				opacity: 0.5;
+				// Opacity causes 1px measurement errors in Chrome, so force GPU rendering
+				.oo-ui-force-webkit-gpu();
+				box-shadow: none;
+				color: #333;
+				background: #eee;
+				border-color: #ccc;
+
+				&:hover,
+				&:focus {
+					border-color: #ccc;
+					box-shadow: none;
+				}
+			}
+		}
+	}
+}
+
+.theme-oo-ui-clippableElement () {}
+
+.theme-oo-ui-flaggedElement () {}
+
+.theme-oo-ui-draggableElement () {}
+
+.theme-oo-ui-groupElement () {}
+
+.theme-oo-ui-draggableGroupElement () {}
+
+.theme-oo-ui-iconElement () {
+	.oo-ui-iconElement-icon,
+	&.oo-ui-iconElement-icon {
+		opacity: 0.8;
+		background-size: contain;
+		background-position: center center;
+	}
+}
+
+.theme-oo-ui-indicatorElement () {
+	.oo-ui-indicatorElement-indicator,
+	&.oo-ui-indicatorElement-indicator {
+		opacity: 0.8;
+		background-size: contain;
+		background-position: center center;
+	}
+}
+
+.theme-oo-ui-labelElement () {}
+
+.theme-oo-ui-lookupElement () {}
+
+.theme-oo-ui-popupElement () {}
+
+.theme-oo-ui-tabIndexedElement () {}
+
+.theme-oo-ui-titledElement () {}

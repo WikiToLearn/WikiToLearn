@@ -1,0 +1,73 @@
+@import '../common';
+
+.oo-ui-popupToolGroup {
+	position: relative;
+
+	&-handle {
+		display: block;
+		cursor: pointer;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			position: absolute;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		.oo-ui-popupToolGroup-handle {
+			cursor: default;
+		}
+	}
+
+	.oo-ui-toolGroup-tools {
+		display: none;
+		position: absolute;
+		z-index: 4;
+
+		.oo-ui-iconElement-icon {
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	}
+
+	&-active.oo-ui-widget-enabled {
+		> .oo-ui-toolGroup-tools {
+			display: block;
+		}
+	}
+
+	&-left > .oo-ui-toolGroup-tools {
+		left: 0;
+	}
+
+	&-right > .oo-ui-toolGroup-tools {
+		right: 0;
+	}
+
+	.oo-ui-tool-link {
+		display: table;
+		width: 100%;
+		vertical-align: middle;
+		white-space: nowrap;
+
+		.oo-ui-iconElement-icon,
+		.oo-ui-tool-accel,
+		.oo-ui-tool-title {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.oo-ui-tool-accel {
+			text-align: right;
+		}
+
+		.oo-ui-tool-accel:not(:empty) {
+			// Push away from tool's title
+			padding-left: 3em;
+		}
+	}
+
+	.theme-oo-ui-popupToolGroup();
+}

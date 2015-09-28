@@ -1,0 +1,80 @@
+[
+	{
+		"name": "OOjs UI",
+		"groups": [
+			{
+				"name": "General",
+				"classes": [
+					"OO.ui",
+					"OO.ui.Element",
+					"OO.ui.HtmlSnippet",
+					"OO.ui.Toolbar",
+					"OO.ui.Window",
+					"OO.ui.Dialog",
+					"OO.ui.WindowManager",
+					"OO.ui.Process",
+					"OO.ui.Error",
+					"OO.ui.ActionSet"
+				]
+			},
+			{
+				"name": "Factories",
+				"classes": ["OO.ui.*Factory"]
+			},
+			{
+				"name": "Tools",
+				"classes": ["OO.ui.*Tool"]
+			},
+			{
+				"name": "Elements",
+				"classes": ["OO.ui.*Element"]
+			},
+			{
+				"name": "Layouts",
+				"classes": ["OO.ui.*Layout"]
+			},
+			{
+				"name": "Tool groups",
+				"classes": ["OO.ui.*ToolGroup"]
+			},
+			{
+				"name": "Widgets",
+				"classes": ["OO.ui.*Widget"]
+			},
+			{
+				"name": "Dialogs",
+				"classes": ["OO.ui.*Dialog"]
+			},
+			{
+				"name": "Themes",
+				"classes": ["OO.ui.*Theme"]
+			}
+		]
+	},
+	{
+		"name": "Upstream",
+		"groups": [
+			{
+				"name": "OOJS",
+				"classes": ["OO", "OO.EventEmitter", "OO.Factory", "OO.Registry"]
+			},
+			{
+				"name": "jQuery",
+				"classes": ["jQuery", "jQuery.Event", "jQuery.Promise", "jQuery.Deferred", "jQuery.jqXHR"]
+			},
+			{
+				"name": "JavaScript",
+				"classes": [
+					"Array",
+					"Boolean",
+					"Date",
+					"Function",
+					"Number",
+					"Object",
+					"RegExp",
+					"String"
+				]
+			}
+		]
+	}
+]

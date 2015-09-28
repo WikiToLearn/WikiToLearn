@@ -1,0 +1,71 @@
+@import '../common';
+
+.oo-ui-textInputWidget {
+	position: relative;
+	// Necessary for proper alignment when used with display: inline-block
+	vertical-align: middle;
+	.oo-ui-box-sizing(border-box);
+
+	input,
+	textarea {
+		display: inline-block;
+		width: 100%;
+		resize: none;
+		.oo-ui-box-sizing(border-box);
+	}
+
+	> .oo-ui-iconElement-icon,
+	> .oo-ui-indicatorElement-indicator,
+	> .oo-ui-labelElement-label {
+		display: none;
+	}
+
+	&.oo-ui-iconElement > .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement > .oo-ui-indicatorElement-indicator {
+		display: block;
+		position: absolute;
+		top: 0;
+		height: 100%;
+		background-repeat: no-repeat;
+
+		.oo-ui-unselectable();
+	}
+
+	&.oo-ui-widget-enabled {
+		> .oo-ui-iconElement-icon,
+		> .oo-ui-indicatorElement-indicator {
+			cursor: pointer;
+		}
+	}
+
+	&.oo-ui-labelElement > .oo-ui-labelElement-label {
+		display: block;
+	}
+
+	> .oo-ui-iconElement-icon {
+		left: 0;
+	}
+
+	> .oo-ui-indicatorElement-indicator {
+		right: 0;
+	}
+
+	> .oo-ui-labelElement-label {
+		position: absolute;
+		top: 0;
+	}
+
+	&-labelPosition-after {
+		> .oo-ui-labelElement-label {
+			right: 0
+		}
+	}
+
+	&-labelPosition-before {
+		> .oo-ui-labelElement-label {
+			left: 0
+		}
+	}
+
+	.theme-oo-ui-textInputWidget();
+}

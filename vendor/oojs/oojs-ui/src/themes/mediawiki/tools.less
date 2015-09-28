@@ -1,0 +1,422 @@
+@import 'common';
+
+@oo-ui-toolbar-normal: #fff;
+@oo-ui-toolbar-normal-hover: #eee;
+@oo-ui-toolbar-active: #e5e5e5;
+@oo-ui-toolbar-active-hover: #eee;
+@oo-ui-toolbar-pressed: #e7e7e7;
+@oo-ui-toolbar-bar-text: #555;
+@oo-ui-toolbar-dropdown-text: #000;
+
+.theme-oo-ui-toolbar () {
+	&-bar {
+		border-bottom: 1px solid #ccc;
+		background-color: @oo-ui-toolbar-normal;
+		box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+		font-weight: 500;
+		color: @oo-ui-toolbar-bar-text;
+
+		.oo-ui-toolbar-bar {
+			border: none;
+			background: none;
+			box-shadow: none;
+		}
+	}
+
+	&-actions {
+		> .oo-ui-buttonElement {
+			margin-top: 0.25em;
+			margin-bottom: 0.25em;
+		}
+
+		> .oo-ui-toolbar,
+		> .oo-ui-buttonElement:last-child {
+			margin-right: 0.5em;
+		}
+	}
+}
+
+.theme-oo-ui-tool () {}
+
+.theme-oo-ui-popupTool () {
+	.oo-ui-popupWidget {
+		/* @noflip */
+		margin-left: 1.25em;
+	}
+}
+
+.theme-oo-ui-toolGroupTool () {
+	> .oo-ui-popupToolGroup {
+		border: 0;
+		border-radius: 0;
+		margin: 0;
+	}
+
+	> .oo-ui-toolGroup {
+		border-right: none;
+	}
+
+	> .oo-ui-popupToolGroup > .oo-ui-popupToolGroup-handle {
+		height: 2.5em;
+		padding: 0.3125em;
+
+		.oo-ui-iconElement-icon {
+			height: 2.5em;
+			width: 1.875em;
+		}
+	}
+
+	> .oo-ui-popupToolGroup.oo-ui-labelElement > .oo-ui-popupToolGroup-handle {
+		.oo-ui-labelElement-label {
+			line-height: 2.1em;
+		}
+	}
+}
+
+.theme-oo-ui-toolGroup () {
+	border-radius: 0px;
+	border-right: 1px solid #ddd;
+
+	.oo-ui-toolbar-narrow & {
+		+ .oo-ui-toolGroup {
+			margin-left: 0;
+		}
+	}
+
+	.oo-ui-toolGroup {
+		.oo-ui-widget-enabled {
+			border-right: none !important;
+		}
+	}
+}
+
+.theme-oo-ui-barToolGroup () {
+	> .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> .oo-ui-tool-link {
+			height: 1.875em;
+			padding: 0.625em;
+
+			.oo-ui-iconElement-icon {
+				height: 1.875em;
+				width: 1.875em;
+			}
+
+			.oo-ui-tool-title {
+				line-height: 2.1em; // 0.5em less
+				padding: 0em 0.4em;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		&.oo-ui-widget-enabled:hover {
+			border-color: rgba(0,0,0,0.2);
+			background-color: @oo-ui-toolbar-normal-hover;
+		}
+
+		> a.oo-ui-tool-link .oo-ui-tool-title {
+			color: @oo-ui-toolbar-bar-text;
+		}
+
+		&.oo-ui-tool-active {
+			&.oo-ui-widget-enabled {
+				border-color: rgba(0,0,0,0.2);
+				box-shadow: inset 0 0.07em 0.07em 0 rgba(0, 0, 0, 0.07);
+				background-color: @oo-ui-toolbar-active;
+			}
+
+			&.oo-ui-widget-enabled:hover {
+				background-color: @oo-ui-toolbar-active-hover;
+			}
+
+			&.oo-ui-widget-enabled + .oo-ui-tool-active.oo-ui-widget-enabled {
+				border-left-color: rgba(0,0,0,0.1);
+			}
+		}
+
+		&.oo-ui-widget-disabled > .oo-ui-tool-link {
+			.oo-ui-tool-title {
+				color: #ccc;
+			}
+
+			.oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+		}
+
+		&.oo-ui-widget-enabled {
+			> .oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 0.7;
+			}
+
+			&:hover > .oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 0.9;
+			}
+		}
+
+		&.oo-ui-widget-enabled:active {
+			background-color: @oo-ui-toolbar-pressed;
+		}
+	}
+
+	&.oo-ui-widget-disabled > .oo-ui-toolGroup-tools > .oo-ui-tool {
+		> a.oo-ui-tool-link {
+			.oo-ui-tool-title {
+				color: #ccc;
+			}
+
+			.oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-popupToolGroup () {
+	height: 3.125em;
+	min-width: 2em;
+
+	.oo-ui-toolbar-narrow & {
+		min-width: 1.875em;
+	}
+
+	&.oo-ui-iconElement {
+		min-width: 3.125em;
+		.oo-ui-toolbar-narrow & {
+			min-width: 2.5em;
+		}
+	}
+
+	&.oo-ui-indicatorElement.oo-ui-iconElement {
+		min-width: 4.375em;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: 3.75em;
+		}
+	}
+
+	&.oo-ui-labelElement {
+		.oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
+			line-height: 2.6em;
+			margin: 0 1em;
+
+			.oo-ui-toolbar-narrow & {
+				margin: 0 0.5em;
+			}
+		}
+
+		&.oo-ui-iconElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
+			margin-left: 3em;
+
+			.oo-ui-toolbar-narrow & {
+				margin-left: 2.5em;
+			}
+		}
+
+		&.oo-ui-indicatorElement .oo-ui-popupToolGroup-handle .oo-ui-labelElement-label {
+			margin-right: 2em;
+
+			.oo-ui-toolbar-narrow & {
+				margin-right: 1.75em;
+			}
+		}
+	}
+
+	&.oo-ui-widget-enabled &-handle:hover {
+		background-color: @oo-ui-toolbar-normal-hover;
+	}
+
+	&.oo-ui-widget-enabled &-handle:active {
+		background-color: @oo-ui-toolbar-active;
+	}
+
+	&-handle {
+		padding: 0.3125em;
+		height: 2.5em;
+
+		.oo-ui-indicatorElement-indicator {
+			width: 0.9375em;
+			height: 1.625em;
+			margin: 0.78125em 0.5em;
+			top: 0;
+			right: 0;
+			opacity: 0.3;
+
+			.oo-ui-toolbar-narrow & {
+				right: -0.3125em;
+			}
+		}
+
+		.oo-ui-iconElement-icon {
+			width: 1.875em;
+			height: 2.6em;
+			margin: 0.25em;
+			top: 0;
+			left: 0.3125em;
+			opacity: 0.7;
+
+			.oo-ui-toolbar-narrow & {
+				left: 0;
+			}
+		}
+	}
+
+	&-header {
+		line-height: 2.6em;
+		margin: 0 0.6em;
+		font-weight: bold;
+	}
+
+	&-active.oo-ui-widget-enabled {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		box-shadow: inset 0 0.07em 0.07em 0 rgba(0, 0, 0, 0.07);
+		background-color: @oo-ui-toolbar-normal-hover;
+	}
+
+	.oo-ui-toolGroup-tools {
+		top: 3.125em;
+		margin: 0 -1px;
+		border: 1px solid #ccc;
+		background-color: @oo-ui-toolbar-normal;
+		box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
+		min-width: 16em;
+	}
+
+	.oo-ui-tool-link {
+		padding: 0.4em 0.625em;
+		box-sizing: border-box;
+
+		.oo-ui-iconElement-icon {
+			height: 2.5em;
+			width: 1.875em;
+			min-width: 1.875em;
+		}
+
+		.oo-ui-tool-title {
+			padding-left: 0.5em;
+			color: @oo-ui-toolbar-dropdown-text;
+		}
+
+		.oo-ui-tool-accel,
+		.oo-ui-tool-title {
+			line-height: 2em;
+		}
+
+		.oo-ui-tool-accel {
+			color: #888;
+		}
+	}
+}
+
+.theme-oo-ui-listToolGroup () {
+	&.oo-ui-popupToolGroup-active {
+		border-color: rgba(0,0,0,0.2);
+	}
+
+	.oo-ui-tool {
+		&.oo-ui-widget-enabled {
+			&:hover {
+				border-color: rgba(0,0,0,0.2);
+				background-color: @oo-ui-toolbar-normal-hover;
+			}
+
+			&:active {
+				background-color: @oo-ui-toolbar-pressed;
+			}
+
+			&:hover .oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 0.9;
+			}
+		}
+
+		&-active {
+			&.oo-ui-widget-enabled {
+				border-color: rgba(0,0,0,0.1);
+				box-shadow: inset 0 0.07em 0.07em 0 rgba(0, 0, 0, 0.07);
+				background-color: @oo-ui-toolbar-active;
+
+				+ .oo-ui-tool-active.oo-ui-widget-enabled {
+					border-top-color: rgba(0,0,0,0.1);
+				}
+
+				&:hover {
+					border-color: rgba(0,0,0,0.2);
+					background-color: @oo-ui-toolbar-active-hover;
+				}
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link {
+				.oo-ui-tool-title {
+					color: #ccc;
+				}
+
+				.oo-ui-tool-accel {
+					color: #ddd;
+				}
+
+				.oo-ui-iconElement-icon {
+					opacity: 0.2;
+				}
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		color: #ccc;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			opacity: 0.2;
+		}
+	}
+}
+
+.theme-oo-ui-menuToolGroup () {
+	.oo-ui-popupToolGroup-handle {
+		min-width: 10em;
+
+		.oo-ui-toolbar-narrow & {
+			min-width: 8.125em;
+		}
+	}
+
+	.oo-ui-tool {
+		&-link {
+			.oo-ui-iconElement-icon {
+				background-image: none;
+			}
+		}
+
+		&-active .oo-ui-tool-link .oo-ui-iconElement-icon {
+			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/check');
+		}
+
+		&.oo-ui-widget-enabled {
+			&:hover {
+				background-color: @oo-ui-toolbar-normal-hover;
+			}
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link .oo-ui-tool-title {
+				color: #ccc;
+			}
+
+			.oo-ui-tool-link .oo-ui-iconElement-icon {
+				opacity: 0.2;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		color: #ccc;
+
+		.oo-ui-indicatorElement-indicator,
+		.oo-ui-iconElement-icon {
+			opacity: 0.2;
+		}
+	}
+}

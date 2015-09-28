@@ -1,0 +1,16 @@
+{
+	"--title": "OOjs UI - Documentation",
+	"--output": "docs",
+	"--categories": "./jsduck.categories.json",
+	"--eg-iframe": "./jsduck.eg-iframe.html",
+	"--processes": "0",
+	"--warnings-exit-nonzero": true,
+	"--builtin-classes": true,
+	"--external": "HTMLDocument,Window,MouseEvent,KeyboardEvent",
+	"--warnings": ["-nodoc(class,public)"],
+	"--": [
+		"jsduck.external.js",
+		"node_modules/oojs/dist/oojs.jquery.js",
+		"src"
+	]
+}

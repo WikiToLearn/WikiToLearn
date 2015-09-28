@@ -1,0 +1,26 @@
+{
+    "name": "wikimedia/cdb",
+    "description": "Constant Database (CDB) wrapper library for PHP. Provides pure-PHP fallback when dba_* functions are absent.",
+    "license": "GPL-2.0",
+    "homepage": "https://www.mediawiki.org/wiki/CDB",
+    "authors": [
+        {
+            "name": "Tim Starling",
+            "email": "tstarling@wikimedia.org"
+        },
+        {
+            "name": "Chad Horohoe",
+            "email": "chad@wikimedia.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}

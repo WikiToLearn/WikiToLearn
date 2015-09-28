@@ -1,0 +1,978 @@
+@import 'common';
+
+.theme-oo-ui-widget () {}
+
+.theme-oo-ui-outlineControlsWidget () {
+	height: 3em;
+	background-color: #fff;
+
+	&-items,
+	&-movers {
+		height: 2em;
+		margin: 0.5em 0.5em 0.5em 0;
+		padding: 0;
+	}
+
+	> .oo-ui-iconElement-icon {
+		width: 1.5em;
+		height: 2em;
+		margin: 0.5em 0 0.5em 0.5em;
+		opacity: 0.2;
+	}
+}
+
+.theme-oo-ui-toggleWidget () {}
+
+.theme-oo-ui-buttonGroupWidget () {
+	display: inline-block;
+	white-space: nowrap;
+	border-radius: @border-radius;
+
+	.oo-ui-inline-spacing(0.5em);
+	.oo-ui-buttonElement {
+		.oo-ui-inline-spacing(0);
+	}
+
+	.oo-ui-buttonElement-framed {
+		.oo-ui-buttonElement-button {
+			border-radius: 0;
+			margin-left: -1px;
+		}
+
+		&:first-child .oo-ui-buttonElement-button {
+			border-bottom-left-radius: @border-radius;
+			border-top-left-radius: @border-radius;
+			margin-left: 0;
+		}
+
+		&:last-child .oo-ui-buttonElement-button {
+			border-bottom-right-radius: @border-radius;
+			border-top-right-radius: @border-radius;
+		}
+	}
+}
+
+.theme-oo-ui-buttonWidget () {
+	.oo-ui-inline-spacing(0.5em);
+}
+
+.theme-oo-ui-actionWidget () {
+	&.oo-ui-pendingElement-pending {
+		.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
+	}
+}
+
+.theme-oo-ui-popupButtonWidget () {
+	&.oo-ui-buttonElement-frameless > .oo-ui-popupWidget {
+		// Compensate for icon being inset
+		/* @noflip */
+		left: 1em;
+	}
+
+	&.oo-ui-buttonElement-framed > .oo-ui-popupWidget {
+		// Compensate for icon being inset
+		/* @noflip */
+		left: 1.75em;
+	}
+}
+
+.theme-oo-ui-toggleButtonWidget () {
+	.oo-ui-inline-spacing(0.5em);
+}
+
+.theme-oo-ui-iconWidget () {
+	line-height: 2.5em;
+	height: @icon-size;
+	width: @icon-size;
+
+	&.oo-ui-widget-disabled {
+		opacity: 0.2;
+	}
+}
+
+.theme-oo-ui-indicatorWidget () {
+	line-height: 2.5em;
+	height: @indicator-size;
+	width: @indicator-size;
+	margin: @indicator-size / 2;
+
+	&.oo-ui-widget-disabled {
+		opacity: 0.2;
+	}
+}
+
+.theme-oo-ui-dropdownWidget () {
+	margin: 0.25em 0;
+	width: 100%;
+	max-width: 50em;
+
+	.oo-ui-inline-spacing(0.5em);
+
+	&-handle {
+		height: 2.5em;
+		border: 1px solid #ccc;
+		border-radius: 0.1em;
+
+		.oo-ui-indicatorElement-indicator {
+			right: 0;
+		}
+
+		.oo-ui-iconElement-icon {
+			left: 0.25em;
+		}
+
+		.oo-ui-labelElement-label {
+			line-height: 2.5em;
+			margin: 0 1em;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			top: 0;
+			width: @indicator-size;
+			height: @indicator-size;
+			margin: 0.775em;
+		}
+
+		.oo-ui-iconElement-icon {
+			top: 0;
+			width: @icon-size;
+			height: @icon-size;
+			margin: 0.3em;
+		}
+	}
+
+	&:hover .oo-ui-dropdownWidget-handle {
+		border-color: #aaa;
+	}
+
+	&.oo-ui-widget-disabled {
+		.oo-ui-dropdownWidget-handle {
+			color: #ccc;
+			text-shadow: 0 1px 1px #fff;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
+		.oo-ui-indicatorElement-indicator {
+			opacity: 0.2;
+		}
+	}
+
+	&.oo-ui-iconElement .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
+		margin-left: 3em;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-dropdownWidget-handle .oo-ui-labelElement-label {
+		margin-right: 2em;
+	}
+
+	.oo-ui-selectWidget {
+		border-top-color: #fff;
+	}
+}
+
+.theme-oo-ui-inputWidget () {
+	.oo-ui-inline-spacing(0.5em);
+}
+
+.theme-oo-ui-buttonInputWidget () {}
+
+.theme-oo-ui-checkboxInputWidget () {
+	position: relative;
+	line-height: @input-size;
+	// Prevent the fake span from jumping to the next line of text
+	white-space: nowrap;
+
+	* {
+		font: inherit;
+		vertical-align: middle;
+	}
+
+	// This input element is visually replaced by the the span that follows
+	input[type="checkbox"] {
+		// Use opacity so that VoiceOver software can still identify it
+		opacity: 0;
+		// Render "on top of" the span, so that it's still clickable
+		z-index: 1;
+		position: relative;
+
+		// Having margin would offset the input from where the span is absolutely positioned,
+		// making only the overlap region receive events
+		margin: 0;
+
+		// Ensure the invisible input takes up the required width
+		width: @input-size;
+		height: @input-size;
+
+		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		max-width: none;
+
+		& + span {
+			cursor: pointer;
+			.oo-ui-transition(background-size @medium-ease-out-back);
+			.oo-ui-box-sizing( border-box );
+			position: absolute;
+			left: 0;
+			border-radius: @border-radius;
+			width: @input-size;
+			height: @input-size;
+			background-color: white;
+			border: 1px solid @input-border-color;
+			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/check-constructive');
+			.oo-ui-background-image-safari('@{oo-ui-default-image-path}/icons/check-constructive');
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-origin: border-box;
+			background-size: 0 0;
+		}
+
+		&:checked + span  {
+			background-size: 100% 100%;
+		}
+
+		&:active + span {
+			background-color: @input-active-color;
+			border-color: @input-active-color;
+		}
+
+		&:focus + span {
+			border-width: @input-focus-border-width;
+		}
+
+		&:focus:hover + span,
+		&:hover + span {
+			border-bottom-width: @input-hover-border-bottom-width;
+		}
+
+		&:disabled + span {
+			cursor: default;
+			background-color: @input-disabled-color;
+			border-color: @input-disabled-color;
+		}
+
+		&:disabled:checked + span {
+			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/check-invert');
+			.oo-ui-background-image-safari('@{oo-ui-default-image-path}/icons/check-invert');
+		}
+	}
+}
+
+.theme-oo-ui-dropdownInputWidget () {
+	width: 100%;
+	max-width: 50em;
+
+	select {
+		height: 2.5em;
+		padding: 0.5em;
+		font-size: inherit;
+		font-family: inherit;
+		.oo-ui-box-sizing(border-box);
+		border: 1px solid #ccc;
+	}
+
+	&.oo-ui-widget-enabled {
+		select:hover,
+		select:focus {
+			border-color: #aaa;
+			outline: none;
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		select {
+			color: #ccc;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
+	}
+}
+
+.theme-oo-ui-radioInputWidget () {
+	position: relative;
+	line-height: @input-size;
+	// Prevent the fake span from jumping to the next line of text
+	white-space: nowrap;
+
+	* {
+		font: inherit;
+		vertical-align: middle;
+	}
+
+	// This input element is visually replaced by the the span that follows
+	input[type="radio"] {
+		// Use opacity so that VoiceOver software can still identify it
+		opacity: 0;
+		// Render "on top of" the span, so that it's still clickable
+		z-index: 1;
+		position: relative;
+
+		// Having margin would offset the input from where the span is absolutely positioned,
+		// making only the overlap region receive events
+		margin: 0;
+
+		// Ensure the invisible input takes up the required width
+		width: @input-size;
+		height: @input-size;
+
+		// Needed for Firefox mobile (See bug 71750 to workaround default Firefox stylesheet)
+		max-width: none;
+
+		& + span {
+			cursor: pointer;
+			.oo-ui-transition(background-size @medium-ease-out-back);
+			.oo-ui-box-sizing(border-box);
+			position: absolute;
+			left: 0;
+			border-radius: 100%;
+			width: @input-size;
+			height: @input-size;
+			background: white;
+			border: 1px solid @input-border-color;
+			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/circle-constructive');
+			.oo-ui-background-image-safari('@{oo-ui-default-image-path}/icons/circle-constructive');
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-origin: border-box;
+			background-size: 0 0;
+		}
+
+		&:checked + span  {
+			background-size: 100% 100%;
+		}
+
+		&:active + span {
+			background-color: @input-active-color;
+			border-color: @input-active-color;
+		}
+
+		&:focus + span {
+			border-width: @input-focus-border-width;
+		}
+
+		&:focus:hover + span,
+		&:hover + span {
+			border-bottom-width: @input-hover-border-bottom-width;
+		}
+
+		&:disabled + span {
+			cursor: default;
+			background-color: @input-disabled-color;
+			border-color: @input-disabled-color;
+		}
+
+		&:disabled:checked + span {
+			.oo-ui-background-image-svg('@{oo-ui-default-image-path}/icons/circle-invert');
+			.oo-ui-background-image-safari('@{oo-ui-default-image-path}/icons/circle-invert');
+		}
+	}
+}
+
+.theme-oo-ui-textInputWidget () {
+	width: 100%;
+	max-width: 50em;
+
+	input,
+	textarea {
+		padding: 0.5em;
+		margin: 0;
+		font-size: inherit;
+		font-family: inherit;
+		background-color: #fff;
+		color: black;
+		border: solid 1px #ccc;
+		box-shadow: inset 0 0 0 0 @progressive;
+		border-radius: 0.1em;
+		.oo-ui-transition(box-shadow @quick-ease);
+		.oo-ui-box-sizing(border-box);
+	}
+
+	&-decorated {
+		input,
+		textarea {
+			padding-left: 2em;
+		}
+	}
+
+	&-icon {
+		width: 2em;
+	}
+
+	&.oo-ui-widget-enabled {
+		input,
+		textarea {
+			.oo-ui-transition(
+				border @medium-ease-out-sine,
+				box-shadow @medium-ease-out-sine
+			);
+		}
+
+		input:focus,
+		textarea:focus {
+			outline: none;
+			border-color: @progressive;
+			box-shadow: inset 0 0 0 0.1em @progressive;
+		}
+
+		input[readonly],
+		textarea[readonly] {
+			color: #777;
+			text-shadow: 0 1px 1px #fff;
+
+			&:focus {
+				border-color: #ccc;
+				box-shadow: inset 0 0 0 0.1em #ccc;
+			}
+		}
+
+		&.oo-ui-flaggedElement-invalid {
+			input,
+			textarea {
+				border-color: red;
+				box-shadow: inset 0 0 0 0 red;
+			}
+
+			input:focus,
+			textarea:focus {
+				border-color: red;
+				box-shadow: inset 0 0 0 0.1em red;
+			}
+		}
+	}
+
+	&.oo-ui-widget-disabled {
+		input,
+		textarea {
+			color: #ccc;
+			text-shadow: 0 1px 1px #fff;
+			border-color: #ddd;
+			background-color: #f3f3f3;
+		}
+		.oo-ui-iconElement-icon,
+		.oo-ui-indicatorElement-indicator {
+			opacity: 0.2;
+		}
+		.oo-ui-labelElement-label {
+			color: #ddd;
+			text-shadow: 0 1px 1px #fff;
+		}
+	}
+
+	&.oo-ui-pendingElement-pending {
+		input,
+		textarea {
+			background-color: transparent;
+			.oo-ui-background-image('@{oo-ui-default-image-path}/textures/pending.gif');
+		}
+	}
+
+	&.oo-ui-iconElement {
+		input,
+		textarea {
+			padding-left: 2.75em;
+		}
+
+		.oo-ui-iconElement-icon {
+			left: 0.4em;
+			width: @icon-size;
+			margin-left: 0.1em;
+			height: 100%;
+			background-position: right center;
+		}
+	}
+
+	&.oo-ui-indicatorElement {
+		input,
+		textarea {
+			padding-right: @icon-size;
+		}
+
+		.oo-ui-indicatorElement-indicator {
+			width: @indicator-size;
+			margin: 0 0.775em;
+			height: 100%;
+		}
+	}
+
+	> .oo-ui-labelElement-label {
+		padding: 0.4em;
+		line-height: 1.5em;
+		color: #888;
+	}
+
+	&-labelPosition-after {
+		&.oo-ui-indicatorElement > .oo-ui-labelElement-label {
+			margin-right: 2em;
+		}
+	}
+
+	&-labelPosition-before {
+		&.oo-ui-iconElement > .oo-ui-labelElement-label {
+			margin-left: 2.5em;
+		}
+	}
+}
+
+.theme-oo-ui-comboBoxWidget () {
+	width: 100%;
+	max-width: 50em;
+
+	.oo-ui-inline-spacing(0.5em);
+
+	.oo-ui-textInputWidget {
+		input,
+		textarea {
+			height: 2.35em;
+		}
+	}
+}
+
+.theme-oo-ui-labelWidget () {}
+
+.theme-oo-ui-optionWidget () {
+	padding: 0.25em 0.5em;
+	border: none;
+
+	&-highlighted {
+		background-color: #eee;
+	}
+
+	.oo-ui-labelElement-label {
+		line-height: 1.5em;
+	}
+
+	.oo-ui-selectWidget-depressed &-selected,
+	.oo-ui-selectWidget-pressed &-pressed,
+	.oo-ui-selectWidget-pressed &-pressed&-highlighted,
+	.oo-ui-selectWidget-pressed &-pressed&-highlighted&-selected {
+		background-color: @pressed-color;
+	}
+
+	&.oo-ui-widget-disabled {
+		color: #ccc;
+	}
+}
+
+.theme-oo-ui-decoratedOptionWidget () {
+	padding: 0.5em 2em 0.5em 3em;
+
+	&.oo-ui-iconElement .oo-ui-iconElement-icon,
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		top: 0;
+		height: 100%;
+	}
+
+	&.oo-ui-iconElement .oo-ui-iconElement-icon {
+		width: @icon-size;
+		left: 0.5em;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		width: @indicator-size;
+		right: 0.5em;
+	}
+
+	&.oo-ui-widget-disabled {
+		.oo-ui-iconElement-icon,
+		.oo-ui-indicatorElement-indicator {
+			opacity: 0.2;
+		}
+	}
+}
+
+.theme-oo-ui-buttonOptionWidget () {
+	padding: 0;
+	background-color: transparent;
+
+	.oo-ui-buttonElement-button {
+		height: @icon-size;
+	}
+
+	&.oo-ui-iconElement .oo-ui-iconElement-icon {
+		margin-top: 0;
+	}
+
+	&.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-pressed,
+	&.oo-ui-optionWidget-highlighted {
+		background-color: transparent;
+	}
+
+	// Override DecoratedOptionWidget styles
+	&.oo-ui-widget-disabled {
+		.oo-ui-iconElement-icon,
+		.oo-ui-indicatorElement-indicator {
+			opacity: 1;
+		}
+	}
+}
+
+.theme-oo-ui-radioOptionWidget () {
+	padding: 0.25em 0;
+	background-color: transparent;
+
+	&.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-pressed,
+	&.oo-ui-optionWidget-highlighted {
+		background-color: transparent;
+	}
+
+	&.oo-ui-labelElement .oo-ui-labelElement-label {
+		padding: 0.25em;
+		padding-left: 1em;
+	}
+
+	.oo-ui-radioInputWidget {
+		margin-right: 0;
+	}
+}
+
+.theme-oo-ui-menuOptionWidget () {
+	padding: 0.5em 1em;
+
+	&.oo-ui-optionWidget {
+		&-selected {
+			background-color: @select;
+			color: rgba(0,0,0,0.8);
+
+			.oo-ui-iconElement-icon {
+				display: none;
+			}
+		}
+		&-highlighted {
+			background-color: #eee;
+			color: black;
+		}
+		&-selected&-highlighted {
+			background-color: @select;
+		}
+	}
+}
+
+.theme-oo-ui-menuSectionOptionWidget () {
+	padding: 0.33em 0.75em;
+	color: #888;
+}
+
+.theme-oo-ui-outlineOptionWidget () {
+	font-size: 1.1em;
+	padding: 0.75em;
+
+	&.oo-ui-indicatorElement .oo-ui-labelElement-label {
+		padding-right: 1.5em;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		opacity: 0.5;
+	}
+
+	&-level-0 {
+		padding-left: 3.5em;
+
+		.oo-ui-iconElement-icon {
+			left: 1em;
+		}
+	}
+	&-level-1 {
+		padding-left: 5em;
+
+		.oo-ui-iconElement-icon {
+			left: 2.5em;
+		}
+	}
+
+	&-level-2 {
+		padding-left: 6.5em;
+
+		.oo-ui-iconElement-icon {
+			left: 4em;
+		}
+	}
+
+	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected {
+		background-color: @pressed-color;
+		text-shadow: 0 1px 1px #fff;
+	}
+
+	&.oo-ui-flaggedElement-important {
+		font-weight: bold;
+	}
+
+	&.oo-ui-flaggedElement-placeholder {
+		font-style: italic;
+	}
+
+	&.oo-ui-flaggedElement-empty {
+		.oo-ui-iconElement-icon {
+			opacity: 0.5;
+		}
+		.oo-ui-labelElement-label {
+			color: #777;
+		}
+	}
+}
+
+.theme-oo-ui-tabOptionWidget () {
+	padding: 0.35em 1em;
+	margin: 0.5em 0 0 0.75em;
+	border: 1px solid transparent;
+	border-bottom: none;
+	border-top-left-radius: @border-radius;
+	border-top-right-radius: @border-radius;
+	color: #666;
+	font-weight: bold;
+
+	&.oo-ui-widget-enabled {
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+
+		&:active {
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-labelElement-label {
+		padding-right: 1.5em;
+	}
+
+	&.oo-ui-indicatorElement .oo-ui-indicatorElement-indicator {
+		opacity: 0.5;
+	}
+
+	.oo-ui-selectWidget-pressed &.oo-ui-optionWidget-selected,
+	.oo-ui-selectWidget-depressed &.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-selected:hover {
+		background-color: #fff;
+        color: #333;
+	}
+}
+
+.theme-oo-ui-popupWidget () {
+	&-popup {
+		border: 1px solid #aaa;
+		border-radius: 0.2em;
+		background-color: #fff;
+		box-shadow: inset 0 -0.2em 0 0 rgba(0, 0, 0, 0.2);
+	}
+
+	@anchor-size: 9px;
+
+	&-anchored {
+		.oo-ui-popupWidget-popup {
+			margin-top: @anchor-size;
+		}
+
+		.oo-ui-popupWidget-anchor:before,
+		.oo-ui-popupWidget-anchor:after {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-top: 0;
+		}
+
+		.oo-ui-popupWidget-anchor:before {
+			bottom: -@anchor-size - 1px;
+			left: -@anchor-size;
+			border-bottom-color: #888;
+			border-width: @anchor-size + 1px;
+		}
+
+		.oo-ui-popupWidget-anchor:after {
+			bottom: -@anchor-size - 1px;
+			left: -@anchor-size + 1px;
+			border-bottom-color: #fff;
+			border-width: @anchor-size;
+		}
+	}
+
+	&-transitioning .oo-ui-popupWidget-popup {
+		.oo-ui-transition(width @quick-ease, height @quick-ease, left @quick-ease);
+	}
+
+	&-head {
+		height: 2.5em;
+
+		.oo-ui-buttonWidget {
+			margin: 0.25em;
+		}
+
+		.oo-ui-labelElement-label {
+			margin: 0.75em 1em;
+		}
+	}
+
+	&-body-padded {
+		padding: 0 1em;
+	}
+}
+
+.theme-oo-ui-searchWidget () {
+	&-query {
+		height: 4em;
+		padding: 0 1em;
+		border-bottom: 1px solid #ccc;
+
+		.oo-ui-textInputWidget {
+			margin: 0.75em 0;
+		}
+	}
+
+	&-results {
+		top: 4em;
+		padding: 1em;
+		line-height: 0;
+	}
+}
+
+.theme-oo-ui-selectWidget () {}
+
+.theme-oo-ui-buttonSelectWidget () {
+	border-radius: @border-radius;
+
+	.oo-ui-inline-spacing(0.5em);
+
+	.oo-ui-buttonOptionWidget {
+		.oo-ui-buttonElement-button {
+			border-radius: 0;
+			margin-left: -1px;
+		}
+
+		&:first-child .oo-ui-buttonElement-button {
+			border-bottom-left-radius: @border-radius;
+			border-top-left-radius: @border-radius;
+			margin-left: 0;
+		}
+
+		&:last-child .oo-ui-buttonElement-button {
+			border-bottom-right-radius: @border-radius;
+			border-top-right-radius: @border-radius;
+		}
+	}
+}
+
+.theme-oo-ui-radioSelectWidget () {}
+
+.theme-oo-ui-menuSelectWidget () {
+	background: #fff;
+	margin-top: -1px;
+	border: 1px solid #aaa;
+	border-radius: 0 0 0.2em 0.2em;
+	padding-bottom: 0.25em;
+	box-shadow: inset 0 -0.2em 0 0 rgba(0, 0, 0, 0.2), 0 0.1em 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.theme-oo-ui-textInputMenuSelectWidget () {}
+
+.theme-oo-ui-outlineSelectWidget () {}
+
+.theme-oo-ui-tabSelectWidget () {
+	background-color: #ddd;
+}
+
+.theme-oo-ui-toggleSwitchWidget () {
+	@travelDistance: 2em;
+	height: 2em;
+	width: @travelDistance + 2em;
+	border-radius: 1em;
+	border: 1px #ddd solid;
+
+	.oo-ui-inline-spacing(0.5em);
+
+	&-grip {
+		top: 0.25em;
+		left: 0.25em;
+		width: 1.5em;
+		height: 1.5em;
+		margin-top: -1px;
+		border-radius: 1em;
+		border: 1px #ddd solid;
+		background-color: #f7f7f7;
+
+		.oo-ui-transition(left @quick-ease, margin-left @quick-ease);
+	}
+
+	&-glow {
+		border-radius: 1em;
+		background-color: #f7f7f7;
+
+		.oo-ui-transition(background-color @quick-ease);
+	}
+
+	&.oo-ui-toggleWidget-on {
+		.oo-ui-toggleSwitchWidget-grip {
+			left: @travelDistance + 0.25em;
+			margin-left: -2px;
+		}
+	}
+
+	&.oo-ui-toggleWidget-off {
+		.oo-ui-toggleSwitchWidget-glow {
+			display: block;
+		}
+		.oo-ui-toggleSwitchWidget-grip {
+			left: 0.25em;
+			margin-left: 0;
+		}
+	}
+
+	&.oo-ui-widget-enabled {
+		border: 1px #ccc solid;
+
+		&:hover {
+			border-color: #aaa;
+		}
+
+		.oo-ui-toggleSwitchWidget-grip {
+			background-color: #fff;
+			border-color: #aaa;
+		}
+
+		&.oo-ui-toggleWidget-on {
+			.oo-ui-toggleSwitchWidget-glow {
+				background-color: @pressed-color;
+			}
+		}
+
+		&.oo-ui-toggleWidget-off {
+			.oo-ui-toggleSwitchWidget-glow {
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+.theme-oo-ui-progressBarWidget () {
+	max-width: 50em;
+	border: 1px solid #ccc;
+	border-radius: 0.1em;
+	overflow: hidden;
+
+	&-bar {
+		height: 1em;
+		background: #ddd;
+		.oo-ui-transition(width 200ms, margin-left 200ms);
+	}
+	&-indeterminate {
+		.oo-ui-progressBarWidget-bar {
+			.oo-ui-animation(oo-ui-progressBarWidget-slide 2s infinite linear);
+			width: 40%;
+			margin-left: -10%;
+			border-left-width: 1px;
+		}
+	}
+	&.oo-ui-widget-disabled {
+		opacity: 0.6;
+	}
+}
+
+.oo-ui-progressBarWidget-slide-frames () {
+	from { margin-left: -40%; }
+	to { margin-left: 100%; }
+}
+@-webkit-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@-moz-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@-ms-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@-o-keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }
+@keyframes oo-ui-progressBarWidget-slide { .oo-ui-progressBarWidget-slide-frames }

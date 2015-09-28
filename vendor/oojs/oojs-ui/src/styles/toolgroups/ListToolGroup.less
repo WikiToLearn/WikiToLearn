@@ -1,0 +1,21 @@
+@import '../common';
+
+.oo-ui-listToolGroup {
+	.oo-ui-tool {
+		display: block;
+
+		.oo-ui-box-sizing(border-box);
+
+		&-link {
+			cursor: pointer;
+		}
+
+		&.oo-ui-widget-disabled {
+			.oo-ui-tool-link {
+				cursor: default;
+			}
+		}
+	}
+
+	.theme-oo-ui-listToolGroup();
+}
