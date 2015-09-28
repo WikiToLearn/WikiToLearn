@@ -47,7 +47,7 @@ class PHP_CodeCoverage_Report_HTML_Renderer_Directory extends PHP_CodeCoverage_R
 
     /**
      * @param  PHP_CodeCoverage_Report_Node $item
-     * @param  bool                         $total
+     * @param  boolean                      $total
      * @return string
      */
     protected function renderItem(PHP_CodeCoverage_Report_Node $item, $total = false)

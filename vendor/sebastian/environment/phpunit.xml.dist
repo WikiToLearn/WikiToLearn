@@ -2,10 +2,7 @@
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
          bootstrap="vendor/autoload.php"
-         beStrictAboutOutputDuringTests="true"
-         beStrictAboutTestsThatDoNotTestAnything="true"
-         beStrictAboutTodoAnnotatedTests="true"
-         checkForUnintentionallyCoveredCode="true"
+         strict="true"
          verbose="true">
  <testsuites>
   <testsuite name="Environment">

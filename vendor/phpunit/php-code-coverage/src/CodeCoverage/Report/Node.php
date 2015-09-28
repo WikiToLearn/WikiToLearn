@@ -133,8 +133,8 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the percentage of classes that has been tested.
      *
-     * @param  bool $asString
-     * @return int
+     * @param  boolean $asString
+     * @return integer
      */
     public function getTestedClassesPercent($asString = true)
     {
@@ -148,8 +148,8 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the percentage of traits that has been tested.
      *
-     * @param  bool $asString
-     * @return int
+     * @param  boolean $asString
+     * @return integer
      */
     public function getTestedTraitsPercent($asString = true)
     {
@@ -163,8 +163,8 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the percentage of traits that has been tested.
      *
-     * @param  bool $asString
-     * @return int
+     * @param  boolean $asString
+     * @return integer
      * @since  Method available since Release 1.2.0
      */
     public function getTestedClassesAndTraitsPercent($asString = true)
@@ -179,8 +179,8 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the percentage of methods that has been tested.
      *
-     * @param  bool $asString
-     * @return int
+     * @param  boolean $asString
+     * @return integer
      */
     public function getTestedMethodsPercent($asString = true)
     {
@@ -194,8 +194,8 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the percentage of executed lines.
      *
-     * @param  bool $asString
-     * @return int
+     * @param  boolean $asString
+     * @return integer
      */
     public function getLineExecutedPercent($asString = true)
     {
@@ -209,7 +209,7 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the number of classes and traits.
      *
-     * @return int
+     * @return integer
      * @since  Method available since Release 1.2.0
      */
     public function getNumClassesAndTraits()
@@ -220,7 +220,7 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the number of tested classes and traits.
      *
-     * @return int
+     * @return integer
      * @since  Method available since Release 1.2.0
      */
     public function getNumTestedClassesAndTraits()
@@ -270,70 +270,70 @@ abstract class PHP_CodeCoverage_Report_Node implements Countable
     /**
      * Returns the number of executable lines.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumExecutableLines();
 
     /**
      * Returns the number of executed lines.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumExecutedLines();
 
     /**
      * Returns the number of classes.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumClasses();
 
     /**
      * Returns the number of tested classes.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumTestedClasses();
 
     /**
      * Returns the number of traits.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumTraits();
 
     /**
      * Returns the number of tested traits.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumTestedTraits();
 
     /**
      * Returns the number of methods.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumMethods();
 
     /**
      * Returns the number of tested methods.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumTestedMethods();
 
     /**
      * Returns the number of functions.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumFunctions();
 
     /**
      * Returns the number of tested functions.
      *
-     * @return int
+     * @return integer
      */
     abstract public function getNumTestedFunctions();
 }

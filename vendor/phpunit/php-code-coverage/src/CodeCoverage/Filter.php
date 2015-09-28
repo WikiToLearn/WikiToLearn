@@ -172,8 +172,7 @@ class PHP_CodeCoverage_Filter
     /**
      * Checks whether a filename is a real filename.
      *
-     * @param  string $filename
-     * @return bool
+     * @param string $filename
      */
     public function isFile($filename)
     {
@@ -198,7 +197,7 @@ class PHP_CodeCoverage_Filter
      * When the whitelist is not empty, whitelisting is used.
      *
      * @param  string                     $filename
-     * @return bool
+     * @return boolean
      * @throws PHP_CodeCoverage_Exception
      */
     public function isFiltered($filename)
@@ -239,7 +238,7 @@ class PHP_CodeCoverage_Filter
     /**
      * Returns whether this filter has a whitelist.
      *
-     * @return bool
+     * @return boolean
      * @since  Method available since Release 1.1.0
      */
     public function hasWhitelist()

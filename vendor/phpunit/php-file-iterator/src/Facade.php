@@ -14,6 +14,11 @@
  * RecursiveDirectoryIterator for each given path. The list of unique
  * files is returned as an array.
  *
+ * @author    Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright Sebastian Bergmann <sebastian@phpunit.de>
+ * @license   http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @version   Release: @package_version@
+ * @link      http://github.com/sebastianbergmann/php-file-iterator/tree
  * @since     Class available since Release 1.3.0
  */
 class File_Iterator_Facade
@@ -23,7 +28,7 @@ class File_Iterator_Facade
      * @param  array|string $suffixes
      * @param  array|string $prefixes
      * @param  array        $exclude
-     * @param  bool         $commonPath
+     * @param  boolean      $commonPath
      * @return array
      */
     public function getFilesAsArray($paths, $suffixes = '', $prefixes = '', array $exclude = array(), $commonPath = FALSE)
@@ -69,7 +74,7 @@ class File_Iterator_Facade
     /**
      * Returns the common path of a set of files.
      *
-     * @param  array  $files
+     * @param  array $files
      * @return string
      */
     protected function getCommonPath(array $files)

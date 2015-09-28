@@ -8,12 +8,17 @@
  * file that was distributed with this source code.
  */
 
-use SebastianBergmann\Exporter\Exporter;
-
 /**
  * Stubs a method by returning a user-defined stack of values.
  *
- * @since Class available since Release 1.0.0
+ * @package    PHPUnit_MockObject
+ * @author     Patrick Müller <elias0@gmx.net>
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @version    Release: @package_version@
+ * @link       http://github.com/sebastianbergmann/phpunit-mock-objects
+ * @since      Class available since Release 1.0.0
  */
 class PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls implements PHPUnit_Framework_MockObject_Stub
 {
@@ -38,11 +43,9 @@ class PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls implements PHPUnit_Fram
 
     public function toString()
     {
-        $exporter = new Exporter;
-
         return sprintf(
             'return user-specified value %s',
-            $exporter->export($this->value)
+            PHPUnit_Util_Type::export($this->value)
         );
     }
 }

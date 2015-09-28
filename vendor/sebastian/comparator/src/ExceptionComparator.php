@@ -12,6 +12,12 @@ namespace SebastianBergmann\Comparator;
 
 /**
  * Compares Exception instances for equality.
+ *
+ * @package    Comparator
+ * @author     Bernhard Schussek <bschussek@2bepublished.at>
+ * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @link       http://www.github.com/sebastianbergmann/comparator
  */
 class ExceptionComparator extends ObjectComparator
 {
@@ -19,8 +25,8 @@ class ExceptionComparator extends ObjectComparator
      * Returns whether the comparator can compare two values.
      *
      * @param  mixed $expected The first value to compare
-     * @param  mixed $actual   The second value to compare
-     * @return bool
+     * @param  mixed $actual The second value to compare
+     * @return boolean
      */
     public function accepts($expected, $actual)
     {

@@ -41,7 +41,7 @@ class PHP_CodeCoverage_Report_Crap4j
      */
     public function process(PHP_CodeCoverage $coverage, $target = null, $name = null)
     {
-        $document               = new DOMDocument('1.0', 'UTF-8');
+        $document = new DOMDocument('1.0', 'UTF-8');
         $document->formatOutput = true;
 
         $root = $document->createElement('crap_result');
@@ -112,14 +112,7 @@ class PHP_CodeCoverage_Report_Crap4j
         $stats->appendChild($document->createElement('crapMethodCount', $fullCrapMethodCount));
         $stats->appendChild($document->createElement('crapLoad', round($fullCrapLoad)));
         $stats->appendChild($document->createElement('totalCrap', $fullCrap));
-
-        if ($fullMethodCount > 0) {
-            $crapMethodPercent = $this->roundValue((100 * $fullCrapMethodCount) / $fullMethodCount);
-        } else {
-            $crapMethodPercent = 0;
-        }
-
-        $stats->appendChild($document->createElement('crapMethodPercent', $crapMethodPercent));
+        $stats->appendChild($document->createElement('crapMethodPercent', $this->roundValue(100 * $fullCrapMethodCount / $fullMethodCount)));
 
         $root->appendChild($stats);
         $root->appendChild($methodsNode);
@@ -136,9 +129,9 @@ class PHP_CodeCoverage_Report_Crap4j
     }
 
     /**
-     * @param  float $crapValue
-     * @param  int   $cyclomaticComplexity
-     * @param  float $coveragePercent
+     * @param  float   $crapValue
+     * @param  integer $cyclomaticComplexity
+     * @param  float   $coveragePercent
      * @return float
      */
     private function getCrapLoad($crapValue, $cyclomaticComplexity, $coveragePercent)

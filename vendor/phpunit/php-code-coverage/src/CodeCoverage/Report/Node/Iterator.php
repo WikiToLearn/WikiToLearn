@@ -16,7 +16,7 @@
 class PHP_CodeCoverage_Report_Node_Iterator implements RecursiveIterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position;
 
@@ -37,6 +37,7 @@ class PHP_CodeCoverage_Report_Node_Iterator implements RecursiveIterator
 
     /**
      * Rewinds the Iterator to the first element.
+     *
      */
     public function rewind()
     {
@@ -46,7 +47,7 @@ class PHP_CodeCoverage_Report_Node_Iterator implements RecursiveIterator
     /**
      * Checks if there is a current element after calls to rewind() or next().
      *
-     * @return bool
+     * @return boolean
      */
     public function valid()
     {
@@ -56,7 +57,7 @@ class PHP_CodeCoverage_Report_Node_Iterator implements RecursiveIterator
     /**
      * Returns the key of the current element.
      *
-     * @return int
+     * @return integer
      */
     public function key()
     {
@@ -75,6 +76,7 @@ class PHP_CodeCoverage_Report_Node_Iterator implements RecursiveIterator
 
     /**
      * Moves forward to next element.
+     *
      */
     public function next()
     {
@@ -88,7 +90,7 @@ class PHP_CodeCoverage_Report_Node_Iterator implements RecursiveIterator
      */
     public function getChildren()
     {
-        return new self(
+        return new PHP_CodeCoverage_Report_Node_Iterator(
             $this->nodes[$this->position]
         );
     }
@@ -96,7 +98,7 @@ class PHP_CodeCoverage_Report_Node_Iterator implements RecursiveIterator
     /**
      * Checks whether the current element has children.
      *
-     * @return bool
+     * @return boolean
      */
     public function hasChildren()
     {

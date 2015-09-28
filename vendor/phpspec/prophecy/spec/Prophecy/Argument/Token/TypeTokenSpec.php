@@ -50,10 +50,7 @@ class TypeTokenSpec extends ObjectBehavior
         $this->__toString()->shouldReturn('type(integer)');
     }
 
-    /**
-     * @param \Prophecy\Argument\Token\TokenInterface $interface
-     */
-    function it_scores_5_if_argument_is_an_instance_of_specified_interface($interface)
+    function it_scores_5_if_argument_is_an_instance_of_specified_interface(\Prophecy\Argument\Token\TokenInterface $interface)
     {
         $this->beConstructedWith('Prophecy\Argument\Token\TokenInterface');
 

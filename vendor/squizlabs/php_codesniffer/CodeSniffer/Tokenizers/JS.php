@@ -735,9 +735,7 @@ class PHP_CodeSniffer_Tokenizers_JS
 
                         // If the substr failed, skip the token as the content
                         // will now be blank.
-                        if ($tokens[$stackPtr]['content'] !== false
-                            && $tokens[$stackPtr]['content'] !== ''
-                        ) {
+                        if ($tokens[$stackPtr]['content'] !== false) {
                             $stackPtr--;
                         }
 

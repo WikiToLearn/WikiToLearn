@@ -51,64 +51,64 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     protected $linesOfCode = null;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numFiles = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numExecutableLines = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numExecutedLines = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numClasses = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numTestedClasses = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numTraits = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numTestedTraits = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numMethods = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numTestedMethods = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numFunctions = -1;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $numTestedFunctions = -1;
 
     /**
      * Returns the number of files in/under this node.
      *
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -144,7 +144,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
      */
     public function addDirectory($name)
     {
-        $directory = new self($name, $this);
+        $directory = new PHP_CodeCoverage_Report_Node_Directory($name, $this);
 
         $this->children[]    = $directory;
         $this->directories[] = &$this->children[count($this->children) - 1];
@@ -158,7 +158,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
      * @param  string                            $name
      * @param  array                             $coverageData
      * @param  array                             $testData
-     * @param  bool                              $cacheTokens
+     * @param  boolean                           $cacheTokens
      * @return PHP_CodeCoverage_Report_Node_File
      * @throws PHP_CodeCoverage_Exception
      */
@@ -299,7 +299,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of executable lines.
      *
-     * @return int
+     * @return integer
      */
     public function getNumExecutableLines()
     {
@@ -317,7 +317,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of executed lines.
      *
-     * @return int
+     * @return integer
      */
     public function getNumExecutedLines()
     {
@@ -335,7 +335,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of classes.
      *
-     * @return int
+     * @return integer
      */
     public function getNumClasses()
     {
@@ -353,7 +353,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of tested classes.
      *
-     * @return int
+     * @return integer
      */
     public function getNumTestedClasses()
     {
@@ -371,7 +371,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of traits.
      *
-     * @return int
+     * @return integer
      */
     public function getNumTraits()
     {
@@ -389,7 +389,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of tested traits.
      *
-     * @return int
+     * @return integer
      */
     public function getNumTestedTraits()
     {
@@ -407,7 +407,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of methods.
      *
-     * @return int
+     * @return integer
      */
     public function getNumMethods()
     {
@@ -425,7 +425,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of tested methods.
      *
-     * @return int
+     * @return integer
      */
     public function getNumTestedMethods()
     {
@@ -443,7 +443,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of functions.
      *
-     * @return int
+     * @return integer
      */
     public function getNumFunctions()
     {
@@ -461,7 +461,7 @@ class PHP_CodeCoverage_Report_Node_Directory extends PHP_CodeCoverage_Report_Nod
     /**
      * Returns the number of tested functions.
      *
-     * @return int
+     * @return integer
      */
     public function getNumTestedFunctions()
     {

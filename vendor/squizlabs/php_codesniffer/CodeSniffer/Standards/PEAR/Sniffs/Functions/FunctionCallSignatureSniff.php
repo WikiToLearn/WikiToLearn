@@ -286,6 +286,7 @@ class PEAR_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniffe
         // We need to work out how far indented the function
         // call itself is, so we can work out how far to
         // indent the arguments.
+        $functionIndent = 0;
         for ($i = ($stackPtr - 1); $i >= 0; $i--) {
             if ($tokens[$i]['line'] !== $tokens[$stackPtr]['line']) {
                 $i++;
@@ -293,17 +294,8 @@ class PEAR_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniffe
             }
         }
 
-        if ($i <= 0) {
-            $functionIndent = 0;
-        } else if ($tokens[$i]['code'] === T_WHITESPACE) {
+        if ($i > 0 && $tokens[$i]['code'] === T_WHITESPACE) {
             $functionIndent = strlen($tokens[$i]['content']);
-        } else {
-            $trimmed = ltrim($tokens[$i]['content']);
-            if ($trimmed === '') {
-                $functionIndent = ($tokens[$i]['column'] - 1);
-            } else {
-                $functionIndent = (strlen($tokens[$i]['content']) - strlen($trimmed));
-            }
         }
 
         if ($tokens[($openBracket + 1)]['content'] !== $phpcsFile->eolChar) {
@@ -348,15 +340,10 @@ class PEAR_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniffe
                 }
 
                 // Ignore multi-line string indentation.
-                if (isset(PHP_CodeSniffer_Tokens::$stringTokens[$tokens[$i]['code']]) === true
-                    && $tokens[$i]['code'] === $tokens[($i - 1)]['code']
-                ) {
-                    continue;
-                }
-
-                // Ignore inline HTML.
-                if ($tokens[$i]['code'] === T_INLINE_HTML) {
-                    continue;
+                if (isset(PHP_CodeSniffer_Tokens::$stringTokens[$tokens[$i]['code']]) === true) {
+                    if ($tokens[$i]['code'] === $tokens[($i - 1)]['code']) {
+                        continue;
+                    }
                 }
 
                 // We changed lines, so this should be a whitespace indent token, but first make

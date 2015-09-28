@@ -18,22 +18,28 @@
  *
  * If the index is never reached it will throw an exception in index.
  *
- * @since Class available since Release 1.0.0
+ * @package    PHPUnit_MockObject
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @version    Release: @package_version@
+ * @link       http://github.com/sebastianbergmann/phpunit-mock-objects
+ * @since      Class available since Release 1.0.0
  */
 class PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex implements PHPUnit_Framework_MockObject_Matcher_Invocation
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $sequenceIndex;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $currentIndex = -1;
 
     /**
-     * @param int $sequenceIndex
+     * @param integer $sequenceIndex
      */
     public function __construct($sequenceIndex)
     {
@@ -50,7 +56,7 @@ class PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex implements PHPUnit_Fra
 
     /**
      * @param  PHPUnit_Framework_MockObject_Invocation $invocation
-     * @return bool
+     * @return boolean
      */
     public function matches(PHPUnit_Framework_MockObject_Invocation $invocation)
     {

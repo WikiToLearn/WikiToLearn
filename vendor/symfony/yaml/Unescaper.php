@@ -24,7 +24,6 @@ class Unescaper
      * must be converted to that encoding.
      *
      * @deprecated since version 2.5, to be removed in 3.0
-     *
      * @internal
      */
     const ENCODING = 'UTF-8';

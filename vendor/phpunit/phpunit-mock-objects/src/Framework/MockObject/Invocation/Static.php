@@ -13,7 +13,13 @@ use SebastianBergmann\Exporter\Exporter;
 /**
  * Represents a static invocation.
  *
- * @since Class available since Release 1.0.0
+ * @package    PHPUnit_MockObject
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @version    Release: @package_version@
+ * @link       http://github.com/sebastianbergmann/phpunit-mock-objects
+ * @since      Class available since Release 1.0.0
  */
 class PHPUnit_Framework_MockObject_Invocation_Static implements PHPUnit_Framework_MockObject_Invocation, PHPUnit_Framework_SelfDescribing
 {
@@ -21,12 +27,12 @@ class PHPUnit_Framework_MockObject_Invocation_Static implements PHPUnit_Framewor
      * @var array
      */
     protected static $uncloneableExtensions = array(
-      'mysqli'    => true,
-      'SQLite'    => true,
-      'sqlite3'   => true,
-      'tidy'      => true,
+      'mysqli' => true,
+      'SQLite' => true,
+      'sqlite3' => true,
+      'tidy' => true,
       'xmlwriter' => true,
-      'xsl'       => true
+      'xsl' => true
     );
 
     /**
@@ -58,10 +64,10 @@ class PHPUnit_Framework_MockObject_Invocation_Static implements PHPUnit_Framewor
     public $parameters;
 
     /**
-     * @param string $className
-     * @param string $methodname
-     * @param array  $parameters
-     * @param bool   $cloneObjects
+     * @param string  $className
+     * @param string  $methodname
+     * @param array   $parameters
+     * @param boolean $cloneObjects
      */
     public function __construct($className, $methodName, array $parameters, $cloneObjects = false)
     {
@@ -88,10 +94,10 @@ class PHPUnit_Framework_MockObject_Invocation_Static implements PHPUnit_Framewor
         $exporter = new Exporter;
 
         return sprintf(
-            '%s::%s(%s)',
+            "%s::%s(%s)",
             $this->className,
             $this->methodName,
-            implode(
+            join(
                 ', ',
                 array_map(
                     array($exporter, 'shortenedExport'),

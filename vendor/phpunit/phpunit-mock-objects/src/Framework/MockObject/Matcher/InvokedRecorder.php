@@ -14,7 +14,13 @@
  * This abstract class can be implemented by matchers which needs to check the
  * number of times an invocation has occured.
  *
- * @since Class available since Release 1.0.0
+ * @package    PHPUnit_MockObject
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @version    Release: @package_version@
+ * @link       http://github.com/sebastianbergmann/phpunit-mock-objects
+ * @since      Class available since Release 1.0.0
  * @abstract
  */
 abstract class PHPUnit_Framework_MockObject_Matcher_InvokedRecorder implements PHPUnit_Framework_MockObject_Matcher_Invocation
@@ -25,7 +31,7 @@ abstract class PHPUnit_Framework_MockObject_Matcher_InvokedRecorder implements P
     protected $invocations = array();
 
     /**
-     * @return int
+     * @return integer
      */
     public function getInvocationCount()
     {
@@ -41,7 +47,7 @@ abstract class PHPUnit_Framework_MockObject_Matcher_InvokedRecorder implements P
     }
 
     /**
-     * @return bool
+     * @return boolean
      */
     public function hasBeenInvoked()
     {
@@ -58,7 +64,7 @@ abstract class PHPUnit_Framework_MockObject_Matcher_InvokedRecorder implements P
 
     /**
      * @param  PHPUnit_Framework_MockObject_Invocation $invocation
-     * @return bool
+     * @return boolean
      */
     public function matches(PHPUnit_Framework_MockObject_Invocation $invocation)
     {

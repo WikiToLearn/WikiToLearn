@@ -12,6 +12,12 @@ namespace SebastianBergmann\Environment;
 
 /**
  * Utility class for HHVM/PHP environment handling.
+ *
+ * @package    Environment
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @link       http://www.github.com/sebastianbergmann/environment
  */
 class Runtime
 {
@@ -21,14 +27,14 @@ class Runtime
     private static $binary;
 
     /**
-     * Returns true when Xdebug is supported or
-     * the runtime used is PHPDBG (PHP >= 7.0).
+     * Returns true when the runtime used is HHVM or
+     * the runtime used is PHP + Xdebug.
      *
-     * @return bool
+     * @return boolean
      */
     public function canCollectCodeCoverage()
     {
-        return $this->hasXdebug() || $this->hasPHPDBGCodeCoverage();
+        return $this->isHHVM() || $this->hasXdebug();
     }
 
     /**
@@ -60,7 +66,7 @@ class Runtime
                     $file = file($_SERVER['_']);
 
                     if (strpos($file[0], ' ') !== false) {
-                        $tmp          = explode(' ', $file[0]);
+                        $tmp = explode(' ', $file[0]);
                         self::$binary = escapeshellarg(trim($tmp[1]));
                     } else {
                         self::$binary = escapeshellarg(ltrim(trim($file[0]), '#!'));
@@ -108,8 +114,6 @@ class Runtime
     {
         if ($this->isHHVM()) {
             return 'HHVM';
-        } elseif ($this->isPHPDBG()) {
-            return 'PHPDBG';
         } else {
             return 'PHP';
         }
@@ -142,17 +146,17 @@ class Runtime
     /**
      * Returns true when the runtime used is PHP and Xdebug is loaded.
      *
-     * @return bool
+     * @return boolean
      */
     public function hasXdebug()
     {
-        return ($this->isPHP() || $this->isHHVM()) && extension_loaded('xdebug');
+        return $this->isPHP() && extension_loaded('xdebug');
     }
 
     /**
      * Returns true when the runtime used is HHVM.
      *
-     * @return bool
+     * @return boolean
      */
     public function isHHVM()
     {
@@ -160,33 +164,12 @@ class Runtime
     }
 
     /**
-     * Returns true when the runtime used is PHP without the PHPDBG SAPI.
+     * Returns true when the runtime used is PHP.
      *
-     * @return bool
+     * @return boolean
      */
     public function isPHP()
     {
-        return !$this->isHHVM() && !$this->isPHPDBG();
-    }
-
-    /**
-     * Returns true when the runtime used is PHP with the PHPDBG SAPI.
-     *
-     * @return bool
-     */
-    public function isPHPDBG()
-    {
-        return PHP_SAPI === 'phpdbg' && !$this->isHHVM();
-    }
-
-    /**
-     * Returns true when the runtime used is PHP with the PHPDBG SAPI
-     * and the phpdbg_*_oplog() functions are available (PHP >= 7.0).
-     *
-     * @return bool
-     */
-    public function hasPHPDBGCodeCoverage()
-    {
-        return $this->isPHPDBG() && function_exists('phpdbg_start_oplog');
+        return !$this->isHHVM();
     }
 }

@@ -26,21 +26,21 @@ class PHP_CodeCoverage_Report_HTML
     private $generator;
 
     /**
-     * @var int
+     * @var integer
      */
     private $lowUpperBound;
 
     /**
-     * @var int
+     * @var integer
      */
     private $highLowerBound;
 
     /**
      * Constructor.
      *
-     * @param int    $lowUpperBound
-     * @param int    $highLowerBound
-     * @param string $generator
+     * @param integer $lowUpperBound
+     * @param integer $highLowerBound
+     * @param string  $generator
      */
     public function __construct($lowUpperBound = 50, $highLowerBound = 90, $generator = '')
     {
