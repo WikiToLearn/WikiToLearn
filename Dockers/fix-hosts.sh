@@ -20,15 +20,21 @@ OCG_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAM
 for docker in ${W2L_INSTANCE_NAME}-websrv ${W2L_INSTANCE_NAME}-ocg ; do
  for subdom in $(find ../secrets/ -name *wikitolearn.php -exec basename {} \; | sed 's/wikitolearn.php//g'); do
   web_host=${subdom}".wikitolearn.org"
-  docker exec $docker sed '/'$web_host'/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
-  docker exec $docker cat /tmp/tmp_hosts | docker exec -i $docker tee /etc/hosts
-  echo $WEBSRV_IP" "$web_host | docker exec -i $docker tee -a /etc/hosts
+  echo "Fixing "$web_host
+  {
+   docker exec $docker sed '/'$web_host'/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
+   docker exec $docker cat /tmp/tmp_hosts | docker exec -i $docker tee /etc/hosts
+   echo $WEBSRV_IP" "$web_host | docker exec -i $docker tee -a /etc/hosts
+  } &> /dev/null
  done
 
  for ocg_host in ocg ocg.wikitolearn.org ; do
-  docker exec $docker sed '/'$ocg_host'/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
-  docker exec $docker cat /tmp/tmp_hosts | docker exec -i $docker tee /etc/hosts
-  echo $OCG_IP" "$ocg_host | docker exec -i $docker tee -a /etc/hosts
+  echo "Fixing "$ocg_host
+  {
+   docker exec $docker sed '/'$ocg_host'/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
+   docker exec $docker cat /tmp/tmp_hosts | docker exec -i $docker tee /etc/hosts
+   echo $OCG_IP" "$ocg_host | docker exec -i $docker tee -a /etc/hosts
+  } &> /dev/null
  done
 
 done
