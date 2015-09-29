@@ -13,7 +13,7 @@ if [[ ! -f instance_config.conf ]] ; then
   echo "export W2L_DOCKER_MAILSRV=wikifm/mailsrv:0.3"
   echo "export W2L_DOCKER_OCG=wikifm/ocg:0.2"
   echo "export W2L_DOCKER_WEBSRV=wikifm/websrv:0.3"
-  echo "export W2L_INIT_DB=1"
+  echo "[[ -z \"\$W2L_INIT_DB\" ]] && export W2L_INIT_DB=1"
  } > instance_config.conf
 fi
 
