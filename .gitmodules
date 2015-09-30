@@ -78,10 +78,10 @@
 	url = git://github.com/WikiToLearn/Theorems
 [submodule "extensions/ParserHooks"]
 	path = extensions/ParserHooks
-	url = git@github.com:wikimedia/mediawiki-extensions-ParserHooks.git
+	url = git://github.com/wikimedia/mediawiki-extensions-ParserHooks.git
 [submodule "extensions/VisualEditor"]
 	path = extensions/VisualEditor
-	url = git@github.com:wikimedia/mediawiki-extensions-VisualEditor.git
+	url = git://github.com/wikimedia/mediawiki-extensions-VisualEditor.git
 [submodule "extensions/Flow"]
 	path = extensions/Flow
-	url = git@github.com:wikimedia/mediawiki-extensions-Flow.git
+	url = git://github.com/wikimedia/mediawiki-extensions-Flow.git
