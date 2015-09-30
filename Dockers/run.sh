@@ -99,6 +99,7 @@ if [[ $? -ne 0 ]] ; then
    echo "CREATE DATABASE IF NOT EXISTS itwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS ptwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS svwikitolearn;"
+   echo "CREATE DATABASE IF NOT EXISTS metawikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS poolwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS sharedwikitolearn;"
   } | mysql --defaults-file=configs/my.cnf -h $IP
