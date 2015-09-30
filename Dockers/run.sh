@@ -17,7 +17,7 @@ if [[ ! -f instance_config.conf ]] ; then
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
   echo "export W2L_DOCKER_MAILSRV=wikifm/mailsrv:0.3"
   echo "export W2L_DOCKER_OCG=wikifm/ocg:0.2"
-  echo "export W2L_DOCKER_WEBSRV=wikifm/websrv:0.3"
+  echo "export W2L_DOCKER_WEBSRV=wikifm/websrv:0.4"
   echo "export W2L_DOCKER_HAPROXY=haproxy:1.5"
   echo "[[ -z \"\$W2L_INIT_DB\" ]] && export W2L_INIT_DB=0"
  } > instance_config.conf
