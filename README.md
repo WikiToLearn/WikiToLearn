@@ -5,44 +5,65 @@
 * Add your language to lang-foreach.sh
 * Add your language to LocalSettings.php
 * Add the new language to the CREATE DATABASE in run.sh
+* Add the new apache alias in the websrv repository and build new docker
 
 First time checkout
 ===================
 
-Make sure you create an empty MySQL database and a user with sufficient permissions to operate on it.
-The following script
+Our environment is based on dockers
+You must install docker ( https://docs.docker.com/installation/ )
+When you have running docker instance you can start the WikiToLearn env by executing the script
 
-    ./init.sh <database name> <database user> <database user password>
+    ./run.sh
     
-will take care of importing an empty WikiFM in your empty MySQL database, and will create a configuration file that will allow MediaWiki to connect to the database.
+This pull dockers from internet and execute everything is required
+The second script is
 
-It will also set-up the necessary symlinks to
+    ./fix-hosts.sh
 
+to make all dockers able to talk each other ( it is necessary for a docker link limitation)
 
-Importing some content
+If you have a backup directory of wiki system you can now restore it whit
+
+    ./restore.sh <full path of backup>
+    
+and then set this env variabile:
+
+    export W2L_INIT_DB=0
+
+else you have to set it in this way
+
+    export W2L_INIT_DB=1
+    
+This variabile is required by the next script to bootstrap the database
+Now run
+
+    ./init-docker.sh
+    
+Last command is:
+
+    ./use-instance.sh
+    
+This create an haproxy docker to allow everything to work properly
+    
+
+Make a backup
 ======================
 
-Import the XML Dump
+To create a backup you must to modify instance_config.conf (create by run.sh script)
+And set
 
-Updating the checkout
-=====================
-
-To update the checkout you should not run `git pull` but instead
-
-    ./update.sh
+    export W2L_BACKUP_ENABLED=1
     
-which will take care of running all the necessary updates to the code, updating the database and so on...
+end 
 
-
-Updating to a certain release
-=============================
-Last version
-
-    git tag -l |grep -v wmf |grep -v test|sort -V|tail -n1
-    git checkout $(git tag -l |grep -v wmf |grep -v test|sort -V|tail -n1)
-
-Make sure all extensions are on the right branch
+    export W2L_BACKUP_PATH=<my absolute backup path>
     
-    export MW_RELEASE="1_25"
-    for d in $(ls extensions/); do cd $d; git fetch; git checkout remotes/origin/REL$MW_RELEASE; cd ../..; done 
+and then run
+
+    ./backup.sh
+    
+That's all, I hope
+
+Happy Wiki!
 

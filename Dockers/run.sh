@@ -3,17 +3,23 @@ cd "$(dirname "$(readlink "$0" || printf %s "$0")")"
 
 if [[ ! -f instance_config.conf ]] ; then
  {
-  echo "export W2L_INSTANCE_NAME=w2l-dev"
-  echo "export W2L_BACKUP_ENABLED=0"
-  echo "export W2L_BACKUP_PATH="
-  echo "export W2L_PRODUCTION=1"
-  echo "export W2L_STAGING=1"
+  [[ -z "$W2L_INSTANCE_NAME" ]] && W2L_INSTANCE_NAME=w2l-dev
+  echo "export W2L_INSTANCE_NAME=$W2L_INSTANCE_NAME"
+  [[ -z "$W2L_BACKUP_ENABLED" ]] && W2L_BACKUP_ENABLED=0
+  echo "export W2L_BACKUP_ENABLED=$W2L_BACKUP_ENABLED"
+  [[ -z "$W2L_BACKUP_PATH" ]] && W2L_BACKUP_PATH=""
+  echo "export W2L_BACKUP_PATH=$W2L_BACKUP_PATH"
+  [[ -z "$W2L_PRODUCTION" ]] && W2L_PRODUCTION=1
+  echo "export W2L_PRODUCTION=$W2L_PRODUCTION"
+  [[ -z "$W2L_STAGING" ]] && W2L_STAGING=1
+  echo "export W2L_STAGING=$W2L_STAGING"
   echo "export W2L_DOCKER_MYSQL=mysql:5.6"
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
   echo "export W2L_DOCKER_MAILSRV=wikifm/mailsrv:0.3"
   echo "export W2L_DOCKER_OCG=wikifm/ocg:0.2"
   echo "export W2L_DOCKER_WEBSRV=wikifm/websrv:0.3"
-  echo "export W2L_INIT_DB=1"
+  echo "export W2L_DOCKER_HAPROXY=haproxy:1.5"
+  echo "[[ -z \"\$W2L_INIT_DB\" ]] && export W2L_INIT_DB=0"
  } > instance_config.conf
 fi
 

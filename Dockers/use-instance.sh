@@ -15,51 +15,6 @@ fi
 
 echo "Bringing up "${W2L_INSTALNCE_NAME}"..."
 
-{
-export W2L_IP_WEBSRV=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-websrv)
-} &> /dev/null
-docker inspect ${W2L_INSTANCE_NAME}-websrv &> /dev/null
-if [[ $? -ne 0 ]] ; then
- echo "Missing WebSrv"
- exit 1
-fi
-
-{
-export W2L_IP_OCG=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-ocg)
-} &> /dev/null
-docker inspect ${W2L_INSTANCE_NAME}-ocg &> /dev/null
-if [[ $? -ne 0 ]] ; then
- echo "Missing websrv"
- exit 1
-fi
-
-{
-export W2L_IP_MYSQL=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-mysql)
-} &> /dev/null
-docker inspect ${W2L_INSTANCE_NAME}-mysql &> /dev/null
-if [[ $? -ne 0 ]] ; then
- echo "Missing mysql"
- exit 1
-fi
-
-{
-export W2L_IP_MAILSRV=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-mailsrv)
-} &> /dev/null
-docker inspect ${W2L_INSTANCE_NAME}-mailsrv &> /dev/null
-if [[ $? -ne 0 ]] ; then
- echo "Missing mailsrv"
- exit 1
-fi
-
-{
-export W2L_IP_MEMCACHED=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-memcached)
-} &> /dev/null
-docker inspect ${W2L_INSTANCE_NAME}-memcached &> /dev/null
-if [[ $? -ne 0 ]] ; then
- echo "Missing memcached"
- exit 1
-fi
-
 cat << EOF > $(pwd)/haproxy.cfg
 global
     stats timeout 30s
@@ -72,25 +27,25 @@ defaults
    balance roundrobin
 
 listen wikitolearn-http 0.0.0.0:80
-   server host-web ${W2L_IP_WEBSRV}:80 check
+   server host-web websrv:80 check
 listen wikitolearn-https 0.0.0.0:443
-   server host-web ${W2L_IP_WEBSRV}:443 check
+   server host-web websrv:443 check
 
 listen wikitolearn-ocg 0.0.0.0:8000
-   server host-ocg ${W2L_IP_OCG}:8000 check
+   server host-ocg ocg:8000 check
 
 listen wikitolearn-smtp 0.0.0.0:25
-   server host-mail ${W2L_IP_MAILSRV}:25 check
+   server host-mail mail:25 check
 listen wikitolearn-pop3 0.0.0.0:110
-   server host-mail ${W2L_IP_MAILSRV}:110 check
+   server host-mail mail:110 check
 listen wikitolearn-imap 0.0.0.0:143
-   server host-mail ${W2L_IP_MAILSRV}:143 check
+   server host-mail mail:143 check
 listen wikitolearn-submission 0.0.0.0:587
-   server host-mail ${W2L_IP_MAILSRV}:587 check
+   server host-mail mail:587 check
 listen wikitolearn-imaps 0.0.0.0:993
-   server host-mail ${W2L_IP_MAILSRV}:993 check
+   server host-mail mail:993 check
 listen wikitolearn-pop3s 0.0.0.0:995
-   server host-mail ${W2L_IP_MAILSRV}:995 check
+   server host-mail mail:995 check
 EOF
 
 docker inspect wikitolearn-haproxy &> /dev/null
@@ -109,4 +64,7 @@ docker run -d --name wikitolearn-haproxy \
  -p 587:587 \
  -p 993:993 \
  -p 995:995 \
- -v $(pwd)/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro haproxy:1.5
+ --link ${W2L_INSTANCE_NAME}-websrv:websrv \
+ --link ${W2L_INSTANCE_NAME}-ocg:ocg \
+ --link ${W2L_INSTANCE_NAME}-mailsrv:mail \
+ -v $(pwd)/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro $W2L_DOCKER_HAPROXY
