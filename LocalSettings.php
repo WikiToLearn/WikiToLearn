@@ -272,7 +272,7 @@ require_once("$IP/extensions/Math/Math.php");
 $wgUseMathJax = true;
 $wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
 
-$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
+#$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 
 # awesome editor
 require_once( "$IP/extensions/WikiEditor/WikiEditor.php" );
