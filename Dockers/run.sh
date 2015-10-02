@@ -9,22 +9,32 @@ if [[ ! -f instance_config.conf ]] ; then
   echo "export W2L_BACKUP_ENABLED=$W2L_BACKUP_ENABLED"
   [[ -z "$W2L_BACKUP_PATH" ]] && W2L_BACKUP_PATH=""
   echo "export W2L_BACKUP_PATH=$W2L_BACKUP_PATH"
-  [[ -z "$W2L_PRODUCTION" ]] && W2L_PRODUCTION=1
-  echo "export W2L_PRODUCTION=$W2L_PRODUCTION"
-  [[ -z "$W2L_STAGING" ]] && W2L_STAGING=1
-  echo "export W2L_STAGING=$W2L_STAGING"
+  [[ -z "$W2L_DOCKER_MYSQL_DATA_PATH" ]] && W2L_DOCKER_MYSQL_DATA_PATH=$(pwd)"/mysql-data/"
+  echo "export W2L_DOCKER_MYSQL_DATA_PATH=$W2L_DOCKER_MYSQL_DATA_PATH"
+  [[ -z "$W2L_DOCKER_W2L_DOCKER_WEBSRV_LOG_PATH" ]] && W2L_DOCKER_WEBSRV_LOG_PATH=$(pwd)"/websrv-log/"
+  echo "export W2L_DOCKER_WEBSRV_LOG_PATH=$W2L_DOCKER_WEBSRV_LOG_PATH"
+
   echo "export W2L_DOCKER_MYSQL=mysql:5.6"
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
   echo "export W2L_DOCKER_MAILSRV=wikifm/mailsrv:0.3"
   echo "export W2L_DOCKER_OCG=wikifm/ocg:0.2"
-  echo "export W2L_DOCKER_WEBSRV=wikifm/websrv:0.4"
+  echo "export W2L_DOCKER_WEBSRV=wikifm/websrv:0.5"
   echo "export W2L_DOCKER_HAPROXY=haproxy:1.5"
-  echo "[[ -z \"\$W2L_INIT_DB\" ]] && export W2L_INIT_DB=0"
  } > instance_config.conf
 fi
 
 chmod +x instance_config.conf
 . ./instance_config.conf
+
+[[ -z "$W2L_INIT_DB" ]] && export W2L_INIT_DB=0
+[[ -z "$W2L_PRODUCTION" ]] && W2L_PRODUCTION=1
+
+if [ "$W2L_BACKUP_ENABLED" == "1" ] ; then
+ if [ ! -d "$W2L_BACKUP_PATH" ] ; then
+  echo "Missing $W2L_BACKUP_PATH"
+  exit 1
+ fi
+fi
 
 which mysql &> /dev/null
 if [[ $? -ne 0 ]] ; then
@@ -78,7 +88,7 @@ if [[ $? -ne 0 ]] ; then
  else
   test -d configs/secrets/ || mkdir -p configs/secrets/
   ROOT_PWD=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32 )
-  docker run -ti $MORE_ARGS --hostname mysql.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $W2L_DOCKER_MYSQL
+  docker run -ti $MORE_ARGS -v $W2L_DOCKER_MYSQL_DATA_PATH:/var/lib/mysql --hostname mysql.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $W2L_DOCKER_MYSQL
   IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-mysql)
   echo "[client]" > configs/my.cnf
   echo "user=root" >> configs/my.cnf
@@ -141,16 +151,19 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${W2L_INSTANCE_NAME}-websrv
  else
+  if [ ! -f configs/secrets/secrets.php ] ; then
+   WG_SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1)
 cat > configs/secrets/secrets.php << EOL
 <?php
 
-\$wgSecretKey = "0000000000000000000000000000000000000000000000000000000000000000";
+\$wgSecretKey = "$WG_SECRET_KEY";
 
 \$virtualFactoryUser = "test";
 \$virtualFactoryPass = "test";
 
 ?>
 EOL
+  fi
 
   docker run -ti $MORE_ARGS --hostname websrv.wikitolearn.org \
    -v $(readlink -f $(dirname $(readlink -f $0))"/.."):/srv/WikiToLearn --name ${W2L_INSTANCE_NAME}-websrv \

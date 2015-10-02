@@ -6,3 +6,5 @@ Dockers/ocg-dev/mw-ocg/
 Dockers/configs/
 Dockers/instance_config.conf
 Dockers/haproxy.cfg
+Dockers/mysql-data/
+Dockers/websrv-log/
