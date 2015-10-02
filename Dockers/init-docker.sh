@@ -20,7 +20,7 @@ if [[ $? -ne 0 ]] ; then
 fi
 
 if [[ "$W2L_INIT_DB" == "" ]] ; then
- W2L_INIT_DB=1
+ W2L_INIT_DB=0
 fi
 
 if [[ "$W2L_INIT_DB" == "1" ]] ; then
