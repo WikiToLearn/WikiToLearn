@@ -43,5 +43,8 @@ then
    echo "Deleting "$d
    docker stop $d && docker rm $d
   done
+  rm $W2L_DOCKER_WEBSRV_LOG_PATH -Rf
+  rm $W2L_DOCKER_MYSQL_DATA_PATH -Rf
+  rm -f instance_config.conf
  fi
 fi
