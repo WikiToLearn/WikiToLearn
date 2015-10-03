@@ -1,0 +1,142 @@
+diff --git a/lib/index.js b/lib/index.js
+index 262d831..8278e1b 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -83,10 +83,11 @@ var STD_HEADER = [
+ 	"%!TEX TS-program = xelatex",
+ 	"%!TEX encoding = UTF-8 Unicode",
+ 	"",
+-	"\\documentclass[10pt,twocolumn,twoside,fleqn]{article}",
++	"\\documentclass[10pt,onecolumn,twoside,fleqn]{article}",
+ 	"\\pagestyle{headings}",
+ 	"\\usepackage{fontspec, xunicode, polyglossia, graphicx, xltxtra}",
+ 	"\\usepackage{amsmath,amsthm,amstext,amssymb}",
++	"\\usepackage{mathrsfs}",
+ 	// allow list nesting deeper than 4
+ 	// see: http://stackoverflow.com/questions/1935952/maximum-nesting-level-of-lists-in-latex
+ 	"\\usepackage{enumitem}\\setlistdepth{9}",
+@@ -145,6 +146,11 @@ var STD_HEADER = [
+ 	"{CharisSIL}",
+ */
+ 
++	// WikiFM numbering equation
++// 	"\\makeatletter",
++// 	"\\long\\def\\theequation{\\ifnum \\c@chapter > \\z@ \\thechapter .\\fi \\@arabic \\c@equation}",
++// 	"\\makeatother",
++
+ 	// Set the default font
+ 	"\\setmainfont[" + (SCRIPT_FONTS['default'].opts||'') + "]{" + SCRIPT_FONTS['default'].name + "}",
+ 	"\\newcommand{\\LTRfont}{}",
+@@ -160,7 +166,7 @@ var STD_HEADER = [
+ 		"\\footnotesize\\onecolumn" +
+ 	"}",
+ 	// fleqn makes equations flush left; also remove the indentation:
+-	"\\setlength{\\mathindent}{0pt}",
++// 	"\\setlength{\\mathindent}{0pt}",
+ 	// helper for single curly quote
+ 	"\\newcommand{\\poss}{\u2019}",
+ 
+@@ -175,18 +181,7 @@ var STD_FOOTER = [
+ // https://gist.github.com/gruber/249502
+ var URL_REGEXP = /\b((?:[a-z][\w\-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]|\((?:[^\s()<>]|(?:\([^\s()<>]+\)))*\))+(?:\((?:[^\s()<>]|(?:\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/i;
+ 
+-// Convert plain text (with HTML whitespace semantics) to an appropriately
+-// escaped string for TeX to process.
+-var texEscape = function(str, nourls) {
+-	if (!nourls) {
+-		// pull out URLs and flag them specially
+-		return str.split(URL_REGEXP).map(function(s) {
+-			return texEscape(s, "nourls");
+-		}).map(function(s, i) {
+-			/* jshint bitwise: false */
+-			return (s && (i&1)) ? ('\\nolinkurl{' + s + '}') : s;
+-		}).join('');
+-	}
++var texCharEscape = function(str) {
+ 	// protect TeX special characters
+ 	// (See `class CharMaps` in http://sourceforge.net/p/docutils/code/HEAD/tree/trunk/docutils/docutils/writers/latex2e/__init__.py )
+ 	str = str.replace(/[#$&_%{}~^\\\[\]]/g, function(c) {
+@@ -202,6 +197,24 @@ var texEscape = function(str, nourls) {
+ 		default: return '\\' + c;
+ 		}
+ 	});
++	return str;
++}
++
++// Convert plain text (with HTML whitespace semantics) to an appropriately
++// escaped string for TeX to process.
++var texEscape = function(str, nourls) {
++	if (!nourls) {
++		// pull out URLs and flag them specially
++		return str.split(URL_REGEXP).map(function(s) {
++			return texEscape(s, "nourls");
++		}).map(function(s, i) {
++			/* jshint bitwise: false */
++			return (s && (i&1)) ? ('\\nolinkurl{' + s + '}') : s;
++		}).join('');
++	}
++	//char escape
++ 	str = texCharEscape(str);
++	
+ 	// compress multiple newlines (and use unix-style newlines exclusively)
+ 	str = str.replace(/\r\n?/g, '\n').replace(/\n\n+/g, '\n');
+ 	// trim leading and trailing newlines for consistent output.
+@@ -226,6 +239,7 @@ var texEscape = function(str, nourls) {
+ 	// differentiate minus sign from hyphen
+ 	//str = str.replace(/(^|\W)(-[0-9.]+)/g, '$1$$$2$$');
+ 	str = str.replace(/(^|\W)-([0-9.]+)/g, '$1$$-$$$2');
++	
+ 	return str;
+ };
+ 
+@@ -688,6 +702,7 @@ Visitor.prototype.visit = function(node) {
+ 	var name = node.nodeName, type = node.nodeType;
+ 	switch(type) {
+ 	case node.ELEMENT_NODE:
++		console.warn(name);
+ 		if (isHidden(node)) {
+ 			return;
+ 		}
+@@ -709,6 +724,7 @@ Visitor.prototype.visit = function(node) {
+ 		// use typeof property if possible
+ 		if (node.hasAttribute('typeof')) {
+ 			var typeo = node.getAttribute('typeof');
++			console.warn(typeo); //WikiFM
+ 			if (this['visitTYPEOF=' + typeo]) {
+ 				return this['visitTYPEOF=' + typeo].apply(this, arguments);
+ 			}
+@@ -1255,6 +1271,26 @@ Visitor.prototype['visitTYPEOF=mw:Extension/math'] = function(node, display) {
+ 	}
+ };
+ 
++//hack for dmath tag
++Visitor.prototype['visitTYPEOF=mw:Extension/dmath'] = function(node, display) {
++	this.format.envBreak();
++	var math = JSON.parse(node.getAttribute('data-mw')).body.extsrc;
++	// validate/translate using texvc
++	var mr = texvcjs.check(math);
++	if (mr.status !== '+') {
++		//console.warn("Broken math markup:", math, mr.details||'');
++		return; // broken math markup, suppress it
++	}
++	if (mr.cancel_required || mr.euro_required || mr.teubner_required) {
++		//console.warn("Math markup requires additional packages");
++		return;
++	}
++	
++	this.format.writeDecorated('$$');
++	this.format.writeDecorated(mr.output);
++	this.format.writeDecorated('$$')
++};
++
+ Visitor.prototype['visitLANG='] = function(node) {
+ 	var r;
+ 	var savedLanguage = this.currentLanguage;
+@@ -1330,7 +1366,6 @@ Visitor.prototype.visitMultipleImage = function(node) {
+ 	}
+ };
+ 
+-
+ // hack to support triple image template
+ Visitor.prototype.visitDIV = function(node) {
+ 	if (isMultipleImageTemplate(node)) {
