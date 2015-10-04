@@ -11,16 +11,20 @@ if [[ ! -f instance_config.conf ]] ; then
   echo "export W2L_BACKUP_PATH=$W2L_BACKUP_PATH"
   [[ -z "$W2L_DOCKER_MYSQL_DATA_PATH" ]] && W2L_DOCKER_MYSQL_DATA_PATH=$(pwd)"/mysql-data/"
   echo "export W2L_DOCKER_MYSQL_DATA_PATH=$W2L_DOCKER_MYSQL_DATA_PATH"
-  [[ -z "$W2L_DOCKER_W2L_DOCKER_WEBSRV_LOG_PATH" ]] && W2L_DOCKER_WEBSRV_LOG_PATH=$(pwd)"/websrv-log/"
+  [[ -z "$W2L_DOCKER_WEBSRV_LOG_PATH" ]] && W2L_DOCKER_WEBSRV_LOG_PATH=$(pwd)"/websrv-log/"
   echo "export W2L_DOCKER_WEBSRV_LOG_PATH=$W2L_DOCKER_WEBSRV_LOG_PATH"
+  [[ -z "$W2L_DOCKER_MOUNT_DIRS" ]] && W2L_DOCKER_MOUNT_DIRS=0
+  echo "export W2L_DOCKER_MOUNT_DIRS=$W2L_DOCKER_MOUNT_DIRS"
 
   echo "export W2L_DOCKER_MYSQL=mysql:5.6"
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
-  echo "export W2L_DOCKER_MAILSRV=wikifm/mailsrv:0.3"
-  echo "export W2L_DOCKER_OCG=wikifm/ocg:0.2"
-  echo "export W2L_DOCKER_WEBSRV=wikifm/websrv:0.5"
-  echo "export W2L_DOCKER_HAPROXY=haproxy:1.5"
+  echo "export W2L_DOCKER_MAILSRV=wikitolearn/mailsrv:0.3"
+  echo "export W2L_DOCKER_OCG=wikitolearn/ocg:0.3.1"
+  echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.5"
+  echo "export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.1"
  } > instance_config.conf
+ echo "Created default instance_config.conf file"
+ exit 1
 fi
 
 chmod +x instance_config.conf
@@ -88,7 +92,12 @@ if [[ $? -ne 0 ]] ; then
  else
   test -d configs/secrets/ || mkdir -p configs/secrets/
   ROOT_PWD=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32 )
-  docker run -ti $MORE_ARGS -v $W2L_DOCKER_MYSQL_DATA_PATH:/var/lib/mysql --hostname mysql.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $W2L_DOCKER_MYSQL
+  if [[ "$W2L_DOCKER_MOUNT_DIRS" == "1" ]] ; then
+   MOUNT_DIR="-v '$W2L_DOCKER_MYSQL_DATA_PATH':/var/lib/mysql"
+  else
+   MOUNT_DIR=""
+  fi
+  docker run -ti $MORE_ARGS $MOUNT_DIR --hostname mysql.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $W2L_DOCKER_MYSQL
   IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-mysql)
   echo "[client]" > configs/my.cnf
   echo "user=root" >> configs/my.cnf
@@ -165,7 +174,13 @@ cat > configs/secrets/secrets.php << EOL
 EOL
   fi
 
-  docker run -ti $MORE_ARGS --hostname websrv.wikitolearn.org \
+  if [[ "$W2L_DOCKER_MOUNT_DIRS" == "1" ]] ; then
+   MOUNT_DIR="-v '$W2L_DOCKER_WEBSRV_LOG_PATH':/var/log/apache2"
+  else
+   MOUNT_DIR=""
+  fi
+
+  docker run -ti $MORE_ARGS $MOUNT_DIR --hostname websrv.wikitolearn.org \
    -v $(readlink -f $(dirname $(readlink -f $0))"/.."):/srv/WikiToLearn --name ${W2L_INSTANCE_NAME}-websrv \
    -e UID=$(id -u) \
    -e GID=$(id -g) \
