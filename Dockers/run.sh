@@ -18,13 +18,16 @@ if [[ ! -f instance_config.conf ]] ; then
 
   echo "export W2L_DOCKER_MYSQL=mysql:5.6"
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
-  echo "export W2L_DOCKER_MAILSRV=wikitolearn/mailsrv:0.3"
+  echo "export W2L_DOCKER_MAILSRV=wikitolearn/mailsrv:0.4"
   echo "export W2L_DOCKER_OCG=wikitolearn/ocg:0.3.1"
-  echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.5"
+  echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.6"
   echo "export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.1"
  } > instance_config.conf
+ echo
  echo "Created default instance_config.conf file"
- exit 1
+ echo
+ sleep 1
+ echo
 fi
 
 chmod +x instance_config.conf
@@ -72,7 +75,10 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${W2L_INSTANCE_NAME}-mailsrv
  else
-  docker run -ti $MORE_ARGS --hostname mail.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mailsrv -d $W2L_DOCKER_MAILSRV
+  if [[ "$RELAY_HOST" == "" ]] ; then
+   export RELAY_HOST=""
+  fi
+  docker run -ti $MORE_ARGS -e RELAY_HOST=$RELAY_HOST --hostname mail.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mailsrv -d $W2L_DOCKER_MAILSRV
  fi
 fi
 MAIL_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
@@ -180,11 +186,18 @@ EOL
    MOUNT_DIR=""
   fi
 
+  EXT_UID=$(id -u)
+  EXT_GID=$(id -g)
+  if [[ "$EXT_UID" == "0" ]] ; then
+   EXT_UID=1000
+  fi
+  if [[ "$EXT_GID" == "0" ]] ; then
+   EXT_GID=1000
+  fi
   docker run -ti $MORE_ARGS $MOUNT_DIR --hostname websrv.wikitolearn.org \
-   -v $(readlink -f $(dirname $(readlink -f $0))"/.."):/srv/WikiToLearn --name ${W2L_INSTANCE_NAME}-websrv \
-   -e UID=$(id -u) \
-   -e GID=$(id -g) \
-   --privileged=true \
+   -e USER_UID=$EXT_UID \
+   -e USER_GID=$EXT_GID \
+   -v $(readlink -f $(dirname $(readlink -f $0))"/.."):/var/www/WikiToLearn/ --name ${W2L_INSTANCE_NAME}-websrv \
    --link ${W2L_INSTANCE_NAME}-mysql:mysql \
    --link ${W2L_INSTANCE_NAME}-memcached:memcached \
    --link ${W2L_INSTANCE_NAME}-ocg:ocg \
