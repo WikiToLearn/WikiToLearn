@@ -120,7 +120,15 @@ if ( $wiki === 'it.wikitolearn.org') {
     $wgSitename      = "WikiToLearn - Nur wenn Wissen geteilt wird kann neues enstehen";
     $wgLanguageCode     = "de";
     require_once("$IP/../secrets/dewikitolearn.php");
+} else if ( $wiki === 'sv.wikitolearn.org') {
+    $wgLanguageCode     = "sv";
+    require_once("$IP/../secrets/svwikitolearn.php");
+} else if ( $wiki === 'meta.wikitolearn.org') {
+    $wgLanguageCode     = "en";
+    require_once("$IP/../secrets/metawikitolearn.php");
 }
+
+
 
 $wgSitename = "WikiToLearn - collaborative textbooks";
 $wgLogo             = "$wgStylePath/Neverland/images/logos/$wgLanguageCode.png";
