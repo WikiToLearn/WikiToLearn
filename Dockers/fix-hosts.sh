@@ -18,8 +18,6 @@ WEBSRV_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_
 OCG_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-ocg)
 
 for docker in ${W2L_INSTANCE_NAME}-websrv ${W2L_INSTANCE_NAME}-ocg ; do
- docker exec -ti $docker cat /etc/hosts
- continue
  web_hosts=$(for subdom in $(find ../secrets/ -name *wikitolearn.php -exec basename {} \; | sed 's/wikitolearn.php//g'); do
   echo ${subdom}".wikitolearn.org "
  done)
