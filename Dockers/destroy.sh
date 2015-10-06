@@ -40,6 +40,11 @@ then
   echo "ok, I'm doing..."
   for d in  ${W2L_INSTANCE_NAME}-ocg ${W2L_INSTANCE_NAME}-mysql ${W2L_INSTANCE_NAME}-mailsrv ${W2L_INSTANCE_NAME}-memcached ${W2L_INSTANCE_NAME}-websrv
   do
+   if [[ "$W2L_USE_INTERNAL_MAILSRV" != "1" ]] ; then
+    if [[ "$d" == "${W2L_INSTANCE_NAME}-mailsrv" ]] ; then
+     continue
+    fi
+   fi
    echo "Deleting "$d
    docker stop $d && docker rm $d
   done

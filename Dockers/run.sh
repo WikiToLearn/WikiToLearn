@@ -16,6 +16,12 @@ if [[ ! -f instance_config.conf ]] ; then
   [[ -z "$W2L_DOCKER_MOUNT_DIRS" ]] && W2L_DOCKER_MOUNT_DIRS=0
   echo "export W2L_DOCKER_MOUNT_DIRS=$W2L_DOCKER_MOUNT_DIRS"
 
+  [[ -z "$W2L_USE_INTERNAL_MAILSRV" ]] && W2L_USE_INTERNAL_MAILSRV=0
+  echo "export W2L_USE_INTERNAL_MAILSRV=$W2L_USE_INTERNAL_MAILSRV"
+
+  [[ -z "$W2L_RELAY_HOST" ]] && W2L_RELAY_HOST="mail"
+  echo "export W2L_RELAY_HOST=$W2L_RELAY_HOST"
+
   echo "export W2L_DOCKER_MYSQL=mysql:5.6"
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
   echo "export W2L_DOCKER_MAILSRV=wikitolearn/mailsrv:0.4"
@@ -68,26 +74,28 @@ if [[ $? -ne 0 ]] ; then
  fi
 fi
 
-# start mail server
-docker ps | grep ${W2L_INSTANCE_NAME}-mailsrv &> /dev/null
-if [[ $? -ne 0 ]] ; then
- docker ps -a | grep ${W2L_INSTANCE_NAME}-mailsrv &> /dev/null
- if [[ $? -eq 0 ]] ; then
-  docker start ${W2L_INSTANCE_NAME}-mailsrv
- else
-  if [[ "$RELAY_HOST" == "" ]] ; then
-   export RELAY_HOST=""
+if [[ "$W2L_USE_INTERNAL_MAILSRV" == "1" ]] ; then
+ # start mail server
+ docker ps | grep ${W2L_INSTANCE_NAME}-mailsrv &> /dev/null
+ if [[ $? -ne 0 ]] ; then
+  docker ps -a | grep ${W2L_INSTANCE_NAME}-mailsrv &> /dev/null
+  if [[ $? -eq 0 ]] ; then
+   docker start ${W2L_INSTANCE_NAME}-mailsrv
+  else
+   export RELAY_HOST="$W2L_RELAY_HOST"
+   docker run -ti $MORE_ARGS -e RELAY_HOST=$RELAY_HOST --hostname mail.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mailsrv -d $W2L_DOCKER_MAILSRV
   fi
-  docker run -ti $MORE_ARGS -e RELAY_HOST=$RELAY_HOST --hostname mail.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mailsrv -d $W2L_DOCKER_MAILSRV
  fi
-fi
-MAIL_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
-echo sysadmin:$MAIL_PASSWORD | docker exec -i ${W2L_INSTANCE_NAME}-mailsrv chpasswd
+ MAIL_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
+ echo sysadmin:$MAIL_PASSWORD | docker exec -i ${W2L_INSTANCE_NAME}-mailsrv chpasswd
 
-{
-echo "Email Username: sysadmin"
-echo "Email Password: "$MAIL_PASSWORD
-} > configs/email.txt
+ {
+ echo "Email Username: sysadmin"
+ echo "Email Password: "$MAIL_PASSWORD
+ } > configs/email.txt
+else
+ echo "MailSrv skiped by config..."
+fi
 
 # run mysql and init
 docker ps | grep ${W2L_INSTANCE_NAME}-mysql &> /dev/null
@@ -194,6 +202,12 @@ EOL
   if [[ "$EXT_GID" == "0" ]] ; then
    EXT_GID=1000
   fi
+  MAIL_SRV_LINK=""
+
+  if [[ "$W2L_USE_INTERNAL_MAILSRV" == "1" ]] ; then
+   MAIL_SRV_LINK="--link ${W2L_INSTANCE_NAME}-mailsrv:mail"
+  fi
+
   docker run -ti $MORE_ARGS $MOUNT_DIR --hostname websrv.wikitolearn.org \
    -e USER_UID=$EXT_UID \
    -e USER_GID=$EXT_GID \
@@ -201,8 +215,15 @@ EOL
    --link ${W2L_INSTANCE_NAME}-mysql:mysql \
    --link ${W2L_INSTANCE_NAME}-memcached:memcached \
    --link ${W2L_INSTANCE_NAME}-ocg:ocg \
-   --link ${W2L_INSTANCE_NAME}-mailsrv:mail \
+   $MAIL_SRV_LINK \
    -d $W2L_DOCKER_WEBSRV
+
+  if [[ "$W2L_USE_INTERNAL_MAILSRV" != "1" ]] ; then
+   if [[ "$W2L_RELAY_HOST" != "" ]] ; then
+    docker exec ${W2L_INSTANCE_NAME}-websrv sed '/^mailhub/d' /etc/ssmtp/ssmtp.conf
+    echo "mailhub=${W2L_RELAY_HOST}" | docker exec -i ${W2L_INSTANCE_NAME}-websrv tee -a /etc/ssmtp/ssmtp.conf
+   fi
+  fi
  fi
 fi
 
