@@ -2,7 +2,7 @@ FROM wikifm/ocg
 MAINTAINER wikitolearn sysadmin@wikitolearn.org
 
 RUN rm /var/lib/ocg/* -Rf
-ADD mw-ocg/ /var/lib/ocg/
+ADD mw-ocg-full/ /var/lib/ocg/
 WORKDIR /var/lib/ocg/mw-ocg-service
 RUN npm install
 WORKDIR /var/lib/ocg/mw-ocg-bundler
