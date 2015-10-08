@@ -136,7 +136,9 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${W2L_INSTANCE_NAME}-ocg
  else
-  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG
+  langs="$(find configs/secrets/ -name *wikitolearn.php -exec basename {} \; | sed 's/wikitolearn.php//g' | grep -v shared)"
+  echo $langs
+  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG
  fi
 fi
 

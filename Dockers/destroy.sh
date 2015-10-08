@@ -14,28 +14,41 @@ if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
 fi
 
 REPLY=""
-
+REPLY_DO="yY"
 # if you set I_know_what_I_m_doing=danger it skip asking confermation
 
 if [[ "$I_know_what_I_m_doing" != "danger" ]]
 then
- read -p "Are you sure? This operation can't be undone (y/n) " -n 1 -r
- echo
+ if [[ $(($RANDOM % 2 )) -eq 0 ]] ; then
+  read -p "Are you sure? This operation can't be undone (y/n) " -n 1 -r
+  echo
+ else
+  read -p "You want quit? (y/n) " -n 1 -r
+  echo
+  REPLY_DO="nN"
+ fi
 else
  REPLY="y"
 fi
 
-if [[ $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ ^[$REPLY_DO]$ ]]
 then
+ REPLY_DO="nN"
  if [[ "$I_know_what_I_m_doing" != "danger" ]]
  then
-  read -p "You want quit the process? (y/n) " -n 1 -r
-  echo
+  if [[ $(($RANDOM % 2 )) -eq 0 ]] ; then
+   read -p "You want quit the process? (y/n) " -n 1 -r
+   echo
+  else
+   read -p "You want continue the process? (y/n) " -n 1 -r
+   echo
+   REPLY_DO="yY"
+  fi
  else
   REPLY="n"
  fi
 
- if [[ $REPLY =~ ^[Nn]$ ]]
+ if [[ $REPLY =~ ^[$REPLY_DO]$ ]]
  then
   echo "ok, I'm doing..."
   for d in  ${W2L_INSTANCE_NAME}-ocg ${W2L_INSTANCE_NAME}-mysql ${W2L_INSTANCE_NAME}-memcached ${W2L_INSTANCE_NAME}-websrv
