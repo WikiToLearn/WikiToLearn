@@ -21,10 +21,16 @@ if [[ $? -eq 0 ]] ; then
  docker rm wikitolearn-haproxy
 fi
 
+CERTS_MOUNT=""
+if [[ -d certs/ ]] ; then
+ CERTS_MOUNT=" -v "$(pwd)"/certs/:/certs/:ro "
+fi
+
 docker run -d --name wikitolearn-haproxy \
  -p 80:80 \
  -p 443:443 \
  -p 8000:8000 \
+ $CERTS_MOUNT \
  --link ${W2L_INSTANCE_NAME}-websrv:websrv \
  --link ${W2L_INSTANCE_NAME}-ocg:ocg \
  $W2L_DOCKER_HAPROXY

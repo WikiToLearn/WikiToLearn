@@ -179,7 +179,13 @@ EOL
   fi
   MAIL_SRV_LINK=""
 
+  CERTS_MOUNT=""
+  if [[ -d certs/ ]] ; then
+   CERTS_MOUNT=" -v "$(pwd)"/certs/:/certs/:ro "
+  fi
+
   docker run -ti $MORE_ARGS $MOUNT_DIR --hostname websrv.wikitolearn.org \
+   $CERTS_MOUNT \
    -e USER_UID=$EXT_UID \
    -e USER_GID=$EXT_GID \
    -v $(readlink -f $(dirname $(readlink -f $0))"/.."):/var/www/WikiToLearn/ --name ${W2L_INSTANCE_NAME}-websrv \
