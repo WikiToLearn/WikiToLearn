@@ -26,7 +26,7 @@ if [[ -d certs/ ]] ; then
  CERTS_MOUNT=" -v "$(pwd)"/certs/:/certs/:ro "
 fi
 
-docker run -d --name wikitolearn-haproxy \
+docker run -d --name wikitolearn-haproxy --restart=always \
  -p 80:80 \
  -p 443:443 \
  -p 8000:8000 \
