@@ -18,6 +18,7 @@ if [[ $? -ne 0 ]] ; then
  echo "Missing ${W2L_INSTANCE_NAME}-websrv docker"
  exit 1
 fi
+docker exec ${W2L_INSTANCE_NAME}-websrv chown www-data:www-data /var/www/ -R
 
 if [[ "$W2L_INIT_DB" == "" ]] ; then
  W2L_INIT_DB=0
