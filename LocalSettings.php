@@ -296,7 +296,7 @@ $wgDefaultUserOptions['useeditwarning'] = 1;
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
 $wgDefaultSkin = 'neverland';
 
-if (getenv('W2L_PRODUCTION' != 1) {
+if (getenv('W2L_PRODUCTION' != 1)) {
  $wgShowExceptionDetails = true;
 }
 
