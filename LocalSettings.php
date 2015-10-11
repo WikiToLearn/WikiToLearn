@@ -123,6 +123,9 @@ switch ($wiki) {
     case "meta":
         require_once("$IP/../secrets/" . $wiki . "wikitolearn.php");
         break;
+    default:
+	header("Location: //www." . $wiki_domain . "/");
+	break;
 }
 
 
