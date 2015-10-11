@@ -320,7 +320,7 @@ include_once("$IP/extensions/EmbedVideo/EmbedVideo.php");
 require_once("$IP/extensions/Cite/Cite.php");
 $wgCiteEnablePopups = true;
 
-// require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
+require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
 
 require_once("$IP/extensions/Nuke/Nuke.php");
 
@@ -352,6 +352,10 @@ require_once "$IP/skins/Neverland/Neverland.php";
 
 // Collection extension
 require_once("$IP/extensions/Collection/Collection.php");
+
+$wgGroupPermissions['sysop']['collectionsaveascommunitypage'] = true;
+$wgGroupPermissions['user']['collectionsaveasuserpage']      = true;
+
 // configuration borrowed from wmf-config/CommonSettings.php
 // in operations/mediawiki-config
 $wgCollectionFormatToServeURL['rdf2latex'] = $wgCollectionFormatToServeURL['rdf2text'] = 'http://ocg:17080';
@@ -386,8 +390,8 @@ $virtualFactoryImages = array(
 require_once "$IP/extensions/Theorems/Theorems.php";
 require_once "$IP/extensions/Flow/Flow.php";
 // These lines enable Flow on the "Project talk" and "User talk" namespaces
-$wgNamespaceContentModels[NS_PROJECT_TALK] = CONTENT_MODEL_FLOW_BOARD;
-$wgNamespaceContentModels[NS_USER_TALK] = CONTENT_MODEL_FLOW_BOARD;
+// $wgNamespaceContentModels[NS_PROJECT_TALK] = CONTENT_MODEL_FLOW_BOARD;
+// $wgNamespaceContentModels[NS_USER_TALK] = CONTENT_MODEL_FLOW_BOARD;
 
 require_once("$IP/../secrets/secrets.php");
 
