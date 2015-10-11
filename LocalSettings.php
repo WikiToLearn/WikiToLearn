@@ -296,8 +296,9 @@ $wgDefaultUserOptions['useeditwarning'] = 1;
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
 $wgDefaultSkin = 'neverland';
 
-$wgShowExceptionDetails = true;
-
+if (getenv('W2L_PRODUCTION' != 1) {
+ $wgShowExceptionDetails = true;
+}
 
 require_once("$IP/extensions/ContributionScores/ContributionScores.php");
 $wgContribScoreIgnoreBots = true;          // Exclude Bots from the reporting - Can be omitted.
