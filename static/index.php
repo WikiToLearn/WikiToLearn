@@ -38,7 +38,7 @@ body {
 #container {
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
+    max-width: 800px;
     height: 500px;
     margin-top: 80px;
     clear:both;
@@ -52,15 +52,20 @@ body {
     float: left;
     margin-left: auto;
     margin-right: auto;
-    padding: 80px;
-    padding-top: 100px;
+    padding: 100px 125px 80px;
     margin-right: -30px;
 }
 
 #rightnav {
-    float: right;
+    float: left;
     font-family: Source Sans Pro;
 }
+
+#rightnavmenu {
+  padding: 0px;
+}
+
+
 
 #rightnav li {
 list-style-type: none;

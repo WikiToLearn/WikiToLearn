@@ -1,0 +1,14 @@
+export W2L_INSTANCE_NAME=w2l-dev
+export W2L_BACKUP_ENABLED=1
+export W2L_BACKUP_PATH=
+export W2L_DOCKER_MYSQL_DATA_PATH=/home/grigoletti/Documents/WikiToLearn/Dockers/mysql-data/
+export W2L_DOCKER_WEBSRV_LOG_PATH=/home/grigoletti/Documents/WikiToLearn/Dockers/websrv-log/
+export W2L_DOCKER_MOUNT_DIRS=0
+export W2L_USE_INTERNAL_MAILSRV=0
+export W2L_RELAY_HOST=mail
+export W2L_DOCKER_MYSQL=mysql:5.6
+export W2L_DOCKER_MEMCACHED=memcached:1.4.24
+export W2L_DOCKER_MAILSRV=wikitolearn/mailsrv:0.4
+export W2L_DOCKER_OCG=wikitolearn/ocg:0.3.1
+export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.6
+export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.1
