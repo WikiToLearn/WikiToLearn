@@ -21,12 +21,6 @@ if [[ $? -ne 0 ]] ; then
  exit 1
 fi
 
-if [[ "$(docker images -q wikitolearn/ocg-dev-base 2> /dev/null)" == "" ]]; then
-    #building ocd-dev-base
-    cd ocg-dev/mw-ocg-full
-    docker build -t wikitolearn/ocg-dev-base:0.1 .
-    cd ../../
-fi
 
 if [[ $? -eq 0 ]] ; then
 docker stop ${W2L_INSTANCE_NAME}-ocg
@@ -34,9 +28,9 @@ docker rm ${W2L_INSTANCE_NAME}-ocg
 fi
 
 cd ocg-dev
-docker build -t wikitolearn/ocg-dev:0.1 .
+docker build -t ocg-dev .
 
-docker run -ti --hostname ocg.wikitolearn.org --name ${W2L_INSTANCE_NAME}-ocg -d wikitolearn/ocg-dev:0.1
+docker run -ti --hostname ocg.wikitolearn.org --name ${W2L_INSTANCE_NAME}-ocg -d ocg-dev
 
 cd ..
 ./fix-hosts.sh
