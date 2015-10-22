@@ -65,10 +65,10 @@
 	url = git://github.com/wikimedia/mediawiki-extensions-SyntaxHighlighter.git
 [submodule "Neverland"]
 	path = Neverland
-	url = git://github.com/WikiFM/Neverland.git
+	url = git://github.com/WikiToLearn/Neverland.git
 [submodule "extensions/DockerAccess"]
 	path = extensions/DockerAccess
-	url = https://github.com/WikiFM/DockerAccess.git
+	url = https://github.com/WikiToLearn/DockerAccess.git
 [submodule "extensions/Gadgets"]
 	path = extensions/Gadgets
 	url = git://github.com/wikimedia/mediawiki-extensions-Gadgets.git

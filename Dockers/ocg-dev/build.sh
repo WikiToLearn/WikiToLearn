@@ -21,18 +21,17 @@ if [[ $? -ne 0 ]] ; then
  exit 1
 fi
 
-sed -i '/FROM/d' ocg-dev/Dockerfile
-sed -i '1iFROM '$W2L_DOCKER_OCG ocg-dev/Dockerfile
+
 if [[ $? -eq 0 ]] ; then
- docker stop ${W2L_INSTANCE_NAME}-ocg
- docker rm ${W2L_INSTANCE_NAME}-ocg
-
- docker rmi ocg:dev
- pwd
- docker build -t ocg:dev ocg-dev
-
- docker run -ti --hostname ocg.wikitolearn.org --name ${W2L_INSTANCE_NAME}-ocg -d ocg:dev
- echo "Now you may run fix-hosts.sh"
+docker stop ${W2L_INSTANCE_NAME}-ocg
+docker rm ${W2L_INSTANCE_NAME}-ocg
 fi
-sed -i '/FROM/d' ocg-dev/Dockerfile
-sed -i '1iFROM wikifm/ocg' ocg-dev/Dockerfile
+
+cd ocg-dev
+docker build -t ocg-dev .
+
+docker run -ti --hostname ocg.wikitolearn.org --name ${W2L_INSTANCE_NAME}-ocg -d ocg-dev
+
+cd ..
+./fix-hosts.sh
+exit 0
