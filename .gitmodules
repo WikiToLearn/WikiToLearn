@@ -1,87 +1,87 @@
 [submodule "mediawiki"]
     depth = 1
 	path = mediawiki
-	url = git://github.com/wikimedia/mediawiki
+	url = https://github.com/wikimedia/mediawiki
 	ignore = dirty
 [submodule "extensions/Interwiki"]
 	path = extensions/Interwiki
-	url = git://github.com/wikimedia/mediawiki-extensions-Interwiki.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Interwiki.git
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
-	url = git://github.com/wikimedia/mediawiki-extensions-googleAnalytics.git
+	url = https://github.com/wikimedia/mediawiki-extensions-googleAnalytics.git
 [submodule "extensions/SyntaxHighlight_GeSHi"]
 	path = extensions/SyntaxHighlight_GeSHi
-	url = git://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi.git
 [submodule "extensions/ParserFunctions"]
 	path = extensions/ParserFunctions
-	url = git://github.com/wikimedia/mediawiki-extensions-ParserFunctions.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ParserFunctions.git
 [submodule "extensions/Collection"]
 	path = extensions/Collection
-	url = git://github.com/wikimedia/mediawiki-extensions-Collection.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Collection.git
 [submodule "extensions/Math"]
 	path = extensions/Math
-	url = git://github.com/WikiFM/Math.git
+	url = https://github.com/WikiFM/Math.git
 [submodule "extensions/WikiEditor"]
 	path = extensions/WikiEditor
-	url = git://github.com/wikimedia/mediawiki-extensions-WikiEditor.git
+	url = https://github.com/wikimedia/mediawiki-extensions-WikiEditor.git
 [submodule "extensions/ConfirmEdit"]
 	path = extensions/ConfirmEdit
-	url = git://github.com/wikimedia/mediawiki-extensions-ConfirmEdit.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ConfirmEdit.git
 [submodule "extensions/ContributionScores"]
 	path = extensions/ContributionScores
-	url = git://github.com/wikimedia/mediawiki-extensions-ContributionScores.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ContributionScores.git
 [submodule "extensions/Cite"]
 	path = extensions/Cite
-	url = git://github.com/wikimedia/mediawiki-extensions-Cite.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Cite.git
 [submodule "extensions/LiquidThreads"]
 	path = extensions/LiquidThreads
-	url = git://github.com/wikimedia/mediawiki-extensions-LiquidThreads.git
+	url = https://github.com/wikimedia/mediawiki-extensions-LiquidThreads.git
 [submodule "extensions/Nuke"]
 	path = extensions/Nuke
-	url = git://github.com/wikimedia/mediawiki-extensions-Nuke.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Nuke.git
 [submodule "extensions/Echo"]
 	path = extensions/Echo
-	url = git://github.com/wikimedia/mediawiki-extensions-Echo.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Echo.git
 [submodule "extensions/FlaggedRevs"]
 	path = extensions/FlaggedRevs
-	url = git://github.com/wikimedia/mediawiki-extensions-FlaggedRevs.git
+	url = https://github.com/wikimedia/mediawiki-extensions-FlaggedRevs.git
 [submodule "extensions/SubPageList"]
 	path = extensions/SubPageList
-	url = git://github.com/wikimedia/mediawiki-extensions-SubPageList.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SubPageList.git
 [submodule "extensions/UserMerge"]
 	path = extensions/UserMerge
-	url = git://github.com/wikimedia/mediawiki-extensions-UserMerge.git
+	url = https://github.com/wikimedia/mediawiki-extensions-UserMerge.git
 [submodule "extensions/UniversalLanguageSelector"]
 	path = extensions/UniversalLanguageSelector
-	url = git://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector.git
+	url = https://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector.git
 [submodule "extensions/CategorySuggest"]
 	path = extensions/CategorySuggest
-	url = git://github.com/middlebury/CategorySuggest.git
+	url = https://github.com/middlebury/CategorySuggest.git
 [submodule "extensions/EmbedVideo"]
 	path = extensions/EmbedVideo
-	url = git://github.com/Alexia/mediawiki-embedvideo.git
+	url = https://github.com/Alexia/mediawiki-embedvideo.git
 [submodule "extensions/SyntaxHighlighter"]
 	path = extensions/SyntaxHighlighter
-	url = git://github.com/wikimedia/mediawiki-extensions-SyntaxHighlighter.git
+	url = https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlighter.git
 [submodule "Neverland"]
 	path = Neverland
-	url = git://github.com/WikiToLearn/Neverland.git
+	url = https://github.com/WikiToLearn/Neverland.git
 [submodule "extensions/DockerAccess"]
 	path = extensions/DockerAccess
 	url = https://github.com/WikiToLearn/DockerAccess.git
 [submodule "extensions/Gadgets"]
 	path = extensions/Gadgets
-	url = git://github.com/wikimedia/mediawiki-extensions-Gadgets.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Gadgets.git
 [submodule "extensions/Theorems"]
 	path = extensions/Theorems
     pushurl = git@github.com/WikiToLearn/Theorems
-	url = git://github.com/WikiToLearn/Theorems
+	url = https://github.com/WikiToLearn/Theorems
 [submodule "extensions/ParserHooks"]
 	path = extensions/ParserHooks
-	url = git://github.com/wikimedia/mediawiki-extensions-ParserHooks.git
+	url = https://github.com/wikimedia/mediawiki-extensions-ParserHooks.git
 [submodule "extensions/VisualEditor"]
 	path = extensions/VisualEditor
-	url = git://github.com/wikimedia/mediawiki-extensions-VisualEditor.git
+	url = https://github.com/wikimedia/mediawiki-extensions-VisualEditor.git
 [submodule "extensions/Flow"]
 	path = extensions/Flow
-	url = git://github.com/wikimedia/mediawiki-extensions-Flow.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Flow.git

@@ -13,7 +13,7 @@ if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
  exit 1
 fi
 
-echo "Bringing up "${W2L_INSTALNCE_NAME}"..."
+echo "Bringing up "${W2L_INSTANCE_NAME}"..."
 
 docker inspect wikitolearn-haproxy &> /dev/null
 if [[ $? -eq 0 ]] ; then
