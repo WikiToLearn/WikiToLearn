@@ -108,8 +108,8 @@ margin: 0;
 
   <div id="rightnav">
     <ul id="rightnavmenu">
-      <li style="border-left: 8px solid #83001f;"><a href="//it.<?php echo $domain; ?>"><h1>Italiano<small style="float:right;font-size:10pt;padding-top:1em;padding-left:1em;">374 pagine</small></h1><h2>&laquo;Il sapere si accresce solo se condiviso&raquo;<h2></a></li>
-      <li style="border-left: 8px solid #db3e14;"><a href="//en.<?php echo $domain; ?>"><h1>English<small style="float:right;font-size:10pt;padding-top:1em;padding-left:1em;">90 pages</small></h1><h2>&laquo;Knowledge only grows if shared&raquo;<h2></a></li>
+      <li style="border-left: 8px solid #83001f;"><a href="//it.<?php echo $domain; ?>"><h1>Italiano<small style="float:right;font-size:10pt;padding-top:1em;padding-left:1em;">382+ pagine</small></h1><h2>&laquo;Il sapere si accresce solo se condiviso&raquo;<h2></a></li>
+      <li style="border-left: 8px solid #db3e14;"><a href="//en.<?php echo $domain; ?>"><h1>English<small style="float:right;font-size:10pt;padding-top:1em;padding-left:1em;">96+ pages</small></h1><h2>&laquo;Knowledge only grows if shared&raquo;<h2></a></li>
       <li style="border-left: 8px solid #ffbc31;"><a href="#//fr.<?php echo $domain; ?>"><h1 class="disabled">Fran&ccedil;ais</h1><h2 class="disabled">&laquo;Le savoir grandit seulement s'il est partag&eacute;&raquo;<h2></a></li>
       <li style="border-left: 8px solid #69b140;"><a href="#//de.<?php echo $domain; ?>"><h1 class="disabled">Deutsch</h1><h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird kann neues enstehen&raquo;<h2></a></li>
       <li style="border-left: 8px solid #00613a;"><a href="#//es.<?php echo $domain; ?>"><h1 class="disabled">Espa&ntilde;ol</h1><h2 class="disabled">&laquo;El conocimiento solo crece cuando es compartido&raquo;<h2></a></li>
