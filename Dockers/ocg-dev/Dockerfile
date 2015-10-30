@@ -1,5 +1,5 @@
-FROM wikitolearn/ocg:0.6
-MAINTAINER wikitolearn sysadmin@wikitolearn.org
+FROM wikitolearn/ocg-base:0.1
+MAINTAINER valsdav sysadmin@wikitolearn.org
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true
 
