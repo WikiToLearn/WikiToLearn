@@ -372,8 +372,6 @@ $wgCollectionFormats = array(
     'rdf2text' => 'Plain text',
 );
 
-$wgCollectionRendererSettings['columns']['default'] = 1;
-
 $wgLicenseURL = "//creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 
