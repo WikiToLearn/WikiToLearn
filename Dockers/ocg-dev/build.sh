@@ -13,7 +13,7 @@ if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
  exit 1
 fi
 
-test -d ocg-dev/mw-ocg-full || git clone https://github.com/WikiToLearn/mw-ocg-full.git ocg-dev/mw-ocg-full --recursive
+test -d ocg-dev/mw-ocg-latexer || git clone https://github.com/WikiToLearn/mw-ocg-latexer.git ocg-dev/mw-ocg-latexer 
 
 docker inspect ${W2L_INSTANCE_NAME}-websrv &> /dev/null
 if [[ $? -ne 0 ]] ; then
