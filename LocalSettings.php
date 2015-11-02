@@ -339,8 +339,10 @@ require_once("$IP/extensions/CategorySuggest/CategorySuggest.php");
 // require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
 // require_once( "$IP/extensions/SubPageList/SubPageList.php" );
 
-$wgEnableDnsBlacklist = true;
-$wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
+if (getenv("W2L_PRODUCTION") == "1") {
+    $wgEnableDnsBlacklist = true;
+    $wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
+}
 
 require_once "$IP/extensions/UserMerge/UserMerge.php";
 // By default nobody can use this function, enable for bureaucrat?
