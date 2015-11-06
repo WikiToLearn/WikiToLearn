@@ -1,38 +1,13 @@
 #!/bin/bash
 cd "$(dirname "$(readlink "$0" || printf %s "$0")")"
 
+./create_instance_config.sh
+
 if [[ ! -f instance_config.conf ]] ; then
- {
-  [[ -z "$W2L_INSTANCE_NAME" ]] && W2L_INSTANCE_NAME=w2l-dev
-  echo "export W2L_INSTANCE_NAME=$W2L_INSTANCE_NAME"
-  [[ -z "$W2L_BACKUP_ENABLED" ]] && W2L_BACKUP_ENABLED=0
-  echo "export W2L_BACKUP_ENABLED=$W2L_BACKUP_ENABLED"
-  [[ -z "$W2L_BACKUP_PATH" ]] && W2L_BACKUP_PATH=""
-  echo "export W2L_BACKUP_PATH=$W2L_BACKUP_PATH"
-  [[ -z "$W2L_DOCKER_MYSQL_DATA_PATH" ]] && W2L_DOCKER_MYSQL_DATA_PATH=$(pwd)"/mysql-data/"
-  echo "export W2L_DOCKER_MYSQL_DATA_PATH=$W2L_DOCKER_MYSQL_DATA_PATH"
-  [[ -z "$W2L_DOCKER_WEBSRV_LOG_PATH" ]] && W2L_DOCKER_WEBSRV_LOG_PATH=$(pwd)"/websrv-log/"
-  echo "export W2L_DOCKER_WEBSRV_LOG_PATH=$W2L_DOCKER_WEBSRV_LOG_PATH"
-  [[ -z "$W2L_DOCKER_MOUNT_DIRS" ]] && W2L_DOCKER_MOUNT_DIRS=0
-  echo "export W2L_DOCKER_MOUNT_DIRS=$W2L_DOCKER_MOUNT_DIRS"
-
-  [[ -z "$W2L_RELAY_HOST" ]] && W2L_RELAY_HOST="mail"
-  echo "export W2L_RELAY_HOST=$W2L_RELAY_HOST"
-
-  echo "export W2L_DOCKER_MYSQL=mysql:5.6"
-  echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
-  echo "export W2L_DOCKER_OCG=wikitolearn/ocg:0.7"
-  echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.8.1"
-  echo "export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.3"
- } > instance_config.conf
- echo
- echo "Created default instance_config.conf file"
- echo
- sleep 1
- echo
+ echo "Missing instance_config.conf"
+ exit 1
 fi
 
-chmod +x instance_config.conf
 . ./instance_config.conf
 
 [[ -z "$W2L_INIT_DB" ]] && export W2L_INIT_DB=0
@@ -90,9 +65,22 @@ if [[ $? -ne 0 ]] ; then
   echo "user=root" >> configs/my.cnf
   echo "password=$ROOT_PWD" >> configs/my.cnf
 
-  echo "Attesa mysql onlnie..."
+  echo "Waiting mysql init..."
+  false
+  while [[ $? -ne 0 ]] ; do
+   sleep 1
+   docker logs ${W2L_INSTANCE_NAME}-mysql | grep "MySQL init process done. Ready for start up." &> /dev/null
+  done
+
   {
-  while ! mysql --defaults-file=configs/my.cnf -h $IP -e "SHOW DATABASES" ; do
+   echo "[client]"
+   echo "user=root"
+   echo "password=$ROOT_PWD"
+  } | docker exec -i ${W2L_INSTANCE_NAME}-mysql tee /root/.my.cnf
+
+  echo "Attesa mysql online..."
+  {
+  while ! docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql -e "SHOW DATABASES" ; do
    sleep 1
   done
   } &> /dev/null
@@ -108,14 +96,14 @@ if [[ $? -ne 0 ]] ; then
    echo "CREATE DATABASE IF NOT EXISTS metawikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS poolwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS sharedwikitolearn;"
-  } | mysql --defaults-file=configs/my.cnf -h $IP
+  } | docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql
 
-  mysql --defaults-file=configs/my.cnf -h $IP -e "show databases like '%wiki%';" | grep wikitolearn | while read db; do
+  docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql -e "show databases like '%wiki%';" | grep wikitolearn | while read db; do
    pass=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32)
    user=${db::-11}
    {
     echo "GRANT ALL PRIVILEGES ON * . * TO '"$user"'@'172.17.%' IDENTIFIED BY '"$pass"';"
-   } | mysql --defaults-file=configs/my.cnf -h $IP
+   } | docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql
 
    {
     echo "<?php"
