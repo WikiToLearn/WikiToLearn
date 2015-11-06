@@ -296,7 +296,7 @@ $wgDefaultUserOptions['useeditwarning'] = 1;
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
 $wgDefaultSkin = 'neverland';
 
-if (getenv('W2L_PRODUCTION' != 1)) {
+if (getenv('W2L_PRODUCTION') != 1) {
  $wgShowExceptionDetails = true;
 }
 
@@ -373,6 +373,8 @@ $wgCollectionFormats = array(
     'rdf2latex' => 'PDF',
     'rdf2text' => 'Plain text',
 );
+
+$wgCollectionRendererSettings['columns']['default'] = 1;
 
 $wgLicenseURL = "//creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
