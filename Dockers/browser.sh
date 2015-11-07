@@ -15,7 +15,8 @@ fi
 
 echo "Bringing up "${W2L_INSTANCE_NAME}"..."
 
-docker run --rm -e DISPLAY=$DISPLAY -ti --name broswer-in-docker --hostname broswer-in-docker \
+docker run --rm -e DISPLAY=$DISPLAY -ti --name broswer-in-docker \
+ --hostname broswer-in-docker --privileged \
  --link ${W2L_INSTANCE_NAME}-websrv:www.wikitolearn.org \
  --link ${W2L_INSTANCE_NAME}-websrv:pool.wikitolearn.org \
  --link ${W2L_INSTANCE_NAME}-websrv:meta.wikitolearn.org \
@@ -26,4 +27,5 @@ docker run --rm -e DISPLAY=$DISPLAY -ti --name broswer-in-docker --hostname bros
  --link ${W2L_INSTANCE_NAME}-websrv:fr.wikitolearn.org \
  --link ${W2L_INSTANCE_NAME}-websrv:pt.wikitolearn.org \
  --link ${W2L_INSTANCE_NAME}-websrv:sv.wikitolearn.org \
- -v /tmp/.X11-unix:/tmp/.X11-unix wikitolearn/broswer-in-docker
+ -v /tmp/.X11-unix:/tmp/.X11-unix  -v $HOME:/home/devuser/data \
+ wikitolearn/broswer-in-docker:0.1
