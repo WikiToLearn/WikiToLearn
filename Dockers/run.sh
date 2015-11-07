@@ -102,7 +102,7 @@ if [[ $? -ne 0 ]] ; then
    pass=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32)
    user=${db::-11}
    {
-    echo "GRANT ALL PRIVILEGES ON * . * TO '"$user"'@'172.17.%' IDENTIFIED BY '"$pass"';"
+    echo "GRANT ALL PRIVILEGES ON * . * TO '"$user"'@'%' IDENTIFIED BY '"$pass"';"
    } | docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql
 
    {
