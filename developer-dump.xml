@@ -278,4 +278,46 @@ Trovi altri ringraziamenti speciali nella [[Hall of fame]]</text>
       <sha1>f1skcvyrb8tsa2auayvqza9z3uv904q</sha1>
     </revision>
   </page>
+  <page>
+    <title>Template:HSF Page</title>
+    <ns>10</ns>
+    <id>27</id>
+    <revision>
+      <id>77</id>
+      <parentid>28</parentid>
+      <timestamp>2015-11-07T22:30:25Z</timestamp>
+      <contributor>
+        <username>Grigoletti</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="210">----
+&lt;div class=&quot;alert alert-warning&quot;&gt;&lt;center&gt;This page belongs to the [[Main Page HSF|list of courses]] of HEP Software Foundation. [[Main Page HSF|Go back on the main page]].&lt;/center&gt;&lt;/div&gt;
+
+[[Categoria:HSF]]</text>
+      <sha1>qtrgdmtjq3tbeq7d9qy0f8p4zf9wbzx</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:HSF Page C++</title>
+    <ns>10</ns>
+    <id>28</id>
+    <revision>
+      <id>78</id>
+      <parentid>29</parentid>
+      <timestamp>2015-11-07T22:33:07Z</timestamp>
+      <contributor>
+        <username>Grigoletti</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="233">----
+&lt;div class=&quot;alert alert-warning&quot;&gt;&lt;center&gt;This page belongs to the [[Main Page HSF|list of courses]] of HEP Software Foundation. &lt;/center&gt;&lt;br&gt;
+[[Main Page HSF|Go back on the main page]],
+[[C++|Go back to the C++ Chapters]].&lt;/div&gt;</text>
+      <sha1>gb10fuk7b7dw2bxs0g10rknr6r0dum0</sha1>
+    </revision>
+  </page>
 </mediawiki>
