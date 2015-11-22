@@ -40,6 +40,8 @@ $wgMetaNamespace = "Project";
 $wiki_allow_domains = array(
     "wikitolearn.org",
     "dev.wikitolearn.org",
+    "pre.wikitolearn.org",
+    "local.wikitolearn.org",
     "direct.wikitolearn.org",
 );
 
