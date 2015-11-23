@@ -43,6 +43,9 @@ $wiki_allow_domains = array(
     "pre.wikitolearn.org",
     "local.wikitolearn.org",
     "direct.wikitolearn.org",
+    "tuttorotto.eu",
+    "tuttorotto.org",
+    "tuttorotto.biz"
 );
 
 $wiki_hostname = strtolower(isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : getenv('WIKI'));
