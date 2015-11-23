@@ -1,14 +1,7 @@
 <?php
-$wiki_allow_domains = array(
-    "wikitolearn.org",
-    "dev.wikitolearn.org",
-    "direct.wikitolearn.org",
-);
-$domain=$wiki_allow_domains[0];
+include "../domains.php";
 
-$wiki_hostname = strtolower(isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : getenv('WIKI'));
-$wiki = substr($wiki_hostname, 0, strpos($wiki_hostname, "."));
-$wiki_domain = substr($wiki_hostname, strlen($wiki) + 1);
+$domain=$wiki_allow_domains[0];
 
 if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
  $domain=$wiki_domain;

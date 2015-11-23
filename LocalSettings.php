@@ -37,20 +37,7 @@ require_once( "$IP/extensions/googleAnalytics/googleAnalytics.php" );
 
 $wgMetaNamespace = "Project";
 
-$wiki_allow_domains = array(
-    "wikitolearn.org",
-    "dev.wikitolearn.org",
-    "pre.wikitolearn.org",
-    "local.wikitolearn.org",
-    "direct.wikitolearn.org",
-    "tuttorotto.eu",
-    "tuttorotto.org",
-    "tuttorotto.biz"
-);
-
-$wiki_hostname = strtolower(isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : getenv('WIKI'));
-$wiki = substr($wiki_hostname, 0, strpos($wiki_hostname, "."));
-$wiki_domain = substr($wiki_hostname, strlen($wiki) + 1);
+require_once( "$IP/../domains.php" );
 
 if (array_search($wiki_domain, $wiki_allow_domains) === FALSE) {
     $wiki = "notfound";
