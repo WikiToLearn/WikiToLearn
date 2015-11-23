@@ -86,6 +86,7 @@ if [[ $? -ne 0 ]] ; then
   } &> /dev/null
 
   {
+   # to add a domain you must add the line in apache config file apache2/common/WikiToLearn.conf in WebSrv repo
    echo "CREATE DATABASE IF NOT EXISTS dewikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS enwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS eswikitolearn;"
