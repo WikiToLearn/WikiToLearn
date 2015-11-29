@@ -11,7 +11,7 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>WikiToLearn - choose your language</title>
+<title>WikiToLearn - collaborative textbooks</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" charset="UTF-8" />
 
