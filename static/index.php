@@ -20,7 +20,6 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
 
 <style type="text/css">
 <!--
-@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 .style1 {font-family: Geneva, Arial, Helvetica, sans-serif}
 body,td,th {
@@ -172,7 +171,14 @@ margin: 0;
   </div>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+<script>
+ WebFont.load({
+    google: {
+      families: ['Source Sans Pro:400,600,700,400italic,700italic', 'Roboto Condensed:400,700']
+    }
+  });
+</script>
 </body>
 </html>
 
