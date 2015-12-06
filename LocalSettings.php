@@ -390,5 +390,7 @@ require_once "$IP/extensions/Flow/Flow.php";
 // $wgNamespaceContentModels[NS_PROJECT_TALK] = CONTENT_MODEL_FLOW_BOARD;
 // $wgNamespaceContentModels[NS_USER_TALK] = CONTENT_MODEL_FLOW_BOARD;
 
+$wgCapitalLinkOverrides[ NS_FILE ] = false;
+
 require_once("$IP/../secrets/secrets.php");
 
