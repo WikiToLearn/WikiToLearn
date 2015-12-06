@@ -381,7 +381,6 @@ $virtualFactoryImages = array(
     'novnc-kde' => "KDE Development Image",
     'qt5' => "Qt5 Development Image",
     'root' => "ROOT Basic Image",
-    'monicelli' => "Test image for Monicelli/QtRoot",
 );
 
 require_once "$IP/extensions/Theorems/Theorems.php";
