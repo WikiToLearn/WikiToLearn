@@ -485,7 +485,7 @@ class PHP_CodeSniffer_File
         foreach ($this->_tokens as $stackPtr => $token) {
             // Check for ignored lines.
             if ($token['code'] === T_COMMENT
-                || $token['code'] === T_DOC_COMMENT
+                || $token['code'] === T_DOC_COMMENT_TAG
                 || ($inTests === true && $token['code'] === T_INLINE_HTML)
             ) {
                 if (strpos($token['content'], '@codingStandards') !== false) {
@@ -1545,7 +1545,7 @@ class PHP_CodeSniffer_File
                             $newContent .= $content;
                             if ($checkEncoding === true) {
                                 // Not using the default encoding, so take a bit more care.
-                                $contentLength = iconv_strlen($content, $encoding);
+                                $contentLength = @iconv_strlen($content, $encoding);
                                 if ($contentLength === false) {
                                     // String contained invalid characters, so revert to default.
                                     $contentLength = strlen($content);
@@ -1603,7 +1603,7 @@ class PHP_CodeSniffer_File
             }
 
             if ($tokens[$i]['code'] === T_COMMENT
-                || $tokens[$i]['code'] === T_DOC_COMMENT
+                || $tokens[$i]['code'] === T_DOC_COMMENT_TAG
                 || ($inTests === true && $tokens[$i]['code'] === T_INLINE_HTML)
             ) {
                 if (strpos($tokens[$i]['content'], '@codingStandards') !== false) {
@@ -2632,13 +2632,15 @@ class PHP_CodeSniffer_File
             return null;
         }
 
+        $content = null;
         for ($i = $stackPtr; $i < $this->numTokens; $i++) {
             if ($this->_tokens[$i]['code'] === T_STRING) {
+                $content = $this->_tokens[$i]['content'];
                 break;
             }
         }
 
-        return $this->_tokens[$i]['content'];
+        return $content;
 
     }//end getDeclarationName()
 
@@ -3119,6 +3121,11 @@ class PHP_CodeSniffer_File
             return true;
         }
 
+        if ($this->_tokens[$tokenBefore]['code'] === T_OPEN_SHORT_ARRAY) {
+            // Inside an array declaration, this is a reference.
+            return true;
+        }
+
         if (isset(PHP_CodeSniffer_Tokens::$assignmentTokens[$this->_tokens[$tokenBefore]['code']]) === true) {
             // This is directly after an assignment. It's a reference. Even if
             // it is part of an operation, the other tests will handle it.
@@ -3372,12 +3379,15 @@ class PHP_CodeSniffer_File
                 return $lastNotEmpty;
             }
 
-            // Skip nested statements.
             if (isset($this->_tokens[$i]['scope_opener']) === true
                 && $i === $this->_tokens[$i]['scope_closer']
             ) {
-                $i = $this->_tokens[$i]['scope_opener'];
-            } else if (isset($this->_tokens[$i]['bracket_opener']) === true
+                // Found the end of the previous scope block.
+                return $lastNotEmpty;
+            }
+
+            // Skip nested statements.
+            if (isset($this->_tokens[$i]['bracket_opener']) === true
                 && $i === $this->_tokens[$i]['bracket_closer']
             ) {
                 $i = $this->_tokens[$i]['bracket_opener'];

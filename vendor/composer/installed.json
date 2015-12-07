@@ -922,17 +922,17 @@
     },
     {
         "name": "squizlabs/php_codesniffer",
-        "version": "2.3.4",
-        "version_normalized": "2.3.4.0",
+        "version": "2.4.0",
+        "version_normalized": "2.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-            "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2"
+            "reference": "32a879f4f35019d78d568db2885d7779ca084a33"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
-            "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
+            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/32a879f4f35019d78d568db2885d7779ca084a33",
+            "reference": "32a879f4f35019d78d568db2885d7779ca084a33",
             "shasum": ""
         },
         "require": {
@@ -940,7 +940,7 @@
             "ext-xmlwriter": "*",
             "php": ">=5.1.2"
         },
-        "time": "2015-09-09 00:18:50",
+        "time": "2015-11-23 21:30:59",
         "bin": [
             "scripts/phpcs",
             "scripts/phpcbf"
@@ -998,27 +998,27 @@
     },
     {
         "name": "symfony/yaml",
-        "version": "v2.7.7",
-        "version_normalized": "2.7.7.0",
+        "version": "v2.8.0",
+        "version_normalized": "2.8.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/yaml.git",
-            "reference": "4cfcd7a9fceba662b3c036b7d9a91f6197af046c"
+            "reference": "f79824187de95064a2f5038904c4d7f0227fedb5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/yaml/zipball/4cfcd7a9fceba662b3c036b7d9a91f6197af046c",
-            "reference": "4cfcd7a9fceba662b3c036b7d9a91f6197af046c",
+            "url": "https://api.github.com/repos/symfony/yaml/zipball/f79824187de95064a2f5038904c4d7f0227fedb5",
+            "reference": "f79824187de95064a2f5038904c4d7f0227fedb5",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.9"
         },
-        "time": "2015-11-18 13:41:01",
+        "time": "2015-11-30 12:35:10",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.7-dev"
+                "dev-master": "2.8-dev"
             }
         },
         "installation-source": "dist",
