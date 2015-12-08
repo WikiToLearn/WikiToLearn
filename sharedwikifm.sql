@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.24-72.2, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.27, for Linux (x86_64)
 --
--- Host: localhost    Database: sharedwikifm
+-- Host: localhost    Database: sharedwikitolearn
 -- ------------------------------------------------------
--- Server version	5.6.24-72.2-log
+-- Server version	5.6.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -77,6 +77,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `user_groups`
@@ -96,6 +100,11 @@ CREATE TABLE `user_groups` (
 --
 -- Dumping data for table `user_groups`
 --
+
+LOCK TABLES `user_groups` WRITE;
+/*!40000 ALTER TABLE `user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `user_properties`
@@ -117,8 +126,10 @@ CREATE TABLE `user_properties` (
 -- Dumping data for table `user_properties`
 --
 
+LOCK TABLES `user_properties` WRITE;
 /*!40000 ALTER TABLE `user_properties` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_properties` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -129,4 +140,4 @@ CREATE TABLE `user_properties` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-14  0:04:52
+-- Dump completed on 2015-12-08 22:54:33
