@@ -85,3 +85,6 @@
 [submodule "extensions/Flow"]
 	path = extensions/Flow
 	url = https://github.com/wikimedia/mediawiki-extensions-Flow.git
+[submodule "extensions/Renameuser"]
+	path = extensions/Renameuser
+	url = https://github.com/wikimedia/mediawiki-extensions-Renameuser.git

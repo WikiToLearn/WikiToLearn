@@ -393,3 +393,4 @@ $wgCapitalLinkOverrides[ NS_FILE ] = false;
 
 require_once("$IP/../secrets/secrets.php");
 
+wfLoadExtension( 'Renameuser' );
