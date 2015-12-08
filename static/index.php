@@ -33,11 +33,11 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
                         <div id="spacing-row" style="height:30px"></div>
                         <div class="col-sm-6 col-xs-12 center" id="rightnav" style="padding-left:0px;">
                             <ul id="rightnavmenu" class="list-unstyled">
-                                <li class="towikilink"><a class="wikilink" lang="it" href="//it.<?php echo $domain; ?>"><h1>Italiano<small class="pull-right hidden-xs pagecount">#+ pagine</small></h1><h2>&laquo;Il sapere si accresce solo se condiviso&raquo;</h2></a></li>
-                                <li class="towikilink"><a class="wikilink" lang="en" href="//en.<?php echo $domain; ?>"><h1>English<small class="pull-right hidden-xs pagecount">#+ pages</small></h1><h2>&laquo;Knowledge only grows if shared&raquo;</h2></a></li>
-                                <li class="towikilink"><a class="wikilink" lang="fr" href="#//fr.<?php echo $domain; ?>"><h1 class="disabled">Fran&ccedil;ais</h1><h2 class="disabled">&laquo;Le savoir grandit seulement s'il est partag&eacute;&raquo;</h2></a></li>
-                                <li class="towikilink"><a class="wikilink" lang="de" href="#//de.<?php echo $domain; ?>"><h1 class="disabled">Deutsch</h1><h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird kann neues enstehen&raquo;</h2></a></li>
-                                <li class="towikilink"><a class="wikilink" lang="es" href="#//es.<?php echo $domain; ?>"><h1 class="disabled">Espa&ntilde;ol</h1><h2 class="disabled">&laquo;El conocimiento solo crece cuando es compartido&raquo;</h2></a></li>
+                                <li class="towikilink colorbar1"><a class="wikilink" lang="it" href="//it.<?php echo $domain; ?>"><h1>Italiano<small class="pull-right hidden-xs pagecount">#+ pagine</small></h1><h2>&laquo;Il sapere si accresce solo se condiviso&raquo;</h2></a></li>
+                                <li class="towikilink colorbar2"><a class="wikilink" lang="en" href="//en.<?php echo $domain; ?>"><h1>English<small class="pull-right hidden-xs pagecount">#+ pages</small></h1><h2>&laquo;Knowledge only grows if shared&raquo;</h2></a></li>
+                                <li class="towikilink colorbar3"><a class="wikilink" lang="fr" href="#//fr.<?php echo $domain; ?>"><h1 class="disabled">Fran&ccedil;ais</h1><h2 class="disabled">&laquo;Le savoir grandit seulement s'il est partag&eacute;&raquo;</h2></a></li>
+                                <li class="towikilink colorbar4"><a class="wikilink" lang="de" href="#//de.<?php echo $domain; ?>"><h1 class="disabled">Deutsch</h1><h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird kann neues enstehen&raquo;</h2></a></li>
+                                <li class="towikilink colorbar5"><a class="wikilink" lang="es" href="#//es.<?php echo $domain; ?>"><h1 class="disabled">Espa&ntilde;ol</h1><h2 class="disabled">&laquo;El conocimiento solo crece cuando es compartido&raquo;</h2></a></li>
                             </ul>
                         </div>
                     </div>

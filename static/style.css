@@ -112,9 +112,23 @@ body {
     }
 }
 
-.towikilink {
+.colorbar1 {
     border-left: 8px solid #83001f;
 }
+.colorbar2 {
+    border-left: 8px solid #db3e14;
+}
+.colorbar3 {
+    border-left: 8px solid #ffbc31;
+}
+.colorbar4 {
+    border-left: 8px solid #69b140;
+}
+.colorbar5 {
+    border-left: 8px solid #00613a;
+}
+
+
 .pagecount {
     font-size:10pt;
     padding-top:1em;padding-left:1em;
