@@ -20,12 +20,6 @@ if [ "$W2L_BACKUP_ENABLED" == "1" ] ; then
  fi
 fi
 
-which mysql &> /dev/null
-if [[ $? -ne 0 ]] ; then
- echo "'mysql' command not found"
- exit 1
-fi
-
 test -d configs/ || mkdir -p configs/
 test -d configs/secrets/ || mkdir -p configs/secrets/
 
@@ -127,7 +121,14 @@ if [[ $? -ne 0 ]] ; then
  else
   langs="$(find configs/secrets/ -name *wikitolearn.php -exec basename {} \; | sed 's/wikitolearn.php//g' | grep -v shared)"
   echo $langs
-  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG
+  if [[ "$W2L_SKIP_OCG_DOCKER" == "0" ]] ; then
+   W2L_DOCKER_OCG_USE="$W2L_DOCKER_OCG"
+   W2L_OCG_CMD=""
+  else
+   W2L_DOCKER_OCG_USE="debian:8"
+   W2L_OCG_CMD="sleep infinity"
+  fi
+  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG_USE $W2L_OCG_CMD
  fi
 fi
 

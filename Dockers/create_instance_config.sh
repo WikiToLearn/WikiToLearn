@@ -17,6 +17,9 @@ if [[ ! -f instance_config.conf ]] ; then
   [[ -z "$W2L_RELAY_HOST" ]] && W2L_RELAY_HOST="mail"
   echo "export W2L_RELAY_HOST=$W2L_RELAY_HOST"
 
+  [[ -z "$W2L_SKIP_OCG_DOCKER" ]] && W2L_SKIP_OCG_DOCKER="0"
+  echo "export W2L_SKIP_OCG_DOCKER=$W2L_SKIP_OCG_DOCKER="
+
   echo "export W2L_DOCKER_MYSQL=mysql:5.6"
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
   echo "export W2L_DOCKER_OCG=wikitolearn/ocg:0.7.1"
