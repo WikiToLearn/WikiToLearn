@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir).'/mediawiki';
 
 return array(
-    $vendorDir . '/phpunit/phpunit-mock-objects',
     $vendorDir . '/phpunit/php-token-stream',
+    $vendorDir . '/phpunit/phpunit-mock-objects',
     $vendorDir . '/phpunit/php-code-coverage',
     $vendorDir . '/phpunit/phpunit',
     $vendorDir . '/symfony/yaml',
