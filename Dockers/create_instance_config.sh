@@ -23,8 +23,8 @@ if [[ ! -f instance_config.conf ]] ; then
   echo "export W2L_DOCKER_MYSQL=mysql:5.6"
   echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
   echo "export W2L_DOCKER_OCG=wikitolearn/ocg:0.7.1"
-  echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.10"
-  echo "export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.4"
+  echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.10.1"
+  echo "export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.5"
  } > instance_config.conf
  echo
  echo "Created default instance_config.conf file"
