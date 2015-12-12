@@ -73,7 +73,7 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
                             success: function (response) {
                                 console.log($(this));
                                 console.log(response);
-                                $(this).html(response.query.statistics.pages + $(this).html().substring(1));
+                                $(this).html(response.query.statistics.articles + $(this).html().substring(1));
                             }
                         });
                     }
