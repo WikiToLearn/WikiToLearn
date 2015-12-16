@@ -90,4 +90,4 @@
 	url = https://github.com/wikimedia/mediawiki-extensions-Renameuser.git
 [submodule "extensions/Translate"]
 	path = extensions/Translate
-	url = git@github.com:wikimedia/mediawiki-extensions-Translate.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Translate.git
