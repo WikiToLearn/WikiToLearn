@@ -113,12 +113,20 @@ switch ($wiki) {
         break;
     case "pool":
     case "meta":
+        include_once("$IP/extensions/Translate/Translate.php");
         require_once("$IP/../secrets/" . $wiki . "wikitolearn.php");
         break;
     default:
 	header("Location: //www." . $wiki_domain . "/");
 	break;
 }
+
+$wgGroupPermissions['translator']['translate'] = true;
+$wgGroupPermissions['translator']['skipcaptcha'] = true; // Bug 34182: needed with ConfirmEdit
+$wgTranslateDocumentationLanguageCode = 'qqq';
+
+# Add this if you want to enable access to page translation
+$wgGroupPermissions['sysop']['pagetranslation'] = true;
 
 
 $wgSitename = "WikiToLearn - collaborative textbooks";
