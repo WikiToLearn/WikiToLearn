@@ -13,7 +13,9 @@
 namespace Composer\Autoload;
 
 /**
- * ClassLoader implements a PSR-0, PSR-4 and classmap class loader.
+ * ClassLoader implements a PSR-0 class loader
+ *
+ * See https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
  *
  *     $loader = new \Composer\Autoload\ClassLoader();
  *
@@ -37,8 +39,6 @@ namespace Composer\Autoload;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Jordi Boggiano <j.boggiano@seld.be>
- * @see    http://www.php-fig.org/psr/psr-0/
- * @see    http://www.php-fig.org/psr/psr-4/
  */
 class ClassLoader
 {
@@ -344,7 +344,7 @@ class ClassLoader
     private function findFileWithExtension($class, $ext)
     {
         // PSR-4 lookup
-        $logicalPathPsr4 = ('\\' !== DIRECTORY_SEPARATOR ? str_replace('\\', DIRECTORY_SEPARATOR, $class) : $class) . $ext;
+        $logicalPathPsr4 = strtr($class, '\\', DIRECTORY_SEPARATOR) . $ext;
 
         $first = $class[0];
         if (isset($this->prefixLengthsPsr4[$first])) {
@@ -370,10 +370,10 @@ class ClassLoader
         if (false !== $pos = strrpos($class, '\\')) {
             // namespaced class name
             $logicalPathPsr0 = substr($logicalPathPsr4, 0, $pos + 1)
-                . str_replace('_', DIRECTORY_SEPARATOR, substr($logicalPathPsr4, $pos + 1));
+                . strtr(substr($logicalPathPsr4, $pos + 1), '_', DIRECTORY_SEPARATOR);
         } else {
             // PEAR-like class name
-            $logicalPathPsr0 = str_replace('_', DIRECTORY_SEPARATOR, $class) . $ext;
+            $logicalPathPsr0 = strtr($class, '_', DIRECTORY_SEPARATOR) . $ext;
         }
 
         if (isset($this->prefixesPsr0[$first])) {

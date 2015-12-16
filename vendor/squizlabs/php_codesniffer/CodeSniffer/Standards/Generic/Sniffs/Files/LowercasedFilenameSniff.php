@@ -50,17 +50,12 @@ class Generic_Sniffs_Files_LowercasedFilenameSniff implements PHP_CodeSniffer_Sn
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
-        $filename = $phpcsFile->getFilename();
-        if ($filename === 'STDIN') {
-            return;
-        }
-
-        $filename          = basename($filename);
-        $lowercaseFilename = strtolower($filename);
-        if ($filename !== $lowercaseFilename) {
+        $fileName          = basename($phpcsFile->getFilename());
+        $lowercaseFileName = strtolower($fileName);
+        if ($fileName !== $lowercaseFileName) {
             $data  = array(
-                      $filename,
-                      $lowercaseFilename,
+                      $fileName,
+                      $lowercaseFileName,
                      );
             $error = 'Filename "%s" doesn\'t match the expected filename "%s"';
             $phpcsFile->addError($error, $stackPtr, 'NotFound', $data);

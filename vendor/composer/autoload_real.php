@@ -47,3 +47,8 @@ class ComposerAutoloaderIniteee833ed84e1ee7808fdb028b3f3bcdc
         return $loader;
     }
 }
+
+function composerRequireeee833ed84e1ee7808fdb028b3f3bcdc($file)
+{
+    require $file;
+}

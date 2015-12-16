@@ -421,7 +421,7 @@ class PHP_CodeSniffer_Tokenizers_JS
 
             // Special case for T_DIVIDE which can actually be
             // the start of a regular expression.
-            if ($buffer === $char && $char === '/' && $chars[($i + 1)] !== '*') {
+            if ($buffer === $char && $char === '/') {
                 $regex = $this->getRegexToken(
                     $i,
                     $string,

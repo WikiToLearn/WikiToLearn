@@ -16,8 +16,6 @@ namespace Symfony\Component\Yaml;
  * YAML strings.
  *
  * @author Matthew Lewinski <matthew@lewinski.org>
- *
- * @internal
  */
 class Escaper
 {
