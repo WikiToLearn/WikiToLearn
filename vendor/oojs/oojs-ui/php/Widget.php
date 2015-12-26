@@ -9,6 +9,16 @@ namespace OOUI;
  */
 class Widget extends Element {
 
+	/* Static Properties */
+
+	/**
+	 * Whether this widget will behave reasonably when wrapped in a HTML `<label>`. If this is true,
+	 * wrappers such as FieldLayout may use a `<label>`.
+	 *
+	 * @var boolean
+	 */
+	public static $supportsSimpleLabel = false;
+
 	/* Properties */
 
 	/**

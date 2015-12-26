@@ -6,13 +6,12 @@
  */
 OO.ui.Demo = function OoUiDemo() {
 	// Parent
-	OO.ui.Demo.super.call( this );
+	OO.ui.Demo.parent.call( this );
 
 	// Normalization
 	this.normalizeHash();
 
 	// Properties
-	this.stylesheetLinks = this.getStylesheetLinks();
 	this.mode = this.getCurrentMode();
 	this.$menu = $( '<div>' );
 	this.pageDropdown = new OO.ui.DropdownWidget( {
@@ -40,6 +39,16 @@ OO.ui.Demo = function OoUiDemo() {
 		new OO.ui.ButtonOptionWidget( { data: 'ltr', label: 'LTR' } ),
 		new OO.ui.ButtonOptionWidget( { data: 'rtl', label: 'RTL' } )
 	] );
+	this.jsPhpSelect = new OO.ui.ButtonGroupWidget().addItems( [
+		new OO.ui.ButtonWidget( { label: 'JS' } ).setActive( true ),
+		new OO.ui.ButtonWidget( {
+			label: 'PHP',
+			href: 'widgets.php' +
+				'?theme=' + this.mode.theme +
+				'&graphic=' + this.mode.graphics +
+				'&direction=' + this.mode.direction
+		} )
+	] );
 
 	// Events
 	this.pageMenu.on( 'choose', OO.ui.bind( this.onModeChange, this ) );
@@ -58,7 +67,8 @@ OO.ui.Demo = function OoUiDemo() {
 			this.pageDropdown.$element,
 			this.themeSelect.$element,
 			this.graphicsSelect.$element,
-			this.directionSelect.$element
+			this.directionSelect.$element,
+			this.jsPhpSelect.$element
 		);
 	this.$element
 		.addClass( 'oo-ui-demo' )
@@ -66,7 +76,7 @@ OO.ui.Demo = function OoUiDemo() {
 	$( 'body' ).addClass( 'oo-ui-' + this.mode.direction );
 	// Correctly apply direction to the <html> tags as well
 	$( 'html' ).attr( 'dir', this.mode.direction );
-	$( 'head' ).append( this.stylesheetLinks );
+	this.stylesheetLinks = this.addStylesheetLinks( $( 'head' ) );
 	OO.ui.theme = new ( this.constructor.static.themes[ this.mode.theme ].theme )();
 };
 
@@ -113,6 +123,7 @@ OO.ui.Demo.static.themes = {
 			'-icons-location',
 			'-icons-user',
 			'-icons-layout',
+			'-icons-accessibility',
 			'-icons-wikimedia'
 		],
 		theme: OO.ui.MediaWikiTheme
@@ -188,7 +199,7 @@ OO.ui.Demo.static.defaultTheme = 'mediawiki';
  * @static
  * @property {string}
  */
-OO.ui.Demo.static.defaultGraphics = 'vector';
+OO.ui.Demo.static.defaultGraphics = 'mixed';
 
 /**
  * Default page.
@@ -207,8 +218,8 @@ OO.ui.Demo.static.defaultDirection = 'ltr';
  */
 OO.ui.Demo.prototype.initialize = function () {
 	var demo = this,
-		promises = $( this.stylesheetLinks ).map( function () {
-			return $( this ).data( 'load-promise' );
+		promises = this.stylesheetLinks.map( function ( el ) {
+			return $( el ).data( 'load-promise' );
 		} );
 	$.when.apply( $, promises )
 		.done( function () {
@@ -309,11 +320,12 @@ OO.ui.Demo.prototype.getCurrentMode = function () {
 };
 
 /**
- * Get link elements for the current mode.
+ * Get and insert link elements for the current mode.
  *
+ * @param {jQuery} $where Node to insert the links into
  * @return {HTMLElement[]} List of link elements
  */
-OO.ui.Demo.prototype.getStylesheetLinks = function () {
+OO.ui.Demo.prototype.addStylesheetLinks = function ( $where ) {
 	var i, len, links, fragments,
 		factors = this.getFactors(),
 		theme = this.getCurrentFactorValues()[ 1 ],
@@ -326,9 +338,9 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 	} );
 
 	// Theme styles
-	urls.push( '../dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
+	urls.push( 'dist/oojs-ui' + fragments.slice( 1 ).join( '' ) + '.css' );
 	for ( i = 0, len = suffixes.length; i < len; i++ ) {
-		urls.push( '../dist/oojs-ui' + fragments[1] + suffixes[i] + fragments.slice( 2 ).join( '' ) + '.css' );
+		urls.push( 'dist/oojs-ui' + fragments[ 1 ] + suffixes[ i ] + fragments.slice( 2 ).join( '' ) + '.css' );
 	}
 
 	// Demo styles
@@ -345,6 +357,8 @@ OO.ui.Demo.prototype.getStylesheetLinks = function () {
 			load: deferred.resolve,
 			error: deferred.reject
 		} );
+		// Insert into DOM before setting 'href' for IE 8 compatibility
+		$where.append( $link );
 		link.rel = 'stylesheet';
 		link.href = url;
 		return link;
@@ -383,12 +397,12 @@ OO.ui.Demo.prototype.destroy = function () {
 /**
  * Build a console for interacting with an element.
  *
- * @param {OO.ui.Element} item
- * @param {string} key Variable name for item
- * @param {string} [item.label=""]
+ * @param {OO.ui.Layout} item
+ * @param {string} layout Variable name for layout
+ * @param {string} widget Variable name for layout's field widget
  * @return {jQuery} Console interface element
  */
-OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
+OO.ui.Demo.prototype.buildConsole = function ( item, layout, widget ) {
 	var $toggle, $log, $label, $input, $submit, $console, $form,
 		console = window.console;
 
@@ -399,8 +413,8 @@ OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
 			str = 'return ' + str;
 		}
 		try {
-			func = new Function( key, 'item', str );
-			ret = { value: func( item, item ) };
+			func = new Function( layout, widget, 'item', str );
+			ret = { value: func( item, item.fieldWidget, item.fieldWidget ) };
 		} catch ( error ) {
 			ret = {
 				value: undefined,
@@ -460,8 +474,9 @@ OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
 			if ( $input.is( ':visible' ) ) {
 				$input[ 0 ].focus();
 				if ( console && console.log ) {
-					window[ key ] = item;
-					console.log( '[demo]', 'Global ' + key + ' has been set' );
+					window[ layout ] = item;
+					window[ widget ] = item.fieldWidget;
+					console.log( '[demo]', 'Globals ' + layout + ', ' + widget + ' have been set' );
 					console.log( '[demo]', item );
 				}
 			}
@@ -475,7 +490,7 @@ OO.ui.Demo.prototype.buildConsole = function ( item, key ) {
 
 	$input = $( '<input>' )
 		.addClass( 'oo-ui-demo-console-input' )
-		.prop( 'placeholder', '... (predefined: ' + key + ')' );
+		.prop( 'placeholder', '... (predefined: ' + layout + ', ' + widget + ')' );
 
 	$submit = $( '<div>' )
 		.addClass( 'oo-ui-demo-console-submit' )

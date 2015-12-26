@@ -321,7 +321,7 @@ class PHP_CodeSniffer_CLI
 
         $reportWidth = PHP_CodeSniffer::getConfigData('report_width');
         if ($reportWidth !== null) {
-            $defaults['reportWidth'] = $this->_validateReportWidth($reportWidth);
+            $defaults['reportWidth'] = $reportWidth;
         } else {
             // Use function defaults.
             $defaults['reportWidth'] = null;
@@ -374,6 +374,18 @@ class PHP_CodeSniffer_CLI
         array_shift($args);
 
         $this->setCommandLineValues($args);
+
+        // Support auto temrinal width.
+        if (isset($this->values['reportWidth']) === true) {
+            if ($this->values['reportWidth'] === 'auto'
+                && preg_match('|\d+ (\d+)|', shell_exec('stty size 2>&1'), $matches) === 1
+            ) {
+                $this->values['reportWidth'] = (int) $matches[1];
+            } else {
+                $this->values['reportWidth'] = (int) $this->values['reportWidth'];
+            }
+        }
+
         return $this->values;
 
     }//end getCommandLineValues()
@@ -632,7 +644,7 @@ class PHP_CodeSniffer_CLI
                     }
                 }
             } else if (substr($arg, 0, 13) === 'report-width=') {
-                $this->values['reportWidth'] = $this->_validateReportWidth(substr($arg, 13));
+                $this->values['reportWidth'] = substr($arg, 13);
             } else if (substr($arg, 0, 7) === 'report='
                 || substr($arg, 0, 7) === 'report-'
             ) {
@@ -960,24 +972,14 @@ class PHP_CodeSniffer_CLI
         // They should all return the same value, so it
         // doesn't matter which return value we end up using.
         $ignoreWarnings = PHP_CodeSniffer::getConfigData('ignore_warnings_on_exit');
-        $ignoreErrors   = PHP_CodeSniffer::getConfigData('ignore_errors_on_exit');
-
-        $return = ($errors + $warnings);
-        if ($ignoreErrors !== null) {
-            $ignoreErrors = (bool) $ignoreErrors;
-            if ($ignoreErrors === true) {
-                $return -= $errors;
-            }
-        }
-
         if ($ignoreWarnings !== null) {
             $ignoreWarnings = (bool) $ignoreWarnings;
             if ($ignoreWarnings === true) {
-                $return -= $warnings;
+                return $errors;
             }
         }
 
-        return $return;
+        return ($errors + $warnings);
 
     }//end printErrorReport()
 
@@ -1253,27 +1255,6 @@ class PHP_CodeSniffer_CLI
         }
 
     }//end printInstalledStandards()
-
-
-    /**
-     * Set report width based on terminal width.
-     *
-     * @param int $width The width of the report. If "auto" then will
-     *                   be replaced by the terminal width.
-     *
-     * @return void
-     */
-    private function _validateReportWidth($width)
-    {
-        if ($width === 'auto'
-            && preg_match('|\d+ (\d+)|', shell_exec('stty size 2>&1'), $matches) === 1
-        ) {
-            return (int) $matches[1];
-        }
-
-        return (int) $width;
-
-    }//end _validateReportWidth()
 
 
 }//end class

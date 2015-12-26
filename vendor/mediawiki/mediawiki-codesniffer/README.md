@@ -1,49 +1,33 @@
-# MediaWiki coding conventions
+# MediaWiki coding conventions #
 
-## Abstract
+## Abstract ##
+This project implements a set of rules for use with [PHP CodeSniffer](https://pear.php.net/package/PHP_CodeSniffer).
 
-This project implements a set of rules for use with [PHP CodeSniffer]
-
-See [MediaWiki conventions] on our wiki :-)
-
-## How to install
-
-1. Install PHP Code Sniffer:
-
-```
-pear install PHP_CodeSniffer
-```
-
-2. Clone this repository in /some/path
-
-```
-git clone ... </some/path>
-```
-
-3. Set up an alias to load the new standard
-
-```
-alias phpcsmw='phpcs --standard=</some/path>/MediaWiki'
-```
-
-You might want to add the alias in your shell startup file (ex: ~/.bashrc).
-
-4. Run
-
-```
-$ cd /path/to/mediawiki-core
-$ phpcsmw includes/Title.php
-<warnings and errors are shown>
-$
-```
-
-Fix & commit
+See [MediaWiki conventions](https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP) on our wiki. :-)
 
 
-## TODO
+## How to install ##
+1. Create a composer.json which adds this project as a dependency:
 
-* Actually implements the various conventions
+		{
+			"require-dev": {
+				"mediawiki/mediawiki-codesniffer": "0.3.0"
+			},
+			"scripts": {
+				"test": [
+					"phpcs --standard=vendor/mediawiki/mediawiki-codesniffer/MediaWiki --extensions=php,php5,inc --ignore=vendor -p ."
+				]
+			}
+		}
+
+2. Install: `composer update`
+
+3. Run: `composer test`
+
+4. Fix & commit!
+
+Note that for most MediaWiki projects, we'd also recommend adding a PHP linter to your `composer.json` – see the [full documentation](https://www.mediawiki.org/wiki/Continuous_integration/Entry_points#PHP) for more details.
+
+
+## TODO ##
 * Migrate the old code-utils/check-vars.php
-
-[PHP CodeSniffer]: https://pear.php.net/package/PHP_CodeSniffer
-[MediaWiki conventions]: http://www.mediawiki.org/wiki/Manual:Coding_conventions

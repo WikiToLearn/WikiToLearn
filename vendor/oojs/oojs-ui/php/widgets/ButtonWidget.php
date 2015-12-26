@@ -50,6 +50,8 @@ class ButtonWidget extends Widget {
 		$this->mixin( new FlaggedElement( $this, $config ) );
 		$this->mixin( new TabIndexedElement( $this,
 			array_merge( $config, array( 'tabIndexed' => $this->button ) ) ) );
+		$this->mixin( new AccessKeyedElement( $this,
+			array_merge( $config, array( 'accessKeyed' => $this->button ) ) ) );
 
 		// Initialization
 		$this->button->appendContent( $this->icon, $this->label, $this->indicator );

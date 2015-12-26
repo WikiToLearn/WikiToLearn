@@ -7,7 +7,7 @@ namespace OOUI;
  */
 class FormLayout extends Layout {
 
-	/* Static properties */
+	/* Static Properties */
 
 	public static $tagName = 'form';
 

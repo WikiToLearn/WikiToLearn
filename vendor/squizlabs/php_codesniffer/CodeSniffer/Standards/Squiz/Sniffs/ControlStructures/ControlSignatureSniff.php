@@ -54,7 +54,6 @@ class Squiz_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSn
                 T_FOREACH,
                 T_ELSE,
                 T_ELSEIF,
-                T_SWITCH,
                );
 
     }//end register()
@@ -72,10 +71,6 @@ class Squiz_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSn
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
-
-        if (isset($tokens[($stackPtr + 1)]) === false) {
-            return;
-        }
 
         // Single space after the keyword.
         $found = 1;
@@ -115,20 +110,15 @@ class Squiz_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSn
             $content = $phpcsFile->getTokensAsString(($closer + 1), ($opener - $closer - 1));
 
             if ($content !== ' ') {
-                $error = 'Expected 1 space after closing parenthesis; found %s';
-                if (trim($content) === '') {
-                    $found = strlen($content);
-                } else {
-                    $found = '"'.str_replace($phpcsFile->eolChar, '\n', $content).'"';
-                }
-
-                $fix = $phpcsFile->addFixableError($error, $closer, 'SpaceAfterCloseParenthesis', array($found));
+                $error = 'Expected 1 space after closing parenthesis; found "%s"';
+                $data  = array(str_replace($phpcsFile->eolChar, '\n', $content));
+                $fix   = $phpcsFile->addFixableError($error, $closer, 'SpaceAfterCloseParenthesis', $data);
                 if ($fix === true) {
                     if ($closer === ($opener - 1)) {
                         $phpcsFile->fixer->addContent($closer, ' ');
                     } else {
                         $phpcsFile->fixer->beginChangeset();
-                        $phpcsFile->fixer->addContent($closer, ' '.$tokens[$opener]['content']);
+                        $phpcsFile->fixer->addContent($closer, ' {');
                         $phpcsFile->fixer->replaceToken($opener, '');
 
                         if ($tokens[$opener]['line'] !== $tokens[$closer]['line']) {
@@ -152,14 +142,14 @@ class Squiz_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSn
             for ($next = ($opener + 1); $next < $phpcsFile->numTokens; $next++) {
                 $code = $tokens[$next]['code'];
 
+                // Skip all whitespace.
                 if ($code === T_WHITESPACE) {
                     continue;
                 }
 
                 // Skip all empty tokens on the same line as the opener.
                 if ($tokens[$next]['line'] === $tokens[$opener]['line']
-                    && (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$code]) === true
-                    || $code === T_CLOSE_TAG)
+                    && isset(PHP_CodeSniffer_Tokens::$emptyTokens[$code]) === true
                 ) {
                     continue;
                 }
@@ -211,15 +201,12 @@ class Squiz_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSn
         }//end if
 
         // Only want to check multi-keyword structures from here on.
-        if ($tokens[$stackPtr]['code'] === T_DO) {
-            if (isset($tokens[$stackPtr]['scope_closer']) === false) {
-                return;
-            }
-
+        if ($tokens[$stackPtr]['code'] === T_TRY
+            || $tokens[$stackPtr]['code'] === T_DO
+        ) {
             $closer = $tokens[$stackPtr]['scope_closer'];
         } else if ($tokens[$stackPtr]['code'] === T_ELSE
             || $tokens[$stackPtr]['code'] === T_ELSEIF
-            || $tokens[$stackPtr]['code'] === T_CATCH
         ) {
             $closer = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);
             if ($closer === false || $tokens[$closer]['code'] !== T_CLOSE_CURLY_BRACKET) {

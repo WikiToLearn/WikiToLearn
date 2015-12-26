@@ -35,6 +35,12 @@ interface StatsdDataInterface
 
     /**
      * @abstract
+     * @return float
+     */
+    function getSampleRate();
+
+    /**
+     * @abstract
      * @return string
      */
     function __toString();

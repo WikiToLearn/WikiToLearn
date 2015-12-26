@@ -7,7 +7,7 @@ namespace OOUI;
  */
 class LabelWidget extends Widget {
 
-	/* Static properties */
+	/* Static Properties */
 
 	public static $tagName = 'span';
 

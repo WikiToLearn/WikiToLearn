@@ -7,18 +7,25 @@ namespace OOUI;
  *
  * @abstract
  */
-class Theme {
+abstract class Theme {
 
-	/* Members */
+	/* Properties */
 
 	private static $singleton;
 
 	/* Static Methods */
 
-	public static function setSingleton( Theme $theme ) {
+	/**
+	 * @param Theme|null $theme
+	 */
+	public static function setSingleton( Theme $theme = null ) {
 		self::$singleton = $theme;
 	}
 
+	/**
+	 * @return Theme
+	 * @throws Exception
+	 */
 	public static function singleton() {
 		if ( !self::$singleton ) {
 			throw new Exception( __METHOD__ . ' was called with no singleton theme set.' );
@@ -51,8 +58,15 @@ class Theme {
 	public function updateElementClasses( Element $element ) {
 		$classes = $this->getElementClasses( $element );
 
-		$element
-			->removeClasses( $classes['off'] )
-			->addClasses( $classes['on'] );
+		if ( isset( $element->icon ) ) {
+			$element->icon
+				->removeClasses( $classes['off'] )
+				->addClasses( $classes['on'] );
+		}
+		if ( isset( $element->indicator ) ) {
+			$element->indicator
+				->removeClasses( $classes['off'] )
+				->addClasses( $classes['on'] );
+		}
 	}
 }

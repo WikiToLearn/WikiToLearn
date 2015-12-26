@@ -779,15 +779,6 @@ class PHP_CodeSniffer_Tokenizers_PHP
                     }
                 }
 
-                // This is a special case when checking PHP 5.5+ code in PHP < 5.5
-                // where "finally" should be T_FINALLY instead of T_STRING.
-                if ($newToken['code'] === T_STRING
-                    && strtolower($newToken['content']) === 'finally'
-                ) {
-                    $newToken['code'] = T_FINALLY;
-                    $newToken['type'] = 'T_FINALLY';
-                }
-
                 // This is a special case for the PHP 5.5 classname::class syntax
                 // where "class" should be T_STRING instead of T_CLASS.
                 if ($newToken['code'] === T_CLASS
@@ -854,9 +845,7 @@ class PHP_CodeSniffer_Tokenizers_PHP
             // Looking for functions that are actually closures.
             if ($tokens[$i]['code'] === T_FUNCTION && isset($tokens[$i]['scope_opener']) === true) {
                 for ($x = ($i + 1); $x < $numTokens; $x++) {
-                    if (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$tokens[$x]['code']]) === false
-                        && $tokens[$x]['code'] !== T_BITWISE_AND
-                    ) {
+                    if (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$tokens[$x]['code']]) === false) {
                         break;
                     }
                 }

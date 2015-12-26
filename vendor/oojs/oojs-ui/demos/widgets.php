@@ -1,5 +1,5 @@
 <?php
-	$autoload = '../vendor/autoload.php';
+	$autoload = __DIR__ . '/vendor/autoload.php';
 	if ( !file_exists( $autoload ) ) {
 		echo '<h1>Did you forget to run <code>composer install</code>?</h1>';
 		exit();
@@ -16,7 +16,7 @@
 		'raster' => '.raster',
 	);
 	$graphic = ( isset( $_GET['graphic'] ) && isset( $graphicSuffixMap[ $_GET['graphic'] ] ) )
-		? $_GET['graphic'] : 'vector';
+		? $_GET['graphic'] : 'mixed';
 	$graphicSuffix = $graphicSuffixMap[ $graphic ];
 
 	$direction = ( isset( $_GET['direction'] ) && $_GET['direction'] === 'rtl' ) ? 'rtl' : 'ltr';
@@ -35,7 +35,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>OOjs UI Widget Demo</title>
-	<link rel="stylesheet" href="../dist/<?php echo $styleFileName; ?>" title="theme">
+	<link rel="stylesheet" href="dist/<?php echo $styleFileName; ?>">
 	<link rel="stylesheet" href="styles/demo<?php echo $directionSuffix; ?>.css">
 </head>
 <body class="oo-ui-<?php echo $direction; ?>">
@@ -46,15 +46,11 @@
 					'infusable' => true,
 					'items' => array(
 						new OOUI\ButtonWidget( array(
-							'id' => 'theme-mediawiki',
 							'label' => 'MediaWiki',
-							'data' => 'mediawiki',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'mediawiki' ) ) ),
 						) ),
 						new OOUI\ButtonWidget( array(
-							'id' => 'theme-apex',
 							'label' => 'Apex',
-							'data' => 'apex',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'theme' => 'apex' ) ) ),
 						) ),
 					)
@@ -86,6 +82,20 @@
 						new OOUI\ButtonWidget( array(
 							'label' => 'RTL',
 							'href' => '?' . http_build_query( array_merge( $query, array( 'direction' => 'rtl' ) ) ),
+						) ),
+					)
+				) );
+				echo new OOUI\ButtonGroupWidget( array(
+					'infusable' => true,
+					'id' => 'oo-ui-demo-menu-infuse',
+					'items' => array(
+						new OOUI\ButtonWidget( array(
+							'label' => 'JS',
+							'href' => ".#widgets-$theme-$graphic-$direction",
+						) ),
+						new OOUI\ButtonWidget( array(
+							'label' => 'PHP',
+							'href' => '?' . http_build_query( $query ),
 						) ),
 					)
 				) );
@@ -167,30 +177,6 @@
 					}
 					$buttonStyleShowcaseWidget->appendContent( new OOUI\HtmlSnippet( '<br />' ) );
 				}
-
-				$horizontalAlignmentWidget = new OOUI\Widget( array(
-					'classes' => array( 'oo-ui-demo-horizontal-alignment' )
-				) );
-				# Adding content after the fact does not play well with
-				# infusability.  We should be using a proper Layout here.
-				$horizontalAlignmentWidget->appendContent(
-					new OOUI\ButtonWidget( array( 'label' => 'Button' ) ),
-					new OOUI\ButtonGroupWidget( array( 'items' => array(
-						new OOUI\ButtonWidget( array( 'label' => 'A' ) ),
-						new OOUI\ButtonWidget( array( 'label' => 'B' ) )
-					) ) ),
-					new OOUI\ButtonInputWidget( array( 'label' => 'ButtonInput' ) ),
-					new OOUI\TextInputWidget( array( 'value' => 'TextInput' ) ),
-					new OOUI\DropdownInputWidget( array( 'options' => array(
-						array(
-							'label' => 'DropdownInput',
-							'data' => null
-						)
-					) ) ),
-					new OOUI\CheckboxInputWidget( array( 'selected' => true ) ),
-					new OOUI\RadioInputWidget( array( 'selected' => true ) ),
-					new OOUI\LabelWidget( array( 'label' => 'Label' ) )
-				);
 
 				$demoContainer->appendContent( new OOUI\FieldsetLayout( array(
 					'infusable' => true,
@@ -420,6 +406,16 @@
 								'label' => "ButtonWidget (frameless, constructive, disabled)\xE2\x80\x8E",
 								'align' => 'top'
 							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
+								'label' => 'AccessKeyed',
+								'accessKey' => 'k',
+							) ),
+							array(
+								'label' => "ButtonWidget (with accesskey k)\xE2\x80\x8E",
+								'align' => 'top'
+							)
 						)
 					)
 				) ) );
@@ -525,6 +521,29 @@
 							)
 						),
 						new OOUI\FieldLayout(
+							new OOUI\RadioSelectInputWidget( array(
+								'value' => 'dog',
+								'options' => array(
+									array(
+										'data' => 'cat',
+										'label' => 'Cat'
+									),
+									array(
+										'data' => 'dog',
+										'label' => 'Dog'
+									),
+									array(
+										'data' => 'goldfish',
+										'label' => 'Goldfish'
+									),
+								)
+							) ),
+							array(
+								'align' => 'top',
+								'label' => 'RadioSelectInputWidget',
+							)
+						),
+						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array( 'value' => 'Text input' ) ),
 							array(
 								'label' => "TextInputWidget\xE2\x80\x8E",
@@ -540,11 +559,10 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array(
-								'indicator' => 'required',
 								'required' => true
 							) ),
 							array(
-								'label' => "TextInputWidget (indicator, required)\xE2\x80\x8E",
+								'label' => "TextInputWidget (required)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -552,6 +570,13 @@
 							new OOUI\TextInputWidget( array( 'placeholder' => 'Placeholder' ) ),
 							array(
 								'label' => "TextInputWidget (placeholder)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array( 'type' => 'search' ) ),
+							array(
+								'label' => "TextInputWidget (type=search)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -577,11 +602,42 @@
 						),
 						new OOUI\FieldLayout(
 							new OOUI\TextInputWidget( array(
+								'value' => 'Accesskey A',
+								'accessKey' => 'a'
+							) ),
+							array(
+								'label' => "TextInputWidget (with Accesskey)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => 'Title attribute',
+								'title' => 'Title attribute with more information about me.'
+							) ),
+							array(
+								'label' => "TextInputWidget (with title)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
 								'multiline' => true,
 								'value' => "Multiline\nMultiline"
 							) ),
 							array(
 								'label' => "TextInputWidget (multiline)\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'multiline' => true,
+								'rows' => 15,
+								'value' => "Multiline\nMultiline"
+							) ),
+							array(
+								'label' => "TextInputWidget (multiline, rows=15)\xE2\x80\x8E",
 								'align' => 'top'
 							)
 						),
@@ -601,7 +657,8 @@
 										'label' => 'Third'
 									)
 								),
-								'value' => 'b'
+								'value' => 'b',
+								'title' => 'Select an item'
 							) ),
 							array(
 								'label' => 'DropdownInputWidget',
@@ -631,26 +688,44 @@
 						)
 					)
 				) ) );
-				# Again, $horizontalAlignmentWidget is not infusable because
-				# it manually added content after creation.  If we embed it
-				# in an infusable FieldsetLayout, it will (recursively) be made
-				# infusable.  So protect the widget by wrapping it in a
-				# <div> Tag.
-				$wrappedFieldLayout = new OOUI\Tag( 'div' );
-				$wrappedFieldLayout->appendContent(
-					new OOUI\FieldLayout(
-						$horizontalAlignmentWidget,
-						array(
-							'label' => 'Multiple widgets shown as a single line, ' .
-								'as used in compact forms or in parts of a bigger widget.',
-							'align' => 'top'
-						)
-					)
-				);
+				// We can't make the outer FieldsetLayout infusable, because the Widget in its FieldLayout
+				// is added with 'content', which is not preserved after infusion. But we need the Widget
+				// to wrap the HorizontalLayout. Need to think about this at some point.
 				$demoContainer->appendContent( new OOUI\FieldsetLayout( array(
-					'infusable' => true,
-					'label' => 'Horizontal alignment',
-					'items' => array( $wrappedFieldLayout ),
+					'infusable' => false,
+					'label' => 'HorizontalLayout',
+					'items' => array(
+						new OOUI\FieldLayout(
+							new OOUI\Widget( array(
+								'content' => new OOUI\HorizontalLayout( array(
+									'infusable' => true,
+									'items' => array(
+										new OOUI\ButtonWidget( array( 'label' => 'Button' ) ),
+										new OOUI\ButtonGroupWidget( array( 'items' => array(
+											new OOUI\ButtonWidget( array( 'label' => 'A' ) ),
+											new OOUI\ButtonWidget( array( 'label' => 'B' ) )
+										) ) ),
+										new OOUI\ButtonInputWidget( array( 'label' => 'ButtonInput' ) ),
+										new OOUI\TextInputWidget( array( 'value' => 'TextInput' ) ),
+										new OOUI\DropdownInputWidget( array( 'options' => array(
+											array(
+												'label' => 'DropdownInput',
+												'data' => null
+											)
+										) ) ),
+										new OOUI\CheckboxInputWidget( array( 'selected' => true ) ),
+										new OOUI\RadioInputWidget( array( 'selected' => true ) ),
+										new OOUI\LabelWidget( array( 'label' => 'Label' ) )
+									),
+								) ),
+							) ),
+							array(
+								'label' => 'Multiple widgets shown as a single line, ' .
+									'as used in compact forms or in parts of a bigger widget.',
+								'align' => 'top'
+							)
+						),
+					),
 				) ) );
 				$demoContainer->appendContent( new OOUI\FieldsetLayout( array(
 					'infusable' => true,
@@ -755,7 +830,121 @@
 									"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
 								'align' => 'top'
 							)
-						)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'FieldLayout with HTML help',
+								'help' => new OOUI\HtmlSnippet( '<b>Bold text</b> is helpful!' ),
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'FieldLayout with title',
+								'title' => 'Field title text',
+								'align' => 'top'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned left',
+								'align' => 'left'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned inline',
+								'align' => 'inline'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned right',
+								'align' => 'right'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned top',
+								'align' => 'top'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' => 'ActionFieldLayout aligned top with help',
+								'help' => 'I am an additional, helpful information. Lorem ipsum dolor sit amet, cibo pri ' .
+									"in, duo ex inimicus perpetua complectitur, mel periculis similique at.\xE2\x80\x8E",
+								'align' => 'top'
+							)
+						),
+						new OOUI\ActionFieldLayout(
+							new OOUI\TextInputWidget(),
+							new OOUI\ButtonWidget( array(
+								'label' => 'Button'
+							) ),
+							array(
+								'label' =>
+									new OOUI\HtmlSnippet( '<i>ActionFieldLayout aligned top with rich text label</i>' ),
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => ''
+							) ),
+							array(
+								'label' => 'FieldLayout with notice',
+								'notices' => array( 'Please input a number.' ),
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => 'Foo'
+							) ),
+							array(
+								'label' => 'FieldLayout with error message',
+								'errors' => array( 'The value must be a number.' ),
+								'align' => 'top'
+							)
+						),
+						new OOUI\FieldLayout(
+							new OOUI\TextInputWidget( array(
+								'value' => 'Foo'
+							) ),
+							array(
+								'label' => 'FieldLayout with notice and error message',
+								'notices' => array( 'Please input a number.' ),
+								'errors' => array( 'The value must be a number.' ),
+								'align' => 'top'
+							)
+						),
 					)
 				) ) );
 
@@ -820,11 +1009,11 @@
 	</div>
 
 	<!-- Demonstrate JavaScript "infusion" of PHP widgets -->
-	<script src="../node_modules/jquery/dist/jquery.js"></script>
-	<script src="../node_modules/oojs/dist/oojs.jquery.js"></script>
-	<script src="../dist/oojs-ui.js"></script>
-	<script src="../dist/oojs-ui-apex.js"></script>
-	<script src="../dist/oojs-ui-mediawiki.js"></script>
-	<script src="./infusion.js"></script>
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/es5-shim/es5-shim.js"></script>
+	<script src="node_modules/oojs/dist/oojs.jquery.js"></script>
+	<script src="dist/oojs-ui.js"></script>
+	<script src="dist/oojs-ui-<?php echo $theme; ?>.js"></script>
+	<script src="infusion.js"></script>
 </body>
 </html>

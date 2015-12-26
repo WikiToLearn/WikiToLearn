@@ -1511,7 +1511,7 @@ class PHP_CodeSniffer_File
                 // There are no tabs in this content, or we aren't replacing them.
                 if ($checkEncoding === true) {
                     // Not using the default encoding, so take a bit more care.
-                    $length = @iconv_strlen($tokens[$i]['content'], $encoding);
+                    $length = iconv_strlen($tokens[$i]['content'], $encoding);
                     if ($length === false) {
                         // String contained invalid characters, so revert to default.
                         $length = strlen($tokens[$i]['content']);
@@ -1837,14 +1837,6 @@ class PHP_CodeSniffer_File
                     echo "\tStart scope map at $i:$type => $content".PHP_EOL;
                 }
 
-                if (isset($tokens[$i]['scope_condition']) === true) {
-                    if (PHP_CODESNIFFER_VERBOSITY > 1) {
-                        echo "\t* already processed, skipping *".PHP_EOL;
-                    }
-
-                    continue;
-                }
-
                 $i = self::_recurseScopeMap(
                     $tokens,
                     $numTokens,
@@ -2013,15 +2005,7 @@ class PHP_CodeSniffer_File
                             $validCloser = false;
                             if (PHP_CODESNIFFER_VERBOSITY > 1) {
                                 echo str_repeat("\t", $depth);
-                                echo "* closer is not valid (no opener found) *".PHP_EOL;
-                            }
-                        } else if ($tokens[$tokens[$scopeCloser]['scope_opener']]['code'] !== $tokens[$opener]['code']) {
-                            $validCloser = false;
-                            if (PHP_CODESNIFFER_VERBOSITY > 1) {
-                                echo str_repeat("\t", $depth);
-                                $type       = $tokens[$tokens[$scopeCloser]['scope_opener']]['type'];
-                                $openerType = $tokens[$opener]['type'];
-                                echo "* closer is not valid (mismatched opener type; $type != $openerType) *".PHP_EOL;
+                                echo "* closer is not valid *".PHP_EOL;
                             }
                         } else if (PHP_CODESNIFFER_VERBOSITY > 1) {
                             echo str_repeat("\t", $depth);
@@ -2075,40 +2059,6 @@ class PHP_CodeSniffer_File
                         continue;
                     }
 
-                    if ($tokenType === T_FUNCTION
-                        && $tokens[$stackPtr]['code'] !== T_FUNCTION
-                    ) {
-                        // Probably a closure, so process it manually.
-                        if (PHP_CODESNIFFER_VERBOSITY > 1) {
-                            $type = $tokens[$stackPtr]['type'];
-                            echo str_repeat("\t", $depth);
-                            echo "=> Found function before scope opener for $stackPtr:$type, processing manually".PHP_EOL;
-                        }
-
-                        if (isset($tokens[$i]['scope_closer']) === true) {
-                            // We've already processed this closure.
-                            if (PHP_CODESNIFFER_VERBOSITY > 1) {
-                                echo str_repeat("\t", $depth);
-                                echo '* already processed, skipping *'.PHP_EOL;
-                            }
-
-                            $i = $tokens[$i]['scope_closer'];
-                            continue;
-                        }
-
-                        $i = self::_recurseScopeMap(
-                            $tokens,
-                            $numTokens,
-                            $tokenizer,
-                            $eolChar,
-                            $i,
-                            ($depth + 1),
-                            $ignore
-                        );
-
-                        continue;
-                    }//end if
-
                     // Found another opening condition but still haven't
                     // found our opener, so we are never going to find one.
                     if (PHP_CODESNIFFER_VERBOSITY > 1) {
@@ -2118,7 +2068,7 @@ class PHP_CodeSniffer_File
                     }
 
                     return $stackPtr;
-                }//end if
+                }
 
                 if (PHP_CODESNIFFER_VERBOSITY > 1) {
                     echo str_repeat("\t", $depth);
@@ -2176,16 +2126,6 @@ class PHP_CodeSniffer_File
                         throw new PHP_CodeSniffer_Exception('Maximum nesting level reached; file could not be processed');
                     }
 
-                    if ($isShared === true
-                        && isset($tokenizer->scopeOpeners[$tokenType]['with'][$currType]) === true
-                    ) {
-                        // Don't allow the depth to incremement because this is
-                        // possibly not a true nesting if we are sharing our closer.
-                        // This can happen, for example, when a SWITCH has a large
-                        // number of CASE statements with the same shared BREAK.
-                        $depth--;
-                    }
-
                     $i = self::_recurseScopeMap(
                         $tokens,
                         $numTokens,
@@ -2206,45 +2146,32 @@ class PHP_CodeSniffer_File
                 && $opener === null
             ) {
                 if ($tokenType === T_OPEN_CURLY_BRACKET) {
-                    if (isset($tokens[$stackPtr]['parenthesis_closer']) === true
-                        && $i < $tokens[$stackPtr]['parenthesis_closer']
-                    ) {
-                        // We found a curly brace inside the condition of the
-                        // current scope opener, so it must be a string offset.
-                        if (PHP_CODESNIFFER_VERBOSITY > 1) {
-                            echo str_repeat("\t", $depth);
-                            echo '* ignoring curly brace *'.PHP_EOL;
-                        }
+                    // Make sure this is actually an opener and not a
+                    // string offset (e.g., $var{0}).
+                    for ($x = ($i - 1); $x > 0; $x--) {
+                        if (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$tokens[$x]['code']]) === true) {
+                            continue;
+                        } else {
+                            // If the first non-whitespace/comment token is a
+                            // variable or object operator then this is an opener
+                            // for a string offset and not a scope.
+                            if ($tokens[$x]['code'] === T_VARIABLE
+                                || $tokens[$x]['code'] === T_OBJECT_OPERATOR
+                            ) {
+                                if (PHP_CODESNIFFER_VERBOSITY > 1) {
+                                    echo str_repeat("\t", $depth);
+                                    echo '* ignoring curly brace *'.PHP_EOL;
+                                }
 
-                        $ignore++;
-                    } else {
-                        // Make sure this is actually an opener and not a
-                        // string offset (e.g., $var{0}).
-                        for ($x = ($i - 1); $x > 0; $x--) {
-                            if (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$tokens[$x]['code']]) === true) {
-                                continue;
-                            } else {
-                                // If the first non-whitespace/comment token is a
-                                // variable or object operator then this is an opener
-                                // for a string offset and not a scope.
-                                if ($tokens[$x]['code'] === T_VARIABLE
-                                    || $tokens[$x]['code'] === T_OBJECT_OPERATOR
-                                ) {
-                                    if (PHP_CODESNIFFER_VERBOSITY > 1) {
-                                        echo str_repeat("\t", $depth);
-                                        echo '* ignoring curly brace *'.PHP_EOL;
-                                    }
-
-                                    $ignore++;
-                                }//end if
-
-                                break;
+                                $ignore++;
                             }//end if
-                        }//end for
-                    }//end if
+
+                            break;
+                        }//end if
+                    }//end for
                 }//end if
 
-                if ($ignore === 0 || $tokenType !== T_OPEN_CURLY_BRACKET) {
+                if ($ignore === 0) {
                     // We found the opening scope token for $currType.
                     if (PHP_CODESNIFFER_VERBOSITY > 1) {
                         $type = $tokens[$stackPtr]['type'];
@@ -2261,13 +2188,22 @@ class PHP_CodeSniffer_File
                         && isset($tokens[$i]['parenthesis_closer']) === true
                     ) {
                         // If we get into here, then we opened a parenthesis for
-                        // a scope (eg. an if or else if) so we need to update the
-                        // start of the line so that when we check to see
+                        // a scope (eg. an if or else if). We can just skip to
+                        // the closing parenthesis.
+                        $i = $tokens[$i]['parenthesis_closer'];
+
+                        // Update the start of the line so that when we check to see
                         // if the closing parenthesis is more than 3 lines away from
                         // the statement, we check from the closing parenthesis.
-                        $startLine = $tokens[$tokens[$i]['parenthesis_closer']]['line'];
+                        $startLine
+                            = $tokens[$tokens[$i]['parenthesis_closer']]['line'];
+
+                        if (PHP_CODESNIFFER_VERBOSITY > 1) {
+                            echo str_repeat("\t", $depth);
+                            echo '* skipping parenthesis *'.PHP_EOL;
+                        }
                     }
-                }
+                }//end if
             } else if ($tokenType === T_OPEN_CURLY_BRACKET && $opener !== null) {
                 // We opened something that we don't have a scope opener for.
                 // Examples of this are curly brackets for string offsets etc.
@@ -2279,14 +2215,6 @@ class PHP_CodeSniffer_File
                 }
 
                 $ignore++;
-            } else if ($tokenType === T_CLOSE_CURLY_BRACKET && $ignore > 0) {
-                // We found the end token for the opener we were ignoring.
-                if (PHP_CODESNIFFER_VERBOSITY > 1) {
-                    echo str_repeat("\t", $depth);
-                    echo '* finished ignoring curly brace *'.PHP_EOL;
-                }
-
-                $ignore--;
             } else if ($opener === null
                 && isset($tokenizer->scopeOpeners[$currType]) === true
             ) {
@@ -2486,7 +2414,7 @@ class PHP_CodeSniffer_File
                                 echo "* token $badToken:$type removed from conditions array *".PHP_EOL;
                             }
 
-                            unset($openers[$lastOpener]);
+                            unset ($openers[$lastOpener]);
 
                             $level--;
                             if (PHP_CODESNIFFER_VERBOSITY > 1) {
@@ -2728,21 +2656,14 @@ class PHP_CodeSniffer_File
         $typeHint        = '';
 
         for ($i = ($opener + 1); $i <= $closer; $i++) {
-            // Check to see if this token has a parenthesis or bracket opener. If it does
-            // it's likely to be an array which might have arguments in it. This
-            // could cause problems in our parsing below, so lets just skip to the
+            // Check to see if this token has a parenthesis opener. If it does
+            // its likely to be an array, which might have arguments in it, which
+            // we cause problems in our parsing below, so lets just skip to the
             // end of it.
             if (isset($this->_tokens[$i]['parenthesis_opener']) === true) {
                 // Don't do this if it's the close parenthesis for the method.
                 if ($i !== $this->_tokens[$i]['parenthesis_closer']) {
                     $i = ($this->_tokens[$i]['parenthesis_closer'] + 1);
-                }
-            }
-
-            if (isset($this->_tokens[$i]['bracket_opener']) === true) {
-                // Don't do this if it's the close parenthesis for the method.
-                if ($i !== $this->_tokens[$i]['bracket_closer']) {
-                    $i = ($this->_tokens[$i]['bracket_closer'] + 1);
                 }
             }
 

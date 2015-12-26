@@ -132,9 +132,7 @@ class Squiz_Sniffs_Formatting_OperatorBracketSniff implements PHP_CodeSniffer_Sn
                                 T_STRING,
                                 T_WHITESPACE,
                                 T_THIS,
-                                T_SELF,
                                 T_OBJECT_OPERATOR,
-                                T_DOUBLE_COLON,
                                 T_OPEN_SQUARE_BRACKET,
                                 T_CLOSE_SQUARE_BRACKET,
                                 T_MODULUS,
@@ -206,7 +204,6 @@ class Squiz_Sniffs_Formatting_OperatorBracketSniff implements PHP_CodeSniffer_Sn
                                   T_COLON,
                                   T_OPEN_PARENTHESIS,
                                   T_OPEN_SQUARE_BRACKET,
-                                  T_OPEN_SHORT_ARRAY,
                                   T_CASE,
                                  );
 
@@ -275,9 +272,7 @@ class Squiz_Sniffs_Formatting_OperatorBracketSniff implements PHP_CodeSniffer_Sn
                     T_STRING          => true,
                     T_WHITESPACE      => true,
                     T_THIS            => true,
-                    T_SELF            => true,
                     T_OBJECT_OPERATOR => true,
-                    T_DOUBLE_COLON    => true,
                     T_MODULUS         => true,
                     T_ISSET           => true,
                     T_ARRAY           => true,

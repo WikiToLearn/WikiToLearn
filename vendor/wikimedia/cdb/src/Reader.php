@@ -82,4 +82,21 @@ abstract class Reader {
 	 * @param string $key
 	 */
 	abstract public function get( $key );
+
+	/**
+	 * Check whether key exists
+	 *
+	 * @param string $key
+	 */
+	abstract public function exists( $key );
+
+	/**
+	 * Fetch first key
+	 */
+	abstract public function firstkey();
+
+	/**
+	 * Fetch next key
+	 */
+	abstract public function nextkey();
 }

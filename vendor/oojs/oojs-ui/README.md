@@ -23,6 +23,8 @@ If you don't want to use npm, you can:
 
 1. You can now copy the distribution files from the dist directory into your project.
 
+1. You can see a suite of demos in `/demos` by executing:<br/>`$ npm run-script demos`
+
 
 Versioning
 ----------
@@ -52,14 +54,20 @@ $ git remote update
 $ git checkout -B release -t origin/master
 
 # Ensure tests pass
-$ npm install && npm test
+$ npm install && composer update && npm test
 
 # Avoid using "npm version patch" because that creates
 # both a commit and a tag, and we shouldn't tag until after
 # the commit is merged.
 
 # Update release notes
-# Copy the resulting list into a new section on History.md
+# Copy the resulting list into a new section at the top of History.md and edit
+# into five sub-sections, in order:
+# * Breaking changes
+# * Deprecations
+# * Features
+# * Styles
+# * Code
 $ git log --format='* %s (%aN)' --no-merges --reverse v$(node -e 'console.log(require("./package.json").version);')...HEAD | grep -v "Localisation updates from" | sort
 $ edit History.md
 

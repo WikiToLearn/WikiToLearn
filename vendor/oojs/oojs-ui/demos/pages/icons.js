@@ -19,6 +19,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'info',
 				'menu',
 				'next',
+				'notice',
 				'picture',
 				'previous',
 				'redo',
@@ -88,6 +89,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'flag',
 				'flagUndo',
 				'lock',
+				'ongoingConversation',
 				'star',
 				'trash',
 				'trashUndo',
@@ -126,6 +128,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'alignCentre',
 				'alignLeft',
 				'alignRight',
+				'calendar',
 				'find',
 				'insert',
 				'layout',
@@ -176,7 +179,15 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 				'stripeSummary',
 				'stripeToC',
 				'viewCompact',
-				'viewDetails',
+				'viewDetails'
+			],
+			accessibility: [
+				'bright',
+				'halfBright',
+				'notBright',
+				'moon',
+				'largerText',
+				'smallerText',
 				'visionSimulator'
 			],
 			wikimedia: [
@@ -187,6 +198,7 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 		},
 		indicators = [
 			'alert',
+			'clear',
 			'down',
 			'next',
 			'previous',
@@ -290,6 +302,6 @@ OO.ui.Demo.static.pages.icons = function ( demo ) {
 			.append(
 				selector.$element,
 				indicatorsFieldset.$element,
-				iconsFieldsets.map( function ( item ) { return item.$element[0]; } )
+				iconsFieldsets.map( function ( item ) { return item.$element[ 0 ]; } )
 			) );
 };

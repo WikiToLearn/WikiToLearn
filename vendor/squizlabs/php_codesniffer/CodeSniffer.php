@@ -73,7 +73,7 @@ class PHP_CodeSniffer
      *
      * @var string
      */
-    const VERSION = '2.3.4';
+    const VERSION = '2.3.0';
 
     /**
      * Package stability; either stable, beta or alpha.
@@ -1285,7 +1285,6 @@ class PHP_CodeSniffer
      *                            listeners to.
      *
      * @return void
-     * @throws PHP_CodeSniffer_Exception If a sniff file path is invalid.
      */
     public function registerSniffs($files, $restrictions)
     {
@@ -1305,11 +1304,6 @@ class PHP_CodeSniffer
             }
 
             $className = substr($file, ($slashPos + 1));
-
-            if (substr_count($className, DIRECTORY_SEPARATOR) !== 3) {
-                throw new PHP_CodeSniffer_Exception("Sniff file $className is not valid; sniff files must be located in a .../StandardName/Sniffs/CategoryName/ directory");
-            }
-
             $className = substr($className, 0, -4);
             $className = str_replace(DIRECTORY_SEPARATOR, '_', $className);
 
@@ -2305,22 +2299,13 @@ class PHP_CodeSniffer
     public static function setConfigData($key, $value, $temp=false)
     {
         if ($temp === false) {
-            $path = '';
-            if (is_callable('Phar::running') === true) {
-                $path = Phar::running(false);
-            }
-
-            if ($path !== '') {
-                $configFile = dirname($path).'/CodeSniffer.conf';
-            } else {
-                $configFile = dirname(__FILE__).'/CodeSniffer.conf';
-                if (is_file($configFile) === false
-                    && strpos('@data_dir@', '@data_dir') === false
-                ) {
-                    // If data_dir was replaced, this is a PEAR install and we can
-                    // use the PEAR data dir to store the conf file.
-                    $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
-                }
+            $configFile = dirname(__FILE__).'/CodeSniffer.conf';
+            if (is_file($configFile) === false
+                && strpos('@data_dir@', '@data_dir') === false
+            ) {
+                // If data_dir was replaced, this is a PEAR install and we can
+                // use the PEAR data dir to store the conf file.
+                $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
             }
 
             if (is_file($configFile) === true
@@ -2329,7 +2314,7 @@ class PHP_CodeSniffer
                 $error = 'Config file '.$configFile.' is not writable';
                 throw new PHP_CodeSniffer_Exception($error);
             }
-        }//end if
+        }
 
         $phpCodeSnifferConfig = self::getAllConfigData();
 
@@ -2370,18 +2355,9 @@ class PHP_CodeSniffer
             return $GLOBALS['PHP_CODESNIFFER_CONFIG_DATA'];
         }
 
-        $path = '';
-        if (is_callable('Phar::running') === true) {
-            $path = Phar::running(false);
-        }
-
-        if ($path !== '') {
-            $configFile = dirname($path).'/CodeSniffer.conf';
-        } else {
-            $configFile = dirname(__FILE__).'/CodeSniffer.conf';
-            if (is_file($configFile) === false) {
-                $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
-            }
+        $configFile = dirname(__FILE__).'/CodeSniffer.conf';
+        if (is_file($configFile) === false) {
+            $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
         }
 
         if (is_file($configFile) === false) {

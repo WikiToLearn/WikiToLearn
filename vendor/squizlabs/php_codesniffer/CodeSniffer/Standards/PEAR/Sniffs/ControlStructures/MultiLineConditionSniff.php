@@ -74,10 +74,6 @@ class PEAR_Sniffs_ControlStructures_MultiLineConditionSniff implements PHP_CodeS
     {
         $tokens = $phpcsFile->getTokens();
 
-        if (isset($tokens[$stackPtr]['parenthesis_opener']) === false) {
-            return;
-        }
-
         $openBracket    = $tokens[$stackPtr]['parenthesis_opener'];
         $closeBracket   = $tokens[$stackPtr]['parenthesis_closer'];
         $spaceAfterOpen = 0;

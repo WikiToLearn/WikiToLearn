@@ -7,7 +7,7 @@ namespace OOUI;
  */
 class HtmlSnippet {
 
-	/* Members */
+	/* Properties */
 
 	/**
 	 * HTML snippet this instance represents.

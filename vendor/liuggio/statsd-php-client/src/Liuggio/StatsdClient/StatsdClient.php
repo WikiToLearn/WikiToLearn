@@ -109,12 +109,10 @@ class StatsdClient implements StatsdClientInterface
      */
     public function appendSampleRate($data, $sampleRate = 1)
     {
-        $sampledData = array();
         if ($sampleRate < 1) {
-            foreach ($data as $key => $message) {
-                $sampledData[$key] = sprintf('%s|@%s', $message, $sampleRate);
-            }
-            $data = $sampledData;
+            array_walk($data, function(&$message, $key) use ($sampleRate) {
+                $message = sprintf('%s|@%s', $message, $sampleRate);
+            });
         }
 
         return $data;

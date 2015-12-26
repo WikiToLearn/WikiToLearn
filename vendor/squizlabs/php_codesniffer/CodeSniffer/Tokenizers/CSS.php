@@ -72,17 +72,10 @@ class PHP_CodeSniffer_Tokenizers_CSS extends PHP_CodeSniffer_Tokenizers_PHP
         for ($stackPtr = 1; $stackPtr < $numTokens; $stackPtr++) {
             $token = $tokens[$stackPtr];
 
-            // CSS files don't have lists, breaks etc, so convert these to
+            // CSS files don't have lists or break tags, so convert these to
             // standard strings early so they can be converted into T_STYLE
             // tokens and joined with other strings if needed.
-            if ($token['code'] === T_BREAK
-                || $token['code'] === T_LIST
-                || $token['code'] === T_DEFAULT
-                || $token['code'] === T_SWITCH
-                || $token['code'] === T_FOR
-                || $token['code'] === T_FOREACH
-                || $token['code'] === T_WHILE
-            ) {
+            if ($token['code'] === T_BREAK || $token['code'] === T_LIST) {
                 $token['type'] = 'T_STRING';
                 $token['code'] = T_STRING;
             }
@@ -169,26 +162,13 @@ class PHP_CodeSniffer_Tokenizers_CSS extends PHP_CodeSniffer_Tokenizers_PHP
                 && (substr($token['content'], 0, 2) === '//'
                 || $token['content']{0} === '#')
             ) {
-                $content = ltrim($token['content'], '#/');
-
-                // Guard against PHP7+ syntax errors by stripping
-                // leading zeros so the content doesn't look like an invalid int.
-                $leadingZero = false;
-                if ($content{0} === '0') {
-                    $content     = '1'.$content;
-                    $leadingZero = false;
-                }
-
-                $commentTokens = parent::tokenizeString('<?php '.$content.'?>', $eolChar);
+                $content       = ltrim($token['content'], '#/');
+                $commentTokens
+                    = parent::tokenizeString('<?php '.$content.'?>', $eolChar);
 
                 // The first and last tokens are the open/close tags.
                 array_shift($commentTokens);
                 array_pop($commentTokens);
-
-                if ($leadingZero === true) {
-                    $commentTokens[0]['content'] = substr($commentTokens[0]['content'], 1);
-                    $content = substr($content, 1);
-                }
 
                 if ($token['content']{0} === '#') {
                     // The # character is not a comment in CSS files, so
@@ -266,12 +246,9 @@ class PHP_CodeSniffer_Tokenizers_CSS extends PHP_CodeSniffer_Tokenizers_PHP
         }//end for
 
         // A flag to indicate if we are inside a style definition,
-        // which is defined using curly braces.
+        // which is defined using curly braces. I'm assuming you can't
+        // have nested curly brackets.
         $inStyleDef = false;
-
-        // A flag to indicate if an At-rule like "@media" is used, which will result
-        // in nested curly brackets.
-        $asperandStart = false;
 
         $numTokens = count($finalTokens);
         for ($stackPtr = 0; $stackPtr < $numTokens; $stackPtr++) {
@@ -279,20 +256,10 @@ class PHP_CodeSniffer_Tokenizers_CSS extends PHP_CodeSniffer_Tokenizers_PHP
 
             switch ($token['code']) {
             case T_OPEN_CURLY_BRACKET:
-                // Opening curly brackets for an At-rule do not start a style
-                // definition. We also reset the asperand flag here because the next
-                // opening curly bracket could be indeed the start of a style
-                // definition.
-                if ($asperandStart === true) {
-                    $inStyleDef    = false;
-                    $asperandStart = false;
-                } else {
-                    $inStyleDef = true;
-                }
+                $inStyleDef = true;
                 break;
             case T_CLOSE_CURLY_BRACKET:
-                $inStyleDef    = false;
-                $asperandStart = false;
+                $inStyleDef = false;
                 break;
             case T_MINUS:
                 // Minus signs are often used instead of spaces inside
@@ -301,20 +268,28 @@ class PHP_CodeSniffer_Tokenizers_CSS extends PHP_CodeSniffer_Tokenizers_PHP
                     if ($finalTokens[($stackPtr - 1)]['code'] === T_STRING) {
                         $newContent = $finalTokens[($stackPtr - 1)]['content'].'-'.$finalTokens[($stackPtr + 1)]['content'];
 
-                        $finalTokens[($stackPtr + 1)]['content'] = $newContent;
+                        $finalTokens[($stackPtr - 1)]['content'] = $newContent;
                         unset($finalTokens[$stackPtr]);
-                        unset($finalTokens[($stackPtr - 1)]);
+                        unset($finalTokens[($stackPtr + 1)]);
+                        $stackPtr -= 2;
                     } else {
                         $newContent = '-'.$finalTokens[($stackPtr + 1)]['content'];
 
                         $finalTokens[($stackPtr + 1)]['content'] = $newContent;
                         unset($finalTokens[$stackPtr]);
+                        $stackPtr--;
                     }
+
+                    $finalTokens = array_values($finalTokens);
+                    $numTokens   = count($finalTokens);
                 } else if ($finalTokens[($stackPtr + 1)]['code'] === T_LNUMBER) {
                     // They can also be used to provide negative numbers.
                     $finalTokens[($stackPtr + 1)]['content']
                         = '-'.$finalTokens[($stackPtr + 1)]['content'];
                     unset($finalTokens[$stackPtr]);
+
+                    $finalTokens = array_values($finalTokens);
+                    $numTokens   = count($finalTokens);
                 }//end if
 
                 break;
@@ -385,18 +360,11 @@ class PHP_CodeSniffer_Tokenizers_CSS extends PHP_CodeSniffer_Tokenizers_PHP
                 }//end if
 
                 break;
-            case T_ASPERAND:
-                $asperandStart = true;
-                break;
             default:
                 // Nothing special to be done with this token.
                 break;
             }//end switch
         }//end for
-
-        // Reset the array keys to avoid gaps.
-        $finalTokens = array_values($finalTokens);
-        $numTokens   = count($finalTokens);
 
         // Blank out the content of the end tag.
         $finalTokens[($numTokens - 1)]['content'] = '';

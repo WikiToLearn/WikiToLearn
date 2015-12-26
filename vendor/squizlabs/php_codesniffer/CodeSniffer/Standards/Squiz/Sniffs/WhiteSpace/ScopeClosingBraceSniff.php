@@ -66,14 +66,23 @@ class Squiz_Sniffs_WhiteSpace_ScopeClosingBraceSniff implements PHP_CodeSniffer_
         // as if this is a method with tokens before it (public, static etc)
         // or an if with an else before it, then we need to start the scope
         // checking from there, rather than the current token.
-        $lineStart = $phpcsFile->findFirstOnLine(T_WHITESPACE, $stackPtr, true);
+        $lineStart = ($stackPtr - 1);
+        for ($lineStart; $lineStart > 0; $lineStart--) {
+            if (strpos($tokens[$lineStart]['content'], $phpcsFile->eolChar) !== false) {
+                break;
+            }
+        }
+
+        // We found a new line, now go forward and find the
+        // first non-whitespace token.
+        $lineStart = $phpcsFile->findNext(array(T_WHITESPACE), ($lineStart + 1), null, true);
 
         $startColumn = $tokens[$lineStart]['column'];
         $scopeStart  = $tokens[$stackPtr]['scope_opener'];
         $scopeEnd    = $tokens[$stackPtr]['scope_closer'];
 
         // Check that the closing brace is on it's own line.
-        $lastContent = $phpcsFile->findPrevious(array(T_WHITESPACE, T_OPEN_TAG), ($scopeEnd - 1), $scopeStart, true);
+        $lastContent = $phpcsFile->findPrevious(array(T_WHITESPACE), ($scopeEnd - 1), $scopeStart, true);
         if ($tokens[$lastContent]['line'] === $tokens[$scopeEnd]['line']) {
             $error = 'Closing brace must be on a line by itself';
             $fix   = $phpcsFile->addFixableError($error, $scopeEnd, 'ContentBefore');
@@ -85,8 +94,7 @@ class Squiz_Sniffs_WhiteSpace_ScopeClosingBraceSniff implements PHP_CodeSniffer_
         }
 
         // Check now that the closing brace is lined up correctly.
-        $lineStart   = $phpcsFile->findFirstOnLine(T_WHITESPACE, $scopeEnd, true);
-        $braceIndent = $tokens[$lineStart]['column'];
+        $braceIndent = $tokens[$scopeEnd]['column'];
         if ($tokens[$stackPtr]['code'] !== T_DEFAULT
             && $tokens[$stackPtr]['code'] !== T_CASE
             && $braceIndent !== $startColumn

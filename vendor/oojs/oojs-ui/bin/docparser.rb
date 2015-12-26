@@ -1,6 +1,12 @@
 require 'pp'
 require 'json'
 
+$bad_input = false
+def bad_input file, text
+	$bad_input = true
+	$stderr.puts "#{file}: unrecognized input: #{text}"
+end
+
 def parse_dir dirname
 	Dir.entries(dirname).map{|filename|
 		if filename == '.' || filename == '..'
@@ -63,13 +69,13 @@ def parse_file filename
 		ignore = false
 
 		comment, code_line = d.split '*/'
-		comment.split("\n").each{|c|
-			next if c.strip == '/**'
-			c.sub!(/^[ \t]*\*[ \t]?/, '') # strip leading *
+		comment.split("\n").each{|comment_line|
+			next if comment_line.strip == '/**'
+			comment_line.sub!(/^[ \t]*\*[ \t]?/, '') # strip leading '*' and whitespace
 
-			m = c.match(/^@(\w+)[ \t]*(.*)/)
-			unless m
-				previous_item[:description] << c + "\n"
+			m = comment_line.match(/^@(\w+)[ \t]*(.*)/)
+			if !m
+				previous_item[:description] << comment_line + "\n"
 				next
 			end
 
@@ -93,11 +99,13 @@ def parse_file filename
 			when 'property', 'var'
 				kind = :property
 				m = content.match(/^\{?(.+?)\}?( .+)?$/)
-				if m.captures
-					type, description = m.captures
-					data[:type] = type
-					data[:description] = description if description
+				if !m
+					bad_input filename, comment_line
+					next
 				end
+				type, description = m.captures
+				data[:type] = type
+				data[:description] = description if description
 			when 'event'
 				kind = :event
 				data[:name] = content.strip
@@ -124,20 +132,28 @@ def parse_file filename
 					end
 				end
 			when 'cfg' # JS only
-				type, name, default, description = content.match(/^\{(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/).captures
+				m = content.match(/^\{(.+?)\} \[?([\w.$]+?)(?:=(.+?))?\]?( .+)?$/)
+				if !m
+					bad_input filename, comment_line
+					next
+				end
+				type, name, default, description = m.captures
 				data[:config] << {name: name, type: cleanup_class_name(type), description: description || '', default: default}
 				previous_item = data[:config][-1]
 			when 'return'
 				case filetype
 				when :js
-					type, description = content.match(/^\{(.+?)\}( .+)?$/).captures
-					data[:return] = {type: cleanup_class_name(type), description: description || ''}
-					previous_item = data[:return]
+					m = content.match(/^\{(.+?)\}( .+)?$/)
 				when :php
-					type, description = content.match(/^(\S+)( .+)?$/).captures
-					data[:return] = {type: cleanup_class_name(type), description: description || ''}
-					previous_item = data[:return]
+					m = content.match(/^(\S+)( .+)?$/)
 				end
+				if !m
+					bad_input filename, comment_line
+					next
+				end
+				type, description = m.captures
+				data[:return] = {type: cleanup_class_name(type), description: description || ''}
+				previous_item = data[:return]
 			when 'private'
 				data[:visibility] = :private
 			when 'protected'
@@ -153,7 +169,8 @@ def parse_file filename
 				 'see'
 				# skip
 			else
-				fail "unrecognized keyword: #{keyword}"
+				bad_input filename, comment_line
+				next
 			end
 		}
 
@@ -163,6 +180,10 @@ def parse_file filename
 			case filetype
 			when :js
 				m = code_line.match(/(?:(static|prototype)\.)?(\w+) =/)
+				if !m
+					bad_input filename, code_line.strip
+					next
+				end
 				kind_, name = m.captures
 				data[:static] = true if kind_ == 'static'
 				kind = {'static' => :property, 'prototype' => :method}[ kind_.strip ] if kind_ && !kind
@@ -175,6 +196,10 @@ def parse_file filename
 					(\w+)
 					(?:\sextends\s(\w+))?
 				/x)
+				if !m
+					bad_input filename, code_line.strip
+					next
+				end
 				visibility, static, kind_, name, parent = m.captures
 				kind = {'$' => :property, 'function' => :method, 'class' => :class}[ kind_.strip ]
 				data[:visibility] = {'private' => :private, 'protected' => :protected, 'public' => :public}[ visibility ] || :public
@@ -223,10 +248,15 @@ end
 
 def parse_any_path path
 	if File.directory? path
-		parse_dir path
+		result = parse_dir path
 	else
-		parse_file path
+		result = parse_file path
 	end
+	if $bad_input
+		$stderr.puts 'Unrecognized inputs encountered, stopping.'
+		exit 1
+	end
+	result
 end
 
 if __FILE__ == $PROGRAM_NAME

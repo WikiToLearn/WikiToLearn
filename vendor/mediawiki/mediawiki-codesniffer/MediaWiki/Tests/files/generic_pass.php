@@ -65,7 +65,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 			default:
 				$bar = 0;
 		}
-		return $bar;
+		return (bool)$bar;
 	}
 
 	public function fooBarBaz( $par ) {

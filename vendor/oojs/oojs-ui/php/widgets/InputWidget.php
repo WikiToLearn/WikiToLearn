@@ -9,6 +9,10 @@ namespace OOUI;
  */
 class InputWidget extends Widget {
 
+	/* Static Properties */
+
+	public static $supportsSimpleLabel = true;
+
 	/* Properties */
 
 	/**
@@ -42,6 +46,10 @@ class InputWidget extends Widget {
 			array_merge( $config, array( 'flagged' => $this ) ) ) );
 		$this->mixin( new TabIndexedElement( $this,
 			array_merge( $config, array( 'tabIndexed' => $this->input ) ) ) );
+		$this->mixin( new TitledElement( $this,
+			array_merge( $config, array( 'titled' => $this->input ) ) ) );
+		$this->mixin( new AccessKeyedElement( $this,
+			array_merge( $config, array( 'accessKeyed' => $this->input ) ) ) );
 
 		// Initialization
 		if ( isset( $config['name'] ) ) {
@@ -53,7 +61,7 @@ class InputWidget extends Widget {
 		$this
 			->addClasses( array( 'oo-ui-inputWidget' ) )
 			->appendContent( $this->input );
-		$this->appendContent( new Tag( 'span' ) );
+		$this->input->addClasses( array( 'oo-ui-inputWidget-input' ) );
 		$this->setValue( isset( $config['value'] ) ? $config['value'] : null );
 	}
 

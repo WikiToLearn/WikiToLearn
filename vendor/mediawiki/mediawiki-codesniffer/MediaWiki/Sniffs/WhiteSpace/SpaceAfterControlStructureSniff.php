@@ -2,7 +2,10 @@
 /**
  * Verify specific control structures are followed by a single space.
  */
-class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff implements PHP_CodeSniffer_Sniff {
+// @codingStandardsIgnoreStart
+class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
+	implements PHP_CodeSniffer_Sniff {
+	// @codingStandardsIgnoreEnd
 	public function register() {
 		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Spaces
 		return array(
@@ -21,8 +24,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff implements PHP
 		if ( $nextToken['code'] !== T_WHITESPACE || $nextToken['content'] !== ' ' ) {
 			$error = 'Control structure "%s" must be followed by a single space';
 			$data = array( $tokens[$stackPtr]['content'] );
-			$phpcsFile->addError( $error, $stackPtr, 'Incorrect', $data );
+			$phpcsFile->addWarning( $error, $stackPtr, 'Incorrect', $data );
 		}
 	}
 }
-

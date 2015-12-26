@@ -94,6 +94,6 @@ abstract class Writer {
 	 * @return bool
 	 */
 	protected function isWindows() {
-		return substr( php_uname(), 0, 7 ) == 'Windows';
+		return strtoupper( substr( PHP_OS, 0, 3 ) ) === 'WIN';
 	}
 }

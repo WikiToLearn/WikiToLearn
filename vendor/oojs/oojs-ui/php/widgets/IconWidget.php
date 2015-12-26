@@ -9,7 +9,7 @@ namespace OOUI;
  */
 class IconWidget extends Widget {
 
-	/* Static properties */
+	/* Static Properties */
 
 	public static $tagName = 'span';
 

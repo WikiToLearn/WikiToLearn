@@ -9,7 +9,7 @@ namespace OOUI;
  */
 class Element extends Tag {
 
-	/* Static properties */
+	/* Static Properties */
 
 	/**
 	 * HTML tag name.
@@ -29,7 +29,7 @@ class Element extends Tag {
 	 */
 	public static $defaultDir = 'ltr';
 
-	/* Members */
+	/* Properties */
 
 	/**
 	 * Element data.
@@ -39,9 +39,17 @@ class Element extends Tag {
 	protected $data = null;
 
 	/**
+	 * CSS classes explicitly configured for this element (as opposed to #$classes, which contains all
+	 * classes for this element).
+	 *
+	 * @var string[]
+	 */
+	protected $ownClasses = array();
+
+	/**
 	 * Mixins.
 	 *
-	 * @var array List mixed in objects.
+	 * @var ElementMixin[] List mixed in objects.
 	 */
 	protected $mixins = array();
 
@@ -69,7 +77,8 @@ class Element extends Tag {
 			$this->setData( $config['data'] );
 		}
 		if ( isset( $config['classes'] ) && is_array( $config['classes'] ) ) {
-			$this->addClasses( $config['classes'] );
+			$this->ownClasses = $config['classes'];
+			$this->addClasses( $this->ownClasses );
 		}
 		if ( isset( $config['id'] ) ) {
 			$this->setAttributes( array( 'id' => $config['id'] ) );
@@ -121,7 +130,7 @@ class Element extends Tag {
 	 * @return Tag|null Target property or null if not found
 	 */
 	public function __get( $name ) {
-		// Search mixins for methods
+		// Search mixins for the property
 		foreach ( $this->mixins as $mixin ) {
 			if ( isset( $mixin::$targetPropertyName ) && $mixin::$targetPropertyName === $name ) {
 				return $mixin->target;
@@ -130,6 +139,22 @@ class Element extends Tag {
 		// Fail normally
 		trigger_error( 'Undefined property: ' . $name, E_USER_NOTICE );
 		return null;
+	}
+
+	/**
+	 * Check for existence of a mixed-in target property.
+	 *
+	 * @param string $name Property name
+	 * @return bool Whether property exists
+	 */
+	public function __isset( $name ) {
+		// Search mixins for the property
+		foreach ( $this->mixins as $mixin ) {
+			if ( isset( $mixin::$targetPropertyName ) && $mixin::$targetPropertyName === $name ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -220,6 +245,9 @@ class Element extends Tag {
 		if ( $this->data !== null ) {
 			$config['data'] = $this->data;
 		}
+		if ( $this->ownClasses !== array() ) {
+			$config['classes'] = $this->ownClasses;
+		}
 		return $config;
 	}
 
@@ -247,8 +275,16 @@ class Element extends Tag {
 		};
 		array_walk_recursive( $config, $replaceElements );
 		// Set '_' last to ensure that subclasses can't accidentally step on it.
-		$config['_'] = preg_replace( '/^OOUI\\\\/', '', get_class( $this ) );
+		$config['_'] = $this->getJavaScriptClassName();
 		return $config;
+	}
+
+	/**
+	 * The class name of the JavaScript version of this widget
+	 * @return string
+	 */
+	protected function getJavaScriptClassName() {
+		return str_replace( 'OOUI\\', 'OO.ui.', get_class( $this ) );
 	}
 
 	protected function getGeneratedAttributes() {

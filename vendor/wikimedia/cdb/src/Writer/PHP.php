@@ -1,6 +1,7 @@
 <?php
 
 namespace Cdb\Writer;
+
 use Cdb\Exception;
 use Cdb\Util;
 use Cdb\Writer;

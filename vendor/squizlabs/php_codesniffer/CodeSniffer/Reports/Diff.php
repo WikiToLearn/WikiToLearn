@@ -107,7 +107,7 @@ class PHP_CodeSniffer_Reports_Diff implements PHP_CodeSniffer_Report
             return false;
         }
 
-        echo $diff.PHP_EOL;
+        echo $diff;
         return true;
 
     }//end generateFileReport()

@@ -16,7 +16,7 @@
 /**
  * Squiz_Sniffs_WhiteSpace_ObjectOperatorSpacingSniff.
  *
- * Ensure there is no whitespace before/after an object operator.
+ * Ensure there is no whitespace before a semicolon.
  *
  * @category  PHP
  * @package   PHP_CodeSniffer

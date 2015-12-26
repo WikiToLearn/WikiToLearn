@@ -8,7 +8,8 @@ $baseDir = dirname($vendorDir).'/mediawiki';
 return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Liuggio' => array($vendorDir . '/liuggio/statsd-php-client/src'),
-    'JsonSchema' => array($vendorDir . '/justinrainbow/json-schema/src'),
+    'Less' => array($vendorDir . '/oyejorge/less.php/lib'),
+    'Kafka\\' => array($vendorDir . '/nmred/kafka-php/src'),
     'ComposerHookHandler' => array($baseDir . '/includes/composer'),
     '' => array($vendorDir . '/cssjanus/cssjanus/src'),
 );

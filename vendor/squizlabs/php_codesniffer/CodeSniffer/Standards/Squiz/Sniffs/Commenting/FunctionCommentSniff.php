@@ -108,9 +108,7 @@ class Squiz_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commentin
                                 continue;
                             }
 
-                            if ($tokens[$returnToken]['code'] === T_RETURN
-                                || $tokens[$returnToken]['code'] === T_YIELD
-                            ) {
+                            if ($tokens[$returnToken]['code'] === T_RETURN) {
                                 break;
                             }
                         }
@@ -130,7 +128,7 @@ class Squiz_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commentin
                     // somewhere in the function that returns something.
                     if (isset($tokens[$stackPtr]['scope_closer']) === true) {
                         $endToken    = $tokens[$stackPtr]['scope_closer'];
-                        $returnToken = $phpcsFile->findNext(array(T_RETURN, T_YIELD), $stackPtr, $endToken);
+                        $returnToken = $phpcsFile->findNext(T_RETURN, $stackPtr, $endToken);
                         if ($returnToken === false) {
                             $error = 'Function return type is not void, but function has no return statement';
                             $phpcsFile->addError($error, $return, 'InvalidNoReturn');
