@@ -34,7 +34,7 @@ test -d $CWD/mediawiki/images/tmp || mkdir -p $CWD/mediawiki/images/tmp
 
 cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
 
-cd $CWD/mediawiki; composer update; cd -;
+cd $CWD/mediawiki; composer install; cd -;
 
 
 if [[ "$W2L_INIT_DB" == "1" ]] ; then
