@@ -264,8 +264,13 @@ $wgUseETag = true;
 #$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
 # MathJax
 require_once("$IP/extensions/Math/Math.php");
-$wgUseMathJax = true;
-$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
+#$wgUseMathJax = true;
+#$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
+
+$wgMathValidModes[] = MW_MATH_MATHML;
+$wgDefaultUserOptions['math'] = MW_MATH_MATHML;
+$wgMathMathMLUrl = 'http://mathoid:10044/';
+
 
 #$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 # awesome editor

@@ -33,4 +33,6 @@ docker run -d --name wikitolearn-haproxy --restart=always \
  $CERTS_MOUNT \
  --link ${W2L_INSTANCE_NAME}-websrv:websrv \
  --link ${W2L_INSTANCE_NAME}-ocg:ocg \
+ --link ${W2L_INSTANCE_NAME}-parsoid:parsoid \
+ --link ${W2L_INSTANCE_NAME}-mathoid:mathoid \
  $W2L_DOCKER_HAPROXY

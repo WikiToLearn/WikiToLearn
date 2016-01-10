@@ -25,6 +25,8 @@ if [[ ! -f instance_config.conf ]] ; then
   echo "export W2L_DOCKER_OCG=wikitolearn/ocg:0.7.1"
   echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.10.1"
   echo "export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.5"
+  echo "export W2L_DOCKER_PARSOID=wikitolearn/parsoid:0.1"
+  echo "export W2L_DOCKER_MATHOID=wikitolearn/mathoid:0.1"
  } > instance_config.conf
  echo
  echo "Created default instance_config.conf file"
