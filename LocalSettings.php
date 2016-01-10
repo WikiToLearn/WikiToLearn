@@ -215,7 +215,7 @@ $wgRightsIcon = "{$wgStylePath}/common/images/cc-by-sa.png";
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
 
-$wgSVGConverter = 'inkscape';
+$wgSVGConverter = 'ImageMagick';
 
 # Query string length limit for ResourceLoader. You should only set this if
 # your web server has a query string length limit (then set it to that limit),
@@ -250,9 +250,9 @@ $wgMaxUploadSize = 2147483648;
 
 # Protect only uploads // FIXME
 $wgUploadPath = "{$wgScriptPath}/images/uploads";
-$wgUploadDirectory = "images/uploads";
+$wgUploadDirectory = "{$wgScriptPath}/images/uploads";
 $wgAllowExternalImagesFrom = array('http://www.' . $wiki_domain . '/', 'http://www.pledgie.com');
-$wgTmpDirectory = "images/tmp";
+$wgTmpDirectory = "{$wgScriptPath}/images/tmp";
 
 $wgUseETag = true;
 
