@@ -248,11 +248,8 @@ require_once( "$IP/extensions/ParserFunctions/ParserFunctions.php" );
 # Bigger uploads
 $wgMaxUploadSize = 2147483648;
 
-# Protect only uploads // FIXME
-$wgUploadPath = "{$wgScriptPath}/images/uploads";
-$wgUploadDirectory = "images/uploads";
+# Protect only uploads 
 $wgAllowExternalImagesFrom = array('http://www.' . $wiki_domain . '/', 'http://www.pledgie.com');
-$wgTmpDirectory = "images/tmp";
 
 $wgUseETag = true;
 
