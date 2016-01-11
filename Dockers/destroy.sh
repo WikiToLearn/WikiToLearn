@@ -51,7 +51,7 @@ then
  if [[ $REPLY =~ ^[$REPLY_DO]$ ]]
  then
   echo "ok, I'm doing..."
-  for d in  ${W2L_INSTANCE_NAME}-ocg ${W2L_INSTANCE_NAME}-mysql ${W2L_INSTANCE_NAME}-memcached ${W2L_INSTANCE_NAME}-websrv
+  for d in  ${W2L_INSTANCE_NAME}-ocg ${W2L_INSTANCE_NAME}-mysql ${W2L_INSTANCE_NAME}-memcached ${W2L_INSTANCE_NAME}-websrv ${W2L_INSTANCE_NAME}-mathoid ${W2L_INSTANCE_NAME}-parsoid
   do
    echo "Deleting "$d
    docker stop $d && docker rm $d
