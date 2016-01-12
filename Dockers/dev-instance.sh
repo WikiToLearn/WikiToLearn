@@ -7,13 +7,13 @@ if [[ $? -ne 0 ]] ; then
  exit 1
 fi
 
-curbranch=$(git name-rev --name-only HEAD)
-if [[ "$curbranch" != "develop" ]] ; then
- if [[ "$curbranch" != "hotfix" ]] ; then
-  echo "You aren't in 'develop' branch, this is a problem. You must 'git checkout develop' or 'git checkout hotfix'"
-  exit 1
- fi
-fi
+#curbranch=$(git name-rev --name-only HEAD)
+#if [[ "$curbranch" != "develop" ]] ; then
+# if [[ "$curbranch" != "hotfix" ]] ; then
+#  echo "You aren't in 'develop' branch, this is a problem. You must 'git checkout develop' or 'git checkout hotfix'"
+#  exit 1
+# fi
+#fi
 echo "Ok, starting..."
 
 export W2L_PRODUCTION=0
