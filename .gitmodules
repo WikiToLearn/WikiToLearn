@@ -91,3 +91,6 @@
 [submodule "extensions/Translate"]
 	path = extensions/Translate
 	url = https://github.com/wikimedia/mediawiki-extensions-Translate.git
+[submodule "extensions/DMath"]
+	path = extensions/DMath
+	url = https://github.com/WikiToLearn/DMath.git
