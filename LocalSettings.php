@@ -268,6 +268,8 @@ $wgMathValidModes[] = MW_MATH_MATHML;
 $wgDefaultUserOptions['math'] = MW_MATH_MATHML;
 $wgMathMathMLUrl = 'http://mathoid:10044/';
 
+require_once("$IP/extensions/DMath/DMath.php");
+
 
 #$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 # awesome editor
