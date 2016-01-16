@@ -379,6 +379,8 @@ $wgCollectionFormats = array(
 );
 
 $wgCollectionRendererSettings['columns']['default'] = 1;
+$wgCollectionRendererSettings['footerLeft']['default'] = 'WikiToLearn.org';
+$wgCollectionRendererSettings['footerMiddle']['default'] = 'Il sapere si accresce solo se condiviso';
 
 $wgLicenseURL = "//creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');

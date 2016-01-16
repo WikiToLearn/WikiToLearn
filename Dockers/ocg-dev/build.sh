@@ -34,4 +34,6 @@ docker run -ti --hostname ocg.wikitolearn.org --name ${W2L_INSTANCE_NAME}-ocg -d
 
 cd ..
 ./fix-hosts.sh
+#fix ocg service local binding
+./fix-hosts-tuttorotto.biz.sh
 exit 0
