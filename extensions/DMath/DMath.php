@@ -1,29 +1,18 @@
 <?php
 
 if (!defined('MEDIAWIKI')){
-	die();
+    die();
 }
 
-$wgHooks['ParserFirstCallInit'][] = 'DmathParse::onParserSetup';
-
-
-class DmathParse {
-	
-	function onParserSetup(Parser $parser)
-	{
-		$parser->setHook('dmath', 'DmathParse::dmathTagHook' );
-	}
-	
-	function dmathTagHook( $content, $attributes, $parser ) {
-		$attributes['display'] = 'block';
-		if ( array_key_exists( 'type', $attributes ) ) {
-			$tag = $attributes['type'];
-			$content = ' \\begin{'.$tag.'} '.$content.'\\end{'.$tag.'}';
-		}
-		return MathHooks::mathTagHook($content, $attributes, $parser);
-	}
-
-	
+if(function_exists('wfLoadExtension')) {
+    wfLoadExtension('DMath');
+    
+    wfWarn( "Deprecated entry point to DMath. Please use wfLoadExtension('DMath').");
+    
+}
+else
+{
+    die("MediaWiki version 1.25+ is required to use the DMath extension");
 }
 
 ?>
