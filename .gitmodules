@@ -17,7 +17,7 @@
 	url = https://github.com/wikimedia/mediawiki-extensions-ParserFunctions.git
 [submodule "extensions/Collection"]
 	path = extensions/Collection
-	url = https://github.com/wikimedia/mediawiki-extensions-Collection.git
+	url = https://github.com/WikiToLearn/mediawiki-extensions-Collection
 [submodule "extensions/Math"]
 	path = extensions/Math
 	url = https://github.com/wikimedia/mediawiki-extensions-Math.git
