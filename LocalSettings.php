@@ -387,9 +387,9 @@ wfLoadExtension( "Gadgets" );
 
 require_once( "$IP/extensions/DockerAccess/DockerAccess.php" );
 
-$virtualFactoryURL = "http://dockers.wikitolearn.org";
+$virtualFactoryURL = "http://babbage.wikitolearn.org";
 $virtualFactoryImages = array(
-    'novnc' => "Minimal LXDE image",
+    'ubuntu-base' => "Minimal LXDE image",
     'novnc-kde' => "KDE Development Image",
     'qt5' => "Qt5 Development Image",
     'root' => "ROOT Basic Image",
