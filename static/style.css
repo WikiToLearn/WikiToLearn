@@ -1,3 +1,33 @@
+
+.vertical-spacing {
+  height: 30px;
+}
+
+.vertical-spacing-small {
+  height: 15px;
+}
+
+.vertical-spacing-small-top {
+  height: 19px;
+}
+
+.vertical-spacing-small-bottom {
+  height: 11px;
+}
+
+.contributors {
+  margin-bottom: 0;
+}
+
+.contributors-bottom {
+  margin-top: 0;
+}
+
+.proudtobe {
+  max-height: 1em;
+  padding-left: 8px;
+}
+
 .style1 {font-family: Geneva, Arial, Helvetica, sans-serif}
 body,td,th {
     font-size: medium;
@@ -89,12 +119,26 @@ body {
         margin-right: 15%;
     }
 
+    .logo {
+      padding: 2em;
+    }
+
 }
 
 /* Larger devices */
 @media (min-width: 769px) {
     .center-row {
         display:table;
+    }
+
+    .logo {
+      width: 20%;
+      padding: 4%;
+      padding-bottom: 0.5em;
+    }
+
+    .logos-container {
+      margin-left: 25.2%;
     }
 
     .center {
