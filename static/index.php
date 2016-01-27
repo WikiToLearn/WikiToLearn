@@ -50,19 +50,23 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
             <div class="row vertical-spacing-small-bottom"></div>
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3 logos-container col-xs-12">
-                <div class="col-sm-1 logo col-xs-12">
+                <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
                   <img src="/images/uni-bicocca.png" class="img-responsive"/>
                 </div>
-                <div class="col-sm-1 logo col-xs-12">
+                <div class="col-sm-1 logo col-xs-4">
                   <img src="/images/cern.png" class="img-responsive"/>
                 </div>
-                <div class="col-sm-1 logo col-xs-12">
+                <div class="clearfix visible-xs">
+                </div>
+                <div class="col-xs-12 visible-xs vertical-spacing">
+                </div>
+                <div class="col-sm-1 logo col-xs-4">
                   <img src="/images/it-wikimedia.png" class="img-responsive"/>
                 </div>
-                <div class="col-sm-1 logo col-xs-12">
+                <div class="col-sm-1 logo col-xs-4">
                   <img src="/images/sissa.png" class="img-responsive"/>
                 </div>
-                <div class="col-sm-1 logo col-xs-12">
+                <div class="col-sm-1 logo col-xs-4">
                   <img src="/images/uni-pisa.png" class="img-responsive"/>
                 </div>
               </div>
