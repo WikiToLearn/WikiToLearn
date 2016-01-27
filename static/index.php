@@ -70,10 +70,10 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
             <div class="row vertical-spacing"></div>
             <div class="row">
               <div class="col-xs-12">
-                <img src="/images/proudtobe.png" alt="Proud member of the KDE community" class="img-responsive center-block proudtobe" />
+                <a href="https://www.kde.org/"><img src="/images/proudtobe.png" alt="Proud member of the KDE community" class="img-responsive center-block proudtobe" /></a>
               </div>
             </div>
-            <div class="row vertical-spacing visible-xs">
+            <div class="row vertical-spacing">
 
             </div>
         </div>
