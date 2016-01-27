@@ -379,8 +379,6 @@ $wgCollectionFormats = array(
 );
 
 $wgCollectionRendererSettings['columns']['default'] = 1;
-$wgCollectionRendererSettings['footerLeft']['default'] = 'WikiToLearn.org';
-$wgCollectionRendererSettings['footerMiddle']['default'] = 'Il sapere si accresce solo se condiviso';
 
 $wgLicenseURL = "//creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
@@ -389,9 +387,9 @@ wfLoadExtension( "Gadgets" );
 
 require_once( "$IP/extensions/DockerAccess/DockerAccess.php" );
 
-$virtualFactoryURL = "http://dockers.wikitolearn.org";
+$virtualFactoryURL = "http://babbage.wikitolearn.org";
 $virtualFactoryImages = array(
-    'novnc' => "Minimal LXDE image",
+    'ubuntu-base' => "Minimal LXDE image",
     'novnc-kde' => "KDE Development Image",
     'qt5' => "Qt5 Development Image",
     'root' => "ROOT Basic Image",
