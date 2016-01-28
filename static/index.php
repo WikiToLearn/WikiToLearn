@@ -20,7 +20,7 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
     <body>
 
         <div class="container-fluid">
-            <div class="row" id="spacing"></div>
+          <div class="row vertical-spacing-small-top"></div>
             <div class="row">
                 <div class="col-lg-2 col-sm-1"></div>
                 <div class="col-lg-8 col-sm-10">
@@ -43,7 +43,7 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
                     </div>
                 </div>
             </div>
-            <div class="row vertical-spacing-small-top"></div>
+            <div class="vertical-spacing-small-bottom"></div>
             <div class="row text-center">
               <h5 class="contributors"><small><em>Contributions from:</em></small></h5>
             </div>
