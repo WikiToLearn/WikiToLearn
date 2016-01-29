@@ -20,7 +20,7 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
     <body>
 
         <div class="container-fluid">
-            <div class="row" id="spacing"></div>
+          <div class="row vertical-spacing-small-top"></div>
             <div class="row">
                 <div class="col-lg-2 col-sm-1"></div>
                 <div class="col-lg-8 col-sm-10">
@@ -33,8 +33,8 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
                         <div id="spacing-row" style="height:30px"></div>
                         <div class="col-sm-6 col-xs-12 center" id="rightnav" style="padding-left:0px;">
                             <ul id="rightnavmenu" class="list-unstyled">
-                                <li class="towikilink colorbar1"><a class="wikilink" lang="it" href="//it.<?php echo $domain; ?>"><h1>Italiano<small class="pull-right hidden-xs pagecount">#+ pagine</small></h1><h2>&laquo;Il sapere si accresce solo se condiviso&raquo;</h2></a></li>
-                                <li class="towikilink colorbar2"><a class="wikilink" lang="en" href="//en.<?php echo $domain; ?>"><h1>English<small class="pull-right hidden-xs pagecount">#+ pages</small></h1><h2>&laquo;Knowledge only grows if shared&raquo;</h2></a></li>
+                                <li class="towikilink colorbar1"><a class="wikilink" lang="it" href="//it.<?php echo $domain; ?>"><h1>Italiano<small class="pull-right hidden-xs pagecount">#+ capitoli</small></h1><h2>&laquo;Il sapere si accresce solo se condiviso&raquo;</h2></a></li>
+                                <li class="towikilink colorbar2"><a class="wikilink" lang="en" href="//en.<?php echo $domain; ?>"><h1>English<small class="pull-right hidden-xs pagecount">#+ chapters</small></h1><h2>&laquo;Knowledge only grows if shared&raquo;</h2></a></li>
                                 <li class="towikilink colorbar3"><a class="wikilink" lang="fr" href="#//fr.<?php echo $domain; ?>"><h1 class="disabled">Fran&ccedil;ais</h1><h2 class="disabled">&laquo;Le savoir grandit seulement s'il est partag&eacute;&raquo;</h2></a></li>
                                 <li class="towikilink colorbar4"><a class="wikilink" lang="de" href="#//de.<?php echo $domain; ?>"><h1 class="disabled">Deutsch</h1><h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird kann neues enstehen&raquo;</h2></a></li>
                                 <li class="towikilink colorbar5"><a class="wikilink" lang="es" href="#//es.<?php echo $domain; ?>"><h1 class="disabled">Espa&ntilde;ol</h1><h2 class="disabled">&laquo;El conocimiento solo crece cuando es compartido&raquo;</h2></a></li>
@@ -42,10 +42,53 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-1"></div>
             </div>
-            <div class="row" style="margin-top:20px;">
-                <img src="/badges.png" class="center-block img-responsive"/>
+            <div class="vertical-spacing-small-bottom"></div>
+            <div class="row text-center">
+              <h5 class="contributors"><small><em>Contributions from:</em></small></h5>
+            </div>
+            <div class="row vertical-spacing-small-bottom"></div>
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3 logos-container col-xs-12">
+                <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
+                  <a href="http://www.unimib.it/go/102/Home/English">
+                    <img src="/images/uni-bicocca.png" class="img-responsive"/>
+                  </a>
+                </div>
+                <div class="col-sm-1 logo col-xs-4">
+                  <a href="http://home.cern/">
+                    <img src="/images/cern.png" class="img-responsive"/>
+                  </a>
+                </div>
+                <div class="clearfix visible-xs">
+                </div>
+                <div class="col-xs-12 visible-xs vertical-spacing">
+                </div>
+                <div class="col-sm-1 logo col-xs-4">
+                  <a href="http://wiki.wikimedia.it/">
+                    <img src="/images/it-wikimedia.png" class="img-responsive"/>
+                  </a>
+                </div>
+                <div class="col-sm-1 logo col-xs-4">
+                  <a href="http://hepsoftwarefoundation.org/">
+                    <img src="/images/hep-logo.png" class="img-responsive"/>
+                  </a>
+                </div>
+                <div class="col-sm-1 logo col-xs-4">
+                  <a href="https://www.sissa.it/">
+                    <img src="/images/sissa-logo.png" class="img-responsive"/>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row vertical-spacing"></div>
+            <div class="row">
+              <div class="col-xs-12">
+                <a href="https://www.kde.org/"><img src="/images/proudtobe.png" alt="Proud member of the KDE community" class="img-responsive center-block proudtobe" /></a>
+              </div>
+            </div>
+            <div class="row vertical-spacing">
+
             </div>
         </div>
 
@@ -83,4 +126,3 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
         </script>
     </body>
 </html>
-
