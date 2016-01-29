@@ -51,23 +51,33 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3 logos-container col-xs-12">
                 <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
-                  <img src="/images/uni-bicocca.png" class="img-responsive"/>
+                  <a href="http://www.unimib.it/go/102/Home/English">
+                    <img src="/images/uni-bicocca.png" class="img-responsive"/>
+                  </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <img src="/images/cern.png" class="img-responsive"/>
+                  <a href="http://home.cern/">
+                    <img src="/images/cern.png" class="img-responsive"/>
+                  </a>
                 </div>
                 <div class="clearfix visible-xs">
                 </div>
                 <div class="col-xs-12 visible-xs vertical-spacing">
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <img src="/images/it-wikimedia.png" class="img-responsive"/>
+                  <a href="http://wiki.wikimedia.it/">
+                    <img src="/images/it-wikimedia.png" class="img-responsive"/>
+                  </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <img src="/images/sissa.png" class="img-responsive"/>
+                  <a href="http://hepsoftwarefoundation.org/">
+                    <img src="/images/hep-logo.png" class="img-responsive"/>
+                  </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <img src="/images/uni-pisa.png" class="img-responsive"/>
+                  <a href="https://www.sissa.it/">
+                    <img src="/images/sissa-logo.png" class="img-responsive"/>
+                  </a>
                 </div>
               </div>
             </div>
