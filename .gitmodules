@@ -94,3 +94,6 @@
 [submodule "extensions/DMath"]
 	path = extensions/DMath
 	url = https://github.com/WikiToLearn/DMath.git
+[submodule "vendor"]
+	path = vendor
+	url = https://github.com/WikiToLearn/wikitolearn-vendor.git

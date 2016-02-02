@@ -34,7 +34,7 @@ test -d $CWD/mediawiki/images/tmp || mkdir -p $CWD/mediawiki/images/tmp
 
 cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
 
-cd $CWD/mediawiki; composer install --no-dev; composer update --prefer-source; cd -;
+cd $CWD/mediawiki; cp ../composer.local.json . ; composer require wikimedia/composer-merge-plugin ; composer install --no-dev; cd -;
 
 cd $CWD/extensions/SyntaxHighlight_GeSHi/ ; composer install; cd -;
 
