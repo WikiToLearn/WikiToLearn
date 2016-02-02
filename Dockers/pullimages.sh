@@ -9,6 +9,6 @@ if [[ ! -f instance_config.conf ]] ; then
 fi
 . ./instance_config.conf
 
-for img in $W2L_DOCKER_MEMCACHED $W2L_DOCKER_MYSQL $W2L_DOCKER_OCG $W2L_DOCKER_WEBSRV $W2L_DOCKER_HAPROXY ; do
+for img in $W2L_DOCKER_MEMCACHED $W2L_DOCKER_MYSQL $W2L_DOCKER_OCG $W2L_DOCKER_WEBSRV $W2L_DOCKER_HAPROXY $W2L_DOCKER_PARSOID $W2L_DOCKER_MATHOID ; do
  docker pull $img
 done
