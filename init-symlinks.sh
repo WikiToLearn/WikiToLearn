@@ -18,8 +18,10 @@ ln -s ../LocalSettings.php mediawiki/LocalSettings.php
 ln -s ../../Neverland mediawiki/skins/Neverland
 ln -s ../extensions mediawiki/extensions
 ln -s ../favicon.ico mediawiki/favicon.ico
-ln -s ../vendor mediawiki/vendor
+ln -s ../vendor/mediawiki mediawiki/vendor
 
-
-
-
+for e in SyntaxHighlight_GeSHi ParserHooks ; do
+ test -d vendor/$e || mkdir -p vendor/$e
+ rm -Rfv mediawiki/extensions/$e/vendor
+ ln -s ../../vendor/$e mediawiki/extensions/$e/vendor
+done
