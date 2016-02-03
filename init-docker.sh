@@ -34,9 +34,9 @@ test -d $CWD/mediawiki/images/tmp || mkdir -p $CWD/mediawiki/images/tmp
 
 cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
 
-cd $CWD/mediawiki; cp ../composer.local.json . ; composer require wikimedia/composer-merge-plugin ; composer install --no-dev; cd -;
+# cd $CWD/mediawiki; cp ../composer.local.json . ; composer require wikimedia/composer-merge-plugin ; composer install --no-dev; cd -;
 
-cd $CWD/extensions/SyntaxHighlight_GeSHi/ ; composer install; cd -;
+# cd $CWD/extensions/SyntaxHighlight_GeSHi/ ; composer install; cd -;
 
 if [[ "$W2L_INIT_DB" == "1" ]] ; then
     $CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CWD/empty-wikifm.sql
