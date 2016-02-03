@@ -32,7 +32,7 @@ fi;
 $CWD/init-symlinks.sh
 test -d $CWD/mediawiki/images/tmp || mkdir -p $CWD/mediawiki/images/tmp
 
-cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
+# cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd - # with mathoid this check is done with mathoid service
 
 # cd $CWD/mediawiki; composer install; cd -;
 # cd $CWD/extensions/SyntaxHighlight_GeSHi/ ; composer install; cd -;
