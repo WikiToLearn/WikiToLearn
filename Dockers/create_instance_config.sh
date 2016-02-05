@@ -20,11 +20,7 @@ if [[ ! -f instance_config.conf ]] ; then
   [[ -z "$W2L_SKIP_OCG_DOCKER" ]] && W2L_SKIP_OCG_DOCKER="0"
   echo "export W2L_SKIP_OCG_DOCKER=$W2L_SKIP_OCG_DOCKER"
 
-  echo "export W2L_DOCKER_MYSQL=mysql:5.6"
-  echo "export W2L_DOCKER_MEMCACHED=memcached:1.4.24"
-  echo "export W2L_DOCKER_OCG=wikitolearn/ocg:0.7.1"
-  echo "export W2L_DOCKER_WEBSRV=wikitolearn/websrv:0.11"
-  echo "export W2L_DOCKER_HAPROXY=wikitolearn/haproxy:0.5"
+  echo ". ../docker-images.conf"
  } > instance_config.conf
  echo
  echo "Created default instance_config.conf file"

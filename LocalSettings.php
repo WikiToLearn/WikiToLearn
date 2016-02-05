@@ -223,7 +223,7 @@ $wgResourceLoaderMaxQueryLength = 512;
 # End of automatically generated settings.
 # Add more configuration options below.
 # Highlight extension:
-require_once("$IP/extensions/SyntaxHighlight_GeSHi/SyntaxHighlight_GeSHi.php");
+wfLoadExtension("SyntaxHighlight_GeSHi");
 
 # No TOC
 #require_once("$IP/extensions/NoTOC/NoTOC.php");
@@ -239,7 +239,7 @@ $wgNamespacesWithSubpages = array_fill(0, 200, true);
 $wgNamespacesWithSubpages[NS_USER] = true;
 
 # Add parser functions (for if, else, ...)
-require_once( "$IP/extensions/ParserFunctions/ParserFunctions.php" );
+wfLoadExtension( "ParserFunctions" );
 
 # Bigger uploads
 $wgMaxUploadSize = 2147483648;
@@ -256,21 +256,28 @@ $wgUseETag = true;
 #$wgGroupPermissions['sysop']['collectionsaveascommunitypage'] = true;
 #$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
 # MathJax
-require_once("$IP/extensions/Math/Math.php");
-$wgUseMathJax = true;
-$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
+wfLoadExtension("Math");
+#$wgUseMathJax = true;
+#$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
+
+$wgMathValidModes[] = 'mathml';
+$wgDefaultUserOptions['math'] = 'mathml';
+$wgMathMathMLUrl = 'http://mathoid:10044/';
+
+wfLoadExtension("DMath");
+
 
 #$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 # awesome editor
-require_once( "$IP/extensions/WikiEditor/WikiEditor.php" );
+wfLoadExtension( "WikiEditor" );
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
 # Captcha
-require_once( "$IP/extensions/ConfirmEdit/ConfirmEdit.php" );
+wfLoadExtension( "ConfirmEdit" );
 
-require_once( "$IP/extensions/ConfirmEdit/QuestyCaptcha.php");
+wfLoadExtension( "/ConfirmEdit/QuestyCaptcha" );
 $wgCaptchaClass = 'QuestyCaptcha';
 
 
@@ -311,12 +318,12 @@ include_once("$IP/extensions/EmbedVideo/EmbedVideo.php");
 #error_log("device from ls.php");
 #error_log($_SERVER['HTTP_X_DEVICE']);
 
-require_once("$IP/extensions/Cite/Cite.php");
+wfLoadExtension("Cite");
 $wgCiteEnablePopups = true;
 
 require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
 
-require_once("$IP/extensions/Nuke/Nuke.php");
+wfLoadExtension("Nuke");
 
 require_once( "$IP/extensions/Echo/Echo.php" );
 
@@ -337,11 +344,11 @@ if (getenv("W2L_PRODUCTION") == "1") {
     $wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
 }
 
-require_once "$IP/extensions/UserMerge/UserMerge.php";
+wfLoadExtension( "UserMerge" );
 // By default nobody can use this function, enable for bureaucrat?
 $wgGroupPermissions['sysop']['usermerge'] = true;
 
-require_once "$IP/extensions/UniversalLanguageSelector/UniversalLanguageSelector.php";
+wfLoadExtension("UniversalLanguageSelector");
 
 require_once "$IP/skins/Neverland/Neverland.php";
 
@@ -372,20 +379,20 @@ $wgCollectionRendererSettings['columns']['default'] = 1;
 $wgLicenseURL = "//creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 
-require_once "$IP/extensions/Gadgets/Gadgets.php";
+wfLoadExtension( "Gadgets" );
 
-require_once "$IP/extensions/DockerAccess/DockerAccess.php";
+require_once( "$IP/extensions/DockerAccess/DockerAccess.php" );
 
-$virtualFactoryURL = "http://dockers.wikitolearn.org";
+$virtualFactoryURL = "http://babbage.wikitolearn.org";
 $virtualFactoryImages = array(
-    'novnc' => "Minimal LXDE image",
+    'ubuntu-base' => "Minimal LXDE image",
     'novnc-kde' => "KDE Development Image",
     'qt5' => "Qt5 Development Image",
     'root' => "ROOT Basic Image",
 );
 
-require_once "$IP/extensions/Theorems/Theorems.php";
-require_once "$IP/extensions/Flow/Flow.php";
+require_once( "$IP/extensions/Theorems/Theorems.php" );
+require_once( "$IP/extensions/Flow/Flow.php" );
 // These lines enable Flow on the "Project talk" and "User talk" namespaces
 // $wgNamespaceContentModels[NS_PROJECT_TALK] = CONTENT_MODEL_FLOW_BOARD;
 // $wgNamespaceContentModels[NS_USER_TALK] = CONTENT_MODEL_FLOW_BOARD;

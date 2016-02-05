@@ -17,10 +17,10 @@
 	url = https://github.com/wikimedia/mediawiki-extensions-ParserFunctions.git
 [submodule "extensions/Collection"]
 	path = extensions/Collection
-	url = https://github.com/wikimedia/mediawiki-extensions-Collection.git
+	url = https://github.com/WikiToLearn/mediawiki-extensions-Collection
 [submodule "extensions/Math"]
 	path = extensions/Math
-	url = https://github.com/WikiFM/Math.git
+	url = https://github.com/wikimedia/mediawiki-extensions-Math.git
 [submodule "extensions/WikiEditor"]
 	path = extensions/WikiEditor
 	url = https://github.com/wikimedia/mediawiki-extensions-WikiEditor.git
@@ -91,3 +91,12 @@
 [submodule "extensions/Translate"]
 	path = extensions/Translate
 	url = https://github.com/wikimedia/mediawiki-extensions-Translate.git
+[submodule "extensions/DMath"]
+	path = extensions/DMath
+	url = https://github.com/WikiToLearn/DMath.git
+[submodule "vendor"]
+	path = vendor
+	url = https://github.com/WikiToLearn/wikitolearn-vendor.git
+[submodule "extensions/Validator"]
+	path = extensions/Validator
+	url = https://github.com/wikimedia/mediawiki-extensions-Validator.git

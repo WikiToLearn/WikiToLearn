@@ -2,13 +2,11 @@
 $wiki_allow_domains = array(
     "wikitolearn.org",
     "wikitolearn.vodka",
-    "dev.wikitolearn.org",
-    "pre.wikitolearn.org",
-    "local.wikitolearn.org",
     "direct.wikitolearn.org",
     "tuttorotto.it",
     "tuttorotto.eu",
     "tuttorotto.org",
+    "tuttorotto.it",
     "tuttorotto.biz"
 );
 

@@ -32,11 +32,12 @@ fi;
 $CWD/init-symlinks.sh
 test -d $CWD/mediawiki/images/tmp || mkdir -p $CWD/mediawiki/images/tmp
 
-cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd -
+# cd $CWD/mediawiki/extensions/Math/texvccheck/; make; cd - # with mathoid this check is done with mathoid service
 
-cd $CWD/mediawiki; composer install; cd -;
+cd $CWD/mediawiki; composer install; cd -; # this is needed for the compoer.lock file
+cd $CWD/extensions/SyntaxHighlight_GeSHi/ ; composer install; cd -; # this is needed for the compoer.lock file
+cd $CWD/extensions/ParserHooks/ ; composer install; cd -; # this is needed for the compoer.lock file 
 
-cd $CWD/extensions/SyntaxHighlight_GeSHi/ ; composer install; cd -;
 
 if [[ "$W2L_INIT_DB" == "1" ]] ; then
     $CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CWD/empty-wikifm.sql

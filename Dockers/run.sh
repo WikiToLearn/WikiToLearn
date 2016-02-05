@@ -28,6 +28,29 @@ if [[ "$W2L_PRODUCTION=" == "1" ]] ; then
         export MORE_ARGS=" --restart=always "$MORE_ARGS
 fi
 
+# parsoid running
+docker ps | grep ${W2L_INSTANCE_NAME}-parsoid &> /dev/null
+if [[ $? -ne 0 ]] ; then
+ docker ps -a | grep ${W2L_INSTANCE_NAME}-parsoid &> /dev/null
+ if [[ $? -eq 0 ]] ; then
+  docker start ${W2L_INSTANCE_NAME}-parsoid
+ else
+  docker run -ti $MORE_ARGS --hostname parsoid.wikitolearn.org --name ${W2L_INSTANCE_NAME}-parsoid -d $W2L_DOCKER_PARSOID
+ fi
+fi
+
+# mathoid running
+docker ps | grep ${W2L_INSTANCE_NAME}-mathoid &> /dev/null
+if [[ $? -ne 0 ]] ; then
+ docker ps -a | grep ${W2L_INSTANCE_NAME}-mathoid &> /dev/null
+ if [[ $? -eq 0 ]] ; then
+  docker start ${W2L_INSTANCE_NAME}-mathoid
+ else
+  docker run -ti $MORE_ARGS --hostname mathoid.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mathoid -d $W2L_DOCKER_MATHOID
+ fi
+fi
+
+
 # run mamecached
 docker ps | grep ${W2L_INSTANCE_NAME}-memcached &> /dev/null
 if [[ $? -ne 0 ]] ; then
@@ -182,6 +205,7 @@ EOL
    --link ${W2L_INSTANCE_NAME}-mysql:mysql \
    --link ${W2L_INSTANCE_NAME}-memcached:memcached \
    --link ${W2L_INSTANCE_NAME}-ocg:ocg \
+   --link ${W2L_INSTANCE_NAME}-mathoid:mathoid \
    -d $W2L_DOCKER_WEBSRV
 
   if [[ "$W2L_RELAY_HOST" != "" ]] ; then
