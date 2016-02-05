@@ -122,10 +122,7 @@ body {
 }
 
 /* Larger devices */
-@media (min-width: 769px) {
-  img.img-responsive {
-    max-width: 75%;
-  }
+@media (min-width: 769px) {  
 
   .center-row {
       display:table;
@@ -138,7 +135,7 @@ body {
   }
 
   .logos-container {
-    margin-left: 25.95%;
+    margin-left: 25.2%;
   }
 
   .center {
