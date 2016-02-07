@@ -100,3 +100,6 @@
 [submodule "extensions/Validator"]
 	path = extensions/Validator
 	url = https://github.com/wikimedia/mediawiki-extensions-Validator.git
+[submodule "extensions/ContentReferencer"]
+	path = extensions/ContentReferencer
+	url = https://github.com/WikiToLearn/ContentReferencer.git
