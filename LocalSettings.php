@@ -260,8 +260,8 @@ wfLoadExtension("Math");
 #$wgUseMathJax = true;
 #$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
 
-$wgMathValidModes[] = 'mathml';
-$wgDefaultUserOptions['math'] = 'mathml';
+$wgMathValidModes[] = 'MW_MATH_MATHML';
+$wgDefaultUserOptions['math'] = 'MW_MATH_MATHML';
 $wgMathMathMLUrl = 'http://mathoid:10044/';
 
 wfLoadExtension("DMath");
