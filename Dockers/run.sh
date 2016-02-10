@@ -46,7 +46,10 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${W2L_INSTANCE_NAME}-mathoid
  else
-  docker run -ti $MORE_ARGS --hostname mathoid.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mathoid -d $W2L_DOCKER_MATHOID
+  if [[ "$MATHOID_NUM_WORKERS" == "" ]] ; then
+   export MATHOID_NUM_WORKERS=40
+  fi
+  docker run -ti $MORE_ARGS --hostname mathoid.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mathoid -e NUM_WORKERS=$MATHOID_NUM_WORKERS -d $W2L_DOCKER_MATHOID
  fi
 fi
 

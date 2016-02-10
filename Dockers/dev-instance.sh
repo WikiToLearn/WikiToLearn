@@ -16,6 +16,7 @@ fi
 #fi
 echo "Ok, starting..."
 
+export MATHOID_NUM_WORKERS=1
 export W2L_PRODUCTION=0
 ./run.sh
 ./use-instance.sh
