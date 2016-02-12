@@ -46,9 +46,3 @@ fi
 
 # For every language, update the database
 $CWD/lang-foreach.sh update.php --conf=$CWD/mediawiki/LocalSettings.php --quick --doShared
-
-
-if [[ "$W2L_INIT_DB" == "1" ]] ; then
-    $CWD/lang-foreach.sh importDump.php $CWD/developer-dump.xml 
-fi
-
