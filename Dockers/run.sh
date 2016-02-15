@@ -149,7 +149,7 @@ if [[ $? -ne 0 ]] ; then
    W2L_DOCKER_OCG_USE="debian:8"
    W2L_OCG_CMD="sleep infinity"
   fi
-  docker run -ti $MORE_ARGS --hostname ocg.wikitolearn.org -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG_USE $W2L_OCG_CMD
+  docker run -ti $MORE_ARGS -v wikitolearn-ocg:/tmp/ocg/ocg-output/ --hostname ocg.wikitolearn.org -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG_USE $W2L_OCG_CMD
  fi
 fi
 
