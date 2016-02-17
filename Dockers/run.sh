@@ -35,7 +35,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${W2L_INSTANCE_NAME}-parsoid
  else
-  docker run -ti $MORE_ARGS --hostname parsoid.wikitolearn.org --name ${W2L_INSTANCE_NAME}-parsoid -d $W2L_DOCKER_PARSOID
+  docker run -ti $MORE_ARGS --hostname parsoid --name ${W2L_INSTANCE_NAME}-parsoid -d $W2L_DOCKER_PARSOID
  fi
 fi
 
@@ -49,7 +49,7 @@ if [[ $? -ne 0 ]] ; then
   if [[ "$MATHOID_NUM_WORKERS" == "" ]] ; then
    export MATHOID_NUM_WORKERS=40
   fi
-  docker run -ti $MORE_ARGS --hostname mathoid.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mathoid -e NUM_WORKERS=$MATHOID_NUM_WORKERS -d $W2L_DOCKER_MATHOID
+  docker run -ti $MORE_ARGS --hostname mathoid --name ${W2L_INSTANCE_NAME}-mathoid -e NUM_WORKERS=$MATHOID_NUM_WORKERS -d $W2L_DOCKER_MATHOID
  fi
 fi
 
@@ -61,7 +61,7 @@ if [[ $? -ne 0 ]] ; then
  if [[ $? -eq 0 ]] ; then
   docker start ${W2L_INSTANCE_NAME}-memcached
  else
-  docker run -ti $MORE_ARGS --hostname memcached.wikitolearn.org --name ${W2L_INSTANCE_NAME}-memcached -d $W2L_DOCKER_MEMCACHED
+  docker run -ti $MORE_ARGS --hostname memcached --name ${W2L_INSTANCE_NAME}-memcached -d $W2L_DOCKER_MEMCACHED
  fi
 fi
 
@@ -74,7 +74,7 @@ if [[ $? -ne 0 ]] ; then
  else
   test -d configs/secrets/ || mkdir -p configs/secrets/
   ROOT_PWD=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32 )
-  docker run -ti $MORE_ARGS -v ${W2L_INSTANCE_NAME}-var-lib-mysql:/var/lib/mysql --hostname mysql.wikitolearn.org --name ${W2L_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $W2L_DOCKER_MYSQL
+  docker run -ti $MORE_ARGS -v ${W2L_INSTANCE_NAME}-var-lib-mysql:/var/lib/mysql --hostname mysql --name ${W2L_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $W2L_DOCKER_MYSQL
   IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-mysql)
   echo "[client]" > configs/my.cnf
   echo "user=root" >> configs/my.cnf
@@ -149,7 +149,7 @@ if [[ $? -ne 0 ]] ; then
    W2L_DOCKER_OCG_USE="debian:8"
    W2L_OCG_CMD="sleep infinity"
   fi
-  docker run -ti $MORE_ARGS -v wikitolearn-ocg:/tmp/ocg/ocg-output/ --hostname ocg.wikitolearn.org -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG_USE $W2L_OCG_CMD
+  docker run -ti $MORE_ARGS -v wikitolearn-ocg:/tmp/ocg/ocg-output/ --hostname ocg --link ${W2L_INSTANCE_NAME}-parsoid:parsoid -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG_USE $W2L_OCG_CMD
  fi
 fi
 
@@ -189,7 +189,7 @@ EOL
    CERTS_MOUNT=" -v "$(pwd)"/certs/:/certs/:ro "
   fi
 
-  docker run -ti $MORE_ARGS -v ${W2L_INSTANCE_NAME}-var-log-apache2:/var/log/apache2 --hostname websrv.wikitolearn.org \
+  docker run -ti $MORE_ARGS -v ${W2L_INSTANCE_NAME}-var-log-apache2:/var/log/apache2 --hostname websrv \
    $CERTS_MOUNT \
    -e USER_UID=$EXT_UID \
    -e USER_GID=$EXT_GID \
@@ -198,6 +198,7 @@ EOL
    --link ${W2L_INSTANCE_NAME}-memcached:memcached \
    --link ${W2L_INSTANCE_NAME}-ocg:ocg \
    --link ${W2L_INSTANCE_NAME}-mathoid:mathoid \
+   --link ${W2L_INSTANCE_NAME}-parsoid:parsoid \
    -d $W2L_DOCKER_WEBSRV
 
   if [[ "$W2L_RELAY_HOST" != "" ]] ; then

@@ -7,4 +7,3 @@ export W2L_PRODUCTION=0
 ./use-instance.sh
 sleep 1
 ./fix-hosts.sh
-./fix-hosts-tuttorotto.biz.sh

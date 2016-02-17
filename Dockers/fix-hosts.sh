@@ -15,27 +15,17 @@ if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
 fi
 
 WEBSRV_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-websrv)
-OCG_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-ocg)
 
-for docker in ${W2L_INSTANCE_NAME}-websrv ${W2L_INSTANCE_NAME}-ocg ; do
+for docker in ${W2L_INSTANCE_NAME}-parsoid ${W2L_INSTANCE_NAME}-ocg ; do
  web_hosts=$(for subdom in $(find ../secrets/ -name *wikitolearn.php -exec basename {} \; | sed 's/wikitolearn.php//g'); do
-  echo ${subdom}".wikitolearn.org "
+  echo ${subdom}".tuttorotto.biz "
  done)
- echo $web_hosts" to "$WEBSRV_IP
- {
-  docker exec $docker sed '/HOSTFIX1/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
-  docker exec $docker cat /tmp/tmp_hosts | docker exec -i $docker tee /etc/hosts
-  echo $WEBSRV_IP" HOSTFIX1 "$web_hosts | docker exec -i $docker tee -a /etc/hosts
- } &> /dev/null
 
- ocg_hosts=$(for ocg_host in ocg ocg.wikitolearn.org ; do
-  echo $ocg_host" "
- done)
- echo "Fixing "$ocg_hosts" to "$OCG_IP
+ echo "In "$docker" fixing "$web_hosts" to "$WEBSRV_IP
  {
-  docker exec $docker sed '/HOSTFIX2/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
+  docker exec $docker sed '/HOSTTUTTOROTTOBIZFIX1/d' /etc/hosts | docker exec -i $docker tee /tmp/tmp_hosts
   docker exec $docker cat /tmp/tmp_hosts | docker exec -i $docker tee /etc/hosts
-  echo $OCG_IP" HOSTFIX2 "$ocg_hosts | docker exec -i $docker tee -a /etc/hosts
+  echo $WEBSRV_IP" HOSTTUTTOROTTOBIZFIX1 "$web_hosts | docker exec -i $docker tee -a /etc/hosts
  } &> /dev/null
 
 done

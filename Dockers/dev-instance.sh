@@ -24,5 +24,3 @@ sleep 1
 ./fix-hosts.sh
 export W2L_INIT_DB=1
 ./init-docker.sh
-#fix ocg service binding
-./fix-hosts-tuttorotto.biz.sh

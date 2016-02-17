@@ -402,3 +402,12 @@ $wgCapitalLinkOverrides[ NS_FILE ] = false;
 require_once("$IP/../secrets/secrets.php");
 
 wfLoadExtension( 'Renameuser' );
+
+
+$wgVirtualRestConfig['modules']['parsoid'] = array(
+  // URL to the Parsoid instance
+  // Use port 8142 if you use the Debian package
+  'url' => 'http://parsoid:8000',
+  // Parsoid "domain", see below (optional)
+  'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
+);
