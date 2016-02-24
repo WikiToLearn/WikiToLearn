@@ -16,7 +16,7 @@ fi
 cd $CWD;
 
 if [[ ! -e secrets/itwikitolearn.php ]]; then
-    echo "I can't find secrets!!! (at least, secrets/itwikifm.php)"
+    echo "I can't find secrets!!! (at least, secrets/itwikitolearn.php)"
     echo "Please copy the secrets in $CWD/secrets and try again."
     exit 1;
 fi;
@@ -40,15 +40,9 @@ cd $CWD/extensions/ParserHooks/ ; composer install; cd -; # this is needed for t
 
 
 if [[ "$W2L_INIT_DB" == "1" ]] ; then
-    $CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CWD/empty-wikifm.sql
-    WIKI=it.wikitolearn.org php $CWD/mediawiki/maintenance/sql.php --debug --conf SharedLocalSettings.php $CWD/sharedwikifm.sql
+    $CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CWD/empty-wikitolearn.sql
+    WIKI=it.wikitolearn.org php $CWD/mediawiki/maintenance/sql.php --debug --conf SharedLocalSettings.php $CWD/sharedwikitolearn.sql
 fi
 
 # For every language, update the database
 $CWD/lang-foreach.sh update.php --conf=$CWD/mediawiki/LocalSettings.php --quick --doShared
-
-
-if [[ "$W2L_INIT_DB" == "1" ]] ; then
-    $CWD/lang-foreach.sh importDump.php $CWD/developer-dump.xml 
-fi
-

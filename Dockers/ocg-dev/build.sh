@@ -30,10 +30,8 @@ fi
 cd ocg-dev
 docker build -t ocg-dev .
 
-docker run -ti --hostname ocg.wikitolearn.org --name ${W2L_INSTANCE_NAME}-ocg -d ocg-dev
+docker run -ti --hostname ocg --name ${W2L_INSTANCE_NAME}-ocg -d ocg-dev
 
 cd ..
 ./fix-hosts.sh
-#fix ocg service local binding
-./fix-hosts-tuttorotto.biz.sh
 exit 0

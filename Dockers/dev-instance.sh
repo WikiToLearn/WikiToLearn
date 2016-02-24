@@ -16,6 +16,7 @@ fi
 #fi
 echo "Ok, starting..."
 
+export MATHOID_NUM_WORKERS=1
 export W2L_PRODUCTION=0
 ./run.sh
 ./use-instance.sh
@@ -23,5 +24,3 @@ sleep 1
 ./fix-hosts.sh
 export W2L_INIT_DB=1
 ./init-docker.sh
-#fix ocg service binding
-./fix-hosts-tuttorotto.biz.sh
