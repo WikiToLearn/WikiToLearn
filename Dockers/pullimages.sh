@@ -9,6 +9,11 @@ if [[ ! -f instance_config.conf ]] ; then
 fi
 . ./instance_config.conf
 
-for img in $W2L_DOCKER_MEMCACHED $W2L_DOCKER_MYSQL $W2L_DOCKER_OCG $W2L_DOCKER_WEBSRV $W2L_DOCKER_HAPROXY $W2L_DOCKER_PARSOID $W2L_DOCKER_MATHOID ; do
- docker pull $img
+if [[ "$W2L_SKIP_OCG_DOCKER" == "0" ]] ; then
+  W2L_DOCKER_OCG_USE="$W2L_DOCKER_OCG"
+fi
+
+
+for img in $W2L_DOCKER_MEMCACHED $W2L_DOCKER_MYSQL $$W2L_DOCKER_OCG_USE $W2L_DOCKER_WEBSRV $W2L_DOCKER_HAPROXY $W2L_DOCKER_PARSOID $W2L_DOCKER_MATHOID ; do
+ echo docker pull $img
 done
