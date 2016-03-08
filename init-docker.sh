@@ -9,7 +9,7 @@ CWD="$(
 )"
 
 if [[ "$1" == "--init-db" ]] ; then
-    W2L_INIT_DB=1
+    WTL_INIT_DB=1
 fi
 
 
@@ -39,7 +39,7 @@ cd $CWD/extensions/SyntaxHighlight_GeSHi/ ; composer install; cd -; # this is ne
 cd $CWD/extensions/ParserHooks/ ; composer install; cd -; # this is needed for the compoer.lock file 
 
 
-if [[ "$W2L_INIT_DB" == "1" ]] ; then
+if [[ "$WTL_INIT_DB" == "1" ]] ; then
     $CWD/lang-foreach.sh sql.php --debug --conf $CWD/mediawiki/LocalSettings.php $CWD/empty-wikitolearn.sql
     WIKI=it.wikitolearn.org php $CWD/mediawiki/maintenance/sql.php --debug --conf SharedLocalSettings.php $CWD/sharedwikitolearn.sql
 fi

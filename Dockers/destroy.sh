@@ -8,8 +8,8 @@ fi
 
 . ./instance_config.conf
 
-if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
- echo "Missing key env variabile W2L_INSTANCE_NAME"
+if [[ "$WTL_INSTANCE_NAME" == "" ]] ; then
+ echo "Missing key env variabile WTL_INSTANCE_NAME"
  exit 1
 fi
 
@@ -51,13 +51,13 @@ then
  if [[ $REPLY =~ ^[$REPLY_DO]$ ]]
  then
   echo "ok, I'm doing..."
-  for d in  ${W2L_INSTANCE_NAME}-ocg ${W2L_INSTANCE_NAME}-mysql ${W2L_INSTANCE_NAME}-memcached ${W2L_INSTANCE_NAME}-websrv ${W2L_INSTANCE_NAME}-mathoid ${W2L_INSTANCE_NAME}-parsoid
+  for d in  ${WTL_INSTANCE_NAME}-ocg ${WTL_INSTANCE_NAME}-mysql ${WTL_INSTANCE_NAME}-memcached ${WTL_INSTANCE_NAME}-websrv ${WTL_INSTANCE_NAME}-mathoid ${WTL_INSTANCE_NAME}-parsoid
   do
    echo "Deleting "$d
    docker stop $d && docker rm $d
   done
-  docker volume rm ${W2L_INSTANCE_NAME}-var-lib-mysql
-  docker volume rm ${W2L_INSTANCE_NAME}-var-log-apache2
+  docker volume rm ${WTL_INSTANCE_NAME}-var-lib-mysql
+  docker volume rm ${WTL_INSTANCE_NAME}-var-log-apache2
   rm -f instance_config.conf
  fi
 fi

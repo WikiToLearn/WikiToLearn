@@ -9,14 +9,14 @@ fi
 
 . ./instance_config.conf
 
-if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
- echo "Missing key env variabile W2L_INSTANCE_NAME"
+if [[ "$WTL_INSTANCE_NAME" == "" ]] ; then
+ echo "Missing key env variabile WTL_INSTANCE_NAME"
  exit 1
 fi
 
-WEBSRV_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-websrv)
+WEBSRV_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${WTL_INSTANCE_NAME}-websrv)
 
-for docker in ${W2L_INSTANCE_NAME}-parsoid ${W2L_INSTANCE_NAME}-ocg ; do
+for docker in ${WTL_INSTANCE_NAME}-parsoid ${WTL_INSTANCE_NAME}-ocg ; do
  web_hosts=$(for subdom in $(find ../secrets/ -name *wikitolearn.php -exec basename {} \; | sed 's/wikitolearn.php//g'); do
   echo ${subdom}".tuttorotto.biz "
  done)

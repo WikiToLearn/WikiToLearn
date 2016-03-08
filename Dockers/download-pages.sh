@@ -15,8 +15,8 @@ fi
 
 . ./instance_config.conf
 
-if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
- echo "Missing key env variabile W2L_INSTANCE_NAME"
+if [[ "$WTL_INSTANCE_NAME" == "" ]] ; then
+ echo "Missing key env variabile WTL_INSTANCE_NAME"
  exit 1
 fi
 
@@ -34,12 +34,12 @@ fi
 
 for lang in en it ; do
  curl -d "&templates&curonly&action=submit&pages=$(cat /tmp/dumplist.$lang | hexdump -v -e '/1 "%02x"' | sed 's/\(..\)/%\1/g' )" http://$lang.wikitolearn.org/index.php?title=Special:Export -o "/tmp/developer-dump.$lang.xml"
- docker cp /tmp/developer-dump.$lang.xml ${W2L_INSTANCE_NAME}-websrv:/tmp/
+ docker cp /tmp/developer-dump.$lang.xml ${WTL_INSTANCE_NAME}-websrv:/tmp/
  {
   cat <<EOF
 export WIKI=$lang.wikitolearn.org
 cd /var/www/WikiToLearn/mediawiki/maintenance/
 php importDump.php /tmp/developer-dump.$lang.xml
 EOF
- } | docker exec -i ${W2L_INSTANCE_NAME}-websrv bash
+ } | docker exec -i ${WTL_INSTANCE_NAME}-websrv bash
 done

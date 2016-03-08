@@ -8,12 +8,12 @@ fi
 
 . ./instance_config.conf
 
-if [[ "$W2L_INSTANCE_NAME" == "" ]] ; then
- echo "Missing key env variabile W2L_INSTANCE_NAME"
+if [[ "$WTL_INSTANCE_NAME" == "" ]] ; then
+ echo "Missing key env variabile WTL_INSTANCE_NAME"
  exit 1
 fi
 
-echo "Bringing up "${W2L_INSTANCE_NAME}"..."
+echo "Bringing up "${WTL_INSTANCE_NAME}"..."
 
 docker inspect wikitolearn-haproxy &> /dev/null
 if [[ $? -eq 0 ]] ; then
@@ -30,6 +30,6 @@ docker run -d --name wikitolearn-haproxy --restart=always \
  -p 80:80 \
  -p 443:443 \
  $CERTS_MOUNT \
- --link ${W2L_INSTANCE_NAME}-websrv:websrv \
- --link ${W2L_INSTANCE_NAME}-parsoid:parsoid \
- $W2L_DOCKER_HAPROXY
+ --link ${WTL_INSTANCE_NAME}-websrv:websrv \
+ --link ${WTL_INSTANCE_NAME}-parsoid:parsoid \
+ $WTL_DOCKER_HAPROXY
