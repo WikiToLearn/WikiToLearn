@@ -9,13 +9,13 @@ if [[ ! -f instance_config.conf ]] ; then
 fi
 . ./instance_config.conf
 
-W2L_DOCKER_OCG_USE="$W2L_DOCKER_OCG"
+WTL_DOCKER_OCG_USE="$WTL_DOCKER_OCG"
 
-if [[ "$W2L_SKIP_OCG_DOCKER" == "1" ]] ; then
- W2L_DOCKER_OCG_USE=""
+if [[ "$WTL_SKIP_OCG_DOCKER" == "1" ]] ; then
+ WTL_DOCKER_OCG_USE=""
 fi
 
-for img in $W2L_DOCKER_MEMCACHED $W2L_DOCKER_MYSQL $W2L_DOCKER_OCG_USE $W2L_DOCKER_WEBSRV $W2L_DOCKER_HAPROXY $W2L_DOCKER_PARSOID $W2L_DOCKER_MATHOID ; do
+for img in $WTL_DOCKER_MEMCACHED $WTL_DOCKER_MYSQL $WTL_DOCKER_OCG_USE $WTL_DOCKER_WEBSRV $WTL_DOCKER_HAPROXY $WTL_DOCKER_PARSOID $WTL_DOCKER_MATHOID ; do
  docker pull $img
  docker inspect $img &> /dev/null
  if [[ $? -ne 0 ]] ; then

@@ -296,7 +296,7 @@ $wgDefaultUserOptions['useeditwarning'] = 1;
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
 $wgDefaultSkin = 'neverland';
 
-if (getenv('W2L_PRODUCTION') != 1) {
+if (getenv('WTL_PRODUCTION') != 1) {
  $wgShowExceptionDetails = true;
 }
 
@@ -339,7 +339,7 @@ require_once("$IP/extensions/CategorySuggest/CategorySuggest.php");
 // require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
 // require_once( "$IP/extensions/SubPageList/SubPageList.php" );
 
-if (getenv("W2L_PRODUCTION") == "1") {
+if (getenv("WTL_PRODUCTION") == "1") {
     $wgEnableDnsBlacklist = true;
     $wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
 }

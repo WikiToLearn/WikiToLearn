@@ -10,12 +10,12 @@ fi
 
 . ./instance_config.conf
 
-[[ -z "$W2L_INIT_DB" ]] && export W2L_INIT_DB=0
-[[ -z "$W2L_PRODUCTION" ]] && W2L_PRODUCTION=1
+[[ -z "$WTL_INIT_DB" ]] && export WTL_INIT_DB=0
+[[ -z "$WTL_PRODUCTION" ]] && WTL_PRODUCTION=1
 
-if [ "$W2L_BACKUP_ENABLED" == "1" ] ; then
- if [ ! -d "$W2L_BACKUP_PATH" ] ; then
-  echo "Missing $W2L_BACKUP_PATH"
+if [ "$WTL_BACKUP_ENABLED" == "1" ] ; then
+ if [ ! -d "$WTL_BACKUP_PATH" ] ; then
+  echo "Missing $WTL_BACKUP_PATH"
   exit 1
  fi
 fi
@@ -23,59 +23,59 @@ fi
 test -d configs/ || mkdir -p configs/
 test -d configs/secrets/ || mkdir -p configs/secrets/
 
-export MORE_ARGS=" -e W2L_PRODUCTION="$W2L_PRODUCTION" "
-if [[ "$W2L_PRODUCTION=" == "1" ]] ; then
+export MORE_ARGS=" -e WTL_PRODUCTION="$WTL_PRODUCTION" "
+if [[ "$WTL_PRODUCTION=" == "1" ]] ; then
         export MORE_ARGS=" --restart=always "$MORE_ARGS
 fi
 
 # parsoid running
-docker ps | grep ${W2L_INSTANCE_NAME}-parsoid &> /dev/null
+docker ps | grep ${WTL_INSTANCE_NAME}-parsoid &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep ${W2L_INSTANCE_NAME}-parsoid &> /dev/null
+ docker ps -a | grep ${WTL_INSTANCE_NAME}-parsoid &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start ${W2L_INSTANCE_NAME}-parsoid
+  docker start ${WTL_INSTANCE_NAME}-parsoid
  else
-  docker run -ti $MORE_ARGS --hostname parsoid --name ${W2L_INSTANCE_NAME}-parsoid -d $W2L_DOCKER_PARSOID
+  docker run -ti $MORE_ARGS --hostname parsoid --name ${WTL_INSTANCE_NAME}-parsoid -d $WTL_DOCKER_PARSOID
  fi
 fi
 
 # mathoid running
-docker ps | grep ${W2L_INSTANCE_NAME}-mathoid &> /dev/null
+docker ps | grep ${WTL_INSTANCE_NAME}-mathoid &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep ${W2L_INSTANCE_NAME}-mathoid &> /dev/null
+ docker ps -a | grep ${WTL_INSTANCE_NAME}-mathoid &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start ${W2L_INSTANCE_NAME}-mathoid
+  docker start ${WTL_INSTANCE_NAME}-mathoid
  else
   if [[ "$MATHOID_NUM_WORKERS" == "" ]] ; then
    export MATHOID_NUM_WORKERS=40
   fi
-  docker run -ti $MORE_ARGS --hostname mathoid --name ${W2L_INSTANCE_NAME}-mathoid -e NUM_WORKERS=$MATHOID_NUM_WORKERS -d $W2L_DOCKER_MATHOID
+  docker run -ti $MORE_ARGS --hostname mathoid --name ${WTL_INSTANCE_NAME}-mathoid -e NUM_WORKERS=$MATHOID_NUM_WORKERS -d $WTL_DOCKER_MATHOID
  fi
 fi
 
 
 # run mamecached
-docker ps | grep ${W2L_INSTANCE_NAME}-memcached &> /dev/null
+docker ps | grep ${WTL_INSTANCE_NAME}-memcached &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep ${W2L_INSTANCE_NAME}-memcached &> /dev/null
+ docker ps -a | grep ${WTL_INSTANCE_NAME}-memcached &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start ${W2L_INSTANCE_NAME}-memcached
+  docker start ${WTL_INSTANCE_NAME}-memcached
  else
-  docker run -ti $MORE_ARGS --hostname memcached --name ${W2L_INSTANCE_NAME}-memcached -d $W2L_DOCKER_MEMCACHED
+  docker run -ti $MORE_ARGS --hostname memcached --name ${WTL_INSTANCE_NAME}-memcached -d $WTL_DOCKER_MEMCACHED
  fi
 fi
 
 # run mysql and init
-docker ps | grep ${W2L_INSTANCE_NAME}-mysql &> /dev/null
+docker ps | grep ${WTL_INSTANCE_NAME}-mysql &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep ${W2L_INSTANCE_NAME}-mysql &> /dev/null
+ docker ps -a | grep ${WTL_INSTANCE_NAME}-mysql &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start ${W2L_INSTANCE_NAME}-mysql
+  docker start ${WTL_INSTANCE_NAME}-mysql
  else
   test -d configs/secrets/ || mkdir -p configs/secrets/
   ROOT_PWD=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32 )
-  docker run -ti $MORE_ARGS -v ${W2L_INSTANCE_NAME}-var-lib-mysql:/var/lib/mysql --hostname mysql --name ${W2L_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $W2L_DOCKER_MYSQL
-  IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${W2L_INSTANCE_NAME}-mysql)
+  docker run -ti $MORE_ARGS -v ${WTL_INSTANCE_NAME}-var-lib-mysql:/var/lib/mysql --hostname mysql --name ${WTL_INSTANCE_NAME}-mysql -e MYSQL_ROOT_PASSWORD=$ROOT_PWD -d $WTL_DOCKER_MYSQL
+  IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${WTL_INSTANCE_NAME}-mysql)
   echo "[client]" > configs/my.cnf
   echo "user=root" >> configs/my.cnf
   echo "password=$ROOT_PWD" >> configs/my.cnf
@@ -84,18 +84,18 @@ if [[ $? -ne 0 ]] ; then
   false
   while [[ $? -ne 0 ]] ; do
    sleep 1
-   docker logs ${W2L_INSTANCE_NAME}-mysql | grep "MySQL init process done. Ready for start up." &> /dev/null
+   docker logs ${WTL_INSTANCE_NAME}-mysql | grep "MySQL init process done. Ready for start up." &> /dev/null
   done
 
   {
    echo "[client]"
    echo "user=root"
    echo "password=$ROOT_PWD"
-  } | docker exec -i ${W2L_INSTANCE_NAME}-mysql tee /root/.my.cnf
+  } | docker exec -i ${WTL_INSTANCE_NAME}-mysql tee /root/.my.cnf
 
   echo "Attesa mysql online..."
   {
-  while ! docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql -e "SHOW DATABASES" ; do
+  while ! docker exec -i ${WTL_INSTANCE_NAME}-mysql mysql -e "SHOW DATABASES" ; do
    sleep 1
   done
   } &> /dev/null
@@ -112,14 +112,14 @@ if [[ $? -ne 0 ]] ; then
    echo "CREATE DATABASE IF NOT EXISTS metawikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS poolwikitolearn;"
    echo "CREATE DATABASE IF NOT EXISTS sharedwikitolearn;"
-  } | docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql
+  } | docker exec -i ${WTL_INSTANCE_NAME}-mysql mysql
 
-  docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql -e "show databases like '%wiki%';" | grep wikitolearn | while read db; do
+  docker exec -i ${WTL_INSTANCE_NAME}-mysql mysql -e "show databases like '%wiki%';" | grep wikitolearn | while read db; do
    pass=$(echo $RANDOM$RANDOM$(date +%s) | sha256sum | base64 | head -c 32)
    user=${db::-11}
    {
     echo "GRANT ALL PRIVILEGES ON * . * TO '"$user"'@'%' IDENTIFIED BY '"$pass"';"
-   } | docker exec -i ${W2L_INSTANCE_NAME}-mysql mysql
+   } | docker exec -i ${WTL_INSTANCE_NAME}-mysql mysql
 
    {
     echo "<?php"
@@ -134,31 +134,31 @@ if [[ $? -ne 0 ]] ; then
 fi
 
 # run ocg docker
-docker ps | grep ${W2L_INSTANCE_NAME}-ocg &> /dev/null
+docker ps | grep ${WTL_INSTANCE_NAME}-ocg &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep ${W2L_INSTANCE_NAME}-ocg &> /dev/null
+ docker ps -a | grep ${WTL_INSTANCE_NAME}-ocg &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start ${W2L_INSTANCE_NAME}-ocg
+  docker start ${WTL_INSTANCE_NAME}-ocg
  else
   langs="$(find configs/secrets/ -name *wikitolearn.php -exec basename {} \; | sed 's/wikitolearn.php//g' | grep -v shared)"
   echo $langs
-  if [[ "$W2L_SKIP_OCG_DOCKER" == "0" ]] ; then
-   W2L_DOCKER_OCG_USE="$W2L_DOCKER_OCG"
-   W2L_OCG_CMD=""
+  if [[ "$WTL_SKIP_OCG_DOCKER" == "0" ]] ; then
+   WTL_DOCKER_OCG_USE="$WTL_DOCKER_OCG"
+   WTL_OCG_CMD=""
   else
-   W2L_DOCKER_OCG_USE="debian:8"
-   W2L_OCG_CMD="sleep infinity"
+   WTL_DOCKER_OCG_USE="debian:8"
+   WTL_OCG_CMD="sleep infinity"
   fi
-  docker run -ti $MORE_ARGS -v wikitolearn-ocg:/tmp/ocg/ocg-output/ --hostname ocg --link ${W2L_INSTANCE_NAME}-parsoid:parsoid -e langs="$langs" --name ${W2L_INSTANCE_NAME}-ocg -d $W2L_DOCKER_OCG_USE $W2L_OCG_CMD
+  docker run -ti $MORE_ARGS -v wikitolearn-ocg:/tmp/ocg/ocg-output/ --hostname ocg --link ${WTL_INSTANCE_NAME}-parsoid:parsoid -e langs="$langs" --name ${WTL_INSTANCE_NAME}-ocg -d $WTL_DOCKER_OCG_USE $WTL_OCG_CMD
  fi
 fi
 
 # run websrv docker linked to other
-docker ps | grep ${W2L_INSTANCE_NAME}-websrv &> /dev/null
+docker ps | grep ${WTL_INSTANCE_NAME}-websrv &> /dev/null
 if [[ $? -ne 0 ]] ; then
- docker ps -a | grep ${W2L_INSTANCE_NAME}-websrv &> /dev/null
+ docker ps -a | grep ${WTL_INSTANCE_NAME}-websrv &> /dev/null
  if [[ $? -eq 0 ]] ; then
-  docker start ${W2L_INSTANCE_NAME}-websrv
+  docker start ${WTL_INSTANCE_NAME}-websrv
  else
   if [ ! -f configs/secrets/secrets.php ] ; then
    WG_SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1)
@@ -189,22 +189,22 @@ EOL
    CERTS_MOUNT=" -v "$(pwd)"/certs/:/certs/:ro "
   fi
 
-  docker run -ti $MORE_ARGS -v ${W2L_INSTANCE_NAME}-var-log-apache2:/var/log/apache2 --hostname websrv \
+  docker run -ti $MORE_ARGS -v ${WTL_INSTANCE_NAME}-var-log-apache2:/var/log/apache2 --hostname websrv \
    $CERTS_MOUNT \
    -e USER_UID=$EXT_UID \
    -e USER_GID=$EXT_GID \
-   -v $(readlink -f $(dirname $(readlink -f $0))"/.."):/var/www/WikiToLearn/ --name ${W2L_INSTANCE_NAME}-websrv \
-   --link ${W2L_INSTANCE_NAME}-mysql:mysql \
-   --link ${W2L_INSTANCE_NAME}-memcached:memcached \
-   --link ${W2L_INSTANCE_NAME}-ocg:ocg \
-   --link ${W2L_INSTANCE_NAME}-mathoid:mathoid \
-   --link ${W2L_INSTANCE_NAME}-parsoid:parsoid \
-   -d $W2L_DOCKER_WEBSRV
+   -v $(readlink -f $(dirname $(readlink -f $0))"/.."):/var/www/WikiToLearn/ --name ${WTL_INSTANCE_NAME}-websrv \
+   --link ${WTL_INSTANCE_NAME}-mysql:mysql \
+   --link ${WTL_INSTANCE_NAME}-memcached:memcached \
+   --link ${WTL_INSTANCE_NAME}-ocg:ocg \
+   --link ${WTL_INSTANCE_NAME}-mathoid:mathoid \
+   --link ${WTL_INSTANCE_NAME}-parsoid:parsoid \
+   -d $WTL_DOCKER_WEBSRV
 
-  if [[ "$W2L_RELAY_HOST" != "" ]] ; then
+  if [[ "$WTL_RELAY_HOST" != "" ]] ; then
    {
-    docker exec ${W2L_INSTANCE_NAME}-websrv sed '/^mailhub/d' /etc/ssmtp/ssmtp.conf
-    echo "mailhub=${W2L_RELAY_HOST}" | docker exec -i ${W2L_INSTANCE_NAME}-websrv tee -a /etc/ssmtp/ssmtp.conf
+    docker exec ${WTL_INSTANCE_NAME}-websrv sed '/^mailhub/d' /etc/ssmtp/ssmtp.conf
+    echo "mailhub=${WTL_RELAY_HOST}" | docker exec -i ${WTL_INSTANCE_NAME}-websrv tee -a /etc/ssmtp/ssmtp.conf
    } &> /dev/null
   fi
  fi
