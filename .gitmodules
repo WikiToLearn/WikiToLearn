@@ -3,9 +3,6 @@
 	path = mediawiki
 	url = https://github.com/wikimedia/mediawiki
 	ignore = dirty
-[submodule "extensions/Interwiki"]
-	path = extensions/Interwiki
-	url = https://github.com/wikimedia/mediawiki-extensions-Interwiki.git
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
 	url = https://github.com/wikimedia/mediawiki-extensions-googleAnalytics.git
