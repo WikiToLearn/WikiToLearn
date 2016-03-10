@@ -51,9 +51,6 @@
 [submodule "extensions/UserMerge"]
 	path = extensions/UserMerge
 	url = https://github.com/wikimedia/mediawiki-extensions-UserMerge.git
-[submodule "extensions/CategorySuggest"]
-	path = extensions/CategorySuggest
-	url = https://github.com/middlebury/CategorySuggest.git
 [submodule "extensions/EmbedVideo"]
 	path = extensions/EmbedVideo
 	url = https://github.com/Alexia/mediawiki-embedvideo.git

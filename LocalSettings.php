@@ -171,7 +171,7 @@ $wgUseInstantCommons = true;
 
 ## If you use ImageMagick (or any other shell command) on a
 ## Linux server, this will need to be set to the name of an
-## available UTF-8 locale
+## available UTF-8 e
 $wgShellLocale = "en_US.utf8";
 
 ## If you want to use image uploads under safe mode,
@@ -333,7 +333,6 @@ require_once( "$IP/extensions/Echo/Echo.php" );
 
 $wgAllowImageTag = true;
 
-require_once("$IP/extensions/CategorySuggest/CategorySuggest.php");
 
 // require_once("$IP/extensions/VisualEditor/VisualEditor.php");
 // require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
