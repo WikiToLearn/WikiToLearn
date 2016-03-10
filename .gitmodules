@@ -51,9 +51,6 @@
 [submodule "extensions/UserMerge"]
 	path = extensions/UserMerge
 	url = https://github.com/wikimedia/mediawiki-extensions-UserMerge.git
-[submodule "extensions/UniversalLanguageSelector"]
-	path = extensions/UniversalLanguageSelector
-	url = https://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector.git
 [submodule "extensions/CategorySuggest"]
 	path = extensions/CategorySuggest
 	url = https://github.com/middlebury/CategorySuggest.git

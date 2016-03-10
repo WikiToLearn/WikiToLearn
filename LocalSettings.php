@@ -94,7 +94,7 @@ foreach ($arr as $key => $value) {
 # Site language code, should be one of ./languages/Language(.*).php
 # Make sure you give permission to sharedwikitolearn database to the user in question.
 
-$wgLanguageCode = "en"; // Default
+#$wgLanguageCode = "en"; // Default
 
 switch ($wiki) {
     case "it":
@@ -244,7 +244,7 @@ wfLoadExtension( "ParserFunctions" );
 # Bigger uploads
 $wgMaxUploadSize = 2147483648;
 
-# Protect only uploads 
+# Protect only uploads
 $wgAllowExternalImagesFrom = array('http://www.' . $wiki_domain . '/', 'http://www.pledgie.com');
 
 $wgUseETag = true;
@@ -348,7 +348,7 @@ wfLoadExtension( "UserMerge" );
 // By default nobody can use this function, enable for bureaucrat?
 $wgGroupPermissions['sysop']['usermerge'] = true;
 
-wfLoadExtension("UniversalLanguageSelector");
+//wfLoadExtension("UniversalLanguageSelector");
 
 require_once "$IP/skins/Neverland/Neverland.php";
 
