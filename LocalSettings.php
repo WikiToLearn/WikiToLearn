@@ -311,6 +311,7 @@ $wgContribScoreReports = array(
     array(90, 20));
 
 
+//wfLoadExtension( "EmbedVideo" );
 include_once("$IP/extensions/EmbedVideo/EmbedVideo.php");
 
 #require_once("$IP/extensions/MobileFrontend/MobileFrontend.php");
@@ -324,12 +325,7 @@ $wgCiteEnablePopups = true;
 require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
 
 wfLoadExtension("Nuke");
-
 require_once( "$IP/extensions/Echo/Echo.php" );
-
-// require_once("$IP/extensions/FlaggedRevs/FlaggedRevs.php");
-// $wgGroupPermissions['sysop']['review'] = true; //allow administrators to review revisions
-// $wgFlaggedRevsOverride = false;
 
 $wgAllowImageTag = true;
 
@@ -347,7 +343,6 @@ wfLoadExtension( "UserMerge" );
 // By default nobody can use this function, enable for bureaucrat?
 $wgGroupPermissions['sysop']['usermerge'] = true;
 
-//wfLoadExtension("UniversalLanguageSelector");
 
 require_once "$IP/skins/Neverland/Neverland.php";
 

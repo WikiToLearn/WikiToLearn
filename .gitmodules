@@ -42,9 +42,6 @@
 [submodule "extensions/Echo"]
 	path = extensions/Echo
 	url = https://github.com/wikimedia/mediawiki-extensions-Echo.git
-[submodule "extensions/FlaggedRevs"]
-	path = extensions/FlaggedRevs
-	url = https://github.com/wikimedia/mediawiki-extensions-FlaggedRevs.git
 [submodule "extensions/SubPageList"]
 	path = extensions/SubPageList
 	url = https://github.com/wikimedia/mediawiki-extensions-SubPageList.git
