@@ -12,3 +12,4 @@ rm $CWD/mediawiki/LocalSettings.php
 rm $CWD/mediawiki/skins/Neverland
 rm -r $CWD/mediawiki/extensions
 rm $CWD/mediawiki/favicon.ico
+rm -Rf $CWD/mediawiki/vendor
