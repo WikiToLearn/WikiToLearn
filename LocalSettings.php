@@ -344,12 +344,17 @@ wfLoadExtension("Nuke");
 // Add parser functions (for if, else, ...)
 wfLoadExtension( "ParserFunctions" );
 
+
 wfLoadExtension( 'Renameuser' );
 
-// require_once( "$IP/extensions/SubPageList/SubPageList.php" );
+
+// SubapageList needs it
+require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
+require_once( "$IP/extensions/SubPageList/SubPageList.php" );
 // Add subpage capabilities
 $wgNamespacesWithSubpages = array_fill(0, 200, true);
 $wgNamespacesWithSubpages[NS_USER] = true;
+
 
 // Highlight extension:
 wfLoadExtension("SyntaxHighlight_GeSHi");
@@ -376,3 +381,6 @@ wfLoadExtension( "WikiEditor" );
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
+
+//error_reporting(-1);
+//ini_set("display_errors",1);
