@@ -7,6 +7,12 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
+$wtl_development=false;
+if ($wtl_development==true){
+  error_reporting(-1);
+  ini_set("display_errors",1);
+}
+
 $IP = "/var/www/WikiToLearn/mediawiki/";
 putenv("MW_INSTALL_PATH=$IP");
 
@@ -139,6 +145,7 @@ if (!isset($wgDBname)) {
     $wgDBname = $wgDBuser;
 }
 $wgEnableAPI = true;
+
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
@@ -381,6 +388,3 @@ wfLoadExtension( "WikiEditor" );
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
-
-//error_reporting(-1);
-//ini_set("display_errors",1);
