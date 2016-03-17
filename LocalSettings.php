@@ -275,11 +275,15 @@ $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
 # Captcha
-wfLoadExtension( "ConfirmEdit" );
+    
+wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 
-wfLoadExtension( "/ConfirmEdit/QuestyCaptcha" );
-$wgCaptchaClass = 'QuestyCaptcha';
+$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaSendRemoteIP = true;
 
+/// These keys are Google's test keys. Configure them appropriately in secrets
+$wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+$wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'; 
 
 $wgGroupPermissions['*']['skipcaptcha'] = false;
 $wgGroupPermissions['user']['skipcaptcha'] = true;
@@ -399,8 +403,6 @@ require_once( "$IP/extensions/Flow/Flow.php" );
 
 $wgCapitalLinkOverrides[ NS_FILE ] = false;
 
-require_once("$IP/../secrets/secrets.php");
-
 wfLoadExtension( 'Renameuser' );
 
 
@@ -449,3 +451,8 @@ function modifyToolbox( BaseTemplate $baseTemplate, array &$toolbox ) {
 
 	return true;
 }
+
+/// WARNING, WikiToLearn Developer!
+/// PLEASE KEEP THIS LINE AS LAST!
+require_once("$IP/../secrets/secrets.php");
+
