@@ -3,9 +3,6 @@
 	path = mediawiki
 	url = https://github.com/wikimedia/mediawiki
 	ignore = dirty
-[submodule "extensions/Interwiki"]
-	path = extensions/Interwiki
-	url = https://github.com/wikimedia/mediawiki-extensions-Interwiki.git
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
 	url = https://github.com/wikimedia/mediawiki-extensions-googleAnalytics.git
@@ -42,21 +39,12 @@
 [submodule "extensions/Echo"]
 	path = extensions/Echo
 	url = https://github.com/wikimedia/mediawiki-extensions-Echo.git
-[submodule "extensions/FlaggedRevs"]
-	path = extensions/FlaggedRevs
-	url = https://github.com/wikimedia/mediawiki-extensions-FlaggedRevs.git
 [submodule "extensions/SubPageList"]
 	path = extensions/SubPageList
 	url = https://github.com/wikimedia/mediawiki-extensions-SubPageList.git
 [submodule "extensions/UserMerge"]
 	path = extensions/UserMerge
 	url = https://github.com/wikimedia/mediawiki-extensions-UserMerge.git
-[submodule "extensions/UniversalLanguageSelector"]
-	path = extensions/UniversalLanguageSelector
-	url = https://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector.git
-[submodule "extensions/CategorySuggest"]
-	path = extensions/CategorySuggest
-	url = https://github.com/middlebury/CategorySuggest.git
 [submodule "extensions/EmbedVideo"]
 	path = extensions/EmbedVideo
 	url = https://github.com/Alexia/mediawiki-embedvideo.git
@@ -76,9 +64,6 @@
 	path = extensions/Theorems
     pushurl = git@github.com/WikiToLearn/Theorems
 	url = https://github.com/WikiToLearn/Theorems
-[submodule "extensions/ParserHooks"]
-	path = extensions/ParserHooks
-	url = https://github.com/wikimedia/mediawiki-extensions-ParserHooks.git
 [submodule "extensions/VisualEditor"]
 	path = extensions/VisualEditor
 	url = https://github.com/wikimedia/mediawiki-extensions-VisualEditor.git
