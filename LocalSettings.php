@@ -8,7 +8,7 @@
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
 $wtl_development=false;
-if ($wtl_development==true){
+if ($wtl_development || getenv("WTL_PRODUCTION") == "1"){
   error_reporting(-1);
   ini_set("display_errors",1);
 }
@@ -222,11 +222,6 @@ $wgDefaultUserOptions['useeditwarning'] = 1;
 $wgDefaultSkin = 'neverland';
 require_once "$IP/skins/Neverland/Neverland.php";
 
-
-if (getenv('WTL_PRODUCTION') != 1) {
- $wgShowExceptionDetails = true;
-}
-
 $wgAllowImageTag = true;
 
 if (getenv("WTL_PRODUCTION") == "1") {
@@ -277,7 +272,6 @@ $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaSendRemoteIP = true;
-
 /// These keys are Google's test keys. Configure them appropriately in secrets
 $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
 $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
@@ -382,6 +376,7 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
 // Licence WTFPL 2.0
 // Modifies the toolbar to be editable
+// Ask Gianluca about this
 $wgHooks['BaseTemplateToolbox'][] = 'modifyToolbox';
 
 function modifyToolbox( BaseTemplate $baseTemplate, array &$toolbox ) {
