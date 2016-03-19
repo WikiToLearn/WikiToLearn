@@ -7,7 +7,7 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
-$wtl_development=true;
+$wtl_development=false;
 if ($wtl_development==true){
   error_reporting(-1);
   ini_set("display_errors",1);
