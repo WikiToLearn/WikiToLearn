@@ -96,6 +96,8 @@ foreach ($arr as $key => $value) {
 
 $wgLanguageCode = "en"; // Default
 
+require_once("$IP/../LocalSettings.d/mysql-username-and-password.php");
+
 switch ($wiki) {
     case "it":
     case "en":
@@ -105,15 +107,16 @@ switch ($wiki) {
     case "pt":
     case "sv":
         $wgLanguageCode = $wiki;
-        require_once("$IP/../secrets/" . $wiki . "wikitolearn.php");
+        $wgDBname = $wiki . "wikitolearn";
         break;
     case "pool":
     case "meta":
+        $wgDBname = $wiki . "wikitolearn";
         include_once("$IP/extensions/Translate/Translate.php");
-        require_once("$IP/../secrets/" . $wiki . "wikitolearn.php");
         break;
     default:
 	header("Location: //www." . $wiki_domain . "/");
+    exit(0);
 	break;
 }
 
@@ -145,10 +148,6 @@ $wgForeignFileRepos[] = array(
     'descBaseUrl' => '//pool.' . $wiki_domain . '/Image:',
     'fetchDescription' => false
 );
-
-if (!isset($wgDBname)) {
-    $wgDBname = $wgDBuser;
-}
 
 $wgEnableAPI = true;
 
@@ -399,7 +398,7 @@ require_once( "$IP/extensions/Flow/Flow.php" );
 
 $wgCapitalLinkOverrides[ NS_FILE ] = false;
 
-require_once("$IP/../secrets/secrets.php");
+require_once("$IP/../LocalSettings.d/wgSecretKey.php");
 
 wfLoadExtension( 'Renameuser' );
 

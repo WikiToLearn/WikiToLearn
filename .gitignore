@@ -1,12 +1,4 @@
-Dockers/haproxy.cfg
 *.kate-swp
-configs/
-secrets/*
-Dockers/ocg-dev/mw-ocg/
-Dockers/configs/
-Dockers/instance_config.conf
-Dockers/mysql-data/
-Dockers/websrv-log/
-Dockers/certs/
-Dockers/ocg-dev/mw-ocg-latexer
 .directory
+LocalSettings.d/
+!LocalSettings.d/.placeholder
