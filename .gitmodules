@@ -88,3 +88,6 @@
 [submodule "extensions/EasyLink"]
 	path = extensions/EasyLink
 	url = https://github.com/WikiToLearn/EasyLink.git
+[submodule "extensions/ParserHooks"]
+    path = extensions/ParserHooks
+    url = https://github.com/wikimedia/mediawiki-extensions-ParserHooks.git
