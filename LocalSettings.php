@@ -373,46 +373,6 @@ $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
-
-// Licence WTFPL 2.0
-// Modifies the toolbar to be editable
-// Ask Gianluca about this
-$wgHooks['BaseTemplateToolbox'][] = 'modifyToolbox';
-
-function modifyToolbox( BaseTemplate $baseTemplate, array &$toolbox ) {
-
-  static $keywords = array( 'WHATLINKSHERE', 'RECENTCHANGESLINKED', 'FEEDS', 'CONTRIBUTIONS', 'LOG', 'BLOCKIP', 'EMAILUSER', 'USERRIGHTS', 'UPLOAD', 'SPECIALPAGES', 'PRINT', 'PERMALINK', 'INFO' );
-
-  $modifiedToolbox = array();
-
-  // Walk in the MediaWiki:Sidebar message, section toolbox
-  foreach ( $baseTemplate->data['sidebar']['TOOLBOX'] as $value ) {
-      $specialLink = false;
-
-      // Search if the keyword exists
-      foreach ( $keywords as $key ) {
-          if ( $value['href'] == Title::newFromText($key)->fixSpecialName()->getLinkURL() ) {
-              $specialLink = true;
-
-              // This is a keyword, hence add this special link
-              if ( array_key_exists( strtolower($key), $toolbox ) ) {
-                  $modifiedToolbox[strtolower($key)] = $toolbox[strtolower($key)];
-                  break;
-              }
-          }
-      }
-
-      // This is a normal link
-      if ( !$specialLink ) {
-          $modifiedToolbox[] = $value;
-      }
-  }
-
-  $toolbox = $modifiedToolbox;
-
-  return true;
-}
-
 /// WARNING, WikiToLearn Developer!
 /// PLEASE KEEP THIS LINE AS LAST!
 require_once("$IP/../secrets/secrets.php");
