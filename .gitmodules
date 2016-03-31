@@ -91,3 +91,6 @@
 [submodule "extensions/ParserHooks"]
     path = extensions/ParserHooks
     url = https://github.com/wikimedia/mediawiki-extensions-ParserHooks.git
+[submodule "extensions/InputBox"]
+	path = extensions/InputBox
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/InputBox.git
