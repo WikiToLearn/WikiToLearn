@@ -91,6 +91,12 @@ $wgSharedTables[] = array('user', 'user_properties', 'user_groups', 'interwiki',
 
 # Site language code, should be one of ./languages/Language(.*).php
 # Make sure you give permission to sharedwikitolearn database to the user in question.
+
+$wgLanguageCode = "en"; // Default
+
+require_once("$IP/../LocalSettings.d/mysql-username-and-password.php");
+require_once("$IP/../LocalSettings.d/wgSecretKey.php");
+
 switch ($wiki) {
     case "it":
     case "en":
@@ -100,16 +106,17 @@ switch ($wiki) {
     case "pt":
     case "sv":
         $wgLanguageCode = $wiki;
-        require_once("$IP/../secrets/" . $wiki . "wikitolearn.php");
+        $wgDBname = $wiki . "wikitolearn";
         break;
     case "pool":
     case "meta":
+        $wgDBname = $wiki . "wikitolearn";
         include_once("$IP/extensions/Translate/Translate.php");
-        require_once("$IP/../secrets/" . $wiki . "wikitolearn.php");
         break;
     default:
-    header("Location: //www." . $wiki_domain . "/");
-    break;
+	header("Location: //www." . $wiki_domain . "/");
+    exit(0);
+	break;
 }
 
 $wgSitename = "WikiToLearn - collaborative textbooks";
@@ -338,6 +345,17 @@ wfLoadExtension( "ParserFunctions" );
 
 wfLoadExtension( 'Renameuser' );
 
+if (file_exists("$IP/../LocalSettings.d/wgReadOnly.php")) {
+    require_once("$IP/../LocalSettings.d/wgReadOnly.php");
+}
+
+
+
+
+
+// Licence WTFPL 2.0
+// Modifies the toolbar to be editable
+$wgHooks['BaseTemplateToolbox'][] = 'modifyToolbox';
 
 // SubapageList needs it
 require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
@@ -373,6 +391,3 @@ $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
-/// WARNING, WikiToLearn Developer!
-/// PLEASE KEEP THIS LINE AS LAST!
-require_once("$IP/../secrets/secrets.php");
