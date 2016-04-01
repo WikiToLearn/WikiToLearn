@@ -402,6 +402,7 @@ require_once("$IP/../LocalSettings.d/wgSecretKey.php");
 
 wfLoadExtension( 'Renameuser' );
 
+require_once("$IP/../LocalSettings.d/mysql-username-and-password.php");
 
 $wgVirtualRestConfig['modules']['parsoid'] = array(
   // URL to the Parsoid instance
@@ -410,6 +411,10 @@ $wgVirtualRestConfig['modules']['parsoid'] = array(
   // Parsoid "domain", see below (optional)
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
 );
+
+if (file_exists("$IP/../LocalSettings.d/wgReadOnly.php")) {
+    require_once("$IP/../LocalSettings.d/wgReadOnly.php");
+}
 
 // Licence WTFPL 2.0
 // Modifies the toolbar to be editable
