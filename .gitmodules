@@ -1,91 +1,25 @@
-[submodule "extensions/googleAnalytics"]
-	path = extensions/googleAnalytics
-	url = https://github.com/wikimedia/mediawiki-extensions-googleAnalytics.git
-[submodule "extensions/SyntaxHighlight_GeSHi"]
-	path = extensions/SyntaxHighlight_GeSHi
-	url = https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi.git
-[submodule "extensions/ParserFunctions"]
-	path = extensions/ParserFunctions
-	url = https://github.com/wikimedia/mediawiki-extensions-ParserFunctions.git
 [submodule "extensions/Collection"]
 	path = extensions/Collection
 	url = https://github.com/WikiToLearn/mediawiki-extensions-Collection
-[submodule "extensions/Math"]
-	path = extensions/Math
-	url = https://github.com/wikimedia/mediawiki-extensions-Math.git
-[submodule "extensions/WikiEditor"]
-	path = extensions/WikiEditor
-	url = https://github.com/wikimedia/mediawiki-extensions-WikiEditor.git
-[submodule "extensions/ConfirmEdit"]
-	path = extensions/ConfirmEdit
-	url = https://github.com/wikimedia/mediawiki-extensions-ConfirmEdit.git
-[submodule "extensions/ContributionScores"]
-	path = extensions/ContributionScores
-	url = https://github.com/wikimedia/mediawiki-extensions-ContributionScores.git
-[submodule "extensions/Cite"]
-	path = extensions/Cite
-	url = https://github.com/wikimedia/mediawiki-extensions-Cite.git
-[submodule "extensions/LiquidThreads"]
-	path = extensions/LiquidThreads
-	url = https://github.com/wikimedia/mediawiki-extensions-LiquidThreads.git
-[submodule "extensions/Nuke"]
-	path = extensions/Nuke
-	url = https://github.com/wikimedia/mediawiki-extensions-Nuke.git
-[submodule "extensions/Echo"]
-	path = extensions/Echo
-	url = https://github.com/wikimedia/mediawiki-extensions-Echo.git
-[submodule "extensions/SubPageList"]
-	path = extensions/SubPageList
-	url = https://github.com/wikimedia/mediawiki-extensions-SubPageList.git
-[submodule "extensions/UserMerge"]
-	path = extensions/UserMerge
-	url = https://github.com/wikimedia/mediawiki-extensions-UserMerge.git
 [submodule "extensions/EmbedVideo"]
 	path = extensions/EmbedVideo
 	url = https://github.com/Alexia/mediawiki-embedvideo.git
-[submodule "extensions/SyntaxHighlighter"]
-	path = extensions/SyntaxHighlighter
-	url = https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlighter.git
 [submodule "Neverland"]
 	path = Neverland
 	url = https://github.com/WikiToLearn/Neverland.git
 [submodule "extensions/DockerAccess"]
 	path = extensions/DockerAccess
 	url = https://github.com/WikiToLearn/DockerAccess.git
-[submodule "extensions/Gadgets"]
-	path = extensions/Gadgets
-	url = https://github.com/wikimedia/mediawiki-extensions-Gadgets.git
 [submodule "extensions/Theorems"]
 	path = extensions/Theorems
     pushurl = git@github.com/WikiToLearn/Theorems
 	url = https://github.com/WikiToLearn/Theorems
-[submodule "extensions/VisualEditor"]
-	path = extensions/VisualEditor
-	url = https://github.com/wikimedia/mediawiki-extensions-VisualEditor.git
-[submodule "extensions/Flow"]
-	path = extensions/Flow
-	url = https://github.com/wikimedia/mediawiki-extensions-Flow.git
-[submodule "extensions/Renameuser"]
-	path = extensions/Renameuser
-	url = https://github.com/wikimedia/mediawiki-extensions-Renameuser.git
-[submodule "extensions/Translate"]
-	path = extensions/Translate
-	url = https://github.com/wikimedia/mediawiki-extensions-Translate.git
 [submodule "extensions/DMath"]
 	path = extensions/DMath
 	url = https://github.com/WikiToLearn/DMath.git
 [submodule "vendor"]
 	path = vendor
 	url = https://github.com/WikiToLearn/wikitolearn-vendor.git
-[submodule "extensions/Validator"]
-	path = extensions/Validator
-	url = https://github.com/wikimedia/mediawiki-extensions-Validator.git
 [submodule "extensions/EasyLink"]
 	path = extensions/EasyLink
 	url = https://github.com/WikiToLearn/EasyLink.git
-[submodule "extensions/ParserHooks"]
-    path = extensions/ParserHooks
-    url = https://github.com/wikimedia/mediawiki-extensions-ParserHooks.git
-[submodule "extensions/InputBox"]
-	path = extensions/InputBox
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/InputBox.git
