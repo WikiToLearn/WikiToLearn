@@ -73,8 +73,12 @@ $wgEnableSidebarCache = true;
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "webmaster@kde.org";
-$wgPasswordSender = "webmaster@kde.org";
+if (file_exists("$IP/../LocalSettings.d/mail-from-address.php")) {
+    require_once("$IP/../LocalSettings.d/mail-from-address.php");
+} else {
+    $wgEmergencyContact = "webmaster@kde.org";
+    $wgPasswordSender = "webmaster@kde.org";
+}
 
 $wgEnotifUserTalk = true; # UPO
 $wgEnotifWatchlist = false; # UPO
