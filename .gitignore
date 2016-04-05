@@ -14,7 +14,7 @@ extensions/googleAnalytics/
 extensions/InputBox/
 extensions/LiquidThreads/
 extensions/Math/
-extension/NewUserMessage
+extensions/NewUserMessage/
 extensions/Nuke/
 extensions/ParserFunctions/
 extensions/ParserHooks/
