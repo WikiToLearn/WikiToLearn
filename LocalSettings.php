@@ -240,7 +240,9 @@ if (getenv("WTL_PRODUCTION") == "1") {
     $wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
 }
 
-$wgCapitalLinkOverrides[ NS_FILE ] = false;
+// FIXME
+$wgCapitalLinkOverrides[ NS_FILE ] = true; //FIXME
+// FIXME
 
 // Visual Editor configuration
 wfLoadExtension( "VisualEditor" );
