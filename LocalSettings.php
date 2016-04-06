@@ -334,9 +334,15 @@ include_once("$IP/extensions/EmbedVideo/EmbedVideo.php");
 
 //Flow for talk pages
 require_once( "$IP/extensions/Flow/Flow.php" );
-# These lines enable Flow on the "Project talk" and "User talk" namespaces
-// $wgNamespaceContentModels[NS_PROJECT_TALK] = CONTENT_MODEL_FLOW_BOARD;
-// $wgNamespaceContentModels[NS_USER_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_USER_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_PROJECT_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_FILE_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_MEDIAWIKI_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
+//LiquidThreads for discussion page system
+//require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
 
 //Gadgets
 wfLoadExtension( "Gadgets" );
@@ -344,8 +350,7 @@ wfLoadExtension( "Gadgets" );
 //googleAnalytics
 require_once( "$IP/extensions/googleAnalytics/googleAnalytics.php" );
 
-//LiquidThreads for discussion page system
-require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
+
 
 // MathJax
 wfLoadExtension("Math");
