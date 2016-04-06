@@ -334,6 +334,7 @@ include_once("$IP/extensions/EmbedVideo/EmbedVideo.php");
 
 //Flow for talk pages
 require_once( "$IP/extensions/Flow/Flow.php" );
+$wgNamespaceContentModels[NS_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_USER_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_PROJECT_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_FILE_TALK] = CONTENT_MODEL_FLOW_BOARD;
