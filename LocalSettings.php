@@ -245,12 +245,12 @@ $wgCapitalLinkOverrides[ NS_FILE ] = true; //FIXME
 // FIXME
 
 // Visual Editor configuration
-wfLoadExtension( "VisualEditor" );
+//wfLoadExtension( "VisualEditor" );
 // Enable by default for everybody
-$wgDefaultUserOptions['visualeditor-enable'] = 1;
+//$wgDefaultUserOptions['visualeditor-enable'] = 1;
 // OPTIONAL: Enable VisualEditor's experimental code features
-$wgDefaultUserOptions['visualeditor-enable-experimental'] = 1;
-$wgVisualEditorSupportedSkins = ['neverland'];
+//$wgDefaultUserOptions['visualeditor-enable-experimental'] = 1;
+//$wgVisualEditorSupportedSkins = ['neverland'];
 
 //$wgVirtualRestConfig['modules']['parsoid'] = array(
   // URL to the Parsoid instance
