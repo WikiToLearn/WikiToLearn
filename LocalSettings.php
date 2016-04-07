@@ -252,13 +252,13 @@ $wgDefaultUserOptions['visualeditor-enable'] = 1;
 $wgDefaultUserOptions['visualeditor-enable-experimental'] = 1;
 $wgVisualEditorSupportedSkins = ['neverland'];
 
-$wgVirtualRestConfig['modules']['parsoid'] = array(
+//$wgVirtualRestConfig['modules']['parsoid'] = array(
   // URL to the Parsoid instance
   // Use port 8142 if you use the Debian package
-  'url' => 'http://parsoid:8000',
+  //'url' => 'http://parsoid:8000',
   // Parsoid "domain", see below (optional)
-  'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
-);
+  //'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
+//);
 
 $wgVirtualRestConfig['modules']['restbase'] = array(
   'url' => 'http://restbase:7231',
