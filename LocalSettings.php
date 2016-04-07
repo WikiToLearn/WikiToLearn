@@ -252,20 +252,20 @@ $wgCapitalLinkOverrides[ NS_FILE ] = true; //FIXME
 //$wgDefaultUserOptions['visualeditor-enable-experimental'] = 1;
 //$wgVisualEditorSupportedSkins = ['neverland'];
 
-//$wgVirtualRestConfig['modules']['parsoid'] = array(
+$wgVirtualRestConfig['modules']['parsoid'] = array(
   // URL to the Parsoid instance
   // Use port 8142 if you use the Debian package
-  //'url' => 'http://parsoid:8000',
+  'url' => 'http://parsoid:8000',
   // Parsoid "domain", see below (optional)
-  //'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
-//);
-
-$wgVirtualRestConfig['modules']['restbase'] = array(
-  'url' => 'http://restbase:7231',
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
-  'forwardCookies' => false,
-  'parsoidCompat' => false
 );
+
+//$wgVirtualRestConfig['modules']['restbase'] = array(
+//  'url' => 'http://restbase:7231',
+//  'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
+//  'forwardCookies' => false,
+//  'parsoidCompat' => false
+//);
 
 /* extensions loading */
 
@@ -343,6 +343,8 @@ $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList	= array('wikitext');
+$wgVirtualRestConfig['modules']['parsoid']['url'] = "http://parsoid:8000";
+
 //LiquidThreads for discussion page system
 //require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
 
