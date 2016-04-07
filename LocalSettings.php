@@ -343,7 +343,6 @@ $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList	= array('wikitext');
-$wgVirtualRestConfig['modules']['parsoid']['url'] = "http://parsoid:8000";
 
 //LiquidThreads for discussion page system
 //require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
