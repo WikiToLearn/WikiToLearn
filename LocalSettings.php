@@ -298,9 +298,14 @@ $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaSendRemoteIP = true;
-/// These keys are Google's test keys. Configure them appropriately in secrets
-$wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
-$wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+
+if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
+    require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
+} else {
+    // These keys are Google's test keys. Configure them appropriately in secrets
+    $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+    $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+}
 
 //ContributionScores
 require_once("$IP/extensions/ContributionScores/ContributionScores.php");
