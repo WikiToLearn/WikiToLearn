@@ -299,6 +299,18 @@ wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaSendRemoteIP = true;
 
+$wgCaptchaTriggers['edit']          = true;
+$wgCaptchaTriggers['create']        = true;
+$wgCaptchaTriggers['addurl']        = true;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin']      = true;
+
+$wgGroupPermissions['*'            ]['skipcaptcha'] = false;
+$wgGroupPermissions['user'         ]['skipcaptcha'] = false;
+$wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
+$wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
+$wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
+
 if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
     require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
 } else {
