@@ -345,15 +345,6 @@ $wgContribScoreReports = array(
 //DMath
 wfLoadExtension("DMath");
 
-//DockerAccess
-require_once( "$IP/extensions/DockerAccess/DockerAccess.php" );
-$virtualFactoryURL = "http://babbage.wikitolearn.org";
-$virtualFactoryImages = array(
-    'ubuntu-base' => "Minimal LXDE image",
-    'novnc-kde' => "KDE Development Image",
-    'qt5' => "Qt5 Development Image",
-    'root' => "ROOT Basic Image",
-);
 
 //Echo for notification
 require_once( "$IP/extensions/Echo/Echo.php" );
