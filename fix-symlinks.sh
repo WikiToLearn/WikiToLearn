@@ -8,10 +8,10 @@ CWD="$(
 )"
 
 #remove the existing symlinks
-test -f $CWD/mediawiki/LocalSettings.php && rm $CWD/mediawiki/LocalSettings.php
-test -f $CWD/mediawiki/skins/Neverland && rm $CWD/mediawiki/skins/Neverland
-test -f $CWD/mediawiki/favicon.ico && rm $CWD/mediawiki/favicon.ico
-rm -r $CWD/mediawiki/extensions
+test -e $CWD/mediawiki/LocalSettings.php && rm -f $CWD/mediawiki/LocalSettings.php
+test -e $CWD/mediawiki/skins/Neverland && rm -f $CWD/mediawiki/skins/Neverland
+test -e $CWD/mediawiki/favicon.ico && rm -f $CWD/mediawiki/favicon.ico
+rm -fr $CWD/mediawiki/extensions
 
 
 #create symlinks
