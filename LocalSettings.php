@@ -298,9 +298,26 @@ $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaSendRemoteIP = true;
-/// These keys are Google's test keys. Configure them appropriately in secrets
-$wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
-$wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+
+$wgCaptchaTriggers['edit']          = true;
+$wgCaptchaTriggers['create']        = true;
+$wgCaptchaTriggers['addurl']        = true;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin']      = true;
+
+$wgGroupPermissions['*'            ]['skipcaptcha'] = false;
+$wgGroupPermissions['user'         ]['skipcaptcha'] = false;
+$wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
+$wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
+$wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
+
+if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
+    require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
+} else {
+    // These keys are Google's test keys. Configure them appropriately in secrets
+    $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+    $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+}
 
 //ContributionScores
 require_once("$IP/extensions/ContributionScores/ContributionScores.php");
