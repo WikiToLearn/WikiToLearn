@@ -367,7 +367,7 @@ if (file_exists("$IP/../LocalSettings.d/wgCaptchaQuestions.php")) {
     }
 }
 
-$wgCaptchaTriggers['editgi'] = true;
+$wgCaptchaTriggers['edit'] = true;
 $wgCaptchaTriggers['create'] = true;
 $wgCaptchaTriggers['addurl'] = true;
 $wgCaptchaTriggers['createaccount'] = true;
