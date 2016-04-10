@@ -353,14 +353,18 @@ if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
 
 wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
 $wgCaptchaClass = 'QuestyCaptcha';
-$arr = array (
-    "Write 8421" => "8421",
-    "Write 1337" => "1337",
-    "Write 9999" => "9999",
-    "Write 'WikiToLearn'" => "WikiToLearn"
-);
-foreach ( $arr as $key => $value ) {
+if (file_exists("$IP/../LocalSettings.d/wgCaptchaQuestions.php")) {
+    require_once("$IP/../LocalSettings.d/wgCaptchaQuestions.php");
+} else {
+    $arr = array (
+        "Write 8421" => "8421",
+        "Write 1337" => "1337",
+        "Write 9999" => "9999",
+        "Write 'WikiToLearn'" => "WikiToLearn"
+    );
+    foreach ( $arr as $key => $value ) {
         $wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
+    }
 }
 
 $wgCaptchaTriggers['editgi'] = true;
