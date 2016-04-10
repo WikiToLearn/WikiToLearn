@@ -8,9 +8,10 @@
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
 $wtl_development=false;
-if ($wtl_development || getenv("WTL_PRODUCTION") == "1"){
+if ($wtl_development || getenv("WTL_PRODUCTION") != "1"){
   error_reporting(-1);
   ini_set("display_errors",1);
+  $wgDebugLogFile="/tmp/mediawiki.log";
 }
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
@@ -244,13 +245,17 @@ if (getenv("WTL_PRODUCTION") == "1") {
 
 // Bump the Perl Compatible Regular Expressions backtrack memory limit
 // (PHP 5.3.x default, 1000K, is too low for SpamBlacklist)
-ini_set( 'pcre.backtrack_limit', '8M' );
 
+ini_set( 'pcre.backtrack_limit', '8M' );
 wfLoadExtension( 'SpamBlacklist' );
-$wgSpamBlacklistFiles = array(
-    "https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1",
-    "https://en.wikipedia.org/w/index.php?title=MediaWiki:Spam-blacklist&action=raw&sb_ver=1",
+$wgBlacklistSettings = array(
+    'spam' => array(
+        'files' => array(
+            'https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1'
+        ),
+    ),
 );
+$wgLogSpamBlacklistHits = true;
 
 $wgSpamRegex = "/".                        # The "/" is the opening wrapper
                 "s-e-x|zoofilia|sexyongpin|grusskarte|geburtstagskarten|animalsex|".
@@ -332,7 +337,17 @@ $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 // Captcha
 /*wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaSendRemoteIP = true;
+if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
+    require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
+} else {
+    // These keys are Google's test keys. Configure them appropriately in secrets
+    $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+    $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+}
 $wgReCaptchaSendRemoteIP = true;*/
+
+
 require_once( "$IP/extensions/ConfirmEdit/ConfirmEdit.php" );
 require_once( "$IP/extensions/ConfirmEdit/QuestyCaptcha.php");
 $wgCaptchaClass = 'QuestyCaptcha';
@@ -358,13 +373,7 @@ $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
 $wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
 $wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
 
-/*if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
-    require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
-} else {
-    // These keys are Google's test keys. Configure them appropriately in secrets
-    $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
-    $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
-}*/
+
 
 //ContributionScores
 require_once("$IP/extensions/ContributionScores/ContributionScores.php");
