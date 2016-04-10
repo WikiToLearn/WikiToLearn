@@ -242,27 +242,15 @@ if (getenv("WTL_PRODUCTION") == "1") {
 
 //  prevents edits that contain URLs whose domains match regular expression patterns defined in specified files or wiki pages and registration by users using specified email addresses
 
+// Bump the Perl Compatible Regular Expressions backtrack memory limit
+// (PHP 5.3.x default, 1000K, is too low for SpamBlacklist)
+ini_set( 'pcre.backtrack_limit', '8M' );
+
 wfLoadExtension( 'SpamBlacklist' );
-switch ($wiki) {
-    case "it":
-    case "en":
-    case "fr":
-    case "es":
-    case "de":
-    case "pt":
-    case "sv":
-        $wgSpamBlacklistFiles = array(
-            "https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1",
-            "https://" . $wiki . ".wikipedia.org/w/index.php?title=MediaWiki:Spam-blacklist&action=raw&sb_ver=1"
-        );
-        break;
-    case "pool":
-    case "meta":
-        $wgSpamBlacklistFiles = array(
-            "https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1",
-        );
-        break;
-}
+$wgSpamBlacklistFiles = array(
+    "https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1",
+    "https://en.wikipedia.org/w/index.php?title=MediaWiki:Spam-blacklist&action=raw&sb_ver=1",
+);
 
 // FIXME
 $wgCapitalLinkOverrides[ NS_FILE ] = true; //FIXME
