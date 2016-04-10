@@ -8,9 +8,10 @@
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
 $wtl_development=false;
-if ($wtl_development || getenv("WTL_PRODUCTION") == "1"){
+if ($wtl_development || getenv("WTL_PRODUCTION") != "1"){
   error_reporting(-1);
   ini_set("display_errors",1);
+  $wgDebugLogFile="/tmp/mediawiki.log";
 }
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
@@ -118,9 +119,9 @@ switch ($wiki) {
         include_once("$IP/extensions/Translate/Translate.php");
         break;
     default:
-	header("Location: //www." . $wiki_domain . "/");
+    header("Location: //www." . $wiki_domain . "/");
     exit(0);
-	break;
+    break;
 }
 
 $wgSitename = "WikiToLearn - collaborative textbooks";
@@ -240,6 +241,45 @@ if (getenv("WTL_PRODUCTION") == "1") {
     $wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
 }
 
+//  prevents edits that contain URLs whose domains match regular expression patterns defined in specified files or wiki pages and registration by users using specified email addresses
+
+// Bump the Perl Compatible Regular Expressions backtrack memory limit
+// (PHP 5.3.x default, 1000K, is too low for SpamBlacklist)
+
+ini_set( 'pcre.backtrack_limit', '8M' );
+wfLoadExtension( 'SpamBlacklist' );
+$wgBlacklistSettings = array(
+    'spam' => array(
+        'files' => array(
+            'https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1'
+        ),
+    ),
+);
+$wgLogSpamBlacklistHits = true;
+
+$wgSpamRegex = "/".                        # The "/" is the opening wrapper
+                "s-e-x|zoofilia|sexyongpin|grusskarte|geburtstagskarten|animalsex|".
+                "sex-with|dogsex|adultchat|adultlive|camsex|sexcam|livesex|sexchat|".
+                "chatsex|onlinesex|adultporn|adultvideo|adultweb.|hardcoresex|hardcoreporn|".
+                "teenporn|xxxporn|lesbiansex|livegirl|livenude|livesex|livevideo|camgirl|".
+                "spycam|voyeursex|casino-online|online-casino|kontaktlinsen|cheapest-phone|".
+                "laser-eye|eye-laser|fuelcellmarket|lasikclinic|cragrats|parishilton|".
+                "paris-hilton|paris-tape|2large|fuel-dispenser|fueling-dispenser|huojia|".
+                "jinxinghj|telematicsone|telematiksone|a-mortgage|diamondabrasives|".
+                "reuterbrook|sex-plugin|sex-zone|lazy-stars|eblja|liuhecai|".
+                "buy-viagra|-cialis|-levitra|boy-and-girl-kissing|". # These match spammy words
+                "dirare\.com|".           # This matches dirare.com a spammer's domain name
+                "overflow\s*:\s*auto|".   # This matches against overflow:auto (regardless of whitespace on either side of the colon)
+                "height\s*:\s*[0-4]px|".  # This matches against height:0px (most CSS hidden spam) (regardless of whitespace on either side of the colon)
+                "==<center>\[|".          # This matches some recent spam related to starsearchtool.com and friends
+                "\<\s*a\s*href|".         # This blocks all href links entirely, forcing wiki syntax
+                "display\s*:\s*none".     # This matches against display:none (regardless of whitespace on either side of the colon)
+                "/i";                     # The "/" ends the regular expression and the "i" switch which follows makes the test case-insensitive
+                                          # The "\s" matches whitespace
+                                          # The "*" is a repeater (zero or more times)
+                                          # The "\s*" means to look for 0 or more amount of whitespace
+
+
 // FIXME
 $wgCapitalLinkOverrides[ NS_FILE ] = true; //FIXME
 // FIXME
@@ -297,39 +337,44 @@ $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 // Captcha
 /*wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
-$wgReCaptchaSendRemoteIP = true;*/
-require_once( "$IP/extensions/ConfirmEdit/ConfirmEdit.php" );
-require_once( "$IP/extensions/ConfirmEdit/QuestyCaptcha.php");
-$wgCaptchaClass = 'QuestyCaptcha';
-$arr = array (
-        "1+7 = ?" => "8",
-        "8/2 = ?" => "4",
-        '4-2 = ?' => '2'
-);
-foreach ( $arr as $key => $value ) {
-        $wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
-}
-
-
-$wgCaptchaTriggers['edit']          = true;
-$wgCaptchaTriggers['create']        = true;
-$wgCaptchaTriggers['addurl']        = true;
-$wgCaptchaTriggers['createaccount'] = true;
-$wgCaptchaTriggers['badlogin']      = true;
-
-$wgGroupPermissions['*'            ]['skipcaptcha'] = false;
-$wgGroupPermissions['user'         ]['skipcaptcha'] = false;
-$wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
-$wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
-$wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
-
-/*if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
+$wgReCaptchaSendRemoteIP = true;
+if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
     require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
 } else {
     // These keys are Google's test keys. Configure them appropriately in secrets
     $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
     $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
 }*/
+
+wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
+$wgCaptchaClass = 'QuestyCaptcha';
+$arr = array (
+    "Write 8421" => "8421",
+    "Write 1337" => "1337",
+    "Write 9999" => "9999",
+    "Write 'WikiToLearn'" => "WikiToLearn"
+);
+foreach ( $arr as $key => $value ) {
+        $wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
+}
+
+$wgCaptchaTriggers['editgi'] = true;
+$wgCaptchaTriggers['create'] = true;
+$wgCaptchaTriggers['addurl'] = true;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin'] = true;
+
+$wgGroupPermissions['*'            ]['skipcaptcha'] = false;
+$wgGroupPermissions['user'         ]['skipcaptcha'] = false;
+$wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
+$wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
+$wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
+$wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true;
+$ceAllowConfirmedEmail = true;
+
+//for making users autoconfirmed
+$wgAutoConfirmCount = 3;
+$wgAutoConfirmAge = 86400*3; // three days
 
 //ContributionScores
 require_once("$IP/extensions/ContributionScores/ContributionScores.php");
@@ -340,20 +385,12 @@ $wgContribScoreDisableCache = false;       // Set to true to disable cache for p
 #Each array defines a report - 7,50 is "past 7 days" and "LIMIT 50" - Can be omitted.
 $wgContribScoreReports = array(
     array(30, 20),
-    array(90, 20));
+    array(90, 20)
+);
 
 //DMath
 wfLoadExtension("DMath");
 
-//DockerAccess
-require_once( "$IP/extensions/DockerAccess/DockerAccess.php" );
-$virtualFactoryURL = "http://babbage.wikitolearn.org";
-$virtualFactoryImages = array(
-    'ubuntu-base' => "Minimal LXDE image",
-    'novnc-kde' => "KDE Development Image",
-    'qt5' => "Qt5 Development Image",
-    'root' => "ROOT Basic Image",
-);
 
 //Echo for notification
 require_once( "$IP/extensions/Echo/Echo.php" );
@@ -371,7 +408,7 @@ $wgNamespaceContentModels[NS_MEDIAWIKI_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
-$wgFlowEditorList	= array('wikitext');
+$wgFlowEditorList   = array('wikitext');
 
 //LiquidThreads for discussion page system
 //require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
