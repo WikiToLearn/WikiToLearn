@@ -119,9 +119,9 @@ switch ($wiki) {
         include_once("$IP/extensions/Translate/Translate.php");
         break;
     default:
-	header("Location: //www." . $wiki_domain . "/");
+    header("Location: //www." . $wiki_domain . "/");
     exit(0);
-	break;
+    break;
 }
 
 $wgSitename = "WikiToLearn - collaborative textbooks";
@@ -344,36 +344,37 @@ if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
     // These keys are Google's test keys. Configure them appropriately in secrets
     $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
     $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
-}
-$wgReCaptchaSendRemoteIP = true;*/
+}*/
 
-
-require_once( "$IP/extensions/ConfirmEdit/ConfirmEdit.php" );
-require_once( "$IP/extensions/ConfirmEdit/QuestyCaptcha.php");
+wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
 $wgCaptchaClass = 'QuestyCaptcha';
 $arr = array (
-        "1+7 = ?" => "8",
-        "8/2 = ?" => "4",
-        '4-2 = ?' => '2'
+    "Write 8421" => "8421",
+    "Write 1337" => "1337",
+    "Write 9999" => "9999",
+    "Write 'WikiToLearn'" => "WikiToLearn"
 );
 foreach ( $arr as $key => $value ) {
         $wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
 }
 
-
-$wgCaptchaTriggers['edit']          = true;
-$wgCaptchaTriggers['create']        = true;
-$wgCaptchaTriggers['addurl']        = true;
+$wgCaptchaTriggers['editgi'] = true;
+$wgCaptchaTriggers['create'] = true;
+$wgCaptchaTriggers['addurl'] = true;
 $wgCaptchaTriggers['createaccount'] = true;
-$wgCaptchaTriggers['badlogin']      = true;
+$wgCaptchaTriggers['badlogin'] = true;
 
 $wgGroupPermissions['*'            ]['skipcaptcha'] = false;
 $wgGroupPermissions['user'         ]['skipcaptcha'] = false;
 $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
 $wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
 $wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
+$wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true;
+$ceAllowConfirmedEmail = true;
 
-
+//for making users autoconfirmed
+$wgAutoConfirmCount = 3;
+$wgAutoConfirmAge = 86400*3; // three days
 
 //ContributionScores
 require_once("$IP/extensions/ContributionScores/ContributionScores.php");
@@ -384,7 +385,8 @@ $wgContribScoreDisableCache = false;       // Set to true to disable cache for p
 #Each array defines a report - 7,50 is "past 7 days" and "LIMIT 50" - Can be omitted.
 $wgContribScoreReports = array(
     array(30, 20),
-    array(90, 20));
+    array(90, 20)
+);
 
 //DMath
 wfLoadExtension("DMath");
@@ -406,7 +408,7 @@ $wgNamespaceContentModels[NS_MEDIAWIKI_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
-$wgFlowEditorList	= array('wikitext');
+$wgFlowEditorList   = array('wikitext');
 
 //LiquidThreads for discussion page system
 //require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
