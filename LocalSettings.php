@@ -252,6 +252,29 @@ $wgSpamBlacklistFiles = array(
     "https://en.wikipedia.org/w/index.php?title=MediaWiki:Spam-blacklist&action=raw&sb_ver=1",
 );
 
+$wgSpamRegex = "/".                        # The "/" is the opening wrapper
+                "s-e-x|zoofilia|sexyongpin|grusskarte|geburtstagskarten|animalsex|".
+                "sex-with|dogsex|adultchat|adultlive|camsex|sexcam|livesex|sexchat|".
+                "chatsex|onlinesex|adultporn|adultvideo|adultweb.|hardcoresex|hardcoreporn|".
+                "teenporn|xxxporn|lesbiansex|livegirl|livenude|livesex|livevideo|camgirl|".
+                "spycam|voyeursex|casino-online|online-casino|kontaktlinsen|cheapest-phone|".
+                "laser-eye|eye-laser|fuelcellmarket|lasikclinic|cragrats|parishilton|".
+                "paris-hilton|paris-tape|2large|fuel-dispenser|fueling-dispenser|huojia|".
+                "jinxinghj|telematicsone|telematiksone|a-mortgage|diamondabrasives|".
+                "reuterbrook|sex-plugin|sex-zone|lazy-stars|eblja|liuhecai|".
+                "buy-viagra|-cialis|-levitra|boy-and-girl-kissing|". # These match spammy words
+                "dirare\.com|".           # This matches dirare.com a spammer's domain name
+                "overflow\s*:\s*auto|".   # This matches against overflow:auto (regardless of whitespace on either side of the colon)
+                "height\s*:\s*[0-4]px|".  # This matches against height:0px (most CSS hidden spam) (regardless of whitespace on either side of the colon)
+                "==<center>\[|".          # This matches some recent spam related to starsearchtool.com and friends
+                "\<\s*a\s*href|".         # This blocks all href links entirely, forcing wiki syntax
+                "display\s*:\s*none".     # This matches against display:none (regardless of whitespace on either side of the colon)
+                "/i";                     # The "/" ends the regular expression and the "i" switch which follows makes the test case-insensitive
+                                          # The "\s" matches whitespace
+                                          # The "*" is a repeater (zero or more times)
+                                          # The "\s*" means to look for 0 or more amount of whitespace
+
+
 // FIXME
 $wgCapitalLinkOverrides[ NS_FILE ] = true; //FIXME
 // FIXME
