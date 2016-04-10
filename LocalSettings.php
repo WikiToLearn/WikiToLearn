@@ -72,6 +72,7 @@ $wgEnableSidebarCache = true;
 
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
+$wgEmailConfirmToEdit = true;
 
 if (file_exists("$IP/../LocalSettings.d/mail-from-address.php")) {
     require_once("$IP/../LocalSettings.d/mail-from-address.php");
