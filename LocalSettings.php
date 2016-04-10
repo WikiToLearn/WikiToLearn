@@ -8,10 +8,15 @@
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
 $wtl_development=false;
-if ($wtl_development || getenv("WTL_PRODUCTION") != "1"){
-  error_reporting(-1);
-  ini_set("display_errors",1);
-  $wgDebugLogFile="/tmp/mediawiki.log";
+if (getenv("WTL_PRODUCTION") !== false ) {
+    if ( getenv("WTL_PRODUCTION") != "1" ){
+        $wtl_development=true;
+    }
+}
+if ($wtl_development) {
+    error_reporting(-1);
+    ini_set("display_errors",1);
+    $wgDebugLogFile="/tmp/mediawiki.log";
 }
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
