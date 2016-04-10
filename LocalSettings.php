@@ -72,7 +72,6 @@ $wgEnableSidebarCache = true;
 
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
-$wgEmailConfirmToEdit = true;
 
 if (file_exists("$IP/../LocalSettings.d/mail-from-address.php")) {
     require_once("$IP/../LocalSettings.d/mail-from-address.php");
@@ -239,6 +238,30 @@ $wgAllowImageTag = true;
 if (getenv("WTL_PRODUCTION") == "1") {
     $wgEnableDnsBlacklist = true;
     $wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
+}
+
+//  prevents edits that contain URLs whose domains match regular expression patterns defined in specified files or wiki pages and registration by users using specified email addresses
+
+wfLoadExtension( 'SpamBlacklist' );
+switch ($wiki) {
+    case "it":
+    case "en":
+    case "fr":
+    case "es":
+    case "de":
+    case "pt":
+    case "sv":
+        $wgSpamBlacklistFiles = array(
+            "https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1",
+            "https://" . $wiki . ".wikipedia.org/w/index.php?title=MediaWiki:Spam-blacklist&action=raw&sb_ver=1"
+        );
+        break;
+    case "pool":
+    case "meta":
+        $wgSpamBlacklistFiles = array(
+            "https://meta.wikimedia.org/w/index.php?title=Spam_blacklist&action=raw&sb_ver=1",
+        );
+        break;
 }
 
 // FIXME
