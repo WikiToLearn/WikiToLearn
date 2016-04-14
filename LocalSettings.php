@@ -426,9 +426,11 @@ $wgFlowEditorList   = array('wikitext');
 wfLoadExtension( "Gadgets" );
 
 //googleAnalytics
-require_once( "$IP/extensions/googleAnalytics/googleAnalytics.php" );
-
-
+if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
+  require_once("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php");
+} else {
+  require_once "$IP/extensions/googleAnalytics/googleAnalytics.php";
+}
 
 // MathJax
 wfLoadExtension("Math");
