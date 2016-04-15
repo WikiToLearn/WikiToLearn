@@ -23,6 +23,6 @@
 [submodule "extensions/EasyLink"]
 	path = extensions/EasyLink
 	url = https://github.com/WikiToLearn/EasyLink.git
-[submodule "extensions/piwik"]
-	path = extensions/piwik
+[submodule "extensions/Piwik"]
+	path = extensions/Piwik
 	url = https://github.com/DaSchTour/piwik-mediawiki-extension.git

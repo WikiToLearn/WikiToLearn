@@ -422,7 +422,18 @@ if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
     require_once("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php");
 }
 
-// MathJax
+// Piwik
+require_once "$IP/extensions/Piwik/Piwik.php";
+$wgPiwikURL = "//piwik.wikitolearn.org/";
+if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
+    require_once("$IP/../LocalSettings.d/wgPiwikIDSite.php");
+} else {
+    // id for test
+    $wgPiwikIDSite = 2;
+}
+
+
+// Math rendering
 wfLoadExtension("Math");
 //$wgUseMathJax = true;
 //$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
