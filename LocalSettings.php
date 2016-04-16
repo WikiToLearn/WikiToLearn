@@ -391,6 +391,8 @@ $wgContribScoreReports = array(
 //DMath
 wfLoadExtension("DMath");
 
+//EasyLink
+wfLoadExtension("EasyLink");
 
 //Echo for notification
 require_once( "$IP/extensions/Echo/Echo.php" );
