@@ -300,12 +300,12 @@ $wgVirtualRestConfig['modules']['parsoid'] = array(
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
 );
 
-//$wgVirtualRestConfig['modules']['restbase'] = array(
-//  'url' => 'http://restbase:7231',
-//  'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
-//  'forwardCookies' => false,
-//  'parsoidCompat' => false
-//);
+$wgVirtualRestConfig['modules']['restbase'] = array(
+  'url' => 'http://restbase:7231',
+  'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
+  'forwardCookies' => false,
+  'parsoidCompat' => false
+);
 
 /* extensions loading */
 
@@ -419,11 +419,23 @@ $wgFlowEditorList   = array('wikitext');
 wfLoadExtension( "Gadgets" );
 
 //googleAnalytics
-require_once( "$IP/extensions/googleAnalytics/googleAnalytics.php" );
+require_once "$IP/extensions/googleAnalytics/googleAnalytics.php";
+if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
+    require_once("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php");
+}
+
+// Piwik
+require_once "$IP/extensions/Piwik/Piwik.php";
+$wgPiwikURL = "//piwik.wikitolearn.org/";
+if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
+    require_once("$IP/../LocalSettings.d/wgPiwikIDSite.php");
+} else {
+    // id for test
+    $wgPiwikIDSite = 2;
+}
 
 
-
-// MathJax
+// Math rendering
 wfLoadExtension("Math");
 //$wgUseMathJax = true;
 //$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
