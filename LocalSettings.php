@@ -8,15 +8,10 @@
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
 $wtl_development=false;
-if (getenv("WTL_PRODUCTION") !== false ) {
-    if ( getenv("WTL_PRODUCTION") != "1" ){
-        $wtl_development=true;
-    }
-}
-if ($wtl_development) {
-    error_reporting(-1);
-    ini_set("display_errors",1);
-    $wgDebugLogFile="/tmp/mediawiki.log";
+if ($wtl_development || getenv("WTL_PRODUCTION") != "1"){
+  error_reporting(-1);
+  ini_set("display_errors",1);
+  $wgDebugLogFile="/tmp/mediawiki.log";
 }
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
@@ -305,12 +300,12 @@ $wgVirtualRestConfig['modules']['parsoid'] = array(
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
 );
 
-//$wgVirtualRestConfig['modules']['restbase'] = array(
-//  'url' => 'http://restbase:7231',
-//  'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
-//  'forwardCookies' => false,
-//  'parsoidCompat' => false
-//);
+$wgVirtualRestConfig['modules']['restbase'] = array(
+  'url' => 'http://restbase:7231',
+  'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
+  'forwardCookies' => false,
+  'parsoidCompat' => false
+);
 
 /* extensions loading */
 
@@ -353,21 +348,17 @@ if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
 
 wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
 $wgCaptchaClass = 'QuestyCaptcha';
-if (file_exists("$IP/../LocalSettings.d/wgCaptchaQuestions.php")) {
-    require_once("$IP/../LocalSettings.d/wgCaptchaQuestions.php");
-} else {
-    $arr = array (
-        "Write 8421" => "8421",
-        "Write 1337" => "1337",
-        "Write 9999" => "9999",
-        "Write 'WikiToLearn'" => "WikiToLearn"
-    );
-    foreach ( $arr as $key => $value ) {
+$arr = array (
+    "Write 8421" => "8421",
+    "Write 1337" => "1337",
+    "Write 9999" => "9999",
+    "Write 'WikiToLearn'" => "WikiToLearn"
+);
+foreach ( $arr as $key => $value ) {
         $wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
-    }
 }
 
-$wgCaptchaTriggers['edit'] = true;
+$wgCaptchaTriggers['editgi'] = true;
 $wgCaptchaTriggers['create'] = true;
 $wgCaptchaTriggers['addurl'] = true;
 $wgCaptchaTriggers['createaccount'] = true;
@@ -431,7 +422,18 @@ if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
     require_once("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php");
 }
 
-// MathJax
+// Piwik
+require_once "$IP/extensions/Piwik/Piwik.php";
+$wgPiwikURL = "//piwik.wikitolearn.org/";
+if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
+    require_once("$IP/../LocalSettings.d/wgPiwikIDSite.php");
+} else {
+    // id for test
+    $wgPiwikIDSite = 2;
+}
+
+
+// Math rendering
 wfLoadExtension("Math");
 //$wgUseMathJax = true;
 //$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
