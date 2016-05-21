@@ -299,13 +299,14 @@ $wgVirtualRestConfig['modules']['parsoid'] = array(
   // Parsoid "domain", see below (optional)
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
 );
-
+/*
 $wgVirtualRestConfig['modules']['restbase'] = array(
   'url' => 'http://restbase:7231',
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
   'forwardCookies' => false,
   'parsoidCompat' => false
 );
+*/
 
 /* extensions loading */
 
