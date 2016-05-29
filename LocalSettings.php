@@ -299,14 +299,14 @@ $wgVirtualRestConfig['modules']['parsoid'] = array(
   // Parsoid "domain", see below (optional)
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
 );
-/*
+
 $wgVirtualRestConfig['modules']['restbase'] = array(
   'url' => 'http://restbase:7231',
   'domain' => isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"",
   'forwardCookies' => false,
   'parsoidCompat' => false
 );
-*/
+$wgMathFullRestbaseURL = $wgVirtualRestConfig['modules']['restbase']['url'] . "/";
 
 /* extensions loading */
 
@@ -436,11 +436,9 @@ if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
 
 // Math rendering
 wfLoadExtension("Math");
-//$wgUseMathJax = true;
-//$wgDefaultUserOptions['math'] = MW_MATH_MATHJAX;
 $wgMathValidModes[] = 'MW_MATH_MATHML';
 $wgDefaultUserOptions['math'] = 'MW_MATH_MATHML';
-$wgMathMathMLUrl = 'http://mathoid:10044/';
+//$wgMathMathMLUrl = 'http://mathoid:10044/';
 
 //Nuke for mass delete pages
 wfLoadExtension("Nuke");
