@@ -413,9 +413,6 @@ $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList   = array('wikitext');
 
-//LiquidThreads for discussion page system
-//require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
-
 //Gadgets
 wfLoadExtension( "Gadgets" );
 
