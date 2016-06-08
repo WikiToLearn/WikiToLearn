@@ -12,7 +12,6 @@ extensions/Flow/
 extensions/Gadgets/
 extensions/googleAnalytics/
 extensions/InputBox/
-extensions/LiquidThreads/
 extensions/Math/
 extensions/NewUserMessage/
 extensions/Nuke/
@@ -20,7 +19,6 @@ extensions/ParserFunctions/
 extensions/ParserHooks/
 extensions/Renameuser/
 extensions/SubPageList/
-extensions/SyntaxHighlighter/
 extensions/SyntaxHighlight_GeSHi/
 extensions/Translate/
 extensions/UserMerge/
