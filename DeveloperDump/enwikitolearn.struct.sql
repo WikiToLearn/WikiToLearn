@@ -1175,3 +1175,4 @@ CREATE TABLE IF NOT EXISTS `watchlist` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+DROP INDEX flow_ext_ref_idx_v2 ON flow_ext_ref; DROP INDEX flow_ext_ref_revision_v2 ON flow_ext_ref; ALTER TABLE flow_ext_ref CHANGE ref_target ref_target BLOB NOT NULL; CREATE INDEX flow_ext_ref_idx_v2 ON flow_ext_ref (ref_src_wiki, ref_src_namespace, ref_src_title, ref_type, ref_target(255), ref_src_object_type, ref_src_object_id); CREATE INDEX flow_ext_ref_revision_v2 ON flow_ext_ref (ref_src_wiki, ref_src_namespace, ref_src_title, ref_src_object_type, ref_src_object_id, ref_type, ref_target(255));
