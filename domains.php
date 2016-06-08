@@ -2,7 +2,6 @@
 $wiki_allow_domains = array(
     "wikitolearn.org",
     "wikitolearn.vodka",
-    "direct.wikitolearn.org",
     "tuttorotto.it",
     "tuttorotto.eu",
     "tuttorotto.org",
