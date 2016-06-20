@@ -488,3 +488,6 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
 //InputBox extension
 wfLoadExtension( 'InputBox' );
+
+// for SubPageList3 extension
+require_once("$IP/extensions/SubPageList3/SubPageList3.php");
