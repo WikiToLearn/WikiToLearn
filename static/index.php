@@ -65,7 +65,7 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
                 <div class="col-xs-12 visible-xs vertical-spacing">
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <a href="http://wiki.wikimedia.it/">
+                  <a href="http://wikimedia.it/">
                     <img src="/images/it-wikimedia.png" class="img-responsive"/>
                   </a>
                 </div>
