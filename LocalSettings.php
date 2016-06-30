@@ -391,10 +391,6 @@ $wgContribScoreReports = array(
     array(90, 20)
 );
 
-//DMath
-wfLoadExtension("DMath");
-
-
 //Echo for notification
 require_once( "$IP/extensions/Echo/Echo.php" );
 
@@ -462,9 +458,6 @@ $wgNamespacesWithSubpages[NS_USER] = true;
 
 // Highlight extension:
 wfLoadExtension("SyntaxHighlight_GeSHi");
-
-// Custom extension ?
-require_once( "$IP/extensions/Theorems/Theorems.php" );
 
 //Translate extension
 $wgGroupPermissions['translator']['translate'] = true;
