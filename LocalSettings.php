@@ -7,7 +7,7 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
-$wtl_development=false;
+$wtl_development=true;
 if ($wtl_development || getenv("WTL_PRODUCTION") != "1"){
   error_reporting(-1);
   ini_set("display_errors",1);
@@ -308,6 +308,9 @@ $wgVirtualRestConfig['modules']['restbase'] = array(
 );
 
 /* extensions loading */
+
+//EasyLink extensions
+wfLoadExtension("EasyLink");
 
 // Cite extension for references as footnotes
 wfLoadExtension("Cite");
