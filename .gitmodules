@@ -7,16 +7,6 @@
 [submodule "Neverland"]
 	path = Neverland
 	url = https://github.com/WikiToLearn/Neverland.git
-[submodule "extensions/DockerAccess"]
-	path = extensions/DockerAccess
-	url = https://github.com/WikiToLearn/DockerAccess.git
-[submodule "extensions/Theorems"]
-	path = extensions/Theorems
-    pushurl = git@github.com/WikiToLearn/Theorems
-	url = https://github.com/WikiToLearn/Theorems
-[submodule "extensions/DMath"]
-	path = extensions/DMath
-	url = https://github.com/WikiToLearn/DMath.git
 [submodule "vendor"]
 	path = vendor
 	url = https://github.com/WikiToLearn/wikitolearn-vendor.git
