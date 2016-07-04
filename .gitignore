@@ -5,6 +5,7 @@ LocalSettings.d/
 mediawiki/
 extensions/googleAnalytics/
 extensions/Cite/
+extensions/CodeEditor/
 extensions/ConfirmEdit/
 extensions/ContributionScores/
 extensions/Echo/
@@ -20,6 +21,7 @@ extensions/ParserHooks/
 extensions/Renameuser/
 extensions/SubPageList3/
 extensions/SyntaxHighlight_GeSHi/
+extensions/TemplateData/
 extensions/Translate/
 extensions/UserMerge/
 extensions/Validator/

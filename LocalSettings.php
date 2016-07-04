@@ -484,3 +484,9 @@ wfLoadExtension( 'InputBox' );
 
 // for SubPageList3 extension
 require_once("$IP/extensions/SubPageList3/SubPageList3.php");
+
+wfLoadExtension( 'CodeEditor' );
+$wgCodeEditorEnableCore = true;
+
+wfLoadExtension( 'TemplateData' );
+$wgTemplateDataGUI = true;
