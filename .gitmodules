@@ -26,3 +26,6 @@
 [submodule "extensions/Piwik"]
 	path = extensions/Piwik
 	url = https://github.com/DaSchTour/piwik-mediawiki-extension.git
+[submodule "extensions/WikiRating"]
+	path = extensions/WikiRating
+	url = https://github.com/WikiToLearn/WikiRatingExtension.git
