@@ -1,0 +1,21 @@
+{
+	"preset": "wikimedia",
+	"es3": true,
+	"jsDoc": {
+		"checkAnnotations": {
+			"preset": "jsduck5",
+			"extra": {
+				"this": "some",
+				"source": "some",
+				"see": "some"
+			}
+		},
+		"checkTypes": "strictNativeCase",
+		"checkParamNames": true,
+		"checkRedundantAccess": true,
+		"checkRedundantReturns": true,
+		"requireNewlineAfterDescription": true,
+		"requireParamTypes": true,
+		"requireReturnTypes": true
+	}
+}

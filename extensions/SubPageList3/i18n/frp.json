@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"ChrisPtDe"
+		]
+	},
+	"spl3-desc": "Fât ôtomaticament una lista de sot-pâges d’una pâge qu’utilise la balisa <code><nowiki><splist /></nowiki></code>.",
+	"spl3_debug": "Valor por lo chouèx $1 encognua.",
+	"spl3_nosubpages": "$1 at gins de sot-pâge a ènumèrar."
+}

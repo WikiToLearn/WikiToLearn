@@ -1,0 +1,129 @@
+{
+	"name": "CodeEditor",
+	"author": [
+		"Brion Vibber",
+		"Derk-Jan Hartman",
+		"authors of Ace (ace.c9.io)"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:CodeEditor",
+	"descriptionmsg": "codeeditor-desc",
+	"license-name": "GPL-2.0+",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.27.0"
+	},
+	"Hooks": {
+		"EditPage::showEditForm:initial": [
+			"CodeEditorHooks::editPageShowEditFormInitial"
+		],
+		"EditPage::showReadOnlyForm:initial": [
+			"CodeEditorHooks::editPageShowEditFormInitial"
+		],
+		"BeforePageDisplay": [
+			"CodeEditorHooks::onBeforePageDisplay"
+		],
+		"MakeGlobalVariablesScript": [
+			"CodeEditorHooks::onMakeGlobalVariablesScript"
+		],
+		"GetPreferences": [
+			"CodeEditorHooks::getPreferences"
+		]
+	},
+	"MessagesDirs": {
+		"CodeEditor": [
+			"i18n"
+		]
+	},
+	"config": {
+		"CodeEditorEnableCore": true,
+		"CodeEditorGeshiIntegration": false
+	},
+	"ResourceModules": {
+		"ext.codeEditor": {
+			"scripts": "ext.codeEditor.js",
+			"dependencies": [
+				"ext.wikiEditor.toolbar",
+				"jquery.codeEditor"
+			],
+			"group": "ext.wikiEditor"
+		},
+		"jquery.codeEditor": {
+			"scripts": "jquery.codeEditor.js",
+			"styles": "jquery.codeEditor.less",
+			"dependencies": [
+				"jquery.wikiEditor",
+				"ext.codeEditor.ace",
+				"jquery.ui.resizable",
+				"mediawiki.api",
+				"mediawiki.api.options",
+				"user.options",
+				"mediawiki.cookie"
+			],
+			"messages": [
+				"codeeditor-next-annotation",
+				"codeeditor-toolbar-toggle",
+				"codeeditor-save-with-errors",
+				"codeeditor-invisibleChars-toggle",
+				"codeeditor-lineWrapping-toggle",
+				"codeeditor-searchReplace-toggle",
+				"codeeditor-gotoline",
+				"codeeditor-indent",
+				"codeeditor-outdent"
+			],
+			"group": "ext.wikiEditor"
+		},
+		"ext.codeEditor.ace": {
+			"group": "ext.codeEditor.ace",
+			"scripts": [
+				"ace/ace.js",
+				"ace/mode-javascript.js",
+				"ace/mode-json.js",
+				"ace/mode-css.js",
+				"ace/mode-lua.js",
+				"ace/ext-language_tools.js"
+			]
+		},
+		"ext.codeEditor.ace.modes": {
+			"group": "ext.codeEditor.ace",
+			"scripts": [
+				"ace/mode-c_cpp.js",
+				"ace/mode-clojure.js",
+				"ace/mode-csharp.js",
+				"ace/mode-coffee.js",
+				"ace/mode-groovy.js",
+				"ace/mode-html.js",
+				"ace/mode-java.js",
+				"ace/mode-latex.js",
+				"ace/mode-ocaml.js",
+				"ace/mode-perl.js",
+				"ace/mode-php.js",
+				"ace/mode-python.js",
+				"ace/mode-ruby.js",
+				"ace/mode-scala.js"
+			],
+			"dependencies": "ext.codeEditor.ace"
+		},
+		"ext.codeEditor.geshi": {
+			"scripts": [
+				"ext.codeEditor.geshi.js"
+			],
+			"styles": [
+				"ext.codeEditor.geshi.css"
+			],
+			"messages": [
+				"editsection",
+				"savearticle"
+			],
+			"dependencies": "mediawiki.api.parse",
+			"group": "ext.wikiEditor"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "CodeEditor/modules"
+	},
+	"AutoloadClasses": {
+		"CodeEditorHooks": "CodeEditor.hooks.php"
+	},
+	"manifest_version": 1
+}

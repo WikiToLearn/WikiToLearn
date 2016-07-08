@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"BeginaFelicysym",
+			"Sp5uhe",
+			"Woytecr",
+			"Chrumps",
+			"WTM"
+		]
+	},
+	"codeeditor-desc": "Edytowanie stron z kolorowaniem składni JavaScript oraz CSS z użyciem [https://ace.c9.io/ edytora Ace]",
+	"codeeditor-next-annotation": "Do następnej",
+	"codeeditor-toolbar-toggle": "Przełącz edytor kodu",
+	"codeeditor-save-with-errors": "Dokument zawiera błędy. Czy na pewno chcesz zapisać?",
+	"codeeditor-invisibleChars-toggle": "Przełączanie wyświetlania niewidocznych znaków",
+	"codeeditor-lineWrapping-toggle": "Przełączanie zawijania wierszy",
+	"codeeditor-searchReplace-toggle": "Okienko dialogowe wyszukiwania i zamiany tekstu",
+	"codeeditor-gotoline": "Przejdź do linii numer...",
+	"codeeditor-indent": "Zwiększ wcięcie",
+	"codeeditor-outdent": "Zmniejsz wcięcie"
+}

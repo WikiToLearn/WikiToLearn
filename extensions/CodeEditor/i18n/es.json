@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Armando-Martin",
+			"Fitoschido",
+			"Frammm",
+			"Macofe"
+		]
+	},
+	"codeeditor-desc": "Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [https://ace.c9.io el editor Ace]",
+	"codeeditor-next-annotation": "Ir a la anotación siguiente",
+	"codeeditor-toolbar-toggle": "Activar o desactivar el editor de código",
+	"codeeditor-save-with-errors": "El documento contiene errores. ¿Seguro que quieres guardar?",
+	"codeeditor-invisibleChars-toggle": "Mostrar u ocultar los caracteres invisibles",
+	"codeeditor-lineWrapping-toggle": "Activar o desactivar el ajuste de líneas",
+	"codeeditor-searchReplace-toggle": "Mostrar u ocultar el cuadro de buscar y reemplazar",
+	"codeeditor-gotoline": "Ir a la línea número...",
+	"codeeditor-indent": "Añadir sangría",
+	"codeeditor-outdent": "Quitar sangría"
+}

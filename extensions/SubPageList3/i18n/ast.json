@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"spl3-desc": "Amiesta la etiqueta <code><nowiki><splist /></nowiki></code> que crea la llista de les páxines secundaries d'una páxina",
+	"spl3_debug": "Valor desconocíu pa la opción $1.",
+	"spl3_nosubpages": "$1 nun tien páxines secundaries qu'amosar."
+}

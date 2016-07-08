@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"IKhitron"
+		]
+	},
+	"codeeditor-desc": "עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [https://ace.c9.io/ עורך Ace]",
+	"codeeditor-next-annotation": "מעבר להערה הבאה",
+	"codeeditor-toolbar-toggle": "שינוי מצב עורך קוד",
+	"codeeditor-save-with-errors": "המסמך הזה מכיל שגיאות. האם ברצונך לשמור אותו?",
+	"codeeditor-invisibleChars-toggle": "הפעלת תווים בלתי־נראים",
+	"codeeditor-lineWrapping-toggle": "הפעלת גלישת שורות",
+	"codeeditor-searchReplace-toggle": "הפעלת חלונית חיפוש והחלפה",
+	"codeeditor-gotoline": "מעבר לשורה מספר...",
+	"codeeditor-indent": "הזחה",
+	"codeeditor-outdent": "הרחקת הזחה"
+}

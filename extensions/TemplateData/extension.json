@@ -1,0 +1,172 @@
+{
+	"name": "TemplateData",
+	"version": "0.1.1",
+	"author": [
+		"Timo Tijhof",
+		"Moriel Schottlender",
+		"James D. Forrester",
+		"Trevor Parscal",
+		"Bartosz Dziewoński",
+		"Marielle Volz",
+		"..."
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:TemplateData",
+	"descriptionmsg": "templatedata-desc",
+	"license-name": "GPL-2.0",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.25.0"
+	},
+	"APIModules": {
+		"templatedata": "ApiTemplateData"
+	},
+	"AutoloadClasses": {
+		"TemplateDataHooks": "TemplateData.hooks.php",
+		"TemplateDataBlob": "TemplateDataBlob.php",
+		"ApiTemplateData": "api/ApiTemplateData.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"TemplateDataHooks::onParserFirstCallInit"
+		],
+		"PageContentSave": [
+			"TemplateDataHooks::onPageContentSave"
+		],
+		"UnitTestsList": [
+			"TemplateDataHooks::onUnitTestsList"
+		],
+		"ResourceLoaderTestModules": [
+			"TemplateDataHooks::onResourceLoaderTestModules"
+		],
+		"ResourceLoaderRegisterModules": [
+			"TemplateDataHooks::onResourceLoaderRegisterModules"
+		],
+		"EditPage::showEditForm:initial": [
+			"TemplateDataHooks::onEditPage"
+		]
+	},
+	"MessagesDirs": {
+		"TemplateData": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.templateData": {
+			"styles": "resources/ext.templateData.css",
+			"position": "top"
+		},
+		"ext.templateDataGenerator.editPage": {
+			"scripts": [
+				"modules/ext.templateDataGenerator.editPage.js"
+			],
+			"dependencies": [
+				"ext.templateDataGenerator.ui"
+			]
+		},
+		"ext.templateDataGenerator.data": {
+			"scripts": [
+				"modules/ext.templateDataGenerator.js",
+				"modules/ext.templateDataGenerator.data.js",
+				"modules/ext.templateDataGenerator.sourceHandler.js"
+			],
+			"dependencies": [
+				"oojs"
+			]
+		},
+		"ext.templateDataGenerator.ui": {
+			"styles": "modules/ext.templateDataGenerator.ui.css",
+			"scripts": [
+				"modules/ext.templateDataGenerator.ui.js",
+				"modules/widgets/ext.templateDataGenerator.paramSelectWidget.js",
+				"modules/widgets/ext.templateDataGenerator.paramWidget.js",
+				"modules/widgets/ext.templateDataGenerator.paramImportWidget.js",
+				"modules/widgets/ext.templateDataGenerator.languageResultWidget.js",
+				"modules/widgets/ext.templateDataGenerator.languageSearchWidget.js",
+				"modules/ext.templateDataGenerator.ui.tdDialog.js"
+			],
+			"dependencies": [
+				"oojs-ui",
+				"ext.templateData",
+				"ext.templateDataGenerator.data",
+				"jquery.uls.data"
+			],
+			"messages": [
+				"comma-separator",
+				"templatedata-doc-no-params-set",
+				"templatedata-doc-param-type-boolean",
+				"templatedata-doc-param-type-content",
+				"templatedata-doc-param-type-date",
+				"templatedata-doc-param-type-line",
+				"templatedata-doc-param-type-number",
+				"templatedata-doc-param-type-string",
+				"templatedata-doc-param-type-unbalanced-wikitext",
+				"templatedata-doc-param-type-unknown",
+				"templatedata-doc-param-type-url",
+				"templatedata-doc-param-type-wiki-file-name",
+				"templatedata-doc-param-type-wiki-page-name",
+				"templatedata-doc-param-type-wiki-template-name",
+				"templatedata-doc-param-type-wiki-user-name",
+				"templatedata-editbutton",
+				"templatedata-errormsg-jsonbadformat",
+				"templatedata-exists-on-related-page",
+				"templatedata-modal-button-add-language",
+				"templatedata-modal-button-addparam",
+				"templatedata-modal-button-apply",
+				"templatedata-modal-button-back",
+				"templatedata-modal-button-cancel",
+				"templatedata-modal-button-changelang",
+				"templatedata-modal-button-delparam",
+				"templatedata-modal-button-done",
+				"templatedata-modal-button-importParams",
+				"templatedata-modal-button-restoreparam",
+				"templatedata-modal-button-saveparam",
+				"templatedata-modal-confirmcancel",
+				"templatedata-modal-current-language",
+				"templatedata-modal-errormsg",
+				"templatedata-modal-errormsg-import-noparams",
+				"templatedata-modal-format-inline",
+				"templatedata-modal-format-block",
+				"templatedata-modal-format-null",
+				"templatedata-modal-json-error-replace",
+				"templatedata-modal-notice-import-numparams",
+				"templatedata-modal-placeholder-paramkey",
+				"templatedata-modal-search-input-placeholder",
+				"templatedata-modal-table-param-actions",
+				"templatedata-modal-table-param-aliases",
+				"templatedata-modal-table-param-autovalue",
+				"templatedata-modal-table-param-default",
+				"templatedata-modal-table-param-deprecated",
+				"templatedata-modal-table-param-deprecatedValue",
+				"templatedata-modal-table-param-description",
+				"templatedata-modal-table-param-example",
+				"templatedata-modal-table-param-importoption",
+				"templatedata-modal-table-param-importoption-subtitle",
+				"templatedata-modal-table-param-label",
+				"templatedata-modal-table-param-name",
+				"templatedata-modal-table-param-required",
+				"templatedata-modal-table-param-suggested",
+				"templatedata-modal-table-param-type",
+				"templatedata-modal-table-param-uneditablefield",
+				"templatedata-modal-title",
+				"templatedata-modal-title-addparam",
+				"templatedata-modal-title-choose-language",
+				"templatedata-modal-title-language",
+				"templatedata-modal-title-paramorder",
+				"templatedata-modal-title-templatedesc",
+				"templatedata-modal-title-templateformat",
+				"templatedata-modal-title-templateparam-details",
+				"templatedata-modal-title-templateparams",
+				"templatedata-helplink",
+				"templatedata-helplink-target"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "TemplateData"
+	},
+	"config": {
+		"TemplateDataUseGUI": true
+	},
+	"manifest_version": 1
+}

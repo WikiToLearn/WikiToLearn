@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Anakmalaysia"
+		]
+	},
+	"templatedata-desc": "Melaksanakan storan data bagi parameter templat (menggunakan JSON)",
+	"templatedata-doc-param-autovalue": "Nilai auto",
+	"templatedata-doc-param-autovalue-empty": "kosong",
+	"templatedata-doc-param-default": "Asali",
+	"templatedata-doc-param-desc": "Keterangan",
+	"templatedata-doc-param-name": "Parameter",
+	"templatedata-doc-param-status": "Status",
+	"templatedata-doc-param-type": "Jenis",
+	"templatedata-doc-params": "Parameter templat",
+	"templatedata-invalid-length": "Data terlalu besar untuk menyimpan ({{formatnum:$1}} {{PLURAL:$1|bait}}, {{PLURAL:$2|hadnya}} adalah {{formatnum:$2}})",
+	"templatedata-invalid-missing": "Sifat \"$1\" yang dikehendaki tidak dijumpai.",
+	"templatedata-invalid-parse": "Ralat sintaks dalam JSON.",
+	"templatedata-invalid-type": "Sifat \"$1\" dijangka jenis \"$2\".",
+	"templatedata-invalid-unknown": "Sifat \"$1\" tidak dijangka.",
+	"templatedata-invalid-value": "Nilai tidak sah untuk sifat \"$1\".",
+	"templatedata-modal-errormsg": "Ralat-ralat dijumpai. Sila pastikan tidak terdapat nama-nama parameter yang kosong atau berulang, malah nama parameter itu tidak mengandungi \"$1\", \"$2\" atau \"$3\".",
+	"templatedata-modal-table-param-autovalue": "Nilai auto"
+}

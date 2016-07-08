@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Frokor"
+		]
+	},
+	"spl3-desc": "Lagar automatisk ei liste over undersidene til ei side ved å bruke taggen <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Ukjend verdi for val $1.",
+	"spl3_nosubpages": "$1 har ingen undersider å vise."
+}

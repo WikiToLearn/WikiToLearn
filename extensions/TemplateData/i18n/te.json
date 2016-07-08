@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Veeven",
+			"Kiranmayee"
+		]
+	},
+	"templatedata-doc-param-default": "అప్రమేయం",
+	"templatedata-doc-param-desc": "వివరణ",
+	"templatedata-doc-param-name": "పరామితి",
+	"templatedata-doc-param-status": "స్థితి",
+	"templatedata-doc-params": "మూస పరామితులు",
+	"templatedata-modal-table-param-type-date": "తేదీ"
+}

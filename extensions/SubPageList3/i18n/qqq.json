@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Purodha",
+			"Shirayuki",
+			"The Evil IP address",
+			"Umherirrender"
+		]
+	},
+	"spl3-desc": "{{desc|name=Sub Page List 3|url=https://www.mediawiki.org/wiki/Extension:SubPageList3}}",
+	"spl3_debug": "Used as error message. Parameters:\n* $1 - any one of the following options:\n** debug, kidsonly, liststyle, parent, showparent, showpath, sort, sortby",
+	"spl3_nosubpages": "Parameters:\n* $1 - parent page title (with link)\nIf $1 has 1 or more subpages, list of subpages is shown instead."
+}

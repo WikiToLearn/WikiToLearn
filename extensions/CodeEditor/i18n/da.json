@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Christian List"
+		]
+	},
+	"codeeditor-desc": "Syntaks-fremhævet redigering for JavaScript og CSS sider ved hjælp af [https://ace.c9.io/ Ace editor]",
+	"codeeditor-toolbar-toggle": "Slå kodeeditoren til/fra"
+}

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"codeeditor-desc": "Уредување со истакната синтакса за JavaScript и каскадни стилски страници (CSS) користејќи го уредникот [https://ace.c9.io/ Ace]",
+	"codeeditor-next-annotation": "Оди на следната прибелешка",
+	"codeeditor-toolbar-toggle": "Префрли на уредникот на кодот",
+	"codeeditor-save-with-errors": "Документот содржи грешки. Сигурно сакате да го зачувате?",
+	"codeeditor-invisibleChars-toggle": "Вкл/искл. невидливи знаци",
+	"codeeditor-lineWrapping-toggle": "Вкл/искл. прелом",
+	"codeeditor-searchReplace-toggle": "Вкл./искл. дијалог за пребарување и замена",
+	"codeeditor-gotoline": "Оди на ред број...",
+	"codeeditor-indent": "Вовлекување",
+	"codeeditor-outdent": "Отстап"
+}

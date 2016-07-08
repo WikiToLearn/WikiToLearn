@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Helix84"
+		]
+	},
+	"codeeditor-desc": "Editor stránok JavaScriptu a CSS so zvýrazňovaním syntaxe pomocou [https://ace.c9.io/ editora Ace]",
+	"codeeditor-toolbar-toggle": "Prepnúť editor kódu"
+}

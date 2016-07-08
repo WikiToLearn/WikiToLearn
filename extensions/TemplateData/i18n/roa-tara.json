@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"templatedata-desc": "'Mblemende 'nu majazzine de date pe le parametre d'u template (ausanne JSON)",
+	"templatedata-doc-param-default": "De base",
+	"templatedata-doc-param-desc": "Descrizione",
+	"templatedata-doc-param-name": "Parametre",
+	"templatedata-doc-param-status": "State",
+	"templatedata-doc-param-type": "Tipe",
+	"templatedata-doc-params": "Parametre d'u template",
+	"templatedata-invalid-length": "Date troppe granne pe reggistrà ({{formatnum:$1}} {{PLURAL:$1|byte}}, 'u {{PLURAL:$2|limite jè}} {{formatnum:$2}})",
+	"templatedata-invalid-missing": "Probbietà richieste \"$1\" non acchiate.",
+	"templatedata-invalid-parse": "Errore de sindasse jndr'à JSON.",
+	"templatedata-invalid-type": "S'aspettave ca 'a probbietà \"$1\" ere de tipe \"$2\".",
+	"templatedata-invalid-unknown": "Probbietà inaspettate \"$1\".",
+	"templatedata-invalid-value": "Valore invalide pa probbietà \"$1\".",
+	"templatedata-modal-button-done": "Fatte"
+}

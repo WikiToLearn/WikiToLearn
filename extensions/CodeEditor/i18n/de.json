@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kghbln",
+			"Metalhead64"
+		]
+	},
+	"codeeditor-desc": "Ermöglicht das Bearbeiten von JavaScript und CSS mit Syntaxhervorhebung mithilfe des [https://ace.c9.io/ Ace-Editors]",
+	"codeeditor-next-annotation": "Zur nächsten Anmerkung gehen",
+	"codeeditor-toolbar-toggle": "Codeeditor ein- und ausschalten",
+	"codeeditor-save-with-errors": "Das Dokument enthält Fehler. Möchtest du wirklich speichern?",
+	"codeeditor-invisibleChars-toggle": "Unsichtbare Zeichen umschalten",
+	"codeeditor-lineWrapping-toggle": "Zeilenumbruch umschalten",
+	"codeeditor-searchReplace-toggle": "Suchen-und-Ersetzen-Dialog umschalten",
+	"codeeditor-gotoline": "Gehe zu Zeilennummer …",
+	"codeeditor-indent": "Einrücken",
+	"codeeditor-outdent": "Ausrücken"
+}

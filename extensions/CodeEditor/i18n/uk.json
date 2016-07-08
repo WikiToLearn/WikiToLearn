@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Base",
+			"Sodmy",
+			"Andriykopanytsia",
+			"Ата",
+			"Piramidion"
+		]
+	},
+	"codeeditor-desc": "Редагування із підсвіткою синтаксису для JavaScript та CSS сторінок за допомогою [https://ace.c9.io/ редактора Ace]",
+	"codeeditor-next-annotation": "Перейти до наступної анотації",
+	"codeeditor-toolbar-toggle": "Перемкнути редактор коду",
+	"codeeditor-save-with-errors": "Документ містить помилки. Ви впевнені, що ви хочете зберегти?",
+	"codeeditor-invisibleChars-toggle": "Перемкнути невидимі символи",
+	"codeeditor-lineWrapping-toggle": "Перемкнути перенесення рядка",
+	"codeeditor-searchReplace-toggle": "Перемкнути діалог пошуку і заміни",
+	"codeeditor-gotoline": "Перейти до рядка номер…",
+	"codeeditor-indent": "Відступ",
+	"codeeditor-outdent": "Зменшити відступ"
+}

@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Matěj Grabovský"
+		]
+	},
+	"spl3-desc": "Automaticky vytváří seznam podstránek stránky pomocí značky <code>&lt;splist /&gt;</code>",
+	"spl3_debug": "Neznáma hodnota volby $1.",
+	"spl3_nosubpages": "$1 nemá žádné zobrazitelné podstránky."
+}

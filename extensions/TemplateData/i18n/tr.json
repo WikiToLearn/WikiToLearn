@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Trncmvsr",
+			"Mavrikant",
+			"Violetanka",
+			"Sadrettin",
+			"Sayginer"
+		]
+	},
+	"apihelp-templatedata-example-1": "[[Template:Stub]] ve [[Template:Example]] belgelemelerine geri dön.",
+	"templatedata-doc-param-autovalue": "Otomatik değer",
+	"templatedata-doc-param-autovalue-empty": "boş",
+	"templatedata-doc-param-type-date": "Tarih",
+	"templatedata-doc-param-type-number": "Sayı",
+	"templatedata-doc-param-type-string": "Dize",
+	"templatedata-doc-param-type-wiki-page-name": "Sayfa",
+	"templatedata-doc-param-type-wiki-template-name": "Şablon",
+	"templatedata-doc-param-type-wiki-user-name": "Kullanıcı",
+	"templatedata-doc-params": "Şablon parametreleri",
+	"templatedata-editbutton": "Şablon belgelemesini düzenle",
+	"templatedata-helplink": "Şablon belgeleme hakkında bilgi",
+	"templatedata-modal-button-addparam": "Değişken ekle",
+	"templatedata-modal-button-apply": "Uygula",
+	"templatedata-modal-button-cancel": "İptal",
+	"templatedata-modal-button-importParams": "Değişkenleri içe aktar",
+	"templatedata-modal-errormsg-import-noparams": "İçe aktarma sırasında yeni öznitelikler bulunamadı.",
+	"templatedata-modal-notice-import-numparams": "$1 yeni {{PLURAL:$1|parametre|parametre}} içe aktarıldı: $2",
+	"templatedata-modal-table-param-actions": "Eylemler",
+	"templatedata-modal-table-param-autovalue": "Otomatik değer",
+	"templatedata-modal-table-param-default": "Varsayılan ($1)",
+	"templatedata-modal-table-param-description": "Açıklama",
+	"templatedata-modal-table-param-example": "Örnek ($1)",
+	"templatedata-modal-table-param-label": "Etiket",
+	"templatedata-modal-table-param-name": "Ad",
+	"templatedata-modal-table-param-type": "Tür",
+	"templatedata-modal-title": "Şablon belgeleme düzenleyicisi",
+	"templatedata-modal-title-templatedesc": "Şablon açıklaması ($1)",
+	"templatedata-modal-title-templateparams": "Şablon parametreleri"
+}

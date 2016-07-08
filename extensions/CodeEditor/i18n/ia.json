@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"codeeditor-desc": "Modification con coloration syntactic pro paginas con JavaScript e CSS usante le [https://ace.c9.io/ editor Ace]",
+	"codeeditor-toolbar-toggle": "Activar o disactivar le editor de codice",
+	"codeeditor-save-with-errors": "Le documento contine errores. Es tu secur de voler salveguardar lo?"
+}

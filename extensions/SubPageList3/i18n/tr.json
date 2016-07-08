@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vito Genovese"
+		]
+	},
+	"spl3-desc": "<code><nowiki><splist /></nowiki></code> etiketi kullanılarak otomatik olarak bir sayfaya ait altsayfaların listesini oluşturur",
+	"spl3_debug": "$1 seçeneği için bilinmeyen değer.",
+	"spl3_nosubpages": "$1, listelenecek altsayfalara sahip değil."
+}

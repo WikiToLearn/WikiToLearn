@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <g id="wrapping">
+    <path d="m 4,7 0,2 13,0 c 1.125297,0 2,0.8747028 2,2 0,1.125297 -0.874703,2 -2,2 l -1,0 0,-2 -3,3 3,3 0,-2 1,0 c 2.198703,0 4,-1.801297 4,-4 0,-2.1987028 -1.801297,-4 -4,-4 z" />
+    <path d="m 4,15 7,0 0,2 -7,0 z" />
+    <path d="m 4,11 7,0 0,2 -7,0 z" />
+  </g>
+</svg>

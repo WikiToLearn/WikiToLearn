@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gomoko",
+			"Sherbrooke",
+			"Urhixidur",
+			"Wladek92"
+		]
+	},
+	"codeeditor-desc": "Coloration syntaxique dans les pages écrites en JavaScript et CSS en utilisant l’[https://ace.c9.io/ Éditeur ACE]",
+	"codeeditor-next-annotation": "Allez à la prochaine annotation",
+	"codeeditor-toolbar-toggle": "Activer/désactiver l’éditeur de code",
+	"codeeditor-save-with-errors": "Le document contient des erreurs. Êtes-vous sûr de vouloir l’enregistrer ?",
+	"codeeditor-invisibleChars-toggle": "Gérer la manière d'afficher les caractères invisibles",
+	"codeeditor-lineWrapping-toggle": "Gérer le repli de ligne",
+	"codeeditor-searchReplace-toggle": "Gérer le mode de recherche et de remplacement",
+	"codeeditor-gotoline": "Aller à la ligne numéro...",
+	"codeeditor-indent": "Indenter",
+	"codeeditor-outdent": "Remonter l'indentation"
+}

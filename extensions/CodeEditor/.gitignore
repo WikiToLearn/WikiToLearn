@@ -1,0 +1,7 @@
+*~
+*.kate-swp
+.*.swp
+node_modules/
+vendor/
+ace-git/
+composer.lock

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cainamarques",
+			"Dianakc"
+		]
+	},
+	"codeeditor-desc": "Edição de páginas JavaScript ou CSS com realce de sintaxe, utilizando o [https://ace.c9.io/ editor Ace]",
+	"codeeditor-toolbar-toggle": "Ativar/desativar editor de código",
+	"codeeditor-save-with-errors": "O documento contém erros. Tem certeza de que deseja salvar?"
+}

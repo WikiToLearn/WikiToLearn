@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mashoi7"
+		]
+	},
+	"templatedata-doc-param-autovalue-empty": "tyhjy",
+	"templatedata-doc-param-default-empty": "tyhjy",
+	"templatedata-doc-param-example-empty": "tyhjy",
+	"templatedata-doc-param-status": "Stuatussu",
+	"templatedata-modal-button-add-language": "Ližiä kieli",
+	"templatedata-modal-button-addparam": "Ližiä parametru",
+	"templatedata-modal-button-apply": "Käytä",
+	"templatedata-modal-button-back": "Järilleh",
+	"templatedata-modal-button-cancel": "Hylgiä",
+	"templatedata-modal-button-changelang": "Vaihta kieli",
+	"templatedata-modal-button-saveparam": "Tallenda",
+	"templatedata-modal-table-param-name": "Nimi",
+	"templatedata-modal-table-param-type-content": "Syväindö",
+	"templatedata-modal-table-param-type-wiki-file-name": "Failu",
+	"templatedata-modal-table-param-type-wiki-page-name": "Sivu",
+	"templatedata-modal-table-param-type-wiki-user-name": "Käyttäi",
+	"templatedata-modal-title-choose-language": "Valliče kieli",
+	"templatedata-modal-title-language": "Kieli"
+}

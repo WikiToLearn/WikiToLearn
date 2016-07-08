@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Danmichaelo",
+			"Event",
+			"SuperPotato"
+		]
+	},
+	"codeeditor-desc": "Syntax-uthevet redigering av JavaScript og CSS-sider med bruk av [https://ace.c9.io/ Ace editor]",
+	"codeeditor-toolbar-toggle": "Slå på/av kodeeditoren",
+	"codeeditor-save-with-errors": "Dette dokumentet inneholder feil. Er du sikker på at du vil lagre?"
+}

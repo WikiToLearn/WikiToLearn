@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dani",
+			"Misibacsi"
+		]
+	},
+	"codeeditor-desc": "Szintaxiskiemeléssel segített szerkesztés JavaScript- és CSS-lapok szerkesztésekor az [https://ace.c9.io/ Ace editor]ral",
+	"codeeditor-toolbar-toggle": "A kódszerkesztő ki- vagy bekapcsolása"
+}

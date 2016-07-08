@@ -1,0 +1,117 @@
+@import "mediawiki.mixins";
+
+.group-codeeditor-format,
+.group-codeeditor-style,
+.codeEditor-ui-toolbar .group-insert,
+.codeEditor-ui-toolbar .group-format,
+.codeEditor-ui-toolbar .tabs span.tab-advanced,
+.codeEditor-ui-toolbar .tabs span.tab-characters,
+.codeEditor-ui-toolbar .tabs span.tab-help,
+.codeEditor-ui-toolbar .sections {
+	display: none;
+}
+
+.codeEditor-ui-toolbar .group-codeeditor-format,
+.codeEditor-ui-toolbar .group-codeeditor-style {
+	display: block;
+}
+
+.group-codeeditor-main,
+.group-codeeditor-format,
+.group-codeeditor-style {
+	.tool {
+		opacity: 0.7;
+		background-position: 1px 1px!important;
+		&.icon-active {
+			opacity: 1;
+		}
+	}
+}
+
+// TODO: Use this icon from OOUI
+.group-codeeditor-main .tool[rel=codeEditor] {
+	.background-image-svg( '../images/code.svg', '../images/code.png' );
+	&.icon-active {
+		.background-image-svg( '../images/code-progressive.svg', '../images/code-progressive.png' );
+	}
+}
+
+// TODO: Use this icon from OOUI
+.codeEditor-ui-toolbar .tool[rel=indent] {
+	.background-image-svg( '../images/indent.svg', '../images/indent.png' );
+}
+
+// TODO: Use this icon from OOUI
+.codeEditor-ui-toolbar .tool[rel=outdent] {
+	.background-image-svg( '../images/outdent.svg', '../images/outdent.png' );
+}
+
+// TODO: Upstream this icon to OOUI and use it from there
+.codeEditor-ui-toolbar .tool[rel=invisibleChars] {
+	.background-image-svg( '../images/pilcrow.svg', '../images/pilcrow.png' );
+	&.icon-active {
+		.background-image-svg( '../images/pilcrow-progressive.svg', '../images/pilcrow-progressive.png' );
+	}
+}
+
+// TODO: Upstream this icon to OOUI and use it from there
+.codeEditor-ui-toolbar .tool[rel=lineWrapping] {
+	.background-image-svg( '../images/wrapping.svg', '../images/wrapping.png' );
+	&.icon-active {
+		.background-image-svg( '../images/wrapping-progressive.svg', '../images/wrapping-progressive.png' );
+	}
+}
+
+// TODO: Upstream this icon to OOUI and use it from there
+.codeEditor-ui-toolbar .tool[rel=gotoLine] {
+	.background-image-svg( '../images/gotoLine.svg', '../images/gotoLine.png' );
+}
+
+// TODO: Use this icon from OOUI
+.codeEditor-ui-toolbar .tool[rel=toggleSearchReplace] {
+	.background-image-svg( '../images/find.svg', '../images/find.png' );
+}
+
+.wikiEditor-ui-toolbar .group-codeeditor-style {
+	border-right: 0;
+}
+
+.codeEditor-status {
+	clear: both;
+	width: 100%;
+	background-color: #F0F0F0;
+	border-top: 1px solid silver;
+	display: table;
+}
+
+.codeEditor-status .codeEditor-status-worker-cell.ace_gutter-cell {
+	background-position: 0 center;
+}
+
+.codeEditor-status-worker {
+	padding: 0 0.3em;
+	user-select: none;
+	cursor: pointer;
+	display: table-cell;
+	*float: left;
+	*width: 10em;
+}
+
+.codeEditor-status-message {
+	border-left: 1px solid silver;
+	border-right: 1px solid silver;
+	padding: 0 0.3em;
+	width: 100%;
+	display: table-cell;
+	*float: left;
+	*width: auto;
+}
+
+.codeEditor-status-line {
+	padding: 0 0.3em;
+	text-align: right;
+	white-space: nowrap;
+	display: table-cell;
+	*float: right;
+	*width: 4em;
+}

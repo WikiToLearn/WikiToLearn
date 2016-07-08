@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bikarhêner",
+			"George Animal"
+		]
+	},
+	"templatedata-doc-param-autovalue-empty": "vala",
+	"templatedata-doc-param-default-empty": "vala",
+	"templatedata-doc-param-example": "Mînak",
+	"templatedata-doc-param-example-empty": "vala",
+	"templatedata-doc-param-desc": "Danasîn",
+	"templatedata-doc-param-status": "Rewş",
+	"templatedata-doc-param-status-optional": "girêdayî daxwazê",
+	"templatedata-doc-param-status-suggested": "pêşniyarkirî",
+	"templatedata-doc-param-type": "Cure",
+	"templatedata-modal-button-back": "Paşve",
+	"templatedata-modal-button-cancel": "Betal bike",
+	"templatedata-modal-button-changelang": "Zimanê biguherîne",
+	"templatedata-modal-button-done": "Çêbû",
+	"templatedata-modal-button-saveparam": "Tomar bike",
+	"templatedata-modal-json-error-replace": "Bixe şûnê",
+	"templatedata-modal-table-param-example": "Mînak ($1)",
+	"templatedata-modal-table-param-name": "Nav",
+	"templatedata-modal-table-param-type-date": "Dîrok",
+	"templatedata-modal-table-param-type-url": "URL",
+	"templatedata-modal-table-param-type-wiki-page-name": "Rûpel",
+	"templatedata-modal-table-param-type-wiki-template-name": "Şablon",
+	"templatedata-modal-table-param-type-wiki-user-name": "Bikarhêner",
+	"templatedata-modal-title-choose-language": "Zimanekî hilbijêre",
+	"templatedata-modal-title-language": "Ziman"
+}

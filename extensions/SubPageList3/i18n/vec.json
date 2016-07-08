@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Candalua"
+		]
+	},
+	"spl3-desc": "Crea automaticamente na lista de le sotopagine de na pagine doparando el tag <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Valor sconossiùo par l'opsion $1.",
+	"spl3_nosubpages": "$1 no la gà sotopagine da elencar."
+}

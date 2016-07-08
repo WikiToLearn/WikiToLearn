@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Marmase",
+			"Mirzali"
+		]
+	},
+	"templatedata-doc-desc-empty": "Arezekerdış çıniyo.",
+	"templatedata-doc-param-default": "Hesabiyaye",
+	"templatedata-doc-param-default-empty": "veng",
+	"templatedata-doc-param-desc": "Şınasnayış",
+	"templatedata-doc-param-desc-empty": "arezekerdış çıniyo",
+	"templatedata-doc-param-name": "Parametre",
+	"templatedata-doc-param-status": "Weziyet",
+	"templatedata-doc-param-status-optional": "opsiyonel",
+	"templatedata-doc-param-status-required": "lazım",
+	"templatedata-doc-param-type": "Babet",
+	"templatedata-doc-params": "parametrey şablonan"
+}

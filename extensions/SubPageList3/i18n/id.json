@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bennylin"
+		]
+	},
+	"spl3-desc": "Membuat secara otomatis daftar upa halaman menggunakan tag <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Nilai paramater yang tidak diketahui untuk $1.",
+	"spl3_nosubpages": "$1 tidak memiliki upa halaman untuk didaftarkan."
+}

@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu",
+			"Malafaya",
+			"Imperadeiro98",
+			"Fúlvio",
+			"Vitorvicentevalente"
+		]
+	},
+	"codeeditor-desc": "Edição de páginas JavaScript ou CSS com realce sintático, usando o [https://ace.c9.io/ editor Ace]",
+	"codeeditor-next-annotation": "Ir à próxima anotação",
+	"codeeditor-toolbar-toggle": "Ativar/desativar o editor de código",
+	"codeeditor-save-with-errors": "O documento contém erros. Tem a certeza que quer gravar?",
+	"codeeditor-invisibleChars-toggle": "Mostrar ou ocultar caracteres invisíveis",
+	"codeeditor-lineWrapping-toggle": "Activar ou desactivar a quebra de linha",
+	"codeeditor-searchReplace-toggle": "Mostrar ou ocultar o diálogo de localizar e substituir",
+	"codeeditor-gotoline": "Ir à linha número...",
+	"codeeditor-indent": "Adicionar indentação",
+	"codeeditor-outdent": "Eliminar indentação"
+}

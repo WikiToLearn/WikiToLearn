@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Als-Holder"
+		]
+	},
+	"spl3-desc": "E Lischt vu Untersyte zuen ere Syte mit em <code><nowiki><splist /></nowiki></code>-Tag automatisch aalege.",
+	"spl3_debug": "Nit bekannter Wärt fir Option $1.",
+	"spl3_nosubpages": "$1 het kei Untersyte."
+}

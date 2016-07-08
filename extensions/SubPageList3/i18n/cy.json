@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lloffiwr"
+		]
+	},
+	"spl3-desc": "Yn ychwnegu'r tag <code><nowiki><splist /></nowiki></code> sy'n rhestri isdudalennau rhyw dudalen",
+	"spl3_debug": "Gwerth anhysbys i'r opsiwn $1.",
+	"spl3_nosubpages": "Nid oes isdudalennau i'r dudalen $1."
+}

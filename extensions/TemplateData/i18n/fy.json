@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robin0van0der0vliet"
+		]
+	},
+	"templatedata-doc-desc-empty": "Gjin beskriuwing.",
+	"templatedata-doc-param-desc-empty": "gjin beskriuwing",
+	"templatedata-doc-param-status-optional": "opsjoneel",
+	"templatedata-modal-button-add-language": "Taal tafoegje",
+	"templatedata-modal-button-back": "Foarige",
+	"templatedata-modal-button-cancel": "Annulearje",
+	"templatedata-modal-button-saveparam": "Bewarje",
+	"templatedata-modal-placeholder-paramkey": "Parameternamme",
+	"templatedata-modal-table-param-description": "Beskriuwing ($1)",
+	"templatedata-modal-table-param-label": "Label ($1)",
+	"templatedata-modal-table-param-name": "Namme",
+	"templatedata-modal-table-param-type-wiki-file-name": "Triem",
+	"templatedata-modal-table-param-type-wiki-user-name": "Brûker",
+	"templatedata-modal-title-addparam": "Nije parameter tafoegje",
+	"templatedata-modal-title-language": "Taal"
+}

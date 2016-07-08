@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aotake",
+			"Mizusumashi",
+			"Shirayuki"
+		]
+	},
+	"spl3-desc": "<code><nowiki><splist /></nowiki></code>タグを使っているページの下位ページ一覧を自動生成する",
+	"spl3_debug": "$1オプションの値が不明。",
+	"spl3_nosubpages": "$1には列挙できる下位ページがありません。"
+}

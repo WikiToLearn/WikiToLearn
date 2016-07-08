@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Schu",
+			"Shirayuki",
+			"Fryed-peach",
+			"Otokoume"
+		]
+	},
+	"codeeditor-desc": "[https://ace.c9.io/ Ace editor]を用いた、JavaScript/CSS の構文ハイライト機能付きのページ編集",
+	"codeeditor-toolbar-toggle": "コード エディターの切り替え",
+	"codeeditor-save-with-errors": "このドキュメントにはエラーが含まれています。保存してもよろしいですか？"
+}

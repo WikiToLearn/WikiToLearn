@@ -1,0 +1,30 @@
+{
+	// Enforcing
+	"bitwise": true,
+	"curly": true,
+	"eqeqeq": true,
+	"freeze": true,
+	"latedef": true,
+	"immed": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"quotmark": "single",
+	"strict": false,
+	"trailing": true,
+	"undef": true,
+	"unused": true,
+
+	// Relaxing
+	"es5": false,
+
+	// Environment
+	"browser": true,
+	"jquery": true,
+
+	"globals": {
+		"mediaWiki": false,
+		"OO": false
+	}
+}

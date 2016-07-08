@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"SMP"
+		]
+	},
+	"spl3-desc": "Crea automàticament una llista de les subpàgines d'una pàgina fent servir el codi <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Valor desconegut per a l'opció $1.",
+	"spl3_nosubpages": "$1 no té subpàgines a mostrar."
+}

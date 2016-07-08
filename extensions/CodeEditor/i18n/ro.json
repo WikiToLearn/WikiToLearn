@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Minisarm"
+		]
+	},
+	"codeeditor-desc": "Editare prin evidențierea sintaxei pentru pagini JavaScript și CSS utilizând [https://ace.c9.io/ editorul Ace]",
+	"codeeditor-toolbar-toggle": "Activează/dezactivează editorul de cod"
+}

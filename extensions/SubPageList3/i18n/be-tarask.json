@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"EugeneZelenko",
+			"Jim-by"
+		]
+	},
+	"spl3-desc": "Аўтаматычна стварае сьпіс падстаронак з дапамогай тэга <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Невядомае значэньне парамэтра $1.",
+	"spl3_nosubpages": "$1 ня мае падстаронак."
+}

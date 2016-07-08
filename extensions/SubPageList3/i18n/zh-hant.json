@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Anakmalaysia",
+			"Liangent",
+			"Mark85296341",
+			"Wrightbus",
+			"LNDDYL"
+		]
+	},
+	"spl3-desc": "增加標籤 <code><nowiki><splist /></nowiki></code> 到建立子頁面清單",
+	"spl3_debug": "不明的選項 $1 的設定值",
+	"spl3_nosubpages": "$1 沒有子頁面來顯示"
+}

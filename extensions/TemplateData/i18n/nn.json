@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Njardarlogar"
+		]
+	},
+	"templatedata-editbutton": "Handsam maldokumentasjon",
+	"templatedata-helplink": "Informasjon om maldokumentasjonutvidinga",
+	"templatedata-modal-button-apply": "Bruk",
+	"templatedata-modal-button-cancel": "Bryt av",
+	"templatedata-modal-button-changelang": "Endra språk",
+	"templatedata-modal-title": "Endring av maldokumentasjon",
+	"templatedata-modal-title-addparam": "Legg til ny parameter",
+	"templatedata-modal-title-choose-language": "Vel språk",
+	"templatedata-modal-title-language": "Språk",
+	"templatedata-modal-title-templatedesc": "Malskildring ($1)",
+	"templatedata-modal-title-templateparams": "Malparametrar"
+}

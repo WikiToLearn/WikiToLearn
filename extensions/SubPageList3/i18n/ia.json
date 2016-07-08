@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"spl3-desc": "Adde le etiquetta <code><nowiki><splist /></nowiki></code> que crea un lista del subpaginas de un pagina",
+	"spl3_debug": "Valor incognite pro le option $1.",
+	"spl3_nosubpages": "$1 non ha subpaginas a listar."
+}

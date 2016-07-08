@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Helix84"
+		]
+	},
+	"spl3-desc": "Automatická tvorba zoznamu podstránok stránky pomocou značky <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Neznáma hodnota voľby $1.",
+	"spl3_nosubpages": "$1 nemá zobraziteľné podstránky."
+}

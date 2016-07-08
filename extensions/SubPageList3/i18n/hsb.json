@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"spl3-desc": "Wutworja awtomatisce lisćinu podstronow z pomocu taflički <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Njeznata hódnota za opciju $1.",
+	"spl3_nosubpages": "$1 nima podstrony za lisćinu."
+}

@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Luckas",
+			"Toniher",
+			"Vriullop",
+			"Fitoschido",
+			"Macofe"
+		]
+	},
+	"templatedata-doc-param-autovalue": "Valor automàtic",
+	"templatedata-doc-param-default": "Per defecte",
+	"templatedata-doc-param-default-empty": "buit",
+	"templatedata-doc-param-desc": "Descripció",
+	"templatedata-doc-param-name": "Paràmetre",
+	"templatedata-doc-param-status": "Estat",
+	"templatedata-doc-param-status-optional": "opcional",
+	"templatedata-doc-param-status-required": "obligatori",
+	"templatedata-doc-param-type": "Tipus",
+	"templatedata-doc-params": "Paràmetres de la plantilla",
+	"templatedata-modal-button-done": "Fet",
+	"templatedata-modal-table-param-actions": "Accions",
+	"templatedata-modal-table-param-autovalue": "Valor automàtic",
+	"templatedata-modal-table-param-default": "Per defecte ($1)",
+	"templatedata-modal-table-param-required": "Obligatori",
+	"templatedata-modal-table-param-type": "Tipus",
+	"templatedata-modal-table-param-type-date": "Data",
+	"templatedata-modal-table-param-type-url": "URL",
+	"templatedata-modal-table-param-type-wiki-template-name": "Plantilla",
+	"templatedata-modal-table-param-type-wiki-user-name": "Usuari"
+}

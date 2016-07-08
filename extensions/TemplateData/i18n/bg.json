@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vodnokon4e"
+		]
+	},
+	"templatedata-modal-table-param-type-url": "URL адрес",
+	"templatedata-modal-table-param-type-wiki-file-name": "Файл",
+	"templatedata-modal-table-param-type-wiki-page-name": "Страница",
+	"templatedata-modal-table-param-type-wiki-template-name": "Шаблон",
+	"templatedata-modal-table-param-type-wiki-user-name": "Потребител",
+	"templatedata-modal-title-choose-language": "Избор на език",
+	"templatedata-modal-title-language": "Език"
+}

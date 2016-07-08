@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dragonòt"
+		]
+	},
+	"spl3-desc": "A crea automaticament na lista dle sotpàgine ëd na pàgina an dovrand ël tag <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Valor pa conossù për l'opsion $1.",
+	"spl3_nosubpages": "$1 a l'ha pa ëd sotpàgine da listé."
+}

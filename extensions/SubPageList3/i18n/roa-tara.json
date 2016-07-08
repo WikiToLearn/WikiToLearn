@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"spl3-desc": "Automaticamende ccreje 'n'elenghe de sottopàggene de 'na pàgene ausanne 'u tag <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Valore scanusciute pe l'opzione $1.",
+	"spl3_nosubpages": "$1 non ge tène sottopàggene da elengà."
+}

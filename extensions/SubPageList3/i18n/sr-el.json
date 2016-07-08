@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Michaello"
+		]
+	},
+	"spl3-desc": "Automatski pravi spisak podstrana neke strane preko taga <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Nepoznata vrednost za opciju $1.",
+	"spl3_nosubpages": "$1 nema podstrana."
+}

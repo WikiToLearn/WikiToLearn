@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Meursault2004"
+		]
+	},
+	"spl3-desc": "Sacara otomatis nggawé daftar subkaca-subkaca sawijining kaca nganggo tag <code><nowiki><splist /></nowiki></code>",
+	"spl3_debug": "Bijih kanggo opsi $1 ora dimangertèni.",
+	"spl3_nosubpages": "$1 ora nduwé subkaca-subkaca sing bisa dituduhaké."
+}
