@@ -232,7 +232,7 @@ $wgUseETag = true;
 
 $wgDefaultUserOptions['useeditwarning'] = 1;
 $wgDefaultSkin = 'neverland';
-require_once "$IP/skins/Neverland/Neverland.php";
+wfLoadSkin( 'Neverland' );
 
 $wgAllowImageTag = true;
 
