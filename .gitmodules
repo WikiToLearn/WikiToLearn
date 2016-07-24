@@ -13,3 +13,6 @@
 [submodule "extensions/Piwik"]
 	path = extensions/Piwik
 	url = https://github.com/DaSchTour/piwik-mediawiki-extension.git
+[submodule "extensions/SpeechToText"]
+	path = extensions/SpeechToText
+	url = https://github.com/WikiToLearn/SpeechToText.git

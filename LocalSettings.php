@@ -490,3 +490,4 @@ $wgCodeEditorEnableCore = true;
 
 wfLoadExtension( 'TemplateData' );
 $wgTemplateDataGUI = true;
+wfLoadExtension('SpeechToText');
