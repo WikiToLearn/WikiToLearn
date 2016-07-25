@@ -494,3 +494,6 @@ wfLoadExtension( 'InputBox' );
 
 //WikiRating extension
 wfLoadExtension( 'WikiRating' );
+
+//Boiler plate Extension
+wfLoadExtension( 'BoilerPlate' );
