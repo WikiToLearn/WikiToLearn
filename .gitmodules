@@ -19,3 +19,6 @@
 [submodule "extensions/WikiToLearnACL"]
 	path = extensions/WikiToLearnACL
 	url = https://github.com/WikiToLearn/WikiToLearnACL.git
+[submodule "CollaborativeEditor"]
+	path = CollaborativeEditor
+	url = https://github.com/WikiToLearn/CollaborativeEditor
