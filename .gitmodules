@@ -16,3 +16,6 @@
 [submodule "extensions/SpeechToText"]
 	path = extensions/SpeechToText
 	url = https://github.com/WikiToLearn/SpeechToText.git
+[submodule "extensions/WikiToLearnACL"]
+	path = extensions/WikiToLearnACL
+	url = https://github.com/WikiToLearn/WikiToLearnACL.git
