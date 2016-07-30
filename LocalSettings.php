@@ -11,7 +11,11 @@ $wtl_development=false;
 if ($wtl_development || getenv("WTL_PRODUCTION") != "1"){
   error_reporting(-1);
   ini_set("display_errors",1);
-  $wgDebugLogFile="/tmp/mediawiki.log";
+  if (is_writable("/var/log/mediawiki/")) {
+    $wgDebugLogFile="/var/log/mediawiki/" . date('m-d-Y') . ".log";
+  } else {
+    $wgDebugLogFile="/tmp/mediawiki.log";
+  }
 }
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
