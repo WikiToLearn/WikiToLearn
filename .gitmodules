@@ -19,3 +19,6 @@
 [submodule "extensions/WikiToLearnACL"]
 	path = extensions/WikiToLearnACL
 	url = https://github.com/WikiToLearn/WikiToLearnACL.git
+[submodule "extensions/OfflineExtension"]
+	path = extensions/OfflineExtension
+	url = https://www.github.com/Srijancse/OfflineExtension.git
