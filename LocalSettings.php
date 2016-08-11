@@ -7,8 +7,7 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
-$wtl_development=false;
-if ($wtl_development || getenv("WTL_PRODUCTION") != "1"){
+if (getenv("WTL_PRODUCTION") != "1"){
   error_reporting(-1);
   ini_set("display_errors",1);
   if (is_writable("/var/log/mediawiki/")) {
@@ -503,4 +502,3 @@ wfLoadExtension('WikiToLearnACL');
 $wgAvailableRights[] = 'wtl_deleteallpages';
 $wgGroupPermissions['sysop']['wtl_deleteallpages'] = true;
 $wgGroupPermissions['user']['delete'] = true;
-
