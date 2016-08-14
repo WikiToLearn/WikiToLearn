@@ -290,7 +290,7 @@ $wgCapitalLinkOverrides[ NS_FILE ] = true; //FIXME
 // Visual Editor configuration
 wfLoadExtension( "VisualEditor" );
 // Disable by default for everybody
-$wgDefaultUserOptions['visualeditor-enable'] = 0;
+$wgDefaultUserOptions['visualeditor-enable'] = 1;
 // OPTIONAL: Enable VisualEditor's experimental code features
 $wgDefaultUserOptions['visualeditor-enable-experimental'] = 1;
 $wgVisualEditorSupportedSkins = ['neverland'];
