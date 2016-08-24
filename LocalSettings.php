@@ -314,6 +314,19 @@ $wgMathFullRestbaseURL = "//restbase." . $wiki_domain . "/" . (isset($_SERVER['S
 $wgVisualEditorFullRestbaseURL = "//restbase." . $wiki_domain . "/" . (isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"localhost"). "/";
 
 /* extensions loading */
+wfLoadExtension('SpeechToText');
+
+
+wfLoadExtension('WikiToLearnACL');
+
+// Add WikiToLearn user permissions
+$wgAvailableRights[] = 'wtl_deleteallpages';
+$wgGroupPermissions['sysop']['wtl_deleteallpages'] = true;
+$wgGroupPermissions['user']['delete'] = true;
+
+wfLoadExtension('CourseEditor');
+wfLoadExtension('EasyLink');
+
 
 // Cite extension for references as footnotes
 wfLoadExtension("Cite");
@@ -454,9 +467,6 @@ if (file_exists("$IP/../LocalSettings.d/wgReadOnly.php")) {
 // SubapageList needs it
 require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
 #require_once( "$IP/extensions/SubPageList/SubPageList.php" );
-// Add subpage capabilities
-$wgNamespacesWithSubpages = array_fill(0, 200, true);
-$wgNamespacesWithSubpages[NS_USER] = true;
 
 
 // Highlight extension:
@@ -484,10 +494,13 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
 //InputBox extension
 wfLoadExtension( 'InputBox' );
-
+// Add subpage capabilities
+$wgContentNamespaces =  array( 0, 200, 2800 );
+//$wgNamespacesWithSubpages = array_fill(0, 200, 2800, true);
+//$wgNamespacesWithSubpages[NS_USER] = true;
+//$wgNamespacesWithSubpages[NS_COURSE] = true;
 // for SubPageList3 extension
 require_once("$IP/extensions/SubPageList3/SubPageList3.php");
-
 wfLoadExtension( 'CodeEditor' );
 $wgCodeEditorEnableCore = true;
 
@@ -497,7 +510,6 @@ wfLoadExtension('SpeechToText');
 
 
 wfLoadExtension('WikiToLearnACL');
-
 // Add WikiToLearn user permissions
 $wgAvailableRights[] = 'wtl_deleteallpages';
 $wgGroupPermissions['sysop']['wtl_deleteallpages'] = true;
