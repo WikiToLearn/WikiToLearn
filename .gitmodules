@@ -19,3 +19,7 @@
 [submodule "extensions/WikiToLearnACL"]
 	path = extensions/WikiToLearnACL
 	url = https://github.com/WikiToLearn/WikiToLearnACL.git
+
+[submodule "extensions/CourseEditor"]
+	path = extensions/CourseEditor
+	url = https://github.com/WikiToLearn/CourseEditor.git
