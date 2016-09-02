@@ -365,7 +365,7 @@ if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
     $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
 }*/
 
-wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
+/*wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
 $wgCaptchaClass = 'QuestyCaptcha';
 $arr = array (
     "Write 8421" => "8421",
@@ -389,7 +389,7 @@ $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
 $wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
 $wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
 $wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true;
-$ceAllowConfirmedEmail = true;
+$ceAllowConfirmedEmail = true;*/
 
 //for making users autoconfirmed
 $wgAutoConfirmCount = 3;
@@ -496,9 +496,6 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 wfLoadExtension( 'InputBox' );
 // Add subpage capabilities
 $wgContentNamespaces =  array( 0, 200, 2800 );
-//$wgNamespacesWithSubpages = array_fill(0, 200, 2800, true);
-//$wgNamespacesWithSubpages[NS_USER] = true;
-//$wgNamespacesWithSubpages[NS_COURSE] = true;
 // for SubPageList3 extension
 require_once("$IP/extensions/SubPageList3/SubPageList3.php");
 wfLoadExtension( 'CodeEditor' );
