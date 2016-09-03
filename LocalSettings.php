@@ -364,32 +364,21 @@ if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
     $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
     $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
 }
-
-/*wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
-$wgCaptchaClass = 'QuestyCaptcha';
-$arr = array (
-    "Write 8421" => "8421",
-    "Write 1337" => "1337",
-    "Write 9999" => "9999",
-    "Write 'WikiToLearn'" => "WikiToLearn"
-);
-foreach ( $arr as $key => $value ) {
-        $wgCaptchaQuestions[] = array( 'question' => $key, 'answer' => $value );
-}
-
-$wgCaptchaTriggers['editgi'] = true;
-$wgCaptchaTriggers['create'] = true;
-$wgCaptchaTriggers['addurl'] = true;
-$wgCaptchaTriggers['createaccount'] = true;
-$wgCaptchaTriggers['badlogin'] = true;
-
-$wgGroupPermissions['*'            ]['skipcaptcha'] = false;
-$wgGroupPermissions['user'         ]['skipcaptcha'] = false;
-$wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
-$wgGroupPermissions['bot'          ]['skipcaptcha'] = true;
-$wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
-$wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true;
-$ceAllowConfirmedEmail = true;*/
+// Disable captcha for flow discussions
+// See https://phabricator.wikimedia.org/T143516
+$wgCaptchaTriggersOnNamespace[NS_TALK]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TALK]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['addurl'] = false;
+//Disable captcha for course editor
+$wgCaptchaTriggersOnNamespace[NS_COURSE]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSE]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSE]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[NS_USER]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_USER]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_USER]['addurl'] = false;
 
 //for making users autoconfirmed
 $wgAutoConfirmCount = 3;
@@ -424,17 +413,6 @@ $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList   = array('wikitext');
-
-
-// Disable captcha for flow discussions
-// See https://phabricator.wikimedia.org/T143516
-$wgCaptchaTriggersOnNamespace[NS_TALK]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TALK]['addurl'] = false;
-
-$wgCaptchaTriggersOnNamespace[NS_TOPIC]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TOPIC]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TOPIC]['addurl'] = false;
 
 //Gadgets
 wfLoadExtension( "Gadgets" );
