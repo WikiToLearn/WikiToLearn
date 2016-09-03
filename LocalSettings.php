@@ -354,7 +354,7 @@ $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 //$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 
 // Captcha
-/*wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
+wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
 $wgCaptchaClass = 'ReCaptchaNoCaptcha';
 $wgReCaptchaSendRemoteIP = true;
 if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
@@ -363,7 +363,7 @@ if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
     // These keys are Google's test keys. Configure them appropriately in secrets
     $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
     $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
-}*/
+}
 
 /*wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ) );
 $wgCaptchaClass = 'QuestyCaptcha';
@@ -424,6 +424,17 @@ $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList   = array('wikitext');
+
+
+// Disable captcha for flow discussions
+// See https://phabricator.wikimedia.org/T143516
+$wgCaptchaTriggersOnNamespace[NS_TALK]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TALK]['addurl'] = false;
+
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['addurl'] = false;
 
 //Gadgets
 wfLoadExtension( "Gadgets" );
