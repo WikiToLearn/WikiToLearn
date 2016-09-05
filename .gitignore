@@ -12,6 +12,7 @@ extensions/Flow/
 extensions/Gadgets/
 extensions/googleAnalytics/
 extensions/InputBox/
+extensions/LabeledSectionTransclusion
 extensions/Math/
 extensions/NewUserMessage/
 extensions/Nuke/
