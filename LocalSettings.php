@@ -315,8 +315,6 @@ $wgVisualEditorFullRestbaseURL = "//restbase." . $wiki_domain . "/" . (isset($_S
 
 /* extensions loading */
 wfLoadExtension('SpeechToText');
-
-
 wfLoadExtension('WikiToLearnACL');
 
 // Add WikiToLearn user permissions
@@ -325,6 +323,7 @@ $wgGroupPermissions['sysop']['wtl_deleteallpages'] = true;
 $wgGroupPermissions['user']['delete'] = true;
 
 wfLoadExtension('CourseEditor');
+wfLoadExtension( 'LabeledSectionTransclusion' );
 wfLoadExtension('EasyLink');
 
 
@@ -492,11 +491,3 @@ $wgCodeEditorEnableCore = true;
 
 wfLoadExtension( 'TemplateData' );
 $wgTemplateDataGUI = true;
-wfLoadExtension('SpeechToText');
-
-
-wfLoadExtension('WikiToLearnACL');
-// Add WikiToLearn user permissions
-$wgAvailableRights[] = 'wtl_deleteallpages';
-$wgGroupPermissions['sysop']['wtl_deleteallpages'] = true;
-$wgGroupPermissions['user']['delete'] = true;
