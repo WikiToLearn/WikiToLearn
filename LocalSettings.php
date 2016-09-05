@@ -378,6 +378,9 @@ $wgCaptchaTriggersOnNamespace[NS_COURSE]['addurl'] = false;
 $wgCaptchaTriggersOnNamespace[NS_USER]['edit'] = false;
 $wgCaptchaTriggersOnNamespace[NS_USER]['create'] = false;
 $wgCaptchaTriggersOnNamespace[NS_USER]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['addurl'] = false;
 
 //for making users autoconfirmed
 $wgAutoConfirmCount = 3;
@@ -483,7 +486,7 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 //InputBox extension
 wfLoadExtension( 'InputBox' );
 // Add subpage capabilities
-$wgContentNamespaces =  array( 0, 200, 2800 );
+$wgContentNamespaces =  array( 0, 200, 2800, 2900);
 // for SubPageList3 extension
 require_once("$IP/extensions/SubPageList3/SubPageList3.php");
 wfLoadExtension( 'CodeEditor' );
