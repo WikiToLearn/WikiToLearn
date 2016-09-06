@@ -494,3 +494,7 @@ $wgCodeEditorEnableCore = true;
 
 wfLoadExtension( 'TemplateData' );
 $wgTemplateDataGUI = true;
+$wgRateLimits['edit']['bot'] = array( 60, 60 );
+$wgRateLimits['move']['bot'] = array( 60, 60 );
+$wgRateLimits['upload']['bot'] = array( 60, 60 );
+array_push($wgCollectionArticleNamespaces, NS_COURSE);
