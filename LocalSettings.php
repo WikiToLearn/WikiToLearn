@@ -314,18 +314,31 @@ $wgMathFullRestbaseURL = "//restbase." . $wiki_domain . "/" . (isset($_SERVER['S
 $wgVisualEditorFullRestbaseURL = "//restbase." . $wiki_domain . "/" . (isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"localhost"). "/";
 
 /* extensions loading */
-wfLoadExtension('SpeechToText');
-wfLoadExtension('WikiToLearnACL');
+//wfLoadExtension('SpeechToText');
+//wfLoadExtension('EasyLink');
 
+wfLoadExtension('WikiToLearnACL');
 // Add WikiToLearn user permissions
 $wgAvailableRights[] = 'wtl_deleteallpages';
 $wgGroupPermissions['sysop']['wtl_deleteallpages'] = true;
 $wgGroupPermissions['user']['delete'] = true;
 
+// Define constants for my additional namespaces
 wfLoadExtension('CourseEditor');
+/*
+* CourseEditor namespaces are already declared within extension.json,
+* but to activate Flow discussion page and Collection personal tools
+* we have to define costants here. This generate a Warning that says:
+* Notice: Constant NS_COURSE already defined in /var/www/WikiToLearn/mediawiki/includes/registration/ExtensionRegistry.php
+* Notice: Constant NS_COURSE_TALK already defined in /var/www/WikiToLearn/mediawiki/includes/registration/ExtensionRegistry.php
+* However if we don't define them Flow and Collection don't recognize the costants and show warning again.
+*/
+if (!defined("NS_COURSE")){
+  define("NS_COURSE", 2800);
+  define("NS_COURSE_TALK", 2801);
+  define("NS_COURSEMETADATA", 2900);
+}
 wfLoadExtension( 'LabeledSectionTransclusion' );
-wfLoadExtension('EasyLink');
-
 
 // Cite extension for references as footnotes
 wfLoadExtension("Cite");
@@ -349,42 +362,14 @@ $wgCollectionFormats = array(
 $wgCollectionRendererSettings['columns']['default'] = 1;
 $wgLicenseURL = "//creativecommons.org/licenses/by-sa/3.0/";
 $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
+$wgCollectionArticleNamespaces = array(
+  NS_USER,
+  NS_PROJECT,
+  NS_COURSE
+);
 //$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
 //$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 
-// Captcha
-wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
-$wgCaptchaClass = 'ReCaptchaNoCaptcha';
-$wgReCaptchaSendRemoteIP = true;
-if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
-    require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
-} else {
-    // These keys are Google's test keys. Configure them appropriately in secrets
-    $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
-    $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
-}
-// Disable captcha for flow discussions
-// See https://phabricator.wikimedia.org/T143516
-$wgCaptchaTriggersOnNamespace[NS_TALK]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TALK]['addurl'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TOPIC]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TOPIC]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_TOPIC]['addurl'] = false;
-//Disable captcha for course editor
-$wgCaptchaTriggersOnNamespace[NS_COURSE]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSE]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSE]['addurl'] = false;
-$wgCaptchaTriggersOnNamespace[NS_USER]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_USER]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_USER]['addurl'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['addurl'] = false;
-
-//for making users autoconfirmed
-$wgAutoConfirmCount = 3;
-$wgAutoConfirmAge = 86400*3; // three days
 
 //ContributionScores
 require_once("$IP/extensions/ContributionScores/ContributionScores.php");
@@ -404,6 +389,7 @@ require_once( "$IP/extensions/Echo/Echo.php" );
 //EmbedVideo
 include_once("$IP/extensions/EmbedVideo/EmbedVideo.php");
 
+
 //Flow for talk pages
 require_once( "$IP/extensions/Flow/Flow.php" );
 $wgNamespaceContentModels[NS_TALK] = CONTENT_MODEL_FLOW_BOARD;
@@ -414,6 +400,7 @@ $wgNamespaceContentModels[NS_MEDIAWIKI_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[NS_COURSE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList   = array('wikitext');
 
 //Gadgets
@@ -434,7 +421,6 @@ if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
     // id for test
     $wgPiwikIDSite = 2;
 }
-
 
 // Math rendering
 wfLoadExtension("Math");
@@ -458,6 +444,40 @@ if (file_exists("$IP/../LocalSettings.d/wgReadOnly.php")) {
 // SubapageList needs it
 require_once( "$IP/extensions/ParserHooks/ParserHooks.php" );
 #require_once( "$IP/extensions/SubPageList/SubPageList.php" );
+
+// Captcha
+wfLoadExtensions( array( 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ) );
+$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaSendRemoteIP = true;
+if (file_exists("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php")) {
+    require_once("$IP/../LocalSettings.d/ReCaptchaNoCaptcha.php");
+} else {
+    // These keys are Google's test keys. Configure them appropriately in secrets
+    $wgReCaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+    $wgReCaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+}
+// Disable captcha for some namespaces
+// See https://phabricator.wikimedia.org/T143516
+$wgCaptchaTriggersOnNamespace[NS_TALK]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TALK]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TALK]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_TOPIC]['addurl'] = false;
+//Disable captcha for course editor
+$wgCaptchaTriggersOnNamespace[NS_COURSE]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSE]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSE]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[NS_USER]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_USER]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_USER]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['create'] = false;
+$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['addurl'] = false;
+
+//for making users autoconfirmed
+$wgAutoConfirmCount = 3;
+$wgAutoConfirmAge = 86400*3; // three days
 
 
 // Highlight extension:
@@ -486,7 +506,7 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 //InputBox extension
 wfLoadExtension( 'InputBox' );
 // Add subpage capabilities
-$wgContentNamespaces =  array( 0, 200, 2800, 2900);
+$wgContentNamespaces =  array( 0, 200, 2800);
 // for SubPageList3 extension
 require_once("$IP/extensions/SubPageList3/SubPageList3.php");
 wfLoadExtension( 'CodeEditor' );
@@ -494,7 +514,5 @@ $wgCodeEditorEnableCore = true;
 
 wfLoadExtension( 'TemplateData' );
 $wgTemplateDataGUI = true;
-$wgRateLimits['edit']['bot'] = array( 60, 60 );
-$wgRateLimits['move']['bot'] = array( 60, 60 );
-$wgRateLimits['upload']['bot'] = array( 60, 60 );
-array_push($wgCollectionArticleNamespaces, NS_COURSE);
+//Disable bot rate limits
+$wgGroupPermissions['bot']['noratelimit'] = true;
