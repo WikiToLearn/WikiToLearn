@@ -505,8 +505,12 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
 //InputBox extension
 wfLoadExtension( 'InputBox' );
-// Add subpage capabilities
+
+//Content Namespaces
 $wgContentNamespaces =  array( 0, 200, 2800);
+// Add subpage capabilities
+$wgNamespacesWithSubpages = array_fill(0, 200, true);
+$wgNamespacesWithSubpages[NS_USER] = true;
 // for SubPageList3 extension
 require_once("$IP/extensions/SubPageList3/SubPageList3.php");
 wfLoadExtension( 'CodeEditor' );
