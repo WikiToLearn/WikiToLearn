@@ -113,6 +113,7 @@ switch ($wiki) {
     case "de":
     case "pt":
     case "sv":
+    case "ca":
         $wgLanguageCode = $wiki;
         $wgDBname = $wiki . "wikitolearn";
         break;
