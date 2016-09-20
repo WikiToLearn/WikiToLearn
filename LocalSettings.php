@@ -129,7 +129,7 @@ switch ($wiki) {
 }
 
 $wgSitename = "WikiToLearn - collaborative textbooks";
-$wgLogo = "$wgStylePath/Neverland/images/logos/en.png";
+$wgLogo = "$wgStylePath/Neverland/images/logos/wtl-logo.png";
 
 $wgForeignFileRepos[] = array(
     'class' => 'ForeignDBRepo',
