@@ -25,3 +25,6 @@
 [submodule "extensions/ConfirmEdit"]
 	path = extensions/ConfirmEdit
 	url = https://github.com/WikiToLearn/mediawiki-extensions-ConfirmEdit.git
+[submodule "skins/WikiToLearnSkin"]
+	path = skins/WikiToLearnSkin
+	url = https://github.com/WikiToLearn/WikiToLearnSkin
