@@ -237,6 +237,7 @@ $wgUseETag = true;
 $wgDefaultUserOptions['useeditwarning'] = 1;
 $wgDefaultSkin = 'neverland';
 wfLoadSkin( 'Neverland' );
+wfLoadSkin( 'WikiToLearnSkin' );
 
 $wgAllowImageTag = true;
 
@@ -294,7 +295,7 @@ wfLoadExtension( "VisualEditor" );
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
 // OPTIONAL: Enable VisualEditor's experimental code features
 $wgDefaultUserOptions['visualeditor-enable-experimental'] = 1;
-$wgVisualEditorSupportedSkins = ['neverland'];
+$wgVisualEditorSupportedSkins = ['neverland','wikitolearnskin'];
 
 $wgVirtualRestConfig['modules']['parsoid'] = array(
   // URL to the Parsoid instance
