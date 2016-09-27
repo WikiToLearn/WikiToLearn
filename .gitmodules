@@ -4,8 +4,8 @@
 [submodule "extensions/EmbedVideo"]
 	path = extensions/EmbedVideo
 	url = https://github.com/Alexia/mediawiki-embedvideo.git
-[submodule "Neverland"]
-	path = Neverland
+[submodule "skins/Neverland"]
+	path = skins/Neverland
 	url = https://github.com/WikiToLearn/Neverland.git
 [submodule "extensions/EasyLink"]
 	path = extensions/EasyLink
