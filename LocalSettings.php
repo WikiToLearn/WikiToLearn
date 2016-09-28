@@ -6,7 +6,7 @@
 #
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
-
+$wgDebugToolbar = true;
 if (getenv("WTL_PRODUCTION") != "1"){
   error_reporting(-1);
   ini_set("display_errors",1);
@@ -99,8 +99,9 @@ $wgSharedTables[] = array('user', 'user_properties', 'user_groups', 'interwiki',
 
 # Site language code, should be one of ./languages/Language(.*).php
 # Make sure you give permission to sharedwikitolearn database to the user in question.
-
 $wgLanguageCode = "en"; // Default
+#Officially supported languages
+$wgSupportedLanguages = array('ca', 'de', 'es', 'fr', 'it');
 
 require_once("$IP/../LocalSettings.d/mysql-username-and-password.php");
 require_once("$IP/../LocalSettings.d/wgSecretKey.php");
