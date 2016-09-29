@@ -481,6 +481,8 @@ $wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['addurl'] = false;
 $wgAutoConfirmCount = 3;
 $wgAutoConfirmAge = 86400*3; // three days
 
+// Disable captcha for bots
+$wgGroupPermissions['bot']['skipcaptcha'] = true; // registered bots
 
 // Highlight extension:
 wfLoadExtension("SyntaxHighlight_GeSHi");
