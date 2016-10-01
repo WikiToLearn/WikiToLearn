@@ -70,7 +70,6 @@ $wgMemCachedServers = array(
 );
 
 $wgCacheDirectory = "$IP/cache/";
-$wgEnableSidebarCache = true;
 
 ## UPO means: this is also a user preference option
 
