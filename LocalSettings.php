@@ -14,6 +14,7 @@ if (getenv("WTL_PRODUCTION") != "1"){
   } else {
     $wgDebugLogFile="/tmp/mediawiki.log";
   }
+  $wgDebugToolbar=true;
 }
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
