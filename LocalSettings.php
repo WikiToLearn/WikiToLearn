@@ -128,6 +128,11 @@ switch ($wiki) {
     exit(0);
     break;
 }
+if ($wiki_domain == "tuttorotto.biz") {
+    $wgServer =  "//" . $wiki . "." . $wiki_domain;
+} else {
+    $wgServer =  "https://" . $wiki . "." . $wiki_domain;
+}
 
 $wgSitename = "WikiToLearn - collaborative textbooks";
 $wgLogo = "$wgStylePath/Neverland/images/logos/wtl-logo.png";
