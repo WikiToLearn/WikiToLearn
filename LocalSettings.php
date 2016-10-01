@@ -14,6 +14,7 @@ if (getenv("WTL_PRODUCTION") != "1"){
   } else {
     $wgDebugLogFile="/tmp/mediawiki.log";
   }
+  $wgDebugToolbar=true;
 }
 
 $IP = "/var/www/WikiToLearn/mediawiki/";
@@ -416,7 +417,7 @@ if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
 
 // Piwik
 require_once "$IP/extensions/Piwik/Piwik.php";
-$wgPiwikURL = "//piwik.wikitolearn.org/";
+$wgPiwikURL = "piwik.wikitolearn.org";
 if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
     require_once("$IP/../LocalSettings.d/wgPiwikIDSite.php");
 } else {
