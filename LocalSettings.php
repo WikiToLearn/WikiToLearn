@@ -95,7 +95,12 @@ $wgDBtype = "mysql";
 $wgDBserver = "mysql";
 
 $wgSharedDB = 'sharedwikitolearn'; # The $wgDBname for the wiki database holding the main user table
-$wgSharedTables[] = array('user', 'user_properties', 'user_groups', 'interwiki', 'iwlinks');
+$wgSharedTables[] = array(
+  'interwiki',
+  'user',
+  'user_properties',
+  'user_groups',
+);
 
 # Site language code, should be one of ./languages/Language(.*).php
 # Make sure you give permission to sharedwikitolearn database to the user in question.
