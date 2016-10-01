@@ -143,10 +143,19 @@ $wgSitename = "WikiToLearn - collaborative textbooks";
 $wgLogo = "$wgStylePath/Neverland/images/logos/wtl-logo.png";
 
 $wgForeignFileRepos[] = array(
-    'class' => 'ForeignDBRepo',
-    'name' => 'poolwiki',
+    'class' => 'FSRepo',
+    'name' => 'oldpoolwiki',
     'url' => "//pool." . $wiki_domain . "/images",
     'directory' => '/var/www/WikiToLearn/mediawiki/images/',
+    'hashLevels' => 2, // This must be the same for the other family member
+    'hasSharedCache' => true,
+    'fetchDescription' => false
+);
+$wgForeignFileRepos[] = array(
+    'class' => 'ForeignDBRepo',
+    'name' => 'poolwiki',
+    'url' => "//pool." . $wiki_domain . "/images/pool",
+    'directory' => '/var/www/WikiToLearn/mediawiki/images/pool/',
     'hashLevels' => 2, // This must be the same for the other family member
     'dbType' => $wgDBtype,
     'dbServer' => $wgDBserver,
@@ -199,12 +208,14 @@ $wgShellLocale = "en_US.utf8";
 #$wgCacheDirectory = "$IP/cache";
 
 $wgUseSharedUploads = true;
-$wgSharedUploadPath = '//pool.' . $wiki_domain . '/images';
-$wgSharedUploadDirectory = '$IP/images/';
+$wgSharedUploadPath = '//pool.' . $wiki_domain . '/images/pool';
+$wgSharedUploadDirectory = $IP . '/images/pool/';
 $wgHashedSharedUploadDirectory = true;
 $wgUploadNavigationUrl = "//pool." . $wiki_domain . "/index.php/Special:Upload";
 $wgUploadMissingFileUrl = "//pool." . $wiki_domain . "/index.php/Special:Upload";
 
+$wgUploadDirectory = $IP . '/images/' . $wiki . '/';
+$wgUploadPath = "/images/" . $wiki;
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -509,8 +520,6 @@ $wgGroupPermissions['sysop']['pagetranslation'] = true;
 wfLoadExtension( "UserMerge" );
 // By default nobody can use this function, enable for bureaucrat?
 $wgGroupPermissions['sysop']['usermerge'] = true;
-
-// require_once("$IP/extensions/VisualEditor/VisualEditor.php");
 
 // awesome editor
 wfLoadExtension( "WikiEditor" );
