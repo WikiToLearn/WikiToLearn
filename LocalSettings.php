@@ -47,7 +47,7 @@ if (array_search($wiki_domain, $wiki_allow_domains) === FALSE) {
     $wiki = "notfound";
 }
 
-$wgCookieDomain = "." . $wiki_domain;
+// $wgCookieDomain = "." . $wiki_domain;
 $wgSecureLogin = true;
 // $wgCookieSecure = true;
 ## The URL base path to the directory containing the wiki;
