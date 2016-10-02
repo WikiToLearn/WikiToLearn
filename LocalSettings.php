@@ -357,11 +357,14 @@ wfLoadExtension('CourseEditor');
 * Notice: Constant NS_COURSE_TALK already defined in /var/www/WikiToLearn/mediawiki/includes/registration/ExtensionRegistry.php
 * However if we don't define them Flow and Collection don't recognize the costants and show warning again.
 */
-if (!defined("NS_COURSE")){
-  define("NS_COURSE", 2800);
-  define("NS_COURSE_TALK", 2801);
-  define("NS_COURSEMETADATA", 2900);
+
+$data = json_decode(file_get_contents("$IP/extensions/CourseEditor/extension.json"));
+
+$CourseEditorNamespaces = array();
+foreach ($data->namespaces as $namespace) {
+  $CourseEditorNamespaces[$namespace->constant] = $namespace->id;
 }
+
 wfLoadExtension( 'LabeledSectionTransclusion' );
 
 // Cite extension for references as footnotes
@@ -389,7 +392,7 @@ $wgCollectionPortletFormats = array('rdf2latex', 'rdf2text');
 $wgCollectionArticleNamespaces = array(
   NS_USER,
   NS_PROJECT,
-  NS_COURSE
+  $CourseEditorNamespaces['NS_COURSE'],
 );
 //$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
 //$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
@@ -424,7 +427,7 @@ $wgNamespaceContentModels[NS_MEDIAWIKI_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_TEMPLATE_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_HELP_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
-$wgNamespaceContentModels[NS_COURSE_TALK] = CONTENT_MODEL_FLOW_BOARD;
+$wgNamespaceContentModels[$CourseEditorNamespaces['NS_COURSE_TALK']] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList   = array('wikitext');
 
 //Gadgets
@@ -489,15 +492,15 @@ $wgCaptchaTriggersOnNamespace[NS_TOPIC]['edit'] = false;
 $wgCaptchaTriggersOnNamespace[NS_TOPIC]['create'] = false;
 $wgCaptchaTriggersOnNamespace[NS_TOPIC]['addurl'] = false;
 //Disable captcha for course editor
-$wgCaptchaTriggersOnNamespace[NS_COURSE]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSE]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSE]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[$CourseEditorNamespaces['NS_COURSE']]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[$CourseEditorNamespaces['NS_COURSE']]['create'] = false;
+$wgCaptchaTriggersOnNamespace[$CourseEditorNamespaces['NS_COURSE']]['addurl'] = false;
 $wgCaptchaTriggersOnNamespace[NS_USER]['edit'] = false;
 $wgCaptchaTriggersOnNamespace[NS_USER]['create'] = false;
 $wgCaptchaTriggersOnNamespace[NS_USER]['addurl'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['edit'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['create'] = false;
-$wgCaptchaTriggersOnNamespace[NS_COURSEMETADATA]['addurl'] = false;
+$wgCaptchaTriggersOnNamespace[$CourseEditorNamespaces['NS_COURSEMETADATA']]['edit'] = false;
+$wgCaptchaTriggersOnNamespace[$CourseEditorNamespaces['NS_COURSEMETADATA']]['create'] = false;
+$wgCaptchaTriggersOnNamespace[$CourseEditorNamespaces['NS_COURSEMETADATA']]['addurl'] = false;
 
 //for making users autoconfirmed
 $wgAutoConfirmCount = 3;
