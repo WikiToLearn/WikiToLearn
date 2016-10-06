@@ -133,6 +133,8 @@ $wgSupportedLanguages = array('ca', 'de', 'en', 'es', 'fr', 'it');
 # to non existing pages get created. Disable setting a custom language for preferences.
 # If you still have questions, please ask ruphy or tunale.
 $wgHiddenPrefs[] = 'language';
+# Hide math preferences in the use profile
+$wgHiddenPrefs[] = 'math';
 
 require_once "$IP/../LocalSettings.d/mysql-username-and-password.php";
 require_once "$IP/../LocalSettings.d/wgSecretKey.php";
