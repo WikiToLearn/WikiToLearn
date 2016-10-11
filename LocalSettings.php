@@ -172,17 +172,6 @@ if ($wiki_domain != 'tuttorotto.biz') {
 $wgSitename = 'WikiToLearn - collaborative textbooks';
 $wgLogo = "$wgStylePath/Neverland/images/logos/wtl-logo.png";
 
-/*
-$wgForeignFileRepos[] = array(
-    'class' => 'FSRepo',
-    'name' => 'oldpoolwiki',
-    'url' => '//pool.'.$wiki_domain.'/images',
-    'directory' => '/var/www/WikiToLearn/mediawiki/images/',
-    'hashLevels' => 2, // This must be the same for the other family member
-    'hasSharedCache' => true,
-    'fetchDescription' => false,
-);
-*/
 $wgForeignFileRepos[] = array(
     'class' => 'ForeignDBRepo',
     'name' => 'poolwiki',
@@ -199,6 +188,15 @@ $wgForeignFileRepos[] = array(
     'hasSharedCache' => true,
     'descBaseUrl' => '//pool.'.$wiki_domain.'/Image:',
     'fetchDescription' => false,
+);
+$wgForeignFileRepos[] = array(
+   'class'                   => 'ForeignAPIRepo',
+   'name'                    => 'wikimediacommons',
+   'apibase'                 => 'https://commons.wikimedia.org/w/api.php',
+   'hashLevels'              => 2,
+   'fetchDescription'        => true,
+   'descriptionCacheExpiry'  => 43200,
+   'apiThumbCacheExpiry'     => 86400,
 );
 
 if (!isset($wgDBname)) {
@@ -221,7 +219,7 @@ $wgGroupPermissions['*']['upload'] = true;
 $wgGroupPermissions['sysop']['meta'] = true;
 # $wgGroupPermissions['user']['upload'] = true;
 # InstantCommons allows wiki to use images from http://commons.wikimedia.org
-$wgUseInstantCommons = true;
+# $wgUseInstantCommons = true;
 
 ## If you use ImageMagick (or any other shell command) on a
 ## Linux server, this will need to be set to the name of an
