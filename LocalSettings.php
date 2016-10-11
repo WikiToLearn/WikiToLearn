@@ -66,9 +66,6 @@ if (array_search($wiki_domain, $wiki_allow_domains) === false) {
     $wiki = 'notfound';
 }
 
-// $wgCookieDomain = "." . $wiki_domain;
-$wgSecureLogin = true;
-// $wgCookieSecure = true;
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
 ## For more information on customizing the URLs please see:
@@ -161,6 +158,12 @@ switch ($wiki) {
     exit(0);
     break;
 }
+
+$wgCookiePrefix = "wtl_1_";
+$wgSessionName = $wgCookiePrefix . "session_" . $wiki;
+$wgCookieDomain = "." . $wiki_domain;
+$wgSecureLogin = true;
+// $wgCookieSecure = true;
 
 if ($wiki_domain != 'tuttorotto.biz') {
     $wgServer = '//'.$wiki.'.'.$wiki_domain;
