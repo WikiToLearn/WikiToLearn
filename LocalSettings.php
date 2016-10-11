@@ -169,6 +169,7 @@ if ($wiki_domain != 'tuttorotto.biz') {
 $wgSitename = 'WikiToLearn - collaborative textbooks';
 $wgLogo = "$wgStylePath/Neverland/images/logos/wtl-logo.png";
 
+/*
 $wgForeignFileRepos[] = array(
     'class' => 'FSRepo',
     'name' => 'oldpoolwiki',
@@ -178,6 +179,7 @@ $wgForeignFileRepos[] = array(
     'hasSharedCache' => true,
     'fetchDescription' => false,
 );
+*/
 $wgForeignFileRepos[] = array(
     'class' => 'ForeignDBRepo',
     'name' => 'poolwiki',
