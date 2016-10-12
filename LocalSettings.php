@@ -27,8 +27,8 @@ if (getenv('WTL_PRODUCTION') != '1') {
 }
 
 if ($wtl_debug) {
-    error_reporting(-1);
-    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
     if (is_writable('/var/log/mediawiki/')) {
         $wgDebugLogFile = '/var/log/mediawiki/'.date('m-d-Y');
         if (isset($_SERVER['SERVER_NAME'])){
@@ -39,6 +39,10 @@ if ($wtl_debug) {
         $wgDebugLogFile = '/tmp/mediawiki.log';
     }
     $wgDebugToolbar = true;
+    $wgDebugComments = true;
+    $wgShowExceptionDetails = true;
+    $wgEnableParserCache = false;
+    $wgCachePages = false;
 }
 
 $IP = '/var/www/WikiToLearn/mediawiki/';
