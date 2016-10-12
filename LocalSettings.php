@@ -576,3 +576,6 @@ wfLoadExtension('TemplateData');
 $wgTemplateDataGUI = true;
 //Disable bot rate limits
 $wgGroupPermissions['bot']['noratelimit'] = true;
+
+wfLoadExtension('ContributorsMap');
+

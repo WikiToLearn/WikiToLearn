@@ -28,3 +28,6 @@
 [submodule "skins/WikiToLearnSkin"]
 	path = skins/WikiToLearnSkin
 	url = https://github.com/WikiToLearn/WikiToLearnSkin
+[submodule "extensions/ContributorsMap"]
+	path = extensions/ContributorsMap
+	url = https://github.com/WikiToLearn/ContributorsMap.git
