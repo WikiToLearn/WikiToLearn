@@ -6,6 +6,16 @@ $domain = $wiki_allow_domains[0];
 if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
     $domain = $wiki_domain;
 }
+$https = false;
+if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO']=="https"){
+  $https = true;
+}
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=="on"){
+  $https = true;
+}
+if ($domain != "tuttorotto.biz" && !$https){
+  header("Location: https://www.".$domain);
+} else {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -126,3 +136,6 @@ if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
         </script>
     </body>
 </html>
+<?php
+}
+?>
