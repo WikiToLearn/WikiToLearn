@@ -577,3 +577,7 @@ $wgTemplateDataGUI = true;
 //Disable bot rate limits
 $wgGroupPermissions['bot']['noratelimit'] = true;
 
+wfLoadExtension('ContributorsMap');
+
+$wgCMURL = "umap.openstreetmap.fr/en/map/wikitolearn-community_106733";
+
