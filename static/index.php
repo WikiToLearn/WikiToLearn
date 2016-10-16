@@ -1,22 +1,22 @@
 <?php
-include "../domains.php";
+include '../domains.php';
 
 $domain = $wiki_allow_domains[0];
 
-if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
+if (array_search($wiki_domain, $wiki_allow_domains) !== false) {
     $domain = $wiki_domain;
 }
 $https = false;
-if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO']=="https"){
-  $https = true;
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $https = true;
 }
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=="on"){
-  $https = true;
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+    $https = true;
 }
-if ($domain != "tuttorotto.biz" && !$https){
-  header("Location: https://www.".$domain);
+if ($domain != 'tuttorotto.biz' && !$https) {
+    header('Location: https://www.'.$domain);
 } else {
-?><!DOCTYPE html>
+    ?><!DOCTYPE html>
 <html lang="en">
     <head>
         <title>WikiToLearn - collaborative textbooks</title>
@@ -25,7 +25,6 @@ if ($domain != "tuttorotto.biz" && !$https){
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="/style.css">
-
     </head>
     <body>
 
@@ -61,12 +60,12 @@ if ($domain != "tuttorotto.biz" && !$https){
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3 logos-container col-xs-12">
                 <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
-                  <a href="http://www.unimib.it/go/102/Home/English">
+                  <a href="https://www.unimib.it/">
                     <img src="/images/uni-bicocca.png" class="img-responsive"/>
                   </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <a href="http://home.cern/">
+                  <a href="https://home.cern/">
                     <img src="/images/cern.png" class="img-responsive"/>
                   </a>
                 </div>
@@ -75,7 +74,7 @@ if ($domain != "tuttorotto.biz" && !$https){
                 <div class="col-xs-12 visible-xs vertical-spacing">
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <a href="http://wikimedia.it/">
+                  <a href="http://www.wikimedia.it/">
                     <img src="/images/it-wikimedia.png" class="img-responsive"/>
                   </a>
                 </div>
@@ -124,8 +123,6 @@ if ($domain != "tuttorotto.biz" && !$https){
                             dataType: "jsonp",
                             context: $(this).find('.pagecount'),
                             success: function (response) {
-                                console.log($(this));
-                                console.log(response);
                                 $(this).html(response.query.statistics.articles + $(this).html().substring(1));
                             }
                         });
@@ -137,5 +134,6 @@ if ($domain != "tuttorotto.biz" && !$https){
     </body>
 </html>
 <?php
+
 }
 ?>
