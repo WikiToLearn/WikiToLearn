@@ -1,0 +1,5 @@
+<includeonly>
+    <div class="template citation">
+        <blockquote class="citation__blockquote">{{{text}}}<small class="citation__author">{{{source}}}</small></blockquote>
+    </div>
+</includeonly>
