@@ -1,0 +1,6 @@
+<includeonly>
+    <div class="template section">
+        <h2 class="section__heading">{{{sectionTitle}}}</h2>
+        <div class="section__text">{{{sectionText}}}</div>
+    </div>
+</includeonly>
