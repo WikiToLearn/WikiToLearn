@@ -1,0 +1,8 @@
+<includeonly>
+    <div class="template courseleveltwo">
+        <div class="courseleveltwo__heading">
+            <h2 class="courseleveltwo__title">{{{1}}}</h2>[{{fullurl:Special:CourseEditor|actiontype=editleveltwo&amp;pagename={{FULLPAGENAMEE}}/{{urlencode:{{{1}}}}} }} <i class="courseleveltwo__icon fa fa-pencil"></i>]
+        </div>
+        <div class="courseleveltwo__content">{{:{{FULLPAGENAME}}/{{{1}}}}}</div>
+    </div>
+</includeonly>

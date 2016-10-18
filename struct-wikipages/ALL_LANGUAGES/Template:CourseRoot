@@ -1,0 +1,8 @@
+<includeonly>
+    <div class="template courseroot">
+        <blockquote>{{getCourseMetadata|{{PAGENAME}}|description}}</blockquote>
+        <div class="courseroot__edit">[{{fullurl:Special:CourseEditor|actiontype=editcourse&amp;pagename={{FULLPAGENAMEE}} }} {{i18n|editcourse}}]</div>
+        <div class="courseroot__content">{{{1}}}</div>
+        <div class="courseroot__metadata">[{{fullurl:Special:CourseEditor|actiontype=managemetadata&amp;pagename={{PAGENAMEE}}}} {{i18n|editmetadata}}]</div>
+    </div>
+</includeonly>
