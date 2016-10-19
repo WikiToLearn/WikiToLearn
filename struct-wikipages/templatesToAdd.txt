@@ -9,9 +9,7 @@ Saved_book -> SavedBook (We have to check if Collection uses directly this templ
 Ambox
 
 ImportedBadge - DOES NOT EXIST
-ReviewedBadge - DOES NOT EXIST 
-
-ForceBreak - NO MORE NEEDED
+ReviewedBadge - DOES NOT EXIST
 
 Theorem
 Definition

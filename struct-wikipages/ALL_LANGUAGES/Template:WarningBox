@@ -1,1 +1,1 @@
-<includeonly><div class="template warningbox">{{{content}}}</div></includeonly>
+<includeonly><div class="template warningbox"><i class="fa fa-exclamation-triangle"></i>{{{content}}}</div></includeonly>

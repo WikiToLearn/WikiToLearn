@@ -1,24 +1,23 @@
 <includeonly>
 <div class="template coursebackend">
-    <div class="course">
-        <h2 class="course__title">[[{{{linkPage}}}|{{{1}}}]]</h2>
-        <div class="course__download">
-        {{#switch: {{NAMESPACENUMBER}}
-        | 0=[{{fullurl:Special:Collection/render_collection/|colltitle=Project:{{i18n|projectbooks}}/{{urlencode:{{{1}}}}}&writer=rdf2latex}} {{i18n|downloadpdf}}]
-        | 2=[{{fullurl:Special:Collection/render_collection/|colltitle={{FULLPAGENAMEE}}/{{i18n|projectbooks}}/{{urlencode:{{{1}}}}}&writer=rdf2latex}} {{i18n|downloadpdf}}]}}
-        </div>
-        <div class="course__description">
-        {{GetCourseMetadata|{{{metadataPage}}}|description}}
-        </div>
-        {{#if: {{GetCourseMetadata|{{{metadataPage}}}|hasbadges}}|{{#if: {{GetCourseMetadata|{{{metadataPage}}}|reviewedbadge}}|<small class="course__reviewed">REVIEWED</small>|}}
-        {{#if:{GetCourseMetadata|{{{metadataPage}}}|importedbadge}}|<small>IMPORTED</small>|}}|}}
-    </div>
-    <div class="externalReferences">
-        {{#if:
-            {{GetCourseMetadata|{{{metadataPage}}}|externalreferences}} |
-            {{i18n|externalreferences}}:
-            {{GetCourseMetadata|{{{metadataPage}}}|externalreferences}}|
-        }}
-    </div>
+<h2 class="coursebackend__title">[[{{{linkPage}}}|{{{1}}}]]</h2>
+<div class="coursebackend__download">
+{{#switch: {{NAMESPACENUMBER}}
+| 0=[{{fullurl:Special:Collection/render_collection/|colltitle=Project:{{i18n|projectbooks}}/{{urlencode:{{{1}}}}}&writer=rdf2latex}} {{i18n|downloadpdf}}]
+| 2=[{{fullurl:Special:Collection/render_collection/|colltitle={{FULLPAGENAMEE}}/{{i18n|projectbooks}}/{{urlencode:{{{1}}}}}&writer=rdf2latex}} {{i18n|downloadpdf}}]}}
+</div>
+<div class="coursebackend__description">
+{{GetCourseMetadata|{{{metadataPage}}}|description}}
+</div>
+{{#if: {{GetCourseMetadata|{{{metadataPage}}}|hasbadges}}|
+{{#if: {{GetCourseMetadata|{{{metadataPage}}}|reviewedbadge}}|<small class="coursebackend__reviewed">REVIEWED</small>|}}
+{{#if: {{GetCourseMetadata|{{{metadataPage}}}|importedbadge}}|<small class="coursebackend__imported">IMPORTED</small>|}}|}}
+</div>
+<div class="externalReferences">
+{{#if:
+{{GetCourseMetadata|{{{metadataPage}}}|externalreferences}} |
+{{i18n|externalreferences}}:
+{{GetCourseMetadata|{{{metadataPage}}}|externalreferences}}|
+}}
 </div>
 </includeonly>

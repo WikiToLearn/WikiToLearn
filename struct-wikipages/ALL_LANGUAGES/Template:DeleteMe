@@ -1,5 +1,1 @@
-<includeonly>
-<div class="template courseroot">
-{{WarningBox|content={{I18n|deleteme}}}}
-</div>
-</includeonly>
+<includeonly><div class="template courseroot">{{WarningBox|content={{I18n|deleteme}}}}</div></includeonly>

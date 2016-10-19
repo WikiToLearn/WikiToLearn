@@ -1,1 +1,1 @@
-<includeonly><div class="template infobox">{{{text}}}</div></includeonly>
+<includeonly><div class="template infobox"><i class="fa fa-info"></i>{{{text}}}</div></includeonly>

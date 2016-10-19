@@ -1,6 +1,3 @@
-<includeonly>
-<div class="template topic">
-    {{AddCourseInTopic}}
-    {{{1}}}
-</div>
-</includeonly>
+<includeonly><div class="template topic">
+{{AddCourseInTopic}}{{{1}}}
+</div></includeonly>
