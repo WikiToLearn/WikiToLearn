@@ -1,0 +1,10 @@
+<includeonly><div class="template course">{{CourseBackend|{{{1}}}|metadataPage={{#if: {{{ 2| }}} | {{{2}}}/{{{1}}} | {{{1}}} }}|linkPage={{#if: {{{2| }}} | User:{{{2}}}/{{{1}}}  | Course:{{{1}}} }} }}</div></includeonly>
+<noinclude>Syntax of this template:
+<code><nowiki>{{Course|CourseName[|userName]}}</nowiki></code>
+
+<code>CourseName</code> is the name of the course, as in <code>Course:CourseName</code> or in <code>User:UserName/CourseName</code>.
+
+<code>UserName</code> is an optional parameter, if it is present, the course is assumed to be stored under the user page.
+
+* See also: [[Template:CourseBackend]]
+</noinclude>

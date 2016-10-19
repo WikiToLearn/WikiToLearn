@@ -1,0 +1,31 @@
+// https://phabricator.kde.org/T3087
+
+CCourse -> CourseEditorLevelRoot - IT IS ACTUALLY CourseRoot
+SSection -> CourseEditorLevelTwo - IT IS ACTUALLY CourseLevelTwo
+add_course -> AddCourseInDepartment - NEEDS INTERNATIONALIZATION
+AddCourseInTopic - NEEDS INTERNATIONALIZATION
+Saved_book -> SavedBook (We have to check if Collection uses directly this template)
+
+Ambox
+
+ImportedBadge - DOES NOT EXIST
+ReviewedBadge - DOES NOT EXIST 
+
+ForceBreak - NO MORE NEEDED
+
+Theorem
+Definition
+Lemma
+Example
+Demonstration
+Corollary
+Axiom
+Proof
+Proposition
+Observation
+Quote
+Reference
+Notes
+Environment
+
+FlowMention (?)

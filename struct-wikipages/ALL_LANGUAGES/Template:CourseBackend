@@ -1,3 +1,4 @@
+<includeonly>
 <div class="template coursebackend">
     <div class="course">
         <h2 class="course__title">[[{{{linkPage}}}|{{{1}}}]]</h2>
@@ -20,3 +21,4 @@
         }}
     </div>
 </div>
+</includeonly>
