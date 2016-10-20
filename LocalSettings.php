@@ -498,9 +498,8 @@ if (file_exists("$IP/../LocalSettings.d/wgReadOnly.php")) {
     require_once "$IP/../LocalSettings.d/wgReadOnly.php";
 }
 
-// SubapageList needs it
+// Used for some templates needs it
 require_once "$IP/extensions/ParserHooks/ParserHooks.php";
-#require_once( "$IP/extensions/SubPageList/SubPageList.php" );
 
 // Captcha
 wfLoadExtensions(array('ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha'));
@@ -564,8 +563,6 @@ $wgContentNamespaces = array(0, 200, 2800);
 // Add subpage capabilities
 $wgNamespacesWithSubpages = array_fill(0, 200, true);
 $wgNamespacesWithSubpages[NS_USER] = true;
-// for SubPageList3 extension
-require_once "$IP/extensions/SubPageList3/SubPageList3.php";
 wfLoadExtension('CodeEditor');
 $wgCodeEditorEnableCore = true;
 

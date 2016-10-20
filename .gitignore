@@ -16,7 +16,6 @@ extensions/ParserFunctions/
 extensions/ParserHooks/
 extensions/Renameuser/
 extensions/SpamBlacklist/
-extensions/SubPageList3/
 extensions/SyntaxHighlight_GeSHi/
 extensions/TemplateData/
 extensions/Translate/
