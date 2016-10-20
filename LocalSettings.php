@@ -559,9 +559,6 @@ $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
-//InputBox extension
-wfLoadExtension('InputBox');
-
 //Content Namespaces
 $wgContentNamespaces = array(0, 200, 2800);
 // Add subpage capabilities
