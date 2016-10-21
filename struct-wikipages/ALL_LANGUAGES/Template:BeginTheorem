@@ -1,0 +1,15 @@
+<div class="begintheorem"><h4>{{{title|Theorem}}}</h4></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Title of the theorem",
+            "type": "string"
+        }
+    },
+    "format": "block"
+}
+</templatedata>
+</noinclude>
