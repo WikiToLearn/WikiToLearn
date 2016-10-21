@@ -575,3 +575,4 @@ wfLoadExtension('ContributorsMap');
 
 $wgCMURL = "umap.openstreetmap.fr/en/map/wikitolearn-community_106733";
 
+wfLoadExtension('WikiToLearnVETemplates');
