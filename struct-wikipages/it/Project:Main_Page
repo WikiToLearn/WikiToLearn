@@ -1,4 +1,53 @@
 {
 "PLEASE VALIDATE YOUR JSON BEFORE SAVING": "https://jsonformatter.curiousconcept.com/",
-"HOW TO USE": "'keyToOverride':'value'"
+"HOW TO USE": "'keyToOverride':'value'",
+"wikitolearnskin-departments-1-name": "Fisica",
+"wikitolearnskin-departments-1-image": "images/badges/physics.png",
+"wikitolearnskin-departments-1-link": "/Fisica",
+"wikitolearnskin-departments-1-status": "enabled",
+
+"wikitolearnskin-departments-2-name": "Informatica",
+"wikitolearnskin-departments-2-image": "images/badges/computerscience.png",
+"wikitolearnskin-departments-2-link": "/Informatica",
+"wikitolearnskin-departments-2-status": "enabled",
+
+"wikitolearnskin-departments-3-name": "Matematica",
+"wikitolearnskin-departments-3-image": "images/badges/math.png",
+"wikitolearnskin-departments-3-link": "/Matematica",
+"wikitolearnskin-departments-3-status": "enabled",
+
+"wikitolearnskin-departments-4-name": "Economia",
+"wikitolearnskin-departments-4-image": "images/badges/business.png",
+"wikitolearnskin-departments-4-link": "/Economia",
+"wikitolearnskin-departments-4-status": "disabled",
+
+"wikitolearnskin-departments-5-name": "Ingegneria",
+"wikitolearnskin-departments-5-image": "images/badges/engineering.png",
+"wikitolearnskin-departments-5-link": "/Ingegneria",
+"wikitolearnskin-departments-5-status": "disabled",
+
+"wikitolearnskin-departments-6-name": "Medicina",
+"wikitolearnskin-departments-6-image": "images/badges/medicine.png",
+"wikitolearnskin-departments-6-link": "/Medicina",
+"wikitolearnskin-departments-6-status": "disabled",
+
+"wikitolearnskin-departments-7-name": "Scienze Naturali",
+"wikitolearnskin-departments-7-image": "images/badges/chemistry.png",
+"wikitolearnskin-departments-7-link": "/Scienze Naturali",
+"wikitolearnskin-departments-7-status": "disabled",
+
+"wikitolearnskin-departments-8-name": "Scienze Sociali",
+"wikitolearnskin-departments-8-image": "images/badges/placeholder.png",
+"wikitolearnskin-departments-8-link": "/Scienze Sociali",
+"wikitolearnskin-departments-8-status": "disabled",
+
+"wikitolearnskin-departments-9-name": "Scienze Umanistiche",
+"wikitolearnskin-departments-9-image": "images/badges/placeholder.png",
+"wikitolearnskin-departments-9-link": "/Scienze Umanistiche",
+"wikitolearnskin-departments-9-status": "disabled",
+
+"wikitolearnskin-departments-10-name": "Pre-Università",
+"wikitolearnskin-departments-10-image": "images/badges/beforeuni.png",
+"wikitolearnskin-departments-10-link": "/Pre-Università",
+"wikitolearnskin-departments-10-status": "disabled"
 }
