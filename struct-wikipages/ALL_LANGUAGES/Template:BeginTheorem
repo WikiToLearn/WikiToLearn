@@ -1,15 +1,17 @@
-<div class="begintheorem"><h4>{{{title|Theorem}}}</h4></div>
+<div class="begintheorem"><h4>{{{title|{{i18n|envTheorem}}}}}</h4></div>
 <noinclude>
 <templatedata>
 {
     "params": {
         "title": {
             "label": "Title",
-            "description": "Title of the theorem",
-            "type": "string"
+            "description": "Title of the Theorem",
+            "type": "string",
+            "suggested": true
         }
     },
-    "format": "block"
+    "format": "block",
+    "description": "This is the template for the Theorem Environment"
 }
 </templatedata>
 </noinclude>

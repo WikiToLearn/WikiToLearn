@@ -1,0 +1,15 @@
+<section begin=externalreferences />External references<section end=externalreferences />
+<section begin=editcourse />Edit Course<section end=editcourse />
+<section begin=editmetadata />Edit Metadata<section end=editmetadata />
+<section begin=editchapter />Edit Chapter<section end=editchapter />
+<section begin=bibliography />Bibliography<section end=bibliography />
+<section begin=exercises />Exercises<section end=exercises />
+<section begin=books />Books<section end=books />
+<section begin=downloadpdf />Download PDF<section end=downloadpdf />
+<section begin=projectbooks />Books<section end=projectbooks />
+<section begin=readytobepublished />This course is ready to be published! An administrator will do it as soon as possible.<section end=readytobepublished />
+<section begin=deleteme />This page will be deleted as soon as possible<section end=deleteme />
+
+<section begin=envTheorem />Theorem<section end=envTheorem />
+<section begin=envExample />Example<section end=envExample />
+<section begin=envEnd />End of<section end=envEnd />

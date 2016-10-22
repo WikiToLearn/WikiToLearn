@@ -1,1 +1,1 @@
-<div class="endtheorem"><span class="show-only-in-ve">END OF THEOREM</span></div>
+<div class="endtheorem"><span class="show-only-in-ve">{{i18n|envEnd}} {{i18n|envTheorem}}</span></div>

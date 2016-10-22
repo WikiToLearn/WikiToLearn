@@ -1,15 +1,17 @@
-<div class="beginexample"><h4>{{{title|Example}}}</h4></div>
+<div class="beginexample"><h4>{{{title|{{i18n|envExample}}}}}</h4></div>
 <noinclude>
 <templatedata>
 {
     "params": {
         "title": {
             "label": "Title",
-            "description": "Title of the example",
-            "type": "string"
+            "description": "Title of the Example",
+            "type": "string",
+            "suggested": true
         }
     },
-    "format": "block"
+    "format": "block",
+    "description": "This is the template for the Example Environment"
 }
 </templatedata>
 </noinclude>
