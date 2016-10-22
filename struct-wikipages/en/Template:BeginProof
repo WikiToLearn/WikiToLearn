@@ -1,4 +1,4 @@
-<div class="beginexample"><i>Proof</i> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment beginproof"><i>Proof</i> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {
@@ -8,8 +8,7 @@
             "description": "Title of the proof",
             "type": "string"
         }
-    },
-    "format": "block"
+    }
 }
 </templatedata>
 </noinclude>

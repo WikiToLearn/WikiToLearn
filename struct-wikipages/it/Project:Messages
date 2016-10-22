@@ -9,7 +9,3 @@
 <section begin=projectbooks />Libri<section end=projectbooks />
 <section begin=readytobepublished />Questo corso è pronto per essere pubblicato! Un amministratore si occuperà di farlo il primo possibile.<section end=readytobepublished />
 <section begin=deleteme />Questa pagina verrà eliminata al più presto!<section end=deleteme />
-
-<section begin=envTheorem />Teorema<section end=envTheorem />
-<section begin=envExample />Esempio<section end=envExample />
-<section begin=envEnd />Fine <section end=envEnd />

@@ -1,4 +1,4 @@
-<div class="beginexample"><b>{{{title|Note}}}</b></div>
+<div class="beginenvironment beginnote"><b>{{{title|Note}}}</b></div>
 <noinclude>
 <templatedata>
 {
@@ -8,8 +8,7 @@
             "description": "Title of the note",
             "type": "string"
         }
-    },
-    "format": "block"
+    }
 }
 </templatedata>
 </noinclude>

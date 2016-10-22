@@ -1,4 +1,4 @@
-<div class="beginexample"><b>{{{title|Osservazione}}}</b></div>
+<div class="beginenvironment beginremark"><b>{{{title|Osservazione}}}</b></div>
 <noinclude>
 <templatedata>
 {
@@ -8,8 +8,7 @@
             "description": "Titolo dell'osservazione",
             "type": "string"
         }
-    },
-    "format": "block"
+    }
 }
 </templatedata>
 </noinclude>

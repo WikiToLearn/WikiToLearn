@@ -1,4 +1,4 @@
-<div class="beginexample"><b>Lemma</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment beginlemma"><b>Lemma</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {
@@ -8,8 +8,7 @@
             "description": "Title of the lemma",
             "type": "string"
         }
-    },
-    "format": "block"
+    }
 }
 </templatedata>
 </noinclude>

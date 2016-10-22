@@ -8,8 +8,7 @@
             "description": "Titolo della proposizione",
             "type": "string"
         }
-    },
-    "format": "block"
+    }
 }
 </templatedata>
 </noinclude>

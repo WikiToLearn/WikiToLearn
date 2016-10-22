@@ -1,4 +1,4 @@
-<div class="beginexample"><b>{{{title|Proposition}}}</b></div>
+<div class="beginenvironment beginproposition"><b>{{{title|Proposition}}}</b></div>
 <noinclude>
 <templatedata>
 {
@@ -8,8 +8,7 @@
             "description": "Title of the proposition",
             "type": "string"
         }
-    },
-    "format": "block"
+    }
 }
 </templatedata>
 </noinclude>

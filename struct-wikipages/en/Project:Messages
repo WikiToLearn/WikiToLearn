@@ -9,7 +9,3 @@
 <section begin=projectbooks />Books<section end=projectbooks />
 <section begin=readytobepublished />This course is ready to be published! An administrator will do it as soon as possible.<section end=readytobepublished />
 <section begin=deleteme />This page will be deleted as soon as possible<section end=deleteme />
-
-<section begin=envTheorem />Theorem<section end=envTheorem />
-<section begin=envExample />Example<section end=envExample />
-<section begin=envEnd />End of<section end=envEnd />

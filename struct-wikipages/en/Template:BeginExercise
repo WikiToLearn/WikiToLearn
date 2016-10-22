@@ -1,4 +1,4 @@
-<div class="beginexample"><b>{{{title|Exercise}}}</b></div>
+<div class="beginenvironment beginexercise"><b>{{{title|Exercise}}}</b></div>
 <noinclude>
 <templatedata>
 {
@@ -8,8 +8,7 @@
             "description": "Title of the exercise",
             "type": "string"
         }
-    },
-    "format": "block"
+    }
 }
 </templatedata>
 </noinclude>
