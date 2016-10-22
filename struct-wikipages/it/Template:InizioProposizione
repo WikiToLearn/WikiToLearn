@@ -1,0 +1,15 @@
+<div class="beginexample"><b>{{{title|Proposizione}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Titolo",
+            "description": "Titolo della proposizione",
+            "type": "string"
+        }
+    },
+    "format": "block"
+}
+</templatedata>
+</noinclude>

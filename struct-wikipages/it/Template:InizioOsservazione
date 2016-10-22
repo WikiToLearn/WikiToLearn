@@ -1,0 +1,15 @@
+<div class="beginexample"><b>{{{title|Osservazione}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Titolo",
+            "description": "Titolo dell'osservazione",
+            "type": "string"
+        }
+    },
+    "format": "block"
+}
+</templatedata>
+</noinclude>

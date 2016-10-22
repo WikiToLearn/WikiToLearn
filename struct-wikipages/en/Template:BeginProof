@@ -1,0 +1,15 @@
+<div class="beginexample"><i>Proof</i> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Title of the proof",
+            "type": "string"
+        }
+    },
+    "format": "block"
+}
+</templatedata>
+</noinclude>

@@ -1,0 +1,15 @@
+<div class="beginexample"><b>Definizione</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Titolo",
+            "description": "Titolo della definizione",
+            "type": "string"
+        }
+    },
+    "format": "block"
+}
+</templatedata>
+</noinclude>
