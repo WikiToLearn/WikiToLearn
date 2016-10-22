@@ -1,11 +1,11 @@
-<div class="begintheorem"><h4>{{{title|Theorem}}}</h4></div>
+<div class="beginexample"><b>Definition</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {
     "params": {
         "title": {
             "label": "Title",
-            "description": "Title of the theorem",
+            "description": "Title of the definition",
             "type": "string"
         }
     },

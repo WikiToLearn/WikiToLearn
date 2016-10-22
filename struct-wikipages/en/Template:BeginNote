@@ -1,0 +1,15 @@
+<div class="beginexample"><b>{{{title|Note}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Title of the note",
+            "type": "string"
+        }
+    },
+    "format": "block"
+}
+</templatedata>
+</noinclude>
