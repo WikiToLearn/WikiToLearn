@@ -1,11 +1,11 @@
-<div class="beginenvironment begincorollary"><b>{{{title|Corollario}}}</b></div>
+<div class="beginenvironment beginaxiom"><b>{{{title|Assioma}}}</b></div>
 <noinclude>
 <templatedata>
 {
     "params": {
         "title": {
             "label": "Titolo",
-            "description": "Titolo del corollario",
+            "description": "Titolo dell'assioma",
             "type": "string"
         }
     }
