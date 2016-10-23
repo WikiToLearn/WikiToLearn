@@ -9,3 +9,5 @@
 <section begin=projectbooks />Books<section end=projectbooks />
 <section begin=readytobepublished />This course is ready to be published! An administrator will do it as soon as possible.<section end=readytobepublished />
 <section begin=deleteme />This page will be deleted as soon as possible<section end=deleteme />
+<section begin=addCourseInDepartment />Do you want to create a new topic?<section end=addCourseInDepartment />
+<section begin=addCourseInTopic />Do you want to create a new course on this topic?<section end=addCourseInTopic />
