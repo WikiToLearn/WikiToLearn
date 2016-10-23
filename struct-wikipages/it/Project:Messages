@@ -1,0 +1,11 @@
+<section begin=externalreferences />Riferimenti esterni<section end=externalreferences />
+<section begin=editcourse />Modifica corso<section end=editcourse />
+<section begin=editmetadata />Modifica metadati<section end=editmetadata />
+<section begin=editchapter />Modifica capitolo<section end=editchapter />
+<section begin=bibliography />Bibliografia<section end=bibliography />
+<section begin=exercises />Esercizi<section end=exercises />
+<section begin=books />Libri<section end=books />
+<section begin=downloadpdf />Scarica come PDF<section end=downloadpdf />
+<section begin=projectbooks />Libri<section end=projectbooks />
+<section begin=readytobepublished />Questo corso è pronto per essere pubblicato! Un amministratore si occuperà di farlo il primo possibile.<section end=readytobepublished />
+<section begin=deleteme />Questa pagina verrà eliminata al più presto!<section end=deleteme />

@@ -1,0 +1,14 @@
+<div class="beginenvironment beginexercise"><b>{{{title|Esercizio}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Titolo",
+            "description": "Titolo dell'esercizio",
+            "type": "string"
+        }
+    }
+}
+</templatedata>
+</noinclude>

@@ -1,0 +1,14 @@
+<div class="beginenvironment baginremark"><b>{{{title|Remark}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Title of the remark",
+            "type": "string"
+        }
+    }
+}
+</templatedata>
+</noinclude>

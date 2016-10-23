@@ -1,0 +1,14 @@
+<div class="beginenvironment beginnote"><b>{{{title|Nota}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Titolo della nota",
+            "type": "string"
+        }
+    }
+}
+</templatedata>
+</noinclude>

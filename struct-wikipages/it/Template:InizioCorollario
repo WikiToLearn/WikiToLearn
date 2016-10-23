@@ -1,0 +1,14 @@
+<div class="beginenvironment begincorollary"><b>{{{title|Corollario}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Titolo",
+            "description": "Titolo del corollario",
+            "type": "string"
+        }
+    }
+}
+</templatedata>
+</noinclude>

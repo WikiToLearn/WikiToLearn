@@ -174,7 +174,7 @@ if ($wiki_domain != 'tuttorotto.biz') {
 }
 
 $wgSitename = 'WikiToLearn - collaborative textbooks';
-$wgLogo = "$wgStylePath/Neverland/images/logos/wtl-logo.png";
+$wgLogo = "//www." . $wiki_domain . "/logobig.png";
 
 $wgForeignFileRepos[] = array(
     'class' => 'ForeignDBRepo',
@@ -498,9 +498,8 @@ if (file_exists("$IP/../LocalSettings.d/wgReadOnly.php")) {
     require_once "$IP/../LocalSettings.d/wgReadOnly.php";
 }
 
-// SubapageList needs it
+// Used for some templates needs it
 require_once "$IP/extensions/ParserHooks/ParserHooks.php";
-#require_once( "$IP/extensions/SubPageList/SubPageList.php" );
 
 // Captcha
 wfLoadExtensions(array('ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha'));
@@ -559,16 +558,11 @@ $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
 $wgDefaultUserOptions['wikieditor-preview'] = 1;
 
-//InputBox extension
-wfLoadExtension('InputBox');
-
 //Content Namespaces
 $wgContentNamespaces = array(0, 200, 2800);
 // Add subpage capabilities
 $wgNamespacesWithSubpages = array_fill(0, 200, true);
 $wgNamespacesWithSubpages[NS_USER] = true;
-// for SubPageList3 extension
-require_once "$IP/extensions/SubPageList3/SubPageList3.php";
 wfLoadExtension('CodeEditor');
 $wgCodeEditorEnableCore = true;
 
@@ -581,3 +575,4 @@ wfLoadExtension('ContributorsMap');
 
 $wgCMURL = "umap.openstreetmap.fr/en/map/wikitolearn-community_106733";
 
+wfLoadExtension('WikiToLearnVETemplates');

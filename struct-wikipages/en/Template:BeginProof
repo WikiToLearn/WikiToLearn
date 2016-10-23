@@ -1,0 +1,14 @@
+<div class="beginenvironment beginproof"><i>Proof</i> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Title of the proof",
+            "type": "string"
+        }
+    }
+}
+</templatedata>
+</noinclude>

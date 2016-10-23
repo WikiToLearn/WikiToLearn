@@ -1,0 +1,5 @@
+<includeonly>
+<div class="template addcourseintopic">
+{{Infobox|text=Do you want to create a new course about this topic? [{{fullurl:Special:CourseEditor|actiontype=createcourse&amp;topic={{PAGENAMEE}}}} Click here!]}}
+</div>
+</includeonly>

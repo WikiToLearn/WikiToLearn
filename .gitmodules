@@ -31,3 +31,6 @@
 [submodule "extensions/ContributorsMap"]
 	path = extensions/ContributorsMap
 	url = https://github.com/WikiToLearn/ContributorsMap.git
+[submodule "extensions/WikiToLearnVETemplates"]
+	path = extensions/WikiToLearnVETemplates
+	url = https://github.com/WikiToLearn/WikiToLearnVETemplates

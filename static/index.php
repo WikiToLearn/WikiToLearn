@@ -1,31 +1,41 @@
 <?php
-include "../domains.php";
+include '../domains.php';
 
 $domain = $wiki_allow_domains[0];
 
-if (array_search($wiki_domain, $wiki_allow_domains) !== FALSE) {
+if (array_search($wiki_domain, $wiki_allow_domains) !== false) {
     $domain = $wiki_domain;
 }
 $https = false;
-if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO']=="https"){
-  $https = true;
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $https = true;
 }
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=="on"){
-  $https = true;
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+    $https = true;
 }
-if ($domain != "tuttorotto.biz" && !$https){
-  header("Location: https://www.".$domain);
+if ($domain != 'tuttorotto.biz' && !$https) {
+    header('Location: https://www.'.$domain);
 } else {
-?><!DOCTYPE html>
+    ?><!DOCTYPE html>
 <html lang="en">
     <head>
         <title>WikiToLearn - collaborative textbooks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" charset="UTF-8" />
-
+        <meta name="description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
+        <meta property="og:description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
+        <meta name="twitter:description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
+        <meta property="og:title" content="WikiToLearn - collaborative textbooks"/>
+        <meta name="twitter:title" content="WikiToLearn - collaborative textbooks"/>
+        <meta property="og:site_name" content="WikiToLearn"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="@WikiToLearn"/>
+        <meta name="twitter:image" content="http://www.<?php echo $domain; ?>/wikitolearn.jpg"/>
+        <meta property="og:image" content="http://www.<?php echo $domain; ?>/wikitolearn.jpg"/>
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="500" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="/style.css">
-
     </head>
     <body>
 
@@ -61,12 +71,12 @@ if ($domain != "tuttorotto.biz" && !$https){
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3 logos-container col-xs-12">
                 <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
-                  <a href="http://www.unimib.it/go/102/Home/English">
+                  <a href="https://www.unimib.it/">
                     <img src="/images/uni-bicocca.png" class="img-responsive"/>
                   </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <a href="http://home.cern/">
+                  <a href="https://home.cern/">
                     <img src="/images/cern.png" class="img-responsive"/>
                   </a>
                 </div>
@@ -75,7 +85,7 @@ if ($domain != "tuttorotto.biz" && !$https){
                 <div class="col-xs-12 visible-xs vertical-spacing">
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
-                  <a href="http://wikimedia.it/">
+                  <a href="http://www.wikimedia.it/">
                     <img src="/images/it-wikimedia.png" class="img-responsive"/>
                   </a>
                 </div>
@@ -124,8 +134,6 @@ if ($domain != "tuttorotto.biz" && !$https){
                             dataType: "jsonp",
                             context: $(this).find('.pagecount'),
                             success: function (response) {
-                                console.log($(this));
-                                console.log(response);
                                 $(this).html(response.query.statistics.articles + $(this).html().substring(1));
                             }
                         });
@@ -137,5 +145,6 @@ if ($domain != "tuttorotto.biz" && !$https){
     </body>
 </html>
 <?php
+
 }
 ?>

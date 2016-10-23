@@ -1,0 +1,14 @@
+<div class="beginenvironment beginproposition"><b>{{{title|Proposition}}}</b></div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Title of the proposition",
+            "type": "string"
+        }
+    }
+}
+</templatedata>
+</noinclude>
