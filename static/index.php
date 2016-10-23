@@ -22,7 +22,16 @@ if ($domain != 'tuttorotto.biz' && !$https) {
         <title>WikiToLearn - collaborative textbooks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" charset="UTF-8" />
-
+        <meta name="description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
+        <meta property="og:description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
+        <meta name="twitter:description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
+        <meta property="og:title" content="WikiToLearn - collaborative textbooks"/>
+        <meta name="twitter:title" content="WikiToLearn - collaborative textbooks"/>
+        <meta property="og:site_name" content="WikiToLearn"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="@WikiToLearn"/>
+        <meta name="twitter:image" content="http://www.<?php echo $domain; ?>/wikitolearn-logo.png"/>
+        <meta property="og:image" content="http://www.<?php echo $domain; ?>/wikitolearn-logo.png"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="/style.css">
     </head>
