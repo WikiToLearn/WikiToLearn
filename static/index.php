@@ -30,8 +30,8 @@ if ($domain != 'tuttorotto.biz' && !$https) {
         <meta property="og:site_name" content="WikiToLearn"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:site" content="@WikiToLearn"/>
-        <meta name="twitter:image" content="http://www.<?php echo $domain; ?>/wikitolearn-logo.png"/>
-        <meta property="og:image" content="http://www.<?php echo $domain; ?>/wikitolearn-logo.png"/>
+        <meta name="twitter:image" content="http://www.<?php echo $domain; ?>/wikitolearn.jpg"/>
+        <meta property="og:image" content="http://www.<?php echo $domain; ?>/wikitolearn.jpg"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="/style.css">
     </head>
