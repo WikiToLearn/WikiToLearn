@@ -9,3 +9,5 @@
 <section begin=projectbooks />Libri<section end=projectbooks />
 <section begin=readytobepublished />Questo corso è pronto per essere pubblicato! Un amministratore si occuperà di farlo il primo possibile.<section end=readytobepublished />
 <section begin=deleteme />Questa pagina verrà eliminata al più presto!<section end=deleteme />
+<section begin=addCourseInDepartment />Vuoi creare un nuovo argomento?<section end=addCourseInDepartment />
+<section begin=addCourseInTopic />Vuoi creare un nuovo corso di questo argomento?<section end=addCourseInTopic />
