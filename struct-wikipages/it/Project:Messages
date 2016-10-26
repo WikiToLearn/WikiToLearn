@@ -11,3 +11,4 @@
 <section begin=deleteme />Questa pagina verrà eliminata al più presto!<section end=deleteme />
 <section begin=addCourseInDepartment />Vuoi creare un nuovo argomento?<section end=addCourseInDepartment />
 <section begin=addCourseInTopic />Vuoi creare un nuovo corso di questo argomento?<section end=addCourseInTopic />
+<section begin=clickHere />Clicca qui<section end=clickHere />

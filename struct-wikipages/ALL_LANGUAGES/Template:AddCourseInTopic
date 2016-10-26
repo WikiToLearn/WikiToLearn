@@ -1,5 +1,5 @@
 <includeonly>
 <div class="template addcourseintopic">
-{{Infobox|text={{i18n|addCourseInTopic}} [{{fullurl:Special:CourseEditor|actiontype=createcourse&amp;topic={{PAGENAMEE}}}} Click here!]}}
+{{Infobox|text={{i18n|addCourseInTopic}} [{{fullurl:Special:CourseEditor|actiontype=createcourse&amp;topic={{PAGENAMEE}}}} {{i18n|clickHere}}]}}
 </div>
 </includeonly>
