@@ -12,3 +12,6 @@
 <section begin=addCourseInDepartment />Vuoi creare un nuovo argomento?<section end=addCourseInDepartment />
 <section begin=addCourseInTopic />Vuoi creare un nuovo corso di questo argomento?<section end=addCourseInTopic />
 <section begin=clickHere />Clicca qui<section end=clickHere />
+<section begin=imported />Importato<section end=imported />
+<section begin=reviewed />Revisionato<section end=reviewed />
+<section begin=onDate />in data<section end=onDate />

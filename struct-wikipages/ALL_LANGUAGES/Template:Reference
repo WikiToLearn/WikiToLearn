@@ -1,0 +1,1 @@
+<includeonly><div class="template reference"><b>{{{author}}},</b> <i>{{{title}}}</i>{{#if: {{{editor|}}} |, {{{editor}}} }}{{#if: {{{edition|}}} |, {{{edition}}} }}{{#if: {{{par|}}} |, {{{par}}} }}</div></includeonly>
