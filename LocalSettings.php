@@ -43,6 +43,7 @@ if ($wtl_debug) {
     $wgShowExceptionDetails = true;
     $wgEnableParserCache = false;
     $wgCachePages = false;
+    $wgStyleVersion=mt_rand(1,1000);
 }
 
 $IP = '/var/www/WikiToLearn/mediawiki/';
