@@ -293,7 +293,8 @@ $wgUseETag = true;
 #$wgSitemapNamespaces = array('0', '2', '3', '4', '6', '8');
 
 $wgDefaultUserOptions['useeditwarning'] = 1;
-$wgDefaultSkin = 'neverland';
+$wgDefaultSkin = 'WikiToLearnSkin';
+$wgWikiToLearnSkinEnableJoinPage = true;
 wfLoadSkin('Neverland');
 wfLoadSkin('WikiToLearnSkin');
 
