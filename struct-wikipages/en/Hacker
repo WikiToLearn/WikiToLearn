@@ -1,0 +1,28 @@
+Do you want to help WikiToLearn "under the hood"? This is the right page for you to get started! First of all, you do not need to be a super expert in Computer Science: there are plenty of things to do at all skill levels. You can also count on the help of our developers to help get you on track to contribute immediately!!
+
+== Guide for the development ==
+You can find the complete guide for the development of the website [http://meta.wikitolearn.org/Guide_for_the_development_of_WikiToLearn Guide for the development of WikiToLearn].
+
+== Code ==
+Let's talk about the code: all the code for WikiToLearn is open-source, of course, and you can find it on GitHub
+https://github.com/WikiToLearn
+
+===Git===
+Git is a software tool used to manage large projects collaboratively, as efficiently as possible. WikiToLearn uses Git to manage the updates and all the changes of the project. You can clone the repositories and start exploring the code right now.
+
+To install Git: https://git-scm.com/
+
+Here is a 15 minutes guided tutorial to learn how to use it: https://try.github.io/levels/1/challenges/1.
+
+A full git tutorial is provided by Atlassian here: https://www.atlassian.com/git/
+
+You can find another guide, still in Beta yet extremely simple, on codeacademy: https://www.codecademy.com/courses/learn-git
+
+A cheat sheet with the most used commands is always handy: http://ktown.kde.org/~zrusin/git/git-cheat-sheet.svg
+
+===Docker===
+Docker is a software used by WikiToLearn to divide the project into different modules. You can think of the dockers as large containers optimized for a particular application. To run WikiToLearn you will need to install Docker. Read here to get started:
+http://docs.docker.com/linux/started/
+
+=== Programming languages ===
+WikiToLearn is a big project. As a result, it employs many different web technologies and development environments. In particular, there are a few prevalent languages such as Python, PHP, CSS, HTML and JavaScript.
