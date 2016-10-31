@@ -297,6 +297,7 @@ $wgDefaultSkin = 'WikiToLearnSkin';
 $wgWikiToLearnSkinEnableJoinPage = true;
 wfLoadSkin('Neverland');
 wfLoadSkin('WikiToLearnSkin');
+$wgStyleVersion=314;
 
 $wgAllowImageTag = true;
 
