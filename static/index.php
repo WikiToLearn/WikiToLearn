@@ -35,7 +35,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
         <meta property="og:image:width" content="500" />
         <meta property="og:image:height" content="500" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/style-0.css">
     </head>
     <body>
 
