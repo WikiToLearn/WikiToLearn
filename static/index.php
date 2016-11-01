@@ -52,32 +52,39 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                         </div>
                         <div id="spacing-row" style="height:30px"></div>
                         <div class="col-sm-6 col-xs-12 center" id="rightnav" style="padding-left:0px;">
+                            <div class="bar"></div>
                             <ul id="rightnavmenu" class="list-unstyled">
-                                <li class="towikilink colorbar1">
+                                <li class="towikilink">
                                   <a class="wikilink" lang="it" href="//it.<?php echo $domain; ?>">
                                     <h1>Italiano<small class="pull-right hidden-xs pagecount">#+ capitoli</small></h1>
                                     <h2>&laquo;Il sapere si accresce solo se condiviso&raquo;</h2>
                                   </a>
                                 </li>
-                                <li class="towikilink colorbar2">
+                                <li class="towikilink">
                                   <a class="wikilink" lang="en" href="//en.<?php echo $domain; ?>">
                                     <h1>English<small class="pull-right hidden-xs pagecount">#+ chapters</small></h1>
                                     <h2>&laquo;Knowledge only grows if shared&raquo;</h2>
                                   </a>
                                 </li>
-                                <li class="towikilink colorbar3">
+                                <li class="towikilink">
                                   <a class="wikilink" lang="es" href="//es.<?php echo $domain; ?>">
                                     <h1>Espa&ntilde;ol<small class="pull-right hidden-xs pagecount">#+ capítulos</small></h1>
                                     <h2>&laquo;El conocimiento solo crece cuando es compartido&raquo;</h2>
                                   </a>
                                 </li>
-                                <li class="towikilink colorbar4">
+                                <li class="towikilink">
+                                  <a class="wikilink" lang="ca" href="//ca.<?php echo $domain; ?>">
+                                    <h1>Català<small class="pull-right hidden-xs pagecount">#+ Capítols</small></h1>
+                                    <h2>&laquo;Knowledge only grows if shared&raquo;</h2>
+                                  </a>
+                                </li>
+                                <li class="towikilink">
                                   <a class="wikilink" lang="fr" href="#//fr.<?php echo $domain; ?>">
                                     <h1 class="disabled">Fran&ccedil;ais</h1>
                                     <h2 class="disabled">&laquo;Le savoir grandit seulement s'il est partag&eacute;&raquo;</h2>
                                   </a>
                                 </li>
-                                <li class="towikilink colorbar5">
+                                <li class="towikilink">
                                   <a class="wikilink" lang="de" href="#//de.<?php echo $domain; ?>">
                                     <h1 class="disabled">Deutsch</h1>
                                     <h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird kann neues enstehen&raquo;</h2>
