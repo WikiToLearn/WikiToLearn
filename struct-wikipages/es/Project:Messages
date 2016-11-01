@@ -1,0 +1,17 @@
+<section begin=externalreferences />Referencias externas<section end=externalreferences />
+<section begin=editcourse />Editar curso<section end=editcourse />
+<section begin=editmetadata />Edita les metadades<section end=editmetadata />
+<section begin=editchapter />Edita el capítol<section end=editchapter />
+<section begin=bibliography />Bibliografía<section end=bibliography />
+<section begin=exercises />Ejercicios<section end=exercises />
+<section begin=books />Libros<section end=books />
+<section begin=downloadpdf />Descargar libros en PDF<section end=downloadpdf />
+<section begin=projectbooks />Llibres<section end=projectbooks />
+<section begin=readytobepublished />Este curso está listo para publicar. Un administrador lo hará en cuanto sea posible.<section end=readytobepublished />
+<section begin=deleteme />Esta página se borrará lo antes posible<section end=deleteme />
+<section begin=addCourseInDepartment />Do you want to create a new topic?<section end=addCourseInDepartment />
+<section begin=addCourseInTopic />Do you want to create a new course on this topic?<section end=addCourseInTopic />
+<section begin=clickHere />Click here!<section end=clickHere />
+<section begin=imported />Imported<section end=imported />
+<section begin=reviewed />Reviewed<section end=reviewed />
+<section begin=onDate />on date<section end=onDate />
