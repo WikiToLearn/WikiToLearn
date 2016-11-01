@@ -7,22 +7,22 @@
 "wikitolearnskin-departments-1-name": "Computer Science",
 "wikitolearnskin-departments-1-image": "images/badges/computerscience.png",
 "wikitolearnskin-departments-1-link": "/Computer Science",
-"wikitolearnskin-departments-1-status": "enabled",
+"wikitolearnskin-departments-1-status": "disabled",
 
 "wikitolearnskin-departments-2-name": "Mathematics",
 "wikitolearnskin-departments-2-image": "images/badges/math.png",
 "wikitolearnskin-departments-2-link": "/Mathematics",
-"wikitolearnskin-departments-2-status": "enabled",
+"wikitolearnskin-departments-2-status": "disabled",
 
 "wikitolearnskin-departments-3-name": "Physics",
 "wikitolearnskin-departments-3-image": "images/badges/physics.png",
 "wikitolearnskin-departments-3-link": "/Physics",
-"wikitolearnskin-departments-3-status": "enabled",
+"wikitolearnskin-departments-3-status": "disabled",
 
 "wikitolearnskin-departments-4-name": "Business",
 "wikitolearnskin-departments-4-image": "images/badges/business.png",
 "wikitolearnskin-departments-4-link": "/Business",
-"wikitolearnskin-departments-4-status": "enabled",
+"wikitolearnskin-departments-4-status": "disabled",
 
 "wikitolearnskin-departments-5-name": "Engineering",
 "wikitolearnskin-departments-5-image": "images/badges/engineering.png",
