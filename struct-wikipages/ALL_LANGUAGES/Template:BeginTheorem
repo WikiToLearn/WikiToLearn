@@ -1,0 +1,14 @@
+<div class="beginenvironment begintheorem"><b>Theorem</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<noinclude>
+<templatedata>
+{
+    "params": {
+        "title": {
+            "label": "Title",
+            "description": "Title of the theorem",
+            "type": "string"
+        }
+    }
+}
+</templatedata>
+</noinclude>
