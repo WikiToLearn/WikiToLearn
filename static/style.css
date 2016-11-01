@@ -126,7 +126,7 @@ body {
 }
 
 /* Larger devices */
-@media (min-width: 769px) {  
+@media (min-width: 769px) {
 
   .center-row {
       display:table;
@@ -177,4 +177,21 @@ body {
 .pagecount {
     font-size:10pt;
     padding-top:1em;padding-left:1em;
+}
+
+
+#rightnav{
+  display: flex;
+  width: 100%;
+}
+
+#rightnavmenu{
+  margin-bottom: 0;
+}
+
+.bar{
+  width: 5px;
+  background-image: url("/images/bar.png");
+  background-size: cover;
+  -webkit-background-origin:border;
 }

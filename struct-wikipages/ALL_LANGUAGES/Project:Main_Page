@@ -1,0 +1,58 @@
+{
+"PLEASE VALIDATE YOUR JSON BEFORE SAVING": "https://jsonformatter.curiousconcept.com/",
+"HOW TO USE": "'keyToOverride':'value'",
+
+"wikitolearnskin-home-claim":  "Learn with the best. Create books. Share knowledge.",
+
+"wikitolearnskin-departments-1-name": "Computer Science",
+"wikitolearnskin-departments-1-image": "images/badges/computerscience.png",
+"wikitolearnskin-departments-1-link": "/Computer Science",
+"wikitolearnskin-departments-1-status": "disabled",
+
+"wikitolearnskin-departments-2-name": "Mathematics",
+"wikitolearnskin-departments-2-image": "images/badges/math.png",
+"wikitolearnskin-departments-2-link": "/Mathematics",
+"wikitolearnskin-departments-2-status": "disabled",
+
+"wikitolearnskin-departments-3-name": "Physics",
+"wikitolearnskin-departments-3-image": "images/badges/physics.png",
+"wikitolearnskin-departments-3-link": "/Physics",
+"wikitolearnskin-departments-3-status": "disabled",
+
+"wikitolearnskin-departments-4-name": "Business",
+"wikitolearnskin-departments-4-image": "images/badges/business.png",
+"wikitolearnskin-departments-4-link": "/Business",
+"wikitolearnskin-departments-4-status": "disabled",
+
+"wikitolearnskin-departments-5-name": "Engineering",
+"wikitolearnskin-departments-5-image": "images/badges/engineering.png",
+"wikitolearnskin-departments-5-link": "/Engineering",
+"wikitolearnskin-departments-5-status": "disabled",
+
+"wikitolearnskin-departments-6-name": "Humanities",
+"wikitolearnskin-departments-6-image": "images/badges/humanities.png",
+"wikitolearnskin-departments-6-link": "/Humanities",
+"wikitolearnskin-departments-6-status": "disabled",
+
+"wikitolearnskin-departments-7-name": "Medicine",
+"wikitolearnskin-departments-7-image": "images/badges/medicine.png",
+"wikitolearnskin-departments-7-link": "/Medicine",
+"wikitolearnskin-departments-7-status": "disabled",
+
+"wikitolearnskin-departments-8-name": "Natural Sciences",
+"wikitolearnskin-departments-8-image": "images/badges/chemistry.png",
+"wikitolearnskin-departments-8-link": "/Natural Sciences",
+"wikitolearnskin-departments-8-status": "disabled",
+
+"wikitolearnskin-departments-9-name": "Social Sciences",
+"wikitolearnskin-departments-9-image": "images/badges/social.png",
+"wikitolearnskin-departments-9-link": "/Social Sciences",
+"wikitolearnskin-departments-9-status": "disabled",
+
+"wikitolearnskin-departments-10-name": "Pre-University",
+"wikitolearnskin-departments-10-image": "images/badges/beforeuni.png",
+"wikitolearnskin-departments-10-link": "/Pre-University",
+"wikitolearnskin-departments-10-status": "disabled",
+
+"wikitolearnskin-media-video-url": "//www.youtube.com/embed/BTS-YKnJYv0?rel=0"
+}
