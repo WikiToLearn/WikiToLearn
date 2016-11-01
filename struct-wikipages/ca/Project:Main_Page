@@ -1,0 +1,58 @@
+{
+"PLEASE VALIDATE YOUR JSON BEFORE SAVING": "https://jsonformatter.curiousconcept.com/",
+"HOW TO USE": "'keyToOverride':'value'",
+
+"wikitolearnskin-home-claim":  "Learn with the best. Create books. Share knowledge.",
+
+"wikitolearnskin-departments-1-name": "Informàtica",
+"wikitolearnskin-departments-1-image": "images/badges/computerscience.png",
+"wikitolearnskin-departments-1-link": "/Informàtica",
+"wikitolearnskin-departments-1-status": "disabled",
+
+"wikitolearnskin-departments-2-name": "Matemàtiques",
+"wikitolearnskin-departments-2-image": "images/badges/math.png",
+"wikitolearnskin-departments-2-link": "/Matemàtiques",
+"wikitolearnskin-departments-2-status": "disabled",
+
+"wikitolearnskin-departments-3-name": "Física",
+"wikitolearnskin-departments-3-image": "images/badges/physics.png",
+"wikitolearnskin-departments-3-link": "/Física",
+"wikitolearnskin-departments-3-status": "disabled",
+
+"wikitolearnskin-departments-4-name": "Negocis",
+"wikitolearnskin-departments-4-image": "images/badges/business.png",
+"wikitolearnskin-departments-4-link": "/Negocis",
+"wikitolearnskin-departments-4-status": "disabled",
+
+"wikitolearnskin-departments-5-name": "Enginyeria",
+"wikitolearnskin-departments-5-image": "images/badges/engineering.png",
+"wikitolearnskin-departments-5-link": "/Enginyeria",
+"wikitolearnskin-departments-5-status": "disabled",
+
+"wikitolearnskin-departments-6-name": "Humanitats",
+"wikitolearnskin-departments-6-image": "images/badges/humanities.png",
+"wikitolearnskin-departments-6-link": "/Humanitats",
+"wikitolearnskin-departments-6-status": "disabled",
+
+"wikitolearnskin-departments-7-name": "Medicina",
+"wikitolearnskin-departments-7-image": "images/badges/medicine.png",
+"wikitolearnskin-departments-7-link": "/Medicina",
+"wikitolearnskin-departments-7-status": "disabled",
+
+"wikitolearnskin-departments-8-name": "Ciències naturals",
+"wikitolearnskin-departments-8-image": "images/badges/chemistry.png",
+"wikitolearnskin-departments-8-link": "/Ciències naturals",
+"wikitolearnskin-departments-8-status": "disabled",
+
+"wikitolearnskin-departments-9-name": "Ciències socials",
+"wikitolearnskin-departments-9-image": "images/badges/social.png",
+"wikitolearnskin-departments-9-link": "/Ciències socials",
+"wikitolearnskin-departments-9-status": "disabled",
+
+"wikitolearnskin-departments-10-name": "Pre-Universitat",
+"wikitolearnskin-departments-10-image": "images/badges/beforeuni.png",
+"wikitolearnskin-departments-10-link": "/Pre-Universitat",
+"wikitolearnskin-departments-10-status": "disabled",
+
+"wikitolearnskin-media-video-url": "//www.youtube.com/embed/BTS-YKnJYv0?rel=0"
+}
