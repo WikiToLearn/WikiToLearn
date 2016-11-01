@@ -75,7 +75,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                                 <li class="towikilink">
                                   <a class="wikilink" lang="ca" href="//ca.<?php echo $domain; ?>">
                                     <h1>Català<small class="pull-right hidden-xs pagecount">#+ Capítols</small></h1>
-                                    <h2>&laquo;Knowledge only grows if shared&raquo;</h2>
+                                    <h2>&laquo;El coneixement només creix si és compartit&raquo;</h2>
                                   </a>
                                 </li>
                                 <li class="towikilink">
