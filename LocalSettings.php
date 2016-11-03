@@ -21,9 +21,6 @@ if (getenv('WTL_DEBUG') == '1') {
 
 if (getenv('WTL_PRODUCTION') != '1') {
     $wtl_debug = true;
-    $wgEnableDnsBlacklist = false;
-} else {
-    $wgEnableDnsBlacklist = true;
 }
 
 if ($wtl_debug) {
@@ -300,9 +297,6 @@ $wgStyleVersion=314;
 
 $wgAllowImageTag = true;
 
-if ($wgEnableDnsBlacklist) {
-    $wgDnsBlacklistUrls = array('xbl.spamhaus.org', 'dnsbl.tornevall.org');
-}
 
 //  prevents edits that contain URLs whose domains match regular expression patterns defined in specified files or wiki pages and registration by users using specified email addresses
 
