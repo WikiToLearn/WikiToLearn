@@ -6,7 +6,7 @@
         "title": {
             "label": "Title",
             "description": "Title of the example",
-            "type": "string",
+            "type": "string"
         }
     }
 }
