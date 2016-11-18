@@ -132,7 +132,7 @@ $wgLanguageCode = 'en'; // Default
 #Officially supported languages
 $wgSupportedLanguages = array('ca', 'de', 'en', 'es', 'fr', 'it');
 
-# BUG: most of the code of WikiToLearn requires that the interface is 
+# BUG: most of the code of WikiToLearn requires that the interface is
 # in the same language of the domain being visited. Otherwise references
 # to non existing pages get created. Disable setting a custom language for preferences.
 # If you still have questions, please ask ruphy or tunale.
@@ -372,7 +372,7 @@ $wgMathFullRestbaseURL = '//restbase.'.$wiki_domain.'/'.(isset($_SERVER['SERVER_
 $wgVisualEditorFullRestbaseURL = '//restbase.'.$wiki_domain.'/'.(isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost').'/';
 
 /* extensions loading */
-//wfLoadExtension('SpeechToText');
+wfLoadExtension('SpeechToText');
 //wfLoadExtension('EasyLink');
 
 wfLoadExtension('WikiToLearnACL');
