@@ -23,18 +23,21 @@ if (getenv('WTL_PRODUCTION') != '1') {
     $wtl_debug = true;
 }
 
+if (is_writable('/var/log/mediawiki/')) {
+    $wgDebugLogFile = '/var/log/mediawiki/'.date('m-d-Y');
+    if (isset($_SERVER['SERVER_NAME'])){
+        $wgDebugLogFile = $wgDebugLogFile . '.' . $_SERVER['SERVER_NAME'];
+    }
+} else {
+    $wgDebugLogFile = '/tmp/mediawiki';
+}
+
 if ($wtl_debug) {
+    if(isset($_SERVER['REMOTE_ADDR'])) {
+        $wgDebugLogFile = $wgDebugLogFile . "-" . $_SERVER['REMOTE_ADDR'];
+    }
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
-    if (is_writable('/var/log/mediawiki/')) {
-        $wgDebugLogFile = '/var/log/mediawiki/'.date('m-d-Y');
-        if (isset($_SERVER['SERVER_NAME'])){
-            $wgDebugLogFile = $wgDebugLogFile . '.' . $_SERVER['SERVER_NAME'];
-        }
-        $wgDebugLogFile = $wgDebugLogFile . '.log';
-    } else {
-        $wgDebugLogFile = '/tmp/mediawiki.log';
-    }
     $wgDebugToolbar = true;
     $wgDebugComments = true;
     $wgShowExceptionDetails = true;
@@ -42,6 +45,8 @@ if ($wtl_debug) {
     $wgCachePages = false;
     $wgStyleVersion=mt_rand(1,1000);
 }
+
+$wgDebugLogFile = $wgDebugLogFile . '.log';
 
 $IP = '/var/www/WikiToLearn/mediawiki/';
 putenv("MW_INSTALL_PATH=$IP");
