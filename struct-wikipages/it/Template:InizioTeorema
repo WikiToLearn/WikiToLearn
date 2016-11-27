@@ -4,7 +4,7 @@
 {
     "params": {
         "title": {
-            "label": "Title",
+            "label": "Titolo",
             "description": "Title of the theorem",
             "type": "string"
         }

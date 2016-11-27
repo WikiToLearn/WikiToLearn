@@ -1,4 +1,4 @@
-<div class="beginenvironment begincorollary"><b>{{{title|Corollario}}}</b></div>
+<div class="beginenvironment begincorollary"><b>Corollario</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {
