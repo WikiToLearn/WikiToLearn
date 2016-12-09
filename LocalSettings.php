@@ -573,7 +573,9 @@ $wgTemplateDataGUI = true;
 $wgGroupPermissions['bot']['noratelimit'] = true;
 
 wfLoadExtension('ContributorsMap');
-
 $wgCMURL = "umap.openstreetmap.fr/en/map/wikitolearn-community_106733";
 
 wfLoadExtension('WikiToLearnVETemplates');
+
+//disallow anonymous editing
+$wgEmailConfirmToEdit = true;
