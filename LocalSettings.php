@@ -372,7 +372,7 @@ $wgMathFullRestbaseURL = '//restbase.'.$wiki_domain.'/'.(isset($_SERVER['SERVER_
 $wgVisualEditorFullRestbaseURL = '//restbase.'.$wiki_domain.'/'.(isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost').'/';
 
 /* extensions loading */
-//wfLoadExtension('SpeechToText');
+wfLoadExtension('SpeechToText');
 //wfLoadExtension('EasyLink');
 
 wfLoadExtension('WikiToLearnACL');
@@ -573,7 +573,9 @@ $wgTemplateDataGUI = true;
 $wgGroupPermissions['bot']['noratelimit'] = true;
 
 wfLoadExtension('ContributorsMap');
-
 $wgCMURL = "umap.openstreetmap.fr/en/map/wikitolearn-community_106733";
 
 wfLoadExtension('WikiToLearnVETemplates');
+
+//disallow anonymous editing
+$wgEmailConfirmToEdit = true;

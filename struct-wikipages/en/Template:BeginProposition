@@ -1,4 +1,4 @@
-<div class="beginenvironment beginproposition"><b>{{{title|Proposition}}}</b></div>
+<div class="beginenvironment beginproposition"><b>Proposition</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {
