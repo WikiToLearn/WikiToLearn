@@ -1,0 +1,17 @@
+<section begin=externalreferences />Externe Referenzen<section end=externalreferences />
+<section begin=editcourse />Kurs bearbeiten<section end=editcourse />
+<section begin=editmetadata />Metadaten bearbeiten<section end=editmetadata />
+<section begin=editchapter />Kapitel bearbeiten<section end=editchapter />
+<section begin=bibliography />Bibliographie<section end=bibliography />
+<section begin=exercises />Übungen<section end=exercises />
+<section begin=books />Bücher<section end=books />
+<section begin=downloadpdf />PDF herunterladen<section end=downloadpdf />
+<section begin=projectbooks />Bücher<section end=projectbooks />
+<section begin=readytobepublished />Dieser Kurs ist bereit um veröffentlicht zu werden!  Ein Administrator wird dies in Kürze tun.<section end=readytobepublished />
+<section begin=deleteme />Diese Seite wird schnellstmöglich gelöscht.<section end=deleteme />
+<section begin=addCourseInDepartment />Du möchtest ein neues Thema erstellen?<section end=addCourseInDepartment />
+<section begin=addCourseInTopic />Du möchtest einen neuen Kurs zu diesem Thema erstellen?<section end=addCourseInTopic />
+<section begin=clickHere />Hier klicken!<section end=clickHere />
+<section begin=imported />Importiert<section end=imported />
+<section begin=reviewed />Geprüft<section end=reviewed />
+<section begin=onDate />am<section end=onDate />
