@@ -68,8 +68,8 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                                 </li>
                                 <li class="towikilink">
                                   <a class="wikilink" lang="de" href="//de.<?php echo $domain; ?>">
-                                    <h1 class="disabled">Deutsch</h1>
-                                    <h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird, kann neues enstehen&raquo;</h2>
+                                    <h1>Deutsch<small class="pull-right hidden-xs pagecount">#+ Kapitel</small></h1>
+                                    <h2>&laquo;Nur wenn Wissen geteilt wird, kann neues enstehen&raquo;</h2>
                                   </a>
                                 </li>
                                 <li class="towikilink">
@@ -146,11 +146,13 @@ if ($domain != 'tuttorotto.biz' && !$https) {
 
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-31749701-1', 'auto');  ga('send', 'pageview');</script>
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+                ga('create', 'UA-31749701-1', 'auto');  ga('send', 'pageview');
+        </script>
 
         <script>
             WebFont.load({
