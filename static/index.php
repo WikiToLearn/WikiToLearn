@@ -67,6 +67,12 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                                   </a>
                                 </li>
                                 <li class="towikilink">
+                                  <a class="wikilink" lang="de" href="//de.<?php echo $domain; ?>">
+                                    <h1 class="disabled">Deutsch</h1>
+                                    <h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird, kann neues enstehen&raquo;</h2>
+                                  </a>
+                                </li>
+                                <li class="towikilink">
                                   <a class="wikilink" lang="es" href="//es.<?php echo $domain; ?>">
                                     <h1>Espa&ntilde;ol<small class="pull-right hidden-xs pagecount">#+ capítulos</small></h1>
                                     <h2>&laquo;El conocimiento solo crece cuando es compartido&raquo;</h2>
@@ -82,12 +88,6 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                                   <a class="wikilink" lang="fr" href="#//fr.<?php echo $domain; ?>">
                                     <h1 class="disabled">Fran&ccedil;ais</h1>
                                     <h2 class="disabled">&laquo;Le savoir grandit seulement s'il est partag&eacute;&raquo;</h2>
-                                  </a>
-                                </li>
-                                <li class="towikilink">
-                                  <a class="wikilink" lang="de" href="#//de.<?php echo $domain; ?>">
-                                    <h1 class="disabled">Deutsch</h1>
-                                    <h2 class="disabled">&laquo;Nur wenn Wissen geteilt wird kann neues enstehen&raquo;</h2>
                                   </a>
                                 </li>
                             </ul>
@@ -146,6 +146,11 @@ if ($domain != 'tuttorotto.biz' && !$https) {
 
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-31749701-1', 'auto');  ga('send', 'pageview');</script>
 
         <script>
             WebFont.load({
