@@ -29,13 +29,205 @@ CREATE TABLE IF NOT EXISTS `archive` (
   `ar_page_id` int(10) unsigned DEFAULT NULL,
   `ar_parent_id` int(10) unsigned DEFAULT NULL,
   `ar_sha1` varbinary(32) NOT NULL DEFAULT '',
-  `ar_content_model` varbinary(32) DEFAULT NULL,
   `ar_content_format` varbinary(64) DEFAULT NULL,
+  `ar_content_model` varbinary(32) DEFAULT NULL,
   PRIMARY KEY (`ar_id`),
   KEY `name_title_timestamp` (`ar_namespace`,`ar_title`,`ar_timestamp`),
   KEY `ar_usertext_timestamp` (`ar_user_text`,`ar_timestamp`),
   KEY `ar_revid` (`ar_rev_id`),
   KEY `usertext_timestamp` (`ar_user_text`,`ar_timestamp`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_commentmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext,
+  PRIMARY KEY (`meta_id`),
+  KEY `comment_id` (`comment_id`),
+  KEY `meta_key` (`meta_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_comments` (
+  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `comment_author` tinytext NOT NULL,
+  `comment_author_email` varchar(100) NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) NOT NULL DEFAULT '',
+  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_content` text NOT NULL,
+  `comment_karma` int(11) NOT NULL DEFAULT '0',
+  `comment_approved` varchar(20) NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) NOT NULL DEFAULT '',
+  `comment_type` varchar(20) NOT NULL DEFAULT '',
+  `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`comment_ID`),
+  KEY `comment_post_ID` (`comment_post_ID`),
+  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
+  KEY `comment_date_gmt` (`comment_date_gmt`),
+  KEY `comment_parent` (`comment_parent`),
+  KEY `comment_author_email` (`comment_author_email`(10))
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_links` (
+  `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `link_url` varchar(255) NOT NULL DEFAULT '',
+  `link_name` varchar(255) NOT NULL DEFAULT '',
+  `link_image` varchar(255) NOT NULL DEFAULT '',
+  `link_target` varchar(25) NOT NULL DEFAULT '',
+  `link_description` varchar(255) NOT NULL DEFAULT '',
+  `link_visible` varchar(20) NOT NULL DEFAULT 'Y',
+  `link_owner` bigint(20) unsigned NOT NULL DEFAULT '1',
+  `link_rating` int(11) NOT NULL DEFAULT '0',
+  `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `link_rel` varchar(255) NOT NULL DEFAULT '',
+  `link_notes` mediumtext NOT NULL,
+  `link_rss` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`link_id`),
+  KEY `link_visible` (`link_visible`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_options` (
+  `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `option_name` varchar(64) NOT NULL DEFAULT '',
+  `option_value` longtext NOT NULL,
+  `autoload` varchar(20) NOT NULL DEFAULT 'yes',
+  PRIMARY KEY (`option_id`),
+  UNIQUE KEY `option_name` (`option_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_postmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext,
+  PRIMARY KEY (`meta_id`),
+  KEY `post_id` (`post_id`),
+  KEY `meta_key` (`meta_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_posts` (
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content` longtext NOT NULL,
+  `post_title` text NOT NULL,
+  `post_excerpt` text NOT NULL,
+  `post_status` varchar(20) NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) NOT NULL DEFAULT 'open',
+  `post_password` varchar(20) NOT NULL DEFAULT '',
+  `post_name` varchar(200) NOT NULL DEFAULT '',
+  `to_ping` text NOT NULL,
+  `pinged` text NOT NULL,
+  `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content_filtered` longtext NOT NULL,
+  `post_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `guid` varchar(255) NOT NULL DEFAULT '',
+  `menu_order` int(11) NOT NULL DEFAULT '0',
+  `post_type` varchar(20) NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) NOT NULL DEFAULT '',
+  `comment_count` bigint(20) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `post_name` (`post_name`),
+  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
+  KEY `post_parent` (`post_parent`),
+  KEY `post_author` (`post_author`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_term_relationships` (
+  `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `term_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`object_id`,`term_taxonomy_id`),
+  KEY `term_taxonomy_id` (`term_taxonomy_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_term_taxonomy` (
+  `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `taxonomy` varchar(32) NOT NULL DEFAULT '',
+  `description` longtext NOT NULL,
+  `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `count` bigint(20) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`term_taxonomy_id`),
+  UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
+  KEY `taxonomy` (`taxonomy`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_terms` (
+  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `slug` varchar(200) NOT NULL DEFAULT '',
+  `term_group` bigint(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`term_id`),
+  KEY `name` (`name`),
+  KEY `slug` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_usermeta` (
+  `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext,
+  PRIMARY KEY (`umeta_id`),
+  KEY `user_id` (`user_id`),
+  KEY `meta_key` (`meta_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `blog_users` (
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_login` varchar(60) NOT NULL DEFAULT '',
+  `user_pass` varchar(64) NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) NOT NULL DEFAULT '',
+  `user_email` varchar(100) NOT NULL DEFAULT '',
+  `user_url` varchar(100) NOT NULL DEFAULT '',
+  `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `user_activation_key` varchar(60) NOT NULL DEFAULT '',
+  `user_status` int(11) NOT NULL DEFAULT '0',
+  `display_name` varchar(250) NOT NULL DEFAULT '',
+  PRIMARY KEY (`ID`),
+  KEY `user_login_key` (`user_login`),
+  KEY `user_nicename` (`user_nicename`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `bot_passwords` (
+  `bp_user` int(11) NOT NULL,
+  `bp_app_id` varbinary(32) NOT NULL,
+  `bp_password` tinyblob NOT NULL,
+  `bp_token` binary(32) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `bp_restrictions` blob NOT NULL,
+  `bp_grants` blob NOT NULL,
+  PRIMARY KEY (`bp_user`,`bp_app_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -64,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `categorylinks` (
   UNIQUE KEY `cl_from` (`cl_from`,`cl_to`),
   KEY `cl_sortkey` (`cl_to`,`cl_type`,`cl_sortkey`,`cl_from`),
   KEY `cl_timestamp` (`cl_to`,`cl_timestamp`),
-  KEY `cl_collation` (`cl_collation`)
+  KEY `cl_collation_ext` (`cl_collation`,`cl_to`,`cl_type`,`cl_from`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -92,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `echo_email_batch` (
   PRIMARY KEY (`eeb_id`),
   UNIQUE KEY `echo_email_batch_user_event` (`eeb_user_id`,`eeb_event_id`),
   KEY `echo_email_batch_user_hash_priority` (`eeb_user_id`,`eeb_event_hash`,`eeb_event_priority`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -138,6 +330,15 @@ CREATE TABLE IF NOT EXISTS `echo_target_page` (
   PRIMARY KEY (`etp_id`),
   KEY `echo_target_page_user_page_event` (`etp_user`,`etp_page`,`etp_event`),
   KEY `echo_target_page_user_event` (`etp_user`,`etp_event`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `external_user` (
+  `eu_local_id` int(10) unsigned NOT NULL,
+  `eu_external_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`eu_local_id`),
+  UNIQUE KEY `eu_external_id` (`eu_external_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -184,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `filearchive` (
   KEY `fa_deleted_timestamp` (`fa_deleted_timestamp`),
   KEY `fa_user_timestamp` (`fa_user_text`,`fa_timestamp`),
   KEY `fa_sha1` (`fa_sha1`(10))
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -301,11 +502,13 @@ CREATE TABLE IF NOT EXISTS `flow_ext_ref` (
   `ref_src_workflow_id` binary(11) NOT NULL,
   `ref_src_namespace` int(11) NOT NULL,
   `ref_src_title` varbinary(255) NOT NULL,
-  `ref_target` varbinary(255) NOT NULL,
+  `ref_target` blob NOT NULL,
   `ref_type` varbinary(16) NOT NULL,
   `ref_src_wiki` varchar(16) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  KEY `flow_ext_ref_idx_v2` (`ref_src_wiki`,`ref_src_namespace`,`ref_src_title`,`ref_type`,`ref_target`,`ref_src_object_type`,`ref_src_object_id`),
-  KEY `flow_ext_ref_revision_v2` (`ref_src_wiki`,`ref_src_namespace`,`ref_src_title`,`ref_src_object_type`,`ref_src_object_id`,`ref_type`,`ref_target`)
+  `ref_id` binary(11) NOT NULL,
+  PRIMARY KEY (`ref_id`),
+  KEY `flow_ext_ref_idx_v2` (`ref_src_wiki`,`ref_src_namespace`,`ref_src_title`,`ref_type`,`ref_target`(255),`ref_src_object_type`,`ref_src_object_id`),
+  KEY `flow_ext_ref_revision_v2` (`ref_src_wiki`,`ref_src_namespace`,`ref_src_title`,`ref_src_object_type`,`ref_src_object_id`,`ref_type`,`ref_target`(255))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -395,6 +598,8 @@ CREATE TABLE IF NOT EXISTS `flow_wiki_ref` (
   `ref_target_title` varbinary(255) NOT NULL,
   `ref_type` varbinary(16) NOT NULL,
   `ref_src_wiki` varchar(16) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
+  `ref_id` binary(11) NOT NULL,
+  PRIMARY KEY (`ref_id`),
   KEY `flow_wiki_ref_idx_v2` (`ref_src_wiki`,`ref_src_namespace`,`ref_src_title`,`ref_type`,`ref_target_namespace`,`ref_target_title`,`ref_src_object_type`,`ref_src_object_id`),
   KEY `flow_wiki_ref_revision_v2` (`ref_src_wiki`,`ref_src_namespace`,`ref_src_title`,`ref_src_object_type`,`ref_src_object_id`,`ref_type`,`ref_target_namespace`,`ref_target_title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -448,7 +653,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   KEY `img_usertext_timestamp` (`img_user_text`,`img_timestamp`),
   KEY `img_size` (`img_size`),
   KEY `img_timestamp` (`img_timestamp`),
-  KEY `img_sha1` (`img_sha1`(10)),
+  KEY `img_sha1` (`img_sha1`),
   KEY `img_media_mime` (`img_media_type`,`img_major_mime`,`img_minor_mime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -468,10 +673,10 @@ CREATE TABLE IF NOT EXISTS `imagelinks` (
 CREATE TABLE IF NOT EXISTS `interwiki` (
   `iw_prefix` varchar(32) NOT NULL,
   `iw_url` blob NOT NULL,
-  `iw_local` tinyint(1) NOT NULL,
-  `iw_trans` tinyint(4) NOT NULL DEFAULT '0',
   `iw_api` blob NOT NULL,
   `iw_wikiid` varchar(64) NOT NULL,
+  `iw_local` tinyint(1) NOT NULL,
+  `iw_trans` tinyint(4) NOT NULL DEFAULT '0',
   UNIQUE KEY `iw_prefix` (`iw_prefix`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -503,7 +708,7 @@ CREATE TABLE IF NOT EXISTS `ipblocks` (
   KEY `ipb_timestamp` (`ipb_timestamp`),
   KEY `ipb_expiry` (`ipb_expiry`),
   KEY `ipb_parent_block_id` (`ipb_parent_block_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -570,18 +775,18 @@ CREATE TABLE IF NOT EXISTS `log_search` (
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE IF NOT EXISTS `logging` (
-  `log_type` varbinary(32) NOT NULL,
-  `log_action` varbinary(32) NOT NULL,
+  `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `log_type` varbinary(32) NOT NULL DEFAULT '',
+  `log_action` varbinary(32) NOT NULL DEFAULT '',
   `log_timestamp` binary(14) NOT NULL DEFAULT '19700101000000',
   `log_user` int(10) unsigned NOT NULL DEFAULT '0',
+  `log_user_text` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
   `log_namespace` int(11) NOT NULL DEFAULT '0',
   `log_title` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
+  `log_page` int(10) unsigned DEFAULT NULL,
   `log_comment` varbinary(767) NOT NULL DEFAULT '',
   `log_params` blob NOT NULL,
-  `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `log_deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `log_user_text` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
-  `log_page` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`log_id`),
   KEY `type_time` (`log_type`,`log_timestamp`),
   KEY `user_time` (`log_user`,`log_timestamp`),
@@ -592,7 +797,7 @@ CREATE TABLE IF NOT EXISTS `logging` (
   KEY `type_action` (`log_type`,`log_action`,`log_timestamp`),
   KEY `log_user_text_type_time` (`log_user_text`,`log_type`,`log_timestamp`),
   KEY `log_user_text_time` (`log_user_text`,`log_timestamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -629,29 +834,11 @@ CREATE TABLE IF NOT EXISTS `module_deps` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `msg_resource` (
-  `mr_resource` varbinary(255) NOT NULL,
-  `mr_lang` varbinary(32) NOT NULL,
-  `mr_blob` mediumblob NOT NULL,
-  `mr_timestamp` binary(14) NOT NULL,
-  UNIQUE KEY `mr_resource_lang` (`mr_resource`,`mr_lang`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `msg_resource_links` (
-  `mrl_resource` varbinary(255) NOT NULL,
-  `mrl_message` varbinary(255) NOT NULL,
-  UNIQUE KEY `mrl_message_resource` (`mrl_message`,`mrl_resource`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE IF NOT EXISTS `objectcache` (
   `keyname` varbinary(255) NOT NULL DEFAULT '',
   `value` mediumblob,
   `exptime` datetime DEFAULT NULL,
-  UNIQUE KEY `keyname` (`keyname`),
+  PRIMARY KEY (`keyname`),
   KEY `exptime` (`exptime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -677,7 +864,7 @@ CREATE TABLE IF NOT EXISTS `oldimage` (
   KEY `oi_usertext_timestamp` (`oi_user_text`,`oi_timestamp`),
   KEY `oi_name_timestamp` (`oi_name`,`oi_timestamp`),
   KEY `oi_name_archive_name` (`oi_name`,`oi_archive_name`(14)),
-  KEY `oi_sha1` (`oi_sha1`(10))
+  KEY `oi_sha1` (`oi_sha1`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -710,7 +897,7 @@ CREATE TABLE IF NOT EXISTS `page_props` (
   `pp_propname` varbinary(60) NOT NULL,
   `pp_value` blob NOT NULL,
   `pp_sortkey` float DEFAULT NULL,
-  PRIMARY KEY (`pp_page`,`pp_propname`),
+  UNIQUE KEY `pp_page_propname` (`pp_page`,`pp_propname`),
   UNIQUE KEY `pp_propname_page` (`pp_propname`,`pp_page`),
   UNIQUE KEY `pp_propname_sortkey_page` (`pp_propname`,`pp_sortkey`,`pp_page`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -725,12 +912,12 @@ CREATE TABLE IF NOT EXISTS `page_restrictions` (
   `pr_user` int(11) DEFAULT NULL,
   `pr_expiry` varbinary(14) DEFAULT NULL,
   `pr_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`pr_page`,`pr_type`),
-  UNIQUE KEY `pr_id` (`pr_id`),
+  PRIMARY KEY (`pr_id`),
+  UNIQUE KEY `pr_pagetype` (`pr_page`,`pr_type`),
   KEY `pr_typelevel` (`pr_type`,`pr_level`),
   KEY `pr_level` (`pr_level`),
   KEY `pr_cascade` (`pr_cascade`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -754,7 +941,7 @@ CREATE TABLE IF NOT EXISTS `protected_titles` (
   `pt_timestamp` binary(14) NOT NULL,
   `pt_expiry` varbinary(14) NOT NULL DEFAULT '',
   `pt_create_perm` varbinary(60) NOT NULL,
-  PRIMARY KEY (`pt_namespace`,`pt_title`),
+  UNIQUE KEY `pt_namespace_title` (`pt_namespace`,`pt_title`),
   KEY `pt_timestamp` (`pt_timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -797,7 +984,7 @@ CREATE TABLE IF NOT EXISTS `recentchanges` (
   `rc_timestamp` varbinary(14) NOT NULL DEFAULT '',
   `rc_user` int(10) unsigned NOT NULL DEFAULT '0',
   `rc_user_text` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `rc_namespace` int(11) NOT NULL,
+  `rc_namespace` int(11) NOT NULL DEFAULT '0',
   `rc_title` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
   `rc_comment` varbinary(767) NOT NULL DEFAULT '',
   `rc_minor` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -854,8 +1041,8 @@ CREATE TABLE IF NOT EXISTS `revision` (
   `rev_len` int(10) unsigned DEFAULT NULL,
   `rev_parent_id` int(10) unsigned DEFAULT NULL,
   `rev_sha1` varbinary(32) NOT NULL DEFAULT '',
-  `rev_content_model` varbinary(32) DEFAULT NULL,
   `rev_content_format` varbinary(64) DEFAULT NULL,
+  `rev_content_model` varbinary(32) DEFAULT NULL,
   PRIMARY KEY (`rev_id`),
   UNIQUE KEY `rev_page_id` (`rev_page`,`rev_id`),
   KEY `rev_timestamp` (`rev_timestamp`),
@@ -867,21 +1054,11 @@ CREATE TABLE IF NOT EXISTS `revision` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `revtag` (
-  `rt_type` varbinary(60) NOT NULL,
-  `rt_page` int(11) NOT NULL,
-  `rt_revision` int(11) NOT NULL,
-  `rt_value` blob,
-  UNIQUE KEY `rt_type_page_revision` (`rt_type`,`rt_page`,`rt_revision`),
-  KEY `rt_revision_type` (`rt_revision`,`rt_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE IF NOT EXISTS `searchindex` (
   `si_page` int(10) unsigned NOT NULL,
   `si_title` varchar(255) NOT NULL DEFAULT '',
   `si_text` mediumtext NOT NULL,
+  UNIQUE KEY `si_page` (`si_page`),
   FULLTEXT KEY `si_title` (`si_title`),
   FULLTEXT KEY `si_text` (`si_text`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -1001,7 +1178,7 @@ CREATE TABLE IF NOT EXISTS `thread` (
   KEY `thread_author_name` (`thread_author_id`,`thread_author_name`),
   KEY `thread_sortkey` (`thread_sortkey`),
   KEY `thread_parent` (`thread_parent`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1019,7 +1196,7 @@ CREATE TABLE IF NOT EXISTS `thread_history` (
   KEY `th_thread_timestamp` (`th_thread`,`th_timestamp`),
   KEY `th_timestamp_thread` (`th_timestamp`,`th_thread`),
   KEY `th_user_text` (`th_user`,`th_user_text`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1045,110 +1222,24 @@ CREATE TABLE IF NOT EXISTS `thread_reaction` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `trackbacks` (
+  `tb_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tb_page` int(11) DEFAULT NULL,
+  `tb_title` varchar(255) NOT NULL,
+  `tb_url` blob NOT NULL,
+  `tb_ex` text,
+  `tb_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`tb_id`),
+  KEY `tb_page` (`tb_page`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE IF NOT EXISTS `transcache` (
   `tc_url` varbinary(255) NOT NULL,
   `tc_contents` text,
   `tc_time` binary(14) DEFAULT NULL,
   UNIQUE KEY `tc_url_idx` (`tc_url`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_groupreviews` (
-  `tgr_group` varchar(200) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tgr_lang` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tgr_state` varbinary(32) NOT NULL,
-  PRIMARY KEY (`tgr_group`,`tgr_lang`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_groupstats` (
-  `tgs_group` varchar(100) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tgs_lang` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tgs_total` int(5) unsigned DEFAULT NULL,
-  `tgs_translated` int(5) unsigned DEFAULT NULL,
-  `tgs_fuzzy` int(5) unsigned DEFAULT NULL,
-  `tgs_proofread` int(5) unsigned DEFAULT NULL,
-  PRIMARY KEY (`tgs_group`,`tgs_lang`),
-  KEY `tgs_lang` (`tgs_lang`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_messageindex` (
-  `tmi_key` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tmi_value` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  UNIQUE KEY `tmi_key` (`tmi_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_metadata` (
-  `tmd_group` varchar(200) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tmd_key` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tmd_value` mediumblob NOT NULL,
-  PRIMARY KEY (`tmd_group`,`tmd_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_reviews` (
-  `trr_user` int(11) NOT NULL,
-  `trr_page` int(11) NOT NULL,
-  `trr_revision` int(11) NOT NULL,
-  UNIQUE KEY `trr_user_page_revision` (`trr_user`,`trr_page`,`trr_revision`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_sections` (
-  `trs_page` int(10) unsigned NOT NULL,
-  `trs_key` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `trs_text` mediumblob NOT NULL,
-  `trs_order` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`trs_page`,`trs_key`),
-  KEY `trs_page_order` (`trs_page`,`trs_order`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_stash` (
-  `ts_user` int(11) NOT NULL,
-  `ts_namespace` int(11) NOT NULL,
-  `ts_title` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `ts_value` mediumblob NOT NULL,
-  `ts_metadata` mediumblob NOT NULL,
-  PRIMARY KEY (`ts_user`,`ts_namespace`,`ts_title`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_tmf` (
-  `tmf_sid` int(10) unsigned NOT NULL,
-  `tmf_text` text,
-  FULLTEXT KEY `tmf_text` (`tmf_text`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_tms` (
-  `tms_sid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `tms_lang` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tms_len` int(10) unsigned NOT NULL,
-  `tms_text` mediumblob NOT NULL,
-  `tms_context` mediumblob NOT NULL,
-  PRIMARY KEY (`tms_sid`),
-  KEY `tms_lang_len` (`tms_lang`,`tms_len`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `translate_tmt` (
-  `tmt_sid` int(10) unsigned NOT NULL,
-  `tmt_lang` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `tmt_text` mediumblob NOT NULL,
-  UNIQUE KEY `tmt_sid_lang` (`tmt_sid`,`tmt_lang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1170,8 +1261,6 @@ CREATE TABLE IF NOT EXISTS `uploadstash` (
   `us_source_type` varchar(50) DEFAULT NULL,
   `us_timestamp` varbinary(14) NOT NULL,
   `us_status` varchar(50) NOT NULL,
-  `us_chunk_inx` int(10) unsigned DEFAULT NULL,
-  `us_props` blob,
   `us_size` int(10) unsigned NOT NULL,
   `us_sha1` varchar(31) NOT NULL,
   `us_mime` varchar(255) DEFAULT NULL,
@@ -1179,11 +1268,13 @@ CREATE TABLE IF NOT EXISTS `uploadstash` (
   `us_image_width` int(10) unsigned DEFAULT NULL,
   `us_image_height` int(10) unsigned DEFAULT NULL,
   `us_image_bits` smallint(5) unsigned DEFAULT NULL,
+  `us_chunk_inx` int(10) unsigned DEFAULT NULL,
+  `us_props` blob,
   PRIMARY KEY (`us_id`),
   UNIQUE KEY `us_key` (`us_key`),
   KEY `us_user` (`us_user`),
   KEY `us_timestamp` (`us_timestamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1206,7 +1297,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `user_name` (`user_name`),
   KEY `user_email_token` (`user_email_token`),
   KEY `user_email` (`user_email`(50))
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1250,7 +1341,7 @@ CREATE TABLE IF NOT EXISTS `user_newtalk` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE IF NOT EXISTS `user_properties` (
   `up_user` int(11) NOT NULL,
-  `up_property` varbinary(255) NOT NULL,
+  `up_property` varbinary(255) DEFAULT NULL,
   `up_value` blob,
   UNIQUE KEY `user_properties_user_property` (`up_user`,`up_property`),
   KEY `user_properties_property` (`up_property`)
@@ -1266,14 +1357,16 @@ CREATE TABLE IF NOT EXISTS `valid_tag` (
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE IF NOT EXISTS `watchlist` (
+  `wl_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `wl_user` int(10) unsigned NOT NULL,
   `wl_namespace` int(11) NOT NULL DEFAULT '0',
   `wl_title` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
   `wl_notificationtimestamp` varbinary(14) DEFAULT NULL,
+  PRIMARY KEY (`wl_id`),
   UNIQUE KEY `wl_user` (`wl_user`,`wl_namespace`,`wl_title`),
   KEY `namespace_title` (`wl_namespace`,`wl_title`),
   KEY `wl_user_notificationtimestamp` (`wl_user`,`wl_notificationtimestamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -1285,4 +1378,3 @@ CREATE TABLE IF NOT EXISTS `watchlist` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-DROP INDEX flow_ext_ref_idx_v2 ON flow_ext_ref; DROP INDEX flow_ext_ref_revision_v2 ON flow_ext_ref; ALTER TABLE flow_ext_ref CHANGE ref_target ref_target BLOB NOT NULL; CREATE INDEX flow_ext_ref_idx_v2 ON flow_ext_ref (ref_src_wiki, ref_src_namespace, ref_src_title, ref_type, ref_target(255), ref_src_object_type, ref_src_object_id); CREATE INDEX flow_ext_ref_revision_v2 ON flow_ext_ref (ref_src_wiki, ref_src_namespace, ref_src_title, ref_src_object_type, ref_src_object_id, ref_type, ref_target(255));

@@ -11,7 +11,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `interwiki` (
+CREATE TABLE `interwiki` (
   `iw_prefix` varchar(32) NOT NULL,
   `iw_url` blob NOT NULL,
   `iw_local` tinyint(1) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `interwiki` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
   `user_real_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
@@ -43,11 +43,11 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `user_name` (`user_name`),
   KEY `user_email_token` (`user_email_token`),
   KEY `user_email` (`user_email`(50))
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `user_groups` (
+CREATE TABLE `user_groups` (
   `ug_user` int(10) unsigned NOT NULL DEFAULT '0',
   `ug_group` varbinary(255) NOT NULL DEFAULT '',
   UNIQUE KEY `ug_user_group` (`ug_user`,`ug_group`),
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `user_properties` (
+CREATE TABLE `user_properties` (
   `up_user` int(11) NOT NULL,
   `up_property` varbinary(255) DEFAULT NULL,
   `up_value` blob,
@@ -73,3 +73,4 @@ CREATE TABLE IF NOT EXISTS `user_properties` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
