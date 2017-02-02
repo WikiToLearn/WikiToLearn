@@ -1,4 +1,4 @@
-<div class="beginenvironment beginnote"><b>Nota</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment beginnote" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Nota {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

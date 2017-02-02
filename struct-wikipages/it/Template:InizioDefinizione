@@ -1,4 +1,4 @@
-<div class="beginenvironment begindefinition"><b>Definizione</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment begindefinition" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Definizione {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

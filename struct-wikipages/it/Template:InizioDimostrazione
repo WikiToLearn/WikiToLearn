@@ -1,4 +1,4 @@
-<div class="beginenvironment beginproof"><i>Dimostrazione</i> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment beginproof" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><i>Dimostrazione {{#if: {{{number|}}}| {{{number}}} }}</i> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

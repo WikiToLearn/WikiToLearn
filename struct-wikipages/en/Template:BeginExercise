@@ -1,4 +1,4 @@
-<div class="beginenvironment beginexercise"><b>Exercise</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment beginexercise" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Exercise {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

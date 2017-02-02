@@ -1,4 +1,4 @@
-<div class="beginenvironment begincorollary"><b>corollary</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment begincorollary" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Corollary  {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {
