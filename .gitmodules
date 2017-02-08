@@ -4,9 +4,6 @@
 [submodule "extensions/EmbedVideo"]
 	path = extensions/EmbedVideo
 	url = https://github.com/Alexia/mediawiki-embedvideo.git
-[submodule "extensions/EasyLink"]
-	path = extensions/EasyLink
-	url = https://github.com/WikiToLearn/EasyLink.git
 [submodule "extensions/Piwik"]
 	path = extensions/Piwik
 	url = https://github.com/DaSchTour/piwik-mediawiki-extension.git
