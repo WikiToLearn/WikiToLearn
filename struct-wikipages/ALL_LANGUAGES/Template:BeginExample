@@ -1,4 +1,4 @@
-<div class="beginenvironment beginexample"><b>{{{title|Example}}}</b></div>
+<div class="beginenvironment beginexample" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Example {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {
@@ -6,7 +6,7 @@
         "title": {
             "label": "Title",
             "description": "Title of the example",
-            "type": "string",
+            "type": "string"
         }
     }
 }
