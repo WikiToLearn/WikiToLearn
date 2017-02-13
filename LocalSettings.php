@@ -428,6 +428,9 @@ $wgCollectionArticleNamespaces = array(
   NS_PROJECT,
   $CourseEditorNamespaces['NS_COURSE'],
 );
+
+$wgNamespacesToBeSearchedDefault[$CourseEditorNamespaces['NS_COURSE']] = true;
+
 //$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
 //$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 
