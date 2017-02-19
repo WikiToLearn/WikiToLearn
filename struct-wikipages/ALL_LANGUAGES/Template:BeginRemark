@@ -1,4 +1,4 @@
-<div class="beginenvironment baginremark"><b>{{{title|Remark}}}</b></div>
+<div class="beginenvironment beginremark" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Remark {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

@@ -16,9 +16,6 @@
 [submodule "extensions/CourseEditor"]
 	path = extensions/CourseEditor
 	url = https://github.com/WikiToLearn/CourseEditor.git
-[submodule "extensions/ConfirmEdit"]
-	path = extensions/ConfirmEdit
-	url = https://github.com/WikiToLearn/mediawiki-extensions-ConfirmEdit.git
 [submodule "skins/WikiToLearnSkin"]
 	path = skins/WikiToLearnSkin
 	url = https://github.com/WikiToLearn/WikiToLearnSkin
