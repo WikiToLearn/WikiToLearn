@@ -463,7 +463,7 @@ $wgNamespaceContentModels[$CourseEditorNamespaces['NS_COURSE_TALK']] = CONTENT_M
 $wgFlowEditorList = array('wikitext');
 
 //Gadgets
-wfLoadExtension('Gadgets');
+// wfLoadExtension('Gadgets');
 
 //googleAnalytics
 require_once "$IP/extensions/googleAnalytics/googleAnalytics.php";
