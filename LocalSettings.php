@@ -158,7 +158,6 @@ switch ($wiki) {
     case 'pool':
     case 'meta':
         $wgDBname = $wiki.'wikitolearn';
-        include_once "$IP/extensions/Translate/Translate.php";
         break;
     default:
     header('Location: //www.'.$wiki_domain.'/');
@@ -544,13 +543,6 @@ $wgGroupPermissions['bot']['skipcaptcha'] = true; // registered bots
 
 // Highlight extension:
 wfLoadExtension('SyntaxHighlight_GeSHi');
-
-//Translate extension
-$wgGroupPermissions['translator']['translate'] = true;
-$wgGroupPermissions['translator']['skipcaptcha'] = true; // Bug 34182: needed with ConfirmEdit
-$wgTranslateDocumentationLanguageCode = 'qqq';
-# Add this if you want to enable access to page translation
-$wgGroupPermissions['sysop']['pagetranslation'] = true;
 
 wfLoadExtension('UserMerge');
 // By default nobody can use this function, enable for bureaucrat?
