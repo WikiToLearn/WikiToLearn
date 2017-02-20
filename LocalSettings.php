@@ -464,9 +464,6 @@ $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[$CourseEditorNamespaces['NS_COURSE_TALK']] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList = array('wikitext');
 
-//Gadgets
-// wfLoadExtension('Gadgets');
-
 //googleAnalytics
 require_once "$IP/extensions/googleAnalytics/googleAnalytics.php";
 if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
