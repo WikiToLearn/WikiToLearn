@@ -465,13 +465,11 @@ $wgNamespaceContentModels[$CourseEditorNamespaces['NS_COURSE_TALK']] = CONTENT_M
 $wgFlowEditorList = array('wikitext');
 
 //googleAnalytics
-require_once "$IP/extensions/googleAnalytics/googleAnalytics.php";
 if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
     require_once "$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php";
 }
 
 // Piwik
-require_once "$IP/extensions/Piwik/Piwik.php";
 $wgPiwikURL = 'piwik.wikitolearn.org';
 if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
     require_once "$IP/../LocalSettings.d/wgPiwikIDSite.php";
