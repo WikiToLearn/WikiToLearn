@@ -50,14 +50,6 @@ $wgDebugLogFile = $wgDebugLogFile . '.log';
 $IP = '/var/www/WikiToLearn/mediawiki/';
 putenv("MW_INSTALL_PATH=$IP");
 
-# Mobile detection
-if (isset($_SERVER['HTTP_USER_AGENT'])) {
-    $_SERVER['HTTP_X_DEVICE'] = $_SERVER['HTTP_USER_AGENT'];
-} else {
-    $_SERVER['HTTP_X_DEVICE'] = '';
-}
-#error_log("device from ls.php");
-
 ini_set('memory_limit', '64M');
 $wgMaxShellMemory = 524288;
 
