@@ -42,6 +42,10 @@ if ($wtl_debug) {
     $wgStyleVersion=mt_rand(1,1000);
 }
 
+// disallow costum code in the db for the end user
+$wgAllowUserCss = false;
+$wgAllowUserJs = false;
+
 $wgDebugLogFile = $wgDebugLogFile . '.log';
 
 $IP = '/var/www/WikiToLearn/mediawiki/';
