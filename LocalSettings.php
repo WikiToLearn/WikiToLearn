@@ -23,13 +23,9 @@ if (getenv('WTL_PRODUCTION') != '1') {
     $wtl_debug = true;
 }
 
-if (is_writable('/var/log/mediawiki/')) {
-    $wgDebugLogFile = '/var/log/mediawiki/'.date('m-d-Y');
-    if (isset($_SERVER['SERVER_NAME'])){
-        $wgDebugLogFile = $wgDebugLogFile . '.' . $_SERVER['SERVER_NAME'];
-    }
-} else {
-    $wgDebugLogFile = '/tmp/mediawiki';
+$wgDebugLogFile = '/var/log/mediawiki/'.date('m-d-Y');
+if (isset($_SERVER['SERVER_NAME'])){
+      $wgDebugLogFile = $wgDebugLogFile . '.' . $_SERVER['SERVER_NAME'];
 }
 
 if ($wtl_debug) {
