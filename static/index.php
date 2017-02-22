@@ -41,8 +41,8 @@ if ($domain != 'tuttorotto.biz' && !$https) {
         <meta property="og:image" content="http://www.<?php echo $domain; ?>/wikitolearn.jpg"/>
         <meta property="og:image:width" content="500" />
         <meta property="og:image:height" content="500" />
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/style-0.css">
+        <link rel="stylesheet" href="/assets/v1/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/v1/css/style-0.css">
     </head>
     <body>
 
@@ -54,7 +54,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                     <div class="col-sm-12 center-row">
                         <div class="col-sm-6 center">
                             <div>
-                                <img src="/logobig.png" alt="WikiToLearn logo" id="logo-wtl" class="img-responsive center-block" />
+                                <img src="/assets/v1/img/logobig.png" alt="WikiToLearn logo" id="logo-wtl" class="img-responsive center-block" />
                             </div>
                         </div>
                         <div id="spacing-row" style="height:30px"></div>
@@ -111,12 +111,12 @@ if ($domain != 'tuttorotto.biz' && !$https) {
               <div class="col-sm-6 col-sm-offset-3 logos-container col-xs-12">
                 <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
                   <a href="https://www.unimib.it/">
-                    <img src="/images/uni-bicocca.png" class="img-responsive"/>
+                    <img src="/assets/v1/img/uni-bicocca.png" class="img-responsive"/>
                   </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
                   <a href="https://home.cern/">
-                    <img src="/images/cern.png" class="img-responsive"/>
+                    <img src="/assets/v1/img/cern.png" class="img-responsive"/>
                   </a>
                 </div>
                 <div class="clearfix visible-xs">
@@ -125,17 +125,17 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
                   <a href="http://www.wikimedia.it/">
-                    <img src="/images/it-wikimedia.png" class="img-responsive"/>
+                    <img src="/assets/v1/img/it-wikimedia.png" class="img-responsive"/>
                   </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
                   <a href="http://hepsoftwarefoundation.org/">
-                    <img src="/images/hep-logo.png" class="img-responsive"/>
+                    <img src="/assets/v1/img/hep-logo.png" class="img-responsive"/>
                   </a>
                 </div>
                 <div class="col-sm-1 logo col-xs-4">
                   <a href="https://www.sissa.it/">
-                    <img src="/images/sissa-logo.png" class="img-responsive"/>
+                    <img src="/assets/v1/img/sissa-logo.png" class="img-responsive"/>
                   </a>
                 </div>
               </div>
@@ -143,7 +143,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
             <div class="row vertical-spacing"></div>
             <div class="row">
               <div class="col-xs-12">
-                <a href="https://www.kde.org/"><img src="/images/proudtobe.png" alt="Proud member of the KDE community" class="img-responsive center-block proudtobe" /></a>
+                <a href="https://www.kde.org/"><img src="/assets/v1/img/proudtobe.png" alt="Proud member of the KDE community" class="img-responsive center-block proudtobe" /></a>
               </div>
             </div>
             <div class="row vertical-spacing">
@@ -151,8 +151,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
             </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="/assets/v1/js/jquery-3.1.1.min.js"></script>
 
         <?php
             if (function_exists('setAnalytics')) {
@@ -161,11 +160,6 @@ if ($domain != 'tuttorotto.biz' && !$https) {
         ?>
 
         <script>
-            WebFont.load({
-                google: {
-                    families: ['Source Sans Pro:400,600,700,400italic,700italic', 'Roboto Condensed:400,700']
-                }
-            });
             $(document).ready(function () {
 
                 $(".towikilink").each(function () {
