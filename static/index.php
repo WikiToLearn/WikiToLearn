@@ -152,9 +152,9 @@ if ($domain != 'tuttorotto.biz' && !$https) {
 
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        
+
         <?php
-            if (getenv('WTL_PRODUCTION') == 1) {
+            if (function_exists('setAnalytics')) {
                 setAnalytics($piwik = false, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount, $wgGoogleAnalyticsAnonymizeIP);
             }
         ?>
