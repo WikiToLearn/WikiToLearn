@@ -28,6 +28,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
         <title>WikiToLearn - collaborative textbooks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" charset="UTF-8" />
+        <meta http-equiv="Content-Language" content="en">
         <meta name="description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
         <meta property="og:description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
         <meta name="twitter:description" content="WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."/>
