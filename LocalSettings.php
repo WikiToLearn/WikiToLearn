@@ -37,7 +37,6 @@ if ($wtl_debug) {
     $wgDebugToolbar = true;
     $wgDebugComments = true;
     $wgShowExceptionDetails = true;
-    $wgEnableParserCache = false;
     $wgCachePages = false;
     $wgStyleVersion=mt_rand(1,1000);
 }
