@@ -1,4 +1,4 @@
-<div class="beginenvironment begintheorem"><b>Theorem</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment begintheorem" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Theorem {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

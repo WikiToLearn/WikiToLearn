@@ -7,7 +7,6 @@ extensions/Cite/
 extensions/ContributionScores/
 extensions/CodeEditor/
 extensions/Echo/
-extensions/Gadgets/
 extensions/googleAnalytics/
 extensions/LabeledSectionTransclusion/
 extensions/Math/
@@ -18,9 +17,9 @@ extensions/Renameuser/
 extensions/SpamBlacklist/
 extensions/SyntaxHighlight_GeSHi/
 extensions/TemplateData/
-extensions/Translate/
 extensions/UserMerge/
 extensions/Validator/
 extensions/VisualEditor/
 extensions/WikiEditor/
 extensions/Flow/
+extensions/ConfirmEdit/

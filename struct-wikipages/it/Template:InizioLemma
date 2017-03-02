@@ -1,4 +1,4 @@
-<div class="beginenvironment beginlemma"><b>Lemma</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment beginlemma" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Lemma {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

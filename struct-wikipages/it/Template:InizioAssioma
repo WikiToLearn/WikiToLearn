@@ -1,4 +1,4 @@
-<div class="beginenvironment beginaxiom"><b>Assioma</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
+<div class="beginenvironment beginaxiom" id="{{#if: {{{anchor|}}}| {{{anchor}}} }}"><b>Assioma {{#if: {{{number|}}}| {{{number}}} }}</b> {{#if: {{{title|}}}| ({{{title}}}) }}</div>
 <noinclude>
 <templatedata>
 {

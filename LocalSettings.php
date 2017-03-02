@@ -23,13 +23,9 @@ if (getenv('WTL_PRODUCTION') != '1') {
     $wtl_debug = true;
 }
 
-if (is_writable('/var/log/mediawiki/')) {
-    $wgDebugLogFile = '/var/log/mediawiki/'.date('m-d-Y');
-    if (isset($_SERVER['SERVER_NAME'])){
-        $wgDebugLogFile = $wgDebugLogFile . '.' . $_SERVER['SERVER_NAME'];
-    }
-} else {
-    $wgDebugLogFile = '/tmp/mediawiki';
+$wgDebugLogFile = '/var/log/mediawiki/'.date('m-d-Y');
+if (isset($_SERVER['SERVER_NAME'])){
+      $wgDebugLogFile = $wgDebugLogFile . '.' . $_SERVER['SERVER_NAME'];
 }
 
 if ($wtl_debug) {
@@ -41,23 +37,18 @@ if ($wtl_debug) {
     $wgDebugToolbar = true;
     $wgDebugComments = true;
     $wgShowExceptionDetails = true;
-    $wgEnableParserCache = false;
     $wgCachePages = false;
     $wgStyleVersion=mt_rand(1,1000);
 }
+
+// disallow costum code in the db for the end user
+$wgAllowUserCss = false;
+$wgAllowUserJs = false;
 
 $wgDebugLogFile = $wgDebugLogFile . '.log';
 
 $IP = '/var/www/WikiToLearn/mediawiki/';
 putenv("MW_INSTALL_PATH=$IP");
-
-# Mobile detection
-if (isset($_SERVER['HTTP_USER_AGENT'])) {
-    $_SERVER['HTTP_X_DEVICE'] = $_SERVER['HTTP_USER_AGENT'];
-} else {
-    $_SERVER['HTTP_X_DEVICE'] = '';
-}
-#error_log("device from ls.php");
 
 ini_set('memory_limit', '64M');
 $wgMaxShellMemory = 524288;
@@ -121,7 +112,7 @@ $wgSharedTables = array();
 $wgSharedTables[] = 'user';
 $wgSharedTables[] = 'user_properties';
 //$wgSharedTables[] = 'user_groups';
-//$wgSharedTables[] = 'bot_passwords';
+$wgSharedTables[] = 'bot_passwords';
 //$wgSharedTables[] = 'ipblocks';
 //$wgSharedTables[] = 'math';
 //$wgSharedTables[] = 'mathoid';
@@ -158,7 +149,6 @@ switch ($wiki) {
     case 'pool':
     case 'meta':
         $wgDBname = $wiki.'wikitolearn';
-        include_once "$IP/extensions/Translate/Translate.php";
         break;
     default:
     header('Location: //www.'.$wiki_domain.'/');
@@ -428,6 +418,9 @@ $wgCollectionArticleNamespaces = array(
   NS_PROJECT,
   $CourseEditorNamespaces['NS_COURSE'],
 );
+
+$wgNamespacesToBeSearchedDefault[$CourseEditorNamespaces['NS_COURSE']] = true;
+
 //$wgCollectionMWServeURL = ("http://tools.pediapress.com/mw-serve/");
 //$wgParserCacheType = CACHE_ACCEL; // # Don't break math rendering
 
@@ -462,17 +455,12 @@ $wgNamespaceContentModels[NS_CATEGORY_TALK] = CONTENT_MODEL_FLOW_BOARD;
 $wgNamespaceContentModels[$CourseEditorNamespaces['NS_COURSE_TALK']] = CONTENT_MODEL_FLOW_BOARD;
 $wgFlowEditorList = array('wikitext');
 
-//Gadgets
-wfLoadExtension('Gadgets');
-
 //googleAnalytics
-require_once "$IP/extensions/googleAnalytics/googleAnalytics.php";
 if (file_exists("$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
     require_once "$IP/../LocalSettings.d/wgGoogleAnalyticsAccount.php";
 }
 
 // Piwik
-require_once "$IP/extensions/Piwik/Piwik.php";
 $wgPiwikURL = 'piwik.wikitolearn.org';
 if (file_exists("$IP/../LocalSettings.d/wgPiwikIDSite.php")) {
     require_once "$IP/../LocalSettings.d/wgPiwikIDSite.php";
@@ -541,13 +529,6 @@ $wgGroupPermissions['bot']['skipcaptcha'] = true; // registered bots
 
 // Highlight extension:
 wfLoadExtension('SyntaxHighlight_GeSHi');
-
-//Translate extension
-$wgGroupPermissions['translator']['translate'] = true;
-$wgGroupPermissions['translator']['skipcaptcha'] = true; // Bug 34182: needed with ConfirmEdit
-$wgTranslateDocumentationLanguageCode = 'qqq';
-# Add this if you want to enable access to page translation
-$wgGroupPermissions['sysop']['pagetranslation'] = true;
 
 wfLoadExtension('UserMerge');
 // By default nobody can use this function, enable for bureaucrat?
