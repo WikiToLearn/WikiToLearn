@@ -1,0 +1,132 @@
+diff --git a/includes/session/SessionBackend.php b/includes/session/SessionBackend.php
+index 8633715d60..455289f82d 100644
+--- a/includes/session/SessionBackend.php
++++ b/includes/session/SessionBackend.php
+@@ -132,7 +132,7 @@ final class SessionBackend {
+ 		$this->forceHTTPS = $info->forceHTTPS();
+ 		$this->providerMetadata = $info->getProviderMetadata();
+ 
+-		$blob = $store->get( wfMemcKey( 'MWSession', (string)$this->id ) );
++		$blob = $store->get( wfGlobalCacheKey( 'MWSession', (string)$this->id ) );
+ 		if ( !is_array( $blob ) ||
+ 			!isset( $blob['metadata'] ) || !is_array( $blob['metadata'] ) ||
+ 			!isset( $blob['data'] ) || !is_array( $blob['data'] )
+@@ -249,7 +249,7 @@ final class SessionBackend {
+ 			$this->autosave();
+ 
+ 			// Delete the data for the old session ID now
+-			$this->store->delete( wfMemcKey( 'MWSession', $oldId ) );
++			$this->store->delete( wfGlobalCacheKey( 'MWSession', $oldId ) );
+ 		}
+ 	}
+ 
+@@ -317,7 +317,7 @@ final class SessionBackend {
+ 
+ 			// Delete the session data, so the local cache-only write in
+ 			// self::save() doesn't get things out of sync with the backend.
+-			$this->store->delete( wfMemcKey( 'MWSession', (string)$this->id ) );
++			$this->store->delete( wfGlobalCacheKey( 'MWSession', (string)$this->id ) );
+ 
+ 			$this->autosave();
+ 		}
+@@ -729,7 +729,7 @@ final class SessionBackend {
+ 		$flags = $this->persist ? 0 : CachedBagOStuff::WRITE_CACHE_ONLY;
+ 		$flags |= CachedBagOStuff::WRITE_SYNC; // write to all datacenters
+ 		$this->store->set(
+-			wfMemcKey( 'MWSession', (string)$this->id ),
++			wfGlobalCacheKey( 'MWSession', (string)$this->id ),
+ 			[
+ 				'data' => $this->data,
+ 				'metadata' => $metadata,
+diff --git a/includes/session/SessionManager.php b/includes/session/SessionManager.php
+index b8e480f711..63bdc6efab 100644
+--- a/includes/session/SessionManager.php
++++ b/includes/session/SessionManager.php
+@@ -213,7 +213,7 @@ final class SessionManager implements SessionManagerInterface {
+ 		}
+ 
+ 		// Test if the session is in storage, and if so try to load it.
+-		$key = wfMemcKey( 'MWSession', $id );
++		$key = wfGlobalCacheKey( 'MWSession', $id );
+ 		if ( is_array( $this->store->get( $key ) ) ) {
+ 			$create = false; // If loading fails, don't bother creating because it probably will fail too.
+ 			if ( $this->loadSessionInfoFromStore( $info, $request ) ) {
+@@ -254,7 +254,7 @@ final class SessionManager implements SessionManagerInterface {
+ 				throw new \InvalidArgumentException( 'Invalid session ID' );
+ 			}
+ 
+-			$key = wfMemcKey( 'MWSession', $id );
++			$key = wfGlobalCacheKey( 'MWSession', $id );
+ 			if ( is_array( $this->store->get( $key ) ) ) {
+ 				throw new \InvalidArgumentException( 'Session ID already exists' );
+ 			}
+@@ -544,7 +544,7 @@ final class SessionManager implements SessionManagerInterface {
+ 	 * @return bool Whether the session info matches the stored data (if any)
+ 	 */
+ 	private function loadSessionInfoFromStore( SessionInfo &$info, WebRequest $request ) {
+-		$key = wfMemcKey( 'MWSession', $info->getId() );
++		$key = wfGlobalCacheKey( 'MWSession', $info->getId() );
+ 		$blob = $this->store->get( $key );
+ 
+ 		// If we got data from the store and the SessionInfo says to force use,
+@@ -932,7 +932,7 @@ final class SessionManager implements SessionManagerInterface {
+ 	public function generateSessionId() {
+ 		do {
+ 			$id = \Wikimedia\base_convert( \MWCryptRand::generateHex( 40 ), 16, 32, 32 );
+-			$key = wfMemcKey( 'MWSession', $id );
++			$key = wfGlobalCacheKey( 'MWSession', $id );
+ 		} while ( isset( $this->allSessionIds[$id] ) || is_array( $this->store->get( $key ) ) );
+ 		return $id;
+ 	}
+diff --git a/tests/phpunit/includes/session/SessionBackendTest.php b/tests/phpunit/includes/session/SessionBackendTest.php
+index 8a0adbad76..c35f16fed3 100644
+--- a/tests/phpunit/includes/session/SessionBackendTest.php
++++ b/tests/phpunit/includes/session/SessionBackendTest.php
+@@ -327,7 +327,7 @@ class SessionBackendTest extends MediaWikiTestCase {
+ 		$backend->unpersist();
+ 		$this->assertFalse( $backend->isPersistent() );
+ 		$this->assertFalse( $this->store->getSession( self::SESSIONID ) );
+-		$this->assertNotFalse( $wrap->store->get( wfMemcKey( 'MWSession', self::SESSIONID ) ) );
++		$this->assertNotFalse( $wrap->store->get( wfGlobalCacheKey( 'MWSession', self::SESSIONID ) ) );
+ 	}
+ 
+ 	public function testRememberUser() {
+diff --git a/tests/phpunit/includes/session/TestBagOStuff.php b/tests/phpunit/includes/session/TestBagOStuff.php
+index 759eca62ea..ce35f1c728 100644
+--- a/tests/phpunit/includes/session/TestBagOStuff.php
++++ b/tests/phpunit/includes/session/TestBagOStuff.php
+@@ -61,7 +61,7 @@ class TestBagOStuff extends \CachedBagOStuff {
+ 			$expiry = \RequestContext::getMain()->getConfig()->get( 'ObjectCacheSessionExpiry' );
+ 		}
+ 
+-		$this->set( wfMemcKey( 'MWSession', $id ), $blob, $expiry );
++		$this->set( wfGlobalCacheKey( 'MWSession', $id ), $blob, $expiry );
+ 	}
+ 
+ 	/**
+@@ -69,7 +69,7 @@ class TestBagOStuff extends \CachedBagOStuff {
+ 	 * @return mixed
+ 	 */
+ 	public function getSession( $id ) {
+-		return $this->get( wfMemcKey( 'MWSession', $id ) );
++		return $this->get( wfGlobalCacheKey( 'MWSession', $id ) );
+ 	}
+ 
+ 	/**
+@@ -77,14 +77,14 @@ class TestBagOStuff extends \CachedBagOStuff {
+ 	 * @return mixed
+ 	 */
+ 	public function getSessionFromBackend( $id ) {
+-		return $this->backend->get( wfMemcKey( 'MWSession', $id ) );
++		return $this->backend->get( wfGlobalCacheKey( 'MWSession', $id ) );
+ 	}
+ 
+ 	/**
+ 	 * @param string $id Session ID
+ 	 */
+ 	public function deleteSession( $id ) {
+-		$this->delete( wfMemcKey( 'MWSession', $id ) );
++		$this->delete( wfGlobalCacheKey( 'MWSession', $id ) );
+ 	}
+ 
+ }

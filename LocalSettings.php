@@ -157,7 +157,7 @@ switch ($wiki) {
 }
 
 $wgCookiePrefix = "wtl_1_";
-$wgSessionName = $wgCookiePrefix . "session_" . $wiki;
+$wgSessionName = $wgCookiePrefix . "session";
 $wgCookieDomain = "." . $wiki_domain;
 $wgSecureLogin = true;
 // $wgCookieSecure = true;
