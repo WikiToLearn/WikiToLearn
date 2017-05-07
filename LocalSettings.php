@@ -121,7 +121,7 @@ $wgSharedTables[] = 'bot_passwords';
 # Make sure you give permission to sharedwikitolearn database to the user in question.
 $wgLanguageCode = 'en'; // Default
 #Officially supported languages
-$wgSupportedLanguages = array('ca', 'de', 'en', 'es', 'fr', 'it');
+$wgSupportedLanguages = array('ca', 'de', 'en', 'es', 'it');
 
 # BUG: most of the code of WikiToLearn requires that the interface is
 # in the same language of the domain being visited. Otherwise references
