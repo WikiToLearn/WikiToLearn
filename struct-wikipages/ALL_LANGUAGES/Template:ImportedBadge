@@ -1,1 +1,1 @@
-<onlyinclude><div class="template importedbadge"><span class="label">{{i18n|imported}}</span> {{i18n|onDate}} {{{1}}}.</div></onlyinclude>
+<onlyinclude><div class="template importedbadge"><span class="label">{{i18n|imported}}</span> {{i18n|originalauthors}} <em>{{{1}}}</em>.</div></onlyinclude>

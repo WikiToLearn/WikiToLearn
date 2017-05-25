@@ -15,3 +15,4 @@
 <section begin=imported />Imported<section end=imported />
 <section begin=reviewed />Reviewed<section end=reviewed />
 <section begin=onDate />on date<section end=onDate />
+<section begin=originalauthors />Original authors:<section end=originalauthors />

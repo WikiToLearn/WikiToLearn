@@ -1,1 +1,1 @@
-<onlyinclude><div class="template reviewedbadge"><span class="label">{{i18n|reviewed}}</span> {{i18n|onDate}} {{{1}}}.</div></onlyinclude>
+<onlyinclude><div class="template reviewedbadge"><span class="label">{{i18n|reviewed}}</span> {{i18n|onDate}} <em>{{{1}}}.</em></div></onlyinclude>

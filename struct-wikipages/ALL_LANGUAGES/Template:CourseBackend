@@ -9,9 +9,9 @@
 <div class="coursebackend__description">
 {{GetCourseMetadata|{{{metadataPage}}}|description}}
 </div>
-{{#if: {{GetCourseMetadata|{{{metadataPage}}}|hasbadges}}|
-{{#if: {{GetCourseMetadata|{{{metadataPage}}}|reviewedbadge}}|<small class="coursebackend__reviewed">REVIEWED</small>|}}
-{{#if: {{GetCourseMetadata|{{{metadataPage}}}|importedbadge}}|<small class="coursebackend__imported">IMPORTED</small>|}}|}}
+{{#if: {{GetCourseMetadata|{{{metadataPage}}}|hasbadge}}|
+{{#if: {{GetCourseMetadata|{{{metadataPage}}}|isreviewed}}|{{ReviewedBadge|{{GetCourseMetadata|{{{metadataPage}}}|reviewedon}}}}|}}
+{{#if: {{GetCourseMetadata|{{{metadataPage}}}|isimported}}|{{ImportedBadge|{{GetCourseMetadata|{{{metadataPage}}}|originalauthors}}}}|}}|}}
 </div>
 <div class="externalReferences">
 {{#if:
