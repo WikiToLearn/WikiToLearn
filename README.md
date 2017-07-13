@@ -12,7 +12,7 @@ Happy Wiki!
 ## Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](http://meta.wikitolearn.org/Guide_for_the_development_of_WikiToLearn)]
-<a href="graphs/contributors"><img src="https://opencollective.com/WikiToLearn/contributors.svg?width=890" /></a>
+<!-- <a href= "graphs/contributors">---><img src="https://opencollective.com/WikiToLearn/contributors.svg?width=890" /></a>
 
 
 ## Backers
