@@ -42,7 +42,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
         <meta property="og:image:width" content="500" />
         <meta property="og:image:height" content="500" />
         <link rel="stylesheet" href="/assets/v1/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/v1/css/style-0.css">
+        <link rel="stylesheet" href="/assets/v2/css/style-1.css">
     </head>
     <body>
 
@@ -108,7 +108,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
             </div>
             <div class="row vertical-spacing-small-bottom"></div>
             <div class="row">
-              <div class="col-sm-6 col-sm-offset-3 logos-container col-xs-12">
+              <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
                 <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
                   <a href="https://www.unimib.it/">
                     <img src="/assets/v1/img/uni-bicocca.png" class="img-responsive"/>
@@ -123,7 +123,7 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                 </div>
                 <div class="col-xs-12 visible-xs vertical-spacing">
                 </div>
-                <div class="col-sm-1 logo col-xs-4">
+                <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
                   <a href="http://www.wikimedia.it/">
                     <img src="/assets/v1/img/it-wikimedia.png" class="img-responsive"/>
                   </a>
@@ -133,9 +133,18 @@ if ($domain != 'tuttorotto.biz' && !$https) {
                     <img src="/assets/v1/img/hep-logo.png" class="img-responsive"/>
                   </a>
                 </div>
-                <div class="col-sm-1 logo col-xs-4">
+                <div class="clearfix visible-xs">
+                </div>
+                <div class="col-xs-12 visible-xs vertical-spacing">
+                </div>
+                <div class="col-sm-1 logo col-xs-4 col-xs-offset-2 col-sm-offset-0">
                   <a href="https://www.sissa.it/">
                     <img src="/assets/v1/img/sissa-logo.png" class="img-responsive"/>
+                  </a>
+                </div>
+                <div class="col-sm-1 logo col-xs-4">
+                  <a href="https://www.wikimedia.ch/">
+                    <img src="/assets/v2/img/wikimedia-ch.png" class="img-responsive"/>
                   </a>
                 </div>
               </div>

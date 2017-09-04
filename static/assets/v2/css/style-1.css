@@ -1,0 +1,340 @@
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-ExtraLight.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-ExtraLight.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-ExtraLight.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-ExtraLight.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-ExtraLight.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 200;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-ExtraLightIt.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-ExtraLightIt.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-ExtraLightIt.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-ExtraLightIt.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-ExtraLightIt.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-Light.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-Light.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-Light.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-Light.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-Light.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 300;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-LightIt.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-LightIt.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-LightIt.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-LightIt.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-LightIt.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-Regular.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-Regular.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-Regular.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-Regular.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-Regular.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-It.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-It.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-It.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-It.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-It.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-Semibold.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-Semibold.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-Semibold.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-Semibold.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-Semibold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-SemiboldIt.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-SemiboldIt.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-SemiboldIt.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-SemiboldIt.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-SemiboldIt.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-Bold.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-Bold.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-Bold.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-Bold.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-Bold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 700;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-BoldIt.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-BoldIt.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-BoldIt.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-BoldIt.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-BoldIt.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-Black.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-Black.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-Black.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-Black.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-Black.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('../fonts/EOT/SourceSansPro-BlackIt.eot') format('embedded-opentype'),
+         url('../fonts/WOFF2/TTF/SourceSansPro-BlackIt.ttf.woff2') format('woff2'),
+         url('../fonts/WOFF/OTF/SourceSansPro-BlackIt.otf.woff') format('woff'),
+         url('../fonts/OTF/SourceSansPro-BlackIt.otf') format('opentype'),
+         url('../fonts/TTF/SourceSansPro-BlackIt.ttf') format('truetype');
+}
+
+.vertical-spacing {
+  height: 30px;
+}
+
+.vertical-spacing-small {
+  height: 15px;
+}
+
+.vertical-spacing-small-top {
+  height: 45px;
+}
+
+.vertical-spacing-small-bottom {
+  height: 21px;
+}
+
+.contributors {
+  margin-bottom: 0;
+}
+
+.contributors-bottom {
+  margin-top: 0;
+}
+
+.proudtobe {
+  max-height: 1em;
+  padding-left: 8px;
+}
+
+.style1 {font-family: Geneva, Arial, Helvetica, sans-serif}
+body,td,th {
+    font-size: medium;
+    color: #313466;
+}
+.style2 {color: #667}
+body {
+    background-color: #FFFFFF;
+    margin-right: 0px;
+}
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    height: 500px;
+    margin-top: 80px;
+    clear:both;
+}
+
+#footer {
+    /*     margin-top: 600px; */
+}
+
+#leftlogo {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 100px 125px 80px;
+    margin-right: -30px;
+}
+
+#rightnav {
+    /*    float: left;
+    */    font-family: Source Sans Pro;
+}
+
+#rightnavmenu {
+    padding: 0px;
+}
+
+
+
+#rightnav li {
+    list-style-type: none;
+    padding-left: 40px;
+    height: 80px;
+    margin: 0;
+}
+
+#rightnav a {
+    text-decoration: none;
+}
+
+#rightnav h1 {
+    font-weight: normal;
+    color: #373737;
+    font-size: 2em;
+    padding-top: 8px;
+    margin-bottom: 6px;
+    margin-top: 0;
+}
+#rightnav h2 {
+    font-weight: normal;
+    font-style: italic;
+    color: #68b31f;
+    font-size: 11pt;
+    margin: 0;
+}
+
+#rightnav .disabled {
+    color: #b3b3b3;
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 768px)  {
+    #rightnav h1 {
+        font-size: 14pt;
+    }
+
+    #rightnav h2 {
+        font-size: 10pt;
+    }
+
+    #spacing {
+        height: 30px;
+    }
+
+    #logo {
+        margin-right: 15%;
+    }
+
+
+
+
+
+}
+
+/* Larger devices */
+@media (min-width: 769px) {
+
+  .center-row {
+      display:table;
+  }
+
+  .logo {
+    width: 16.65%;
+    padding: 4%;
+    padding-bottom: 0.5em;
+  }
+
+  .logos-container {
+    margin-left: 25.2%;
+  }
+
+  .center {
+      display:table-cell;
+      vertical-align:middle;
+      float:none;
+  }
+
+  #spacing {
+      height: 100px;
+  }
+
+  #spacing-row {
+      display: none;
+  }
+}
+
+.colorbar1 {
+    border-left: 8px solid #83001f;
+}
+.colorbar2 {
+    border-left: 8px solid #db3e14;
+}
+.colorbar3 {
+    border-left: 8px solid #ffbc31;
+}
+.colorbar4 {
+    border-left: 8px solid #69b140;
+}
+.colorbar5 {
+    border-left: 8px solid #00613a;
+}
+
+
+.pagecount {
+    font-size:10pt;
+    padding-top:1em;padding-left:1em;
+}
+
+
+#rightnav{
+  display: flex;
+  width: 100%;
+}
+
+#rightnavmenu{
+  margin-bottom: 0;
+}
+
+.bar{
+  width: 5px;
+  background-image: url("/assets/v1/img/bar.png");
+  background-size: cover;
+  -webkit-background-origin:border;
+}
