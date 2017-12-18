@@ -19,7 +19,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
     $https = true;
 }
-if ($domain != 'tuttorotto.biz' && !$https) {
+if ($domain != 'local.wikitolearn-test.org' && !$https) {
     header('Location: https://www.'.$domain);
 } else {
     ?><!DOCTYPE html>

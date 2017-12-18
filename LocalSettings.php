@@ -162,7 +162,7 @@ $wgCookieDomain = "." . $wiki_domain;
 $wgSecureLogin = true;
 // $wgCookieSecure = true;
 
-if ($wiki_domain != 'tuttorotto.biz') {
+if ($wiki_domain != 'local.wikitolearn-test.org') {
     $wgServer = '//'.$wiki.'.'.$wiki_domain;
 }
 
