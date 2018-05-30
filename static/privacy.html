@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>WikiToLearn - Privacy Policy</title>
+        <!-- Inserisci tutto quello che serve nell'head -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+        <style type="text/css">
+        body {
+            height: 100%;
+            background-color: whitesmoke;
+            font-family: "Open Sans";
+            font-size: 1rem;
+        }
+        .wtl-card {
+            width: auto;
+            margin: 2rem 3rem 2rem 3rem;
+            padding: 1rem 3rem 1rem 3rem;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        @media only screen and (max-width: 576px) {
+            .wtl-card {
+                margin: 1rem 2rem 1rem 2rem;
+                padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+            }
+        }
+
+        .text-center {
+            width:100%;
+            text-align: center;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .text-bold {
+            font-weight: 700;
+        }
+
+        .text-center {
+            text-align: center;;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="wtl-card">
+            <div class="flex-center text-center">
+                <img src="privacy-assets/images/logo.png" height="50px" style="margin-right:1rem"/>
+                <img src="privacy-assets/images/name.svg"/>
+            </div>
+
+
+            <p class="text-center">
+              <a id="show-more" onclick="showMore()" style="color:blue;text-decoration: underline">Read the full policy</a>
+            </p>
+            <div id="more-text" style="display:none; visibility:hidden">
+
+            </div>
+        </div>
+        <script>
+          function showMore() {
+              document.getElementById("show-more").style.visibility = "hidden"
+              document.getElementById("more-text").style.display = "block"
+              document.getElementById("more-text").style.visibility = "visible"
+          }
+        </script>
+    </body>
+</html>
