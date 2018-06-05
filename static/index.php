@@ -5,7 +5,6 @@ if (file_exists("../LocalSettings.d/wgGoogleAnalyticsAccount.php")) {
     include '../skins/WikiToLearnSkin/HelperFunctions.php';
 }
 
-
 $domain = $wiki_allow_domains[0];
 global $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount, $wgGoogleAnalyticsAnonymizeIP;
 
@@ -20,7 +19,7 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
     $https = true;
 }
 if ($domain != 'local.wikitolearn-test.org' && !$https) {
-    header('Location: https://www.'.$domain);
+    header('Location: https://www.' . $domain);
 } else {
     ?><!DOCTYPE html>
 <html lang="en">
@@ -156,17 +155,20 @@ if ($domain != 'local.wikitolearn-test.org' && !$https) {
               </div>
             </div>
             <div class="row vertical-spacing">
-
+            </div>
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <a href="<?=$domain+'/privacy.html'?> ">Privacy Policy</a>
+              </div>
             </div>
         </div>
 
         <script src="/assets/v1/js/jquery-3.1.1.min.js"></script>
 
         <?php
-            if (function_exists('setAnalytics')) {
-                setAnalytics($piwik = false, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount, $wgGoogleAnalyticsAnonymizeIP);
-            }
-        ?>
+if (function_exists('setAnalytics')) {
+        setAnalytics($piwik = false, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount, $wgGoogleAnalyticsAnonymizeIP);
+    } ?>
 
         <script>
             $(document).ready(function () {
@@ -193,6 +195,5 @@ if ($domain != 'local.wikitolearn-test.org' && !$https) {
     </body>
 </html>
 <?php
-
 }
 ?>
