@@ -158,7 +158,7 @@ if ($domain != 'local.wikitolearn-test.org' && !$https) {
             </div>
             <div class="row">
               <div class="col-xs-12 text-center">
-                <a href="<?=$domain+'/privacy.html'?> ">Privacy Policy</a>
+                <a href="<?php echo "//www." . $domain . '/privacy.html'?> ">Privacy Policy</a>
               </div>
             </div>
         </div>
