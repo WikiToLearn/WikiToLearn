@@ -6,15 +6,15 @@
 | 0=[{{fullurl:Special:Collection/render_collection/|colltitle=Project:{{i18n|projectbooks}}/{{urlencode:{{{1}}}}}&writer=rdf2latex}} {{i18n|downloadpdf}}]
 | 2=[{{fullurl:Special:Collection/render_collection/|colltitle={{FULLPAGENAMEE}}/{{i18n|projectbooks}}/{{urlencode:{{{1}}}}}&writer=rdf2latex}} {{i18n|downloadpdf}}]}}
 </div>
+<div class="coursebackend__description">
+{{GetCourseMetadata|{{{metadataPage}}}|description}}
+</div>
 <div class="coursebackend__telegram">
 {{#if:
 {{GetCourseMetadata|{{{metadataPage}}}|telegramchannel}} |
-'''{{i18n|telegramchannel}}:
-{{GetCourseMetadata|{{{metadataPage}}}|telegramchannel}}'''|
+'''{{i18n|telegramchannel}}:'''
+'''{{GetCourseMetadata|{{{metadataPage}}}|telegramchannel}}'''|
 }}
-</div>
-<div class="coursebackend__description">
-{{GetCourseMetadata|{{{metadataPage}}}|description}}
 </div>
 {{#if: {{GetCourseMetadata|{{{metadataPage}}}|hasbadge}}|
 {{#if: {{GetCourseMetadata|{{{metadataPage}}}|isreviewed}}|{{ReviewedBadge|{{GetCourseMetadata|{{{metadataPage}}}|reviewedon}}}}|}}
