@@ -1,6 +1,13 @@
 <includeonly>
 <div class="template courseroot">
 <div class="courseroot__description">{{getCourseMetadata|{{PAGENAME}}|description}}</div>
+<div class="coursebackend__telegram">
+{{#if:
+{{getCourseMetadata|{{PAGENAME}}|telegramchannel}} |
+'''{{i18n|telegramchannel}}:'''
+'''{{getCourseMetadata|{{PAGENAME}}|telegramchannel}}'''|
+}}
+</div>
 <div class="courseroot__edit">[{{fullurl:Special:CourseEditor|actiontype=editcourse&amp;pagename={{FULLPAGENAMEE}} }} {{i18n|editcourse}}]</div>
 <div class="courseroot__content">
 {{{1}}}
