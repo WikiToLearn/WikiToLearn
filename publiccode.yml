@@ -1,0 +1,108 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - data-collection
+  - knowledge-management
+  - learning-management-system
+dependsOn:
+  open:
+    - name: LAMP Stack
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+description:
+  it:
+    features:
+      - Generazione PDF
+      - Gestione del contenuto didattico
+      - OER
+      - Integrazione con repository Wikimedia Commons
+      - Gestione documentale
+    genericName: Piattaforma di contenuti educativi
+    longDescription: >
+      WikiToLearn è un portale che si propone di creare libri di testo liberi,
+      collaborativi e accessibili. La filosofia della piattaforma è riassunta
+      nel motto “_Il sapere si accresce solo se condiviso_”. Su WikiToLearn
+      l'insegnamento e l'apprendimento convergono nella stesura e nel
+      perfezionamento cooperativo di note, appunti e libri di testo,
+      organizzabili e ri-assemblabili secondo le esigenze specifiche degli
+      utenti.
+
+
+      WikiToLearn nasce inizialmente tra gli studenti per gli studenti, con
+      l’obiettivo primario di creare una piattaforma che potesse essere
+      utilizzata per studiarvi fin da subito, e dar vita ad un progetto che
+      rispondesse alla necessità di apprendere nel modo migliore.
+
+
+      I valori e gli elementi fondativi di WikiToLearn sono:
+
+
+      1. Costruzione di una piattaforma didattica e di studio di alta qualità,
+      creata collaborativamente.
+
+      2. Diffusione di contenuti liberamente utilizzabili, accessibili e
+      scaricabili.
+
+      3. Integrazione e raccolta delle numerose risorse già presenti
+      sull'argomento, sia online che offline.
+
+
+      Tutto il materiale inserito su WikiToLearn è raccolto ed elaborato tramite
+      una piattaforma basata su MediaWiki (lo stesso software utilizzato da
+      Wikipedia ma ampiamente personalizzata dal nostro team tecnico per
+      un’esperienza di utilizzo migliore in questo caso tecnico) e rigorosamente
+      rilasciato sotto licenza libera _Creative Commons Attribution Share Alike
+      4.0_ (BY-SA).
+    shortDescription: >-
+      Una piattaforma per condividere contenuto educativo di qualità, tutto
+      rigorosamente con licenza open source!
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: GPL-3.0-or-later
+  mainCopyrightOwner: WikiToLearn Contributors
+localisation:
+  availableLanguages:
+    - it
+    - en
+    - de
+    - fr
+    - es
+    - ca
+  localisationReady: true
+logo: >-
+  https://raw.githubusercontent.com/WikiToLearn/WikiToLearn/master/doc/logo/wikitolearn-logo.svg.png
+maintenance:
+  contacts:
+    - affiliation: KDE e.V.
+      email: riccardo@wikitolearn.org
+      name: Riccardo Iaconelli
+  type: community
+name: WikiToLearn
+platforms:
+  - web
+  - mac
+  - linux
+  - ios
+  - android
+  - windows
+releaseDate: '2019-04-03'
+softwareType: standalone/web
+softwareVersion: 1.0.10
+url: 'https://github.com/WikiToLearn/WikiToLearn'
